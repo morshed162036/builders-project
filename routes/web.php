@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,15 @@ use App\Http\Controllers\BrandController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
-Route::get('/dashboard',function (){
-    return view('admin.dashboard');
+Route::prefix('/')->group(function(){
+    Route::match(['get', 'post'], 'login',[AdminController::class,'login'])->name('admin.login');
+    Route::group(['middleware'=>['web']],function(){
+        Route::get('logout',[AdminController::class,'logout'])->name('admin.logout');
+        Route::get('dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+        Route::resource('brand', BrandController::class);
+        Route::resource('role', RoleController::class);
+    });
 });
-Route::resource('brand', BrandController::class);

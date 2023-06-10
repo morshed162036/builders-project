@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('designation');
             $table->string('address');
             $table->string('image')->nullable();
+            $table->enum('status',['Active','Inactive'])->default('Active');
             $table->rememberToken();
             $table->timestamps();
         });

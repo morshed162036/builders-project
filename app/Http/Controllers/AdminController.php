@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use Auth;
 
-class BrandController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $brands = Brand::get();
-        return view('brand.index')->with(compact('brands'));
+        //
     }
 
     /**
@@ -62,5 +61,30 @@ class BrandController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    
+    public function login(Request $request){
+        if($request->isMethod('post')){
+            $data = $request->all();
+            $valodate = $request->validate([
+                'email' => 'required|email|max:255',
+                'password' => 'required',
+            ]);
+
+            if(Auth::guard('web')->attempt(['email'=>$data['email'],'password'=>$data['password'],'status'=>'Active'])){
+                return redirect('dashboard');
+                }
+            else{
+                return redirect()->back()->with('error','Invalid Email or Password');
+            }
+        }
+        return view('login');
+    }
+    public function logout(){
+        Auth::guard('web')->logout();
+        return redirect('login');
+    }
+    public function dashboard(){
+        return view('admin.dashboard');
     }
 }
