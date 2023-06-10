@@ -33,10 +33,18 @@
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Success: </strong>{{ Session::get('success') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                        @endif
                         <h5 class="content-header-title float-left pr-1 mb-0">Brand Table</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
-                                <li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active">Brands
                                 </li>
@@ -56,7 +64,7 @@
                         <!-- Single Date Picker and button -->
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
-                                <li class="ml-2"><a href="" class="btn btn-primary">+ Create</a></li>
+                                <li class="ml-2"><a href="{{ route('brand.create') }}" class="btn btn-primary">+ Create</a></li>
                             </ul>
                         </div>
                     </div>
@@ -73,7 +81,7 @@
                                 @if ($brands)
                                     @foreach ($brands as $brand)
                                         <tr role="row" class="odd">
-                                            <td><img src="" class="mr-50" alt="logo" height="25" width="35">{{ $brand->name }}</td>
+                                            <td><img src=" " class="mr-50" alt="logo" height="25" width="35">{{ $brand->name }}</td>
                                             <td class="text-bold-600">{{ $brand->description }}</td>
                                             <td class="">{{ $brand->address }}</td>
                                             <td class="">
@@ -88,7 +96,10 @@
                                                     <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="{{ route('brand.edit',$brand->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                        <a class="dropdown-item" href="{{ route('brand.destroy',$brand->id) }}"><i class="bx bx-trash mr-1"></i> delete</a>
+                                                        <form action="{{ route('brand.destroy',$brand->id) }}" method="post"> @csrf @method('Delete')
+                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                        </form>
+                                                        
                                                     </div>
                                                 </div>
                                             </td>
@@ -97,35 +108,6 @@
                                 @else
                                     {{ 'No Data Found' }}
                                 @endif
-                                
-                                   
-                                    
-                                {{-- </tr><tr role="row" class="even">
-                                    <td class=""><i class="bx bxs-circle danger font-small-1 mr-50"></i><span>Expired</span></td>
-                                    <td class="text-bold-600">Michael Pena</td>
-                                    <td><img src="{{ asset('admin_template/app-assets/images/cards/mastercard.png')}}" class="mr-50" alt="card" height="25" width="35"> **** 7617</td>
-                                    <td class="">11.08.18</td>
-                                    <td class="text-bold-600 sorting_1">$564</td>
-                                </tr><tr role="row" class="odd">
-                                    <td class=""><i class="bx bxs-circle success font-small-1 mr-50"></i><span>Paid</span></td>
-                                    <td class="text-bold-600">Michael Pena</td>
-                                    <td><img src="{{ asset('admin_template/app-assets/images/cards/discover.png')}}" class="mr-50" alt="card" height="25" width="35"> **** 7617</td>
-                                    <td class="">11.08.18</td>
-                                    <td class="text-bold-600 sorting_1">$564</td>
-                                </tr><tr role="row" class="even">
-                                    <td class=""><i class="bx bxs-circle danger font-small-1 mr-50"></i><span>Expired</span></td>
-                                    <td class="text-bold-600">Devin Payne</td>
-                                    <td><img src="{{ asset('admin_template/app-assets/images/cards/discover.png')}}" class="mr-50" alt="card" height="25" width="35"> **** 7617</td>
-                                    <td class="">11.08.18</td>
-                                    <td class="text-bold-600 sorting_1">$232</td>
-                                </tr><tr role="row" class="odd">
-                                    <td class=""><i class="bx bxs-circle success font-small-1 mr-50"></i><span>Paid</span></td>
-                                    <td class="text-bold-600">Devin Payne</td>
-                                    <td><img src="{{ asset('admin_template/app-assets/images/cards/visa.png')}}" class="mr-50" alt="card" height="25" width="35">
-                                        **** 7617</td>
-                                    <td class="">11.08.18</td>
-                                    <td class="text-bold-600 sorting_1">$232</td>
-                                </tr> --}}
                             </tbody>
                         </table></div>
                     </div>
