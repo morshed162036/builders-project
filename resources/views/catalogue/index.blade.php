@@ -43,12 +43,12 @@
                                 </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">Brand Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Catalogue Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Brands
+                            <li class="breadcrumb-item active">Catalogues
                             </li>
                         </ol>
                     </div>
@@ -62,10 +62,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Brand List</h5>
+                            <h5 class="card-title">Catalogue List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('brand.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('catalogue.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -75,32 +75,26 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Logo</th>
-                                                <th>Brand</th>
-                                                <th>Description</th>
-                                                <th>Address</th>
+                                                <th>Catalogue</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($brands)
-                                                @foreach ($brands as $brand)
+                                            @if ($catalogues)
+                                                @foreach ($catalogues as $catalogue)
                                                     <tr>
-                                                        <td><img src="{{ asset('images/brand_logo/'.$brand->image) }}" class="mr-50" alt="logo" height="25" width="35"></td>
-                                                        <td class="text-bold-600" >{{ $brand->name }}</td>
-                                                        <td>{{ $brand->description }}</td>
-                                                        <td>{{ $brand->address }}</td>
+                                                        <td class="text-bold-600" >{{ $catalogue->name }}</td>
                                                         <td>
-                                                            @if($brand->status == 'Active')
-                                                                <a class="updateBrandStatus" id="brand-{{ $brand->id }}"
-                                                                    brand_id = "{{ $brand->id }}"
+                                                            @if($catalogue->status == 'Active')
+                                                                <a class="updateCatalogueStatus" id="catalogue-{{ $catalogue->id }}"
+                                                                    catalogue_id = "{{ $catalogue->id }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-success" status="Active">Active</label>
                                                                 </a>
                                                             @else
-                                                                <a class="updateBrandStatus" id="brand-{{ $brand->id }}"
-                                                                    brand_id = "{{ $brand->id }}"
+                                                                <a class="updateCatalogueStatus" id="catalogue-{{ $catalogue->id }}"
+                                                                    catalogue_id = "{{ $catalogue->id }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-danger" status="Inactive">Inactive</label>
                                                                 </a>
@@ -110,8 +104,8 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('brand.edit',$brand->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('brand.destroy',$brand->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('catalogue.edit',$catalogue->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('catalogue.destroy',$catalogue->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -126,10 +120,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Logo</th>
-                                                <th>Brand</th>
-                                                <th>Description</th>
-                                                <th>Address</th>
+                                                <th>Catalogue</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -178,34 +169,3 @@
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
 @endsection
-
-<script>   
-        $(document).on("click", ".updateBrandStatus", function () {
-            var status = $(this).children("label").attr("status");
-            var brand_id = $(this).attr("brand_id");
-            alert("done");
-            $.ajax({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-                type: "post",
-                url: "/update-brand-status",
-                data: { status: status, brand_id: brand_id },
-                success: function (resp) {
-                    alert(resp);
-                    if (resp["status"] == 'Inactive') {
-                        $("#brand-" + brand_id).html(
-                            "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
-                        );
-                    } else if (resp["status"] == 'Active') {
-                        $("#brand-" + brand_id).html(
-                            "<label class='badge badge-success' status='Active'>Active</label>"
-                        );
-                    }
-                },
-                error: function () {
-                    alert("Error");
-                },
-            });
-        });
-    </script>

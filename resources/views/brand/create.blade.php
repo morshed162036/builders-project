@@ -64,7 +64,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-content">
-                        <form action="{{ route('brand.store') }}" method="post"> @csrf
+                        <form action="{{ route('brand.store') }}" method="post" enctype="multipart/form-data"> @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-10">
@@ -101,9 +101,10 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <input type="file" class="form-control" aria-describedby="basic-Createon1" name="brand_image" id="brand_image">
+                                                <input type="file" class="form-control" aria-describedby="basic-Createon1" name="brand_image" id="brand_image" onchange="loadFile(event)">
                                             </div>
                                         </fieldset>
+                                        <img id="output">
                                         <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
                                     </div>
                                 </div>
@@ -120,6 +121,12 @@
 @endsection
 
 @section('js')
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js')}}"></script>

@@ -6,31 +6,8 @@
     </footer>
     <!-- END: Footer-->
 
-
-    {{-- <!-- BEGIN: Vendor JS-->
-    <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.defaults.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.min.js') }}"></script>
-    <!-- BEGIN Vendor JS-->
-
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('admin_template/app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/vendors/js/extensions/dragula.min.js') }}"></script>
-    <!-- END: Page Vendor JS-->
-
-    <!-- BEGIN: Theme JS-->
-    <script src="{{ asset('admin_template/app-assets/js/core/app-menu.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/js/core/app.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/js/scripts/components.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/js/scripts/footer.js') }}"></script>
-    <!-- END: Theme JS-->
-    Custom Admin Js 
-    <script src="{{ asset('admin_template/app-assets/js/custom.js')}}"></script>
-    <!-- BEGIN: Page JS-->
-    <script src="{{ asset('admin_template/app-assets/js/scripts/pages/dashboard-analytics.js') }}"></script>
-    <!-- END: Page JS--> --}}
     @yield('js')
+    
 </body>
 <!-- END: Body-->
 

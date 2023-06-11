@@ -31,14 +31,14 @@
     <div class="content-header-left col-12 mb-2 mt-1">
         <div class="row breadcrumbs-top">
             <div class="col-12">
-                <h5 class="content-header-title float-left pr-1 mb-0">Brand Edit</h5>
+                <h5 class="content-header-title float-left pr-1 mb-0">Catalogue Create</h5>
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('brand.index') }}">Brands</a>
+                        <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catalogues</a>
                         </li>
-                        <li class="breadcrumb-item active">Brand Edit
+                        <li class="breadcrumb-item active">Catalogue Create
                         </li>
                     </ol>
                 </div>
@@ -64,50 +64,19 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-content">
-                        <form action="{{ route('brand.update',$brand->id) }}" method="post" enctype="multipart/form-data"> @csrf @method('put')
+                        <form action="{{ route('catalogue.store') }}" method="post"> @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-10">
                                         <fieldset>
-                                            <h5>Brand Name</h5>
+                                            <h5>Catalogue Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="brand_name" value="{{ $brand->name }}">
+                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="catalogue_name" required>
                                             </div>
-                                        </fieldset>
-                                        <fieldset class="mt-2">
-                                            <h5>Description</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
-                                                </div>
-                                                <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea" name="brand_description">{{ $brand->description }}</textarea>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset class="mt-2">
-                                            <h5>Address</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="brand_address" value="{{ $brand->address }}">
-                                            </div>
-                                        </fieldset>
-                                        <fieldset class="mt-2">
-                                            <h5>Logo</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
-                                                </div>
-                                                <input type="file" class="form-control" aria-describedby="basic-Createon1" name="brand_image" id="brand_image">    
-                                            </div>
-                                            @if($brand->image != null)
-                                                <img src="{{ asset('images/brand_logo/'.$brand->image) }}" alt="logo" width="70px" height="70px" class="mt-2 mx-1">
-                                            @endif
-                                        </fieldset>
-                                        <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Update</button>
+                                        <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
                                     </div>
                                 </div>
                             </div>
@@ -123,6 +92,12 @@
 @endsection
 
 @section('js')
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js')}}"></script>

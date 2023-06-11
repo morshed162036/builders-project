@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Brand;
 use Image;
 
@@ -45,17 +46,15 @@ class BrandController extends Controller
         //dd($request->hasFile('brand_image'));
         if($request->hasFile('brand_image')){
             $image_temp = $request->file('brand_image');
-            dd($image_temp);
-                if($image_temp->isValid()){
-                    dd($image_temp);
-                   //Get Image Extension
-                   $extension = $image_temp->getClientOriginalExtension();
-                   //Generate New Image Name
-                   $imageName = rand(111,99999).'.'.$extension;
-                   $imagePath = 'images/brand_logo/'.$imageName;
-                   Image::make($image_temp)->save($imagePath);
-                   $brand->image = $imageName;
-               }
+            if($image_temp->isValid()){
+                //Get Image Extension
+                $extension = $image_temp->getClientOriginalExtension();
+                //Generate New Image Name
+                $imageName = time().'.'.$extension;
+                $imagePath = 'images/brand_logo/'.$imageName;
+                Image::make($image_temp)->save($imagePath);
+                $brand->image = $imageName;
+            }
         }
 
         
@@ -94,6 +93,25 @@ class BrandController extends Controller
         $brand->name = $request->brand_name;
         $brand->description = $request->brand_description;
         $brand->address = $request->brand_address;
+
+        if($request->hasFile('brand_image')){
+            $exists = 'images/brand_logo/'.$brand->image;
+            if(File::exists($exists))
+            {
+                File::delete($exists);
+            }
+            $image_temp = $request->file('brand_image');
+            if($image_temp->isValid()){
+                //Get Image Extension
+                $extension = $image_temp->getClientOriginalExtension();
+                //Generate New Image Name
+                $imageName = time().'.'.$extension;
+                $imagePath = 'images/brand_logo/'.$imageName;
+                Image::make($image_temp)->save($imagePath);
+                $brand->image = $imageName;
+            }
+        }
+
         $brand->update();
 
         return redirect(route('brand.index'))->with('success','Brand Update Successfully!');
@@ -104,8 +122,30 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        Brand::where('id',$id)->delete();
+        $brand = Brand::findorFail($id);
+        $exists = 'images/brand_logo/'.$brand->image;
+        if(File::exists($exists))
+        {
+            File::delete($exists);
+        }
+        $brand->delete();
         $message  = "Brand Delete Successfully Done";
         return redirect(route('brand.index'))->with("success",$message);
     }
+
+    public function updateBrandStatus(Request $request){
+        if($request->ajax()){
+            $data = $request->all();
+            // echo "<pre>"; print_r($data);die;
+            if ($data['status']== 'Active') {
+                $status = 'Inactive';
+            }
+            else{
+                $status = 'Active';
+            }
+            Brand::where('id',$data['brand_id'])->update(['status'=>$status]);
+            return response()->json(['status'=>$status,'brand_id'=> $data['brand_id']]);
+        }
+    }
+
 }

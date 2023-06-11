@@ -184,7 +184,7 @@
                 </li>
                 <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bx-envelope"></i><span class="menu-title" data-i18n="Email">Brand</span></a>
                 </li>
-                <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Catalogue Management</span></a>
+                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Catalogue Management</span></a>
                 <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Categories</span></a>
                 <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Product</span></a>
                 </li>

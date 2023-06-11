@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\RoleController;
 
 /*
@@ -22,10 +23,13 @@ Route::get('/', function () {
 
 Route::prefix('/')->group(function(){
     Route::match(['get', 'post'], 'login',[AdminController::class,'login'])->name('admin.login');
-    Route::group(['middleware'=>['web']],function(){
+    Route::group(['middleware'=>'web'],function(){
         Route::get('logout',[AdminController::class,'logout'])->name('admin.logout');
         Route::get('dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
         Route::resource('brand', BrandController::class);
+        Route::post('update-brand-status',[BrandController::class,'updateBrandStatus']);
+        Route::resource('catalogue', CatalogueController::class);
+        Route::post('update-catalogue-status',[CatalogueController::class,'updateCatalogueStatus']);
         Route::resource('role', RoleController::class);
     });
 });
