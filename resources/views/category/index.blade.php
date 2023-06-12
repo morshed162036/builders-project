@@ -43,12 +43,12 @@
                                 </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">Catalogue Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Categories Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Catalogues
+                            <li class="breadcrumb-item active">Categories
                             </li>
                         </ol>
                     </div>
@@ -62,10 +62,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Catalogue List</h5>
+                            <h5 class="card-title">Category List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('catalogue.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('category.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -75,26 +75,36 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
+                                                <th>Category</th>
+                                                <th>Parent Category</th>
                                                 <th>Catalogue</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($catalogues)
-                                                @foreach ($catalogues as $catalogue)
+                                            @if ($categories)
+                                                @foreach ($categories as $category)
                                                     <tr>
-                                                        <td class="text-bold-600" >{{ $catalogue->name }}</td>
+                                                        <td class="text-bold-600" >{{ $category['name'] }}</td>
                                                         <td>
-                                                            @if($catalogue->status == 'Active')
-                                                                <a class="updateCatalogueStatus" id="catalogue-{{ $catalogue->id }}"
-                                                                    catalogue_id = "{{ $catalogue->id }}"
+                                                            @if (isset($category['parentcategory']['category_name']) && !empty($category['parentcategory']['category_name']))
+                                                                {{ $category['parentcategory']['category_name'] }}
+                                                            @else
+                                                                {{ 'Root' }}
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ $category['catalogue']['name'] }}</td>
+                                                        <td>
+                                                            @if($category['status'] == 'Active')
+                                                                <a class="updateCategoryStatus" id="category-{{ $category['id'] }}"
+                                                                    category_id = "{{ $category['id'] }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-success" status="Active">Active</label>
                                                                 </a>
                                                             @else
-                                                                <a class="updateCatalogueStatus" id="catalogue-{{ $catalogue->id }}"
-                                                                    catalogue_id = "{{ $catalogue->id }}"
+                                                                <a class="updateCategoryStatus" id="category-{{ $category['id'] }}"
+                                                                    category_id = "{{ $category['id'] }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-danger" status="Inactive">Inactive</label>
                                                                 </a>
@@ -104,8 +114,8 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('catalogue.edit',$catalogue->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('catalogue.destroy',$catalogue->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('category.edit',$category['id']) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('category.destroy',$category['id']) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -120,6 +130,8 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
+                                                <th>Category</th>
+                                                <th>Parent Category</th>
                                                 <th>Catalogue</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -168,27 +180,26 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
-
     <script>
         $(document).ready(function (){
-            $(document).on("click", ".updateCatalogueStatus", function () {
+            $(document).on("click", ".updateCategoryStatus", function () {
                 var status = $(this).children("label").attr("status");
-                var catalogue_id = $(this).attr("catalogue_id");
+                var category_id = $(this).attr("category_id");
 
                 $.ajax({
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                     },
                     type: "post",
-                    url: "{{ route('updateCatalogueStatus') }}",
-                    data: { status: status, catalogue_id: catalogue_id },
+                    url: "{{ route('updateCategoryStatus') }}",
+                    data: { status: status, category_id: category_id },
                     success: function (resp) {
                         if (resp["status"] == 'Inactive') {
-                            $("#catalogue-" + catalogue_id).html(
+                            $("#category-" + category_id).html(
                                 "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
                             );
                         } else if (resp["status"] == 'Active') {
-                            $("#catalogue-" + catalogue_id).html(
+                            $("#category-" + category_id).html(
                                 "<label class='badge badge-success' status='Active'>Active</label>"
                             );
                         }

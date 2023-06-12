@@ -177,35 +177,38 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
+    <script>
+
+        $(document).ready(function (){
+            $(document).on("click", ".updateBrandStatus", function () {
+                var status = $(this).children("label").attr("status");
+                var brand_id = $(this).attr("brand_id");
+
+                $.ajax({
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    type: "post",
+                    url: "{{ route('updateBrandStatus') }}",
+                    data: { status: status, brand_id: brand_id },
+                    success: function (resp) {
+                        if (resp["status"] == 'Inactive') {
+                            $("#brand-" + brand_id).html(
+                                "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
+                            );
+                        } else if (resp["status"] == 'Active') {
+                            $("#brand-" + brand_id).html(
+                                "<label class='badge badge-success' status='Active'>Active</label>"
+                            );
+                        }
+                    },
+                    error: function () {
+                        alert("Error");
+                    },
+                });
+            });
+        })
+        
+    </script>
 @endsection
 
-<script>   
-        $(document).on("click", ".updateBrandStatus", function () {
-            var status = $(this).children("label").attr("status");
-            var brand_id = $(this).attr("brand_id");
-            alert("done");
-            $.ajax({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-                type: "post",
-                url: "/update-brand-status",
-                data: { status: status, brand_id: brand_id },
-                success: function (resp) {
-                    alert(resp);
-                    if (resp["status"] == 'Inactive') {
-                        $("#brand-" + brand_id).html(
-                            "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
-                        );
-                    } else if (resp["status"] == 'Active') {
-                        $("#brand-" + brand_id).html(
-                            "<label class='badge badge-success' status='Active'>Active</label>"
-                        );
-                    }
-                },
-                error: function () {
-                    alert("Error");
-                },
-            });
-        });
-    </script>

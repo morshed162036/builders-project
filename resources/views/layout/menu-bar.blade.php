@@ -182,11 +182,11 @@
 
                 <li class=" navigation-header"><span>Product Section</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bx-envelope"></i><span class="menu-title" data-i18n="Email">Brand</span></a>
+                <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bx-envelope"></i><span class="menu-title">Brand</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Catalogue Management</span></a>
-                <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Categories</span></a>
-                <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title" data-i18n="Chat">Product</span></a>
+                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-chat"></i><span class="menu-title">Catalogue Management</span></a>
+                <li class=" nav-item"><a href="{{ route('category.index') }}"><i class="bx bx-chat"></i><span class="menu-title">Categories</span></a>
+                <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title">Product</span></a>
                 </li>
                 
                 <li class=" navigation-header"><span>Role Management</span>

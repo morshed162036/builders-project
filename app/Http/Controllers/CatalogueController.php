@@ -81,4 +81,18 @@ class CatalogueController extends Controller
         Catalogue::findorFail($id)->delete();
         return redirect(route('catalogue.index'))->with('success','Catalogue Delete Successfully!');
     }
+    public function updateCatalogueStatus(Request $request){
+        if($request->ajax()){
+            $data = $request->all();
+            // echo "<pre>"; print_r($data);die;
+            if ($data['status']== 'Active') {
+                $status = 'Inactive';
+            }
+            else{
+                $status = 'Active';
+            }
+            Catalogue::where('id',$data['catalogue_id'])->update(['status'=>$status]);
+            return response()->json(['status'=>$status,'catalogue_id'=> $data['catalogue_id']]);
+        }
+    }
 }
