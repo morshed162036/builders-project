@@ -189,6 +189,24 @@
                 <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title">Product</span></a>
                 </li>
                 
+                <li class=" navigation-header"><span>Supplier Management</span>
+                </li>
+                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Supplier</span></a>
+                </li>
+                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Advance Supplier</span></a>
+                </li>
+                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Payable Supplier</span></a>
+                </li>
+
+                <li class=" navigation-header"><span>Accounts</span>
+                </li>
+                <li class=" nav-item"><a href="{{ route('accounts.index') }}"><i class="bx bx-envelope"></i><span class="menu-title">Accounts Groups</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i class="bx bx-envelope"></i><span class="menu-title">Chart of Accounts</span></a>
+                </li>
+                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Accounts Ledgers</span></a>
+                </li>
+
                 <li class=" navigation-header"><span>Role Management</span>
                 </li>
                 <li class=" nav-item"><a href=""><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Colors">Users</span></a>
@@ -198,6 +216,22 @@
                         <li><a href="{{ route('role.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">User Role</span></a>
                         </li>
                         <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Permission</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" navigation-header"><span>Basic Settings</span>
+                </li>
+                <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Colors">Unit Management</span></a>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Icons">Payment Method Management</span></a>
+                    <ul class="menu-content">
+                        <li><a href="{{ route('payment-method.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item">Payment Method</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Cash</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Bank</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Mobile Banking</span></a>
                         </li>
                     </ul>
                 </li>

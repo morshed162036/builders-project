@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('type',['Cash','Bank','Mobile Banking'])->default('Cash');
+            $table->string('name')->unique();
+            $table->enum('type',['Cash','Bank','Mobile Banking']);
             $table->enum('status',['Active','Inactive']);
             $table->timestamps();
         });

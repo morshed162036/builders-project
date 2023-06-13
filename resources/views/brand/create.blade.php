@@ -121,12 +121,6 @@
 @endsection
 
 @section('js')
-    <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        }
-    </script>
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js')}}"></script>
@@ -152,4 +146,10 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/pages/table-extended.js')}}"></script>
     <!-- END: Page JS-->
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
 @endsection
