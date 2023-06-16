@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('supplier_company_id')->default(0);
             $table->string('name');
             $table->string('address');
             $table->string('city');
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('nid');
             $table->string('trade_license')->nullable();
-            $table->enum('status',['Processing','Active','Inactive'])->default('Processing');
+            $table->enum('status',['Active','Inactive'])->default('Active');
             $table->timestamps();
         });
     }
