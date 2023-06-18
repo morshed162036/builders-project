@@ -31,7 +31,7 @@
     <div class="content-header-left col-12 mb-2 mt-1">
         <div class="row breadcrumbs-top">
             <div class="col-12">
-                <h5 class="content-header-title float-left pr-1 mb-0">Payment Method Edit</h5>
+                <h5 class="content-header-title float-left pr-1 mb-0">Payment Method Create</h5>
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
@@ -64,48 +64,93 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-content">
-                        <form action="{{ route('payment-method.update',$payment_method->id) }}" method="post" enctype="multipart/form-data"> @csrf @method('put')
+                        <form action="{{ route('payment-method.store') }}" method="post" enctype="multipart/form-data"> @csrf
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <fieldset>
-                                            <h5>Name</h5>
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Bank Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" required value="{{ $payment_method->name }}">
+                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="bank_name" required>
                                             </div>
                                         </fieldset>
-                        
-                                        <fieldset class="mt-2">
-                                            <h5>Method</h5>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Branch</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <select name="method" id="method" class="form-control" required>
-                                                    <option 
-                                                        @if ($payment_method->type == 'Cash')
-                                                            selected
-                                                        @endif
-                                                        value="Cash">Cash</option>
-                                                    <option  
-                                                        @if ($payment_method->type == 'Bank')
-                                                            selected
-                                                        @endif
-                                                        value="Bank">Bank</option>
-                                                    <option  
-                                                        @if ($payment_method->type == 'Mobile Banking')
-                                                            selected
-                                                        @endif
-                                                        value="Mobile Banking">Mobile Banking</option>
-                                                </select>
+                                                <input type="text" class="form-control" placeholder="branch" aria-describedby="basic-Createon1" name="branch" required>
                                             </div>
                                         </fieldset>
-                                        <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Update</button>
+                                    </div>         
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Account Name</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Account Name" aria-describedby="basic-Createon1" name="account_name" required>
+                                            </div>
+                                        </fieldset>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Account Holder</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Holder Name" aria-describedby="basic-Createon1" name="account_holder" required>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Account No</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Account ID" aria-describedby="basic-Createon1" name="account_number" required>
+                                            </div>
+                                        </fieldset>
+                                    </div>         
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Phone</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="phone" maxlength="11" required>
+                                            </div>
+                                        </fieldset>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <fieldset class="form-group">
+                                            <h5>Balance</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="account_balance" required>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
+                                    
                             </div>
                         </form>
                     </div>

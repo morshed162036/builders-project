@@ -9,6 +9,7 @@ use App\Http\Controllers\Accounts\AccountGroupController;
 use App\Http\Controllers\Accounts\ChartofAccountController;
 use App\Http\Controllers\settings\UnitController;
 use App\Http\Controllers\settings\PaymentMethodController;
+use App\Http\Controllers\settings\TransferController;
 use App\Http\Controllers\RoleController;
 
 /*
@@ -38,14 +39,15 @@ Route::prefix('/')->group(function(){
         Route::resource('category', CategoryController::class);
         Route::get('append-categories-level',[CategoryController::class,'appendCategoryLevel'])->name('appendCategory');
         Route::post('update-category-status',[CategoryController::class,'updateCategoryStatus'])->name('updateCategoryStatus');
-
+        // Accounts
         Route::resource('accounts', AccountGroupController::class);
         Route::resource('chart-of-account',ChartofAccountController::class);
-
+        // settings
         Route::resource('unit', UnitController::class);
         Route::post('update-unit-status',[UnitController::class,'updateUnitStatus'])->name('UnitStatus');
         Route::resource('payment-method', PaymentMethodController::class);
         Route::post('update-payment-method-status',[PaymentMethodController::class,'updateMethodStatus'])->name('updateMethodStatus');
+        Route::resource('payment-transfer', TransferController::class);
         Route::resource('role', RoleController::class);
     });
 });

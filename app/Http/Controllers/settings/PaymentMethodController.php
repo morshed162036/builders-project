@@ -14,7 +14,7 @@ class PaymentMethodController extends Controller
     public function index()
     {
         $payment_methods = Payment_method::get();
-        return view('settings.payment_method.index')->with(compact('payment_methods'));
+        return view('settings.payment_method.bank.index')->with(compact('payment_methods'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PaymentMethodController extends Controller
      */
     public function create()
     {
-        return view('settings.payment_method.create');
+        return view('settings.payment_method.bank.create');
     }
 
     /**
@@ -31,18 +31,29 @@ class PaymentMethodController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name'=>'required',
-            'method'=> 'required'
+            'bank_name'=>'required',
+            'branch'=> 'required',
+            'account_name'=> 'required',
+            'account_holder'=> 'required',
+            'account_number'=> 'required',
+            'phone'=> 'required|min:11',
+            'account_balance'=> 'required|regex:/^\d+(\.\d{1,2})?$/'
             ];
         $this->validate($request,$rules);
-        $CopyCheck = Payment_method::where('name',$request->name)->get()->toArray();
+        $CopyCheck = Payment_method::where('account_no',$request->account_number)->get()->toArray();
         if($CopyCheck != null){
             return redirect(route('payment-method.index'))->with('error','Payment_method Already Exist');
         }
         else{
+            //dd($request->all());
             $Payment_method = new Payment_method();
-            $Payment_method->name = $request->name;
-            $Payment_method->type = $request->method;
+            $Payment_method->bank_name = $request->bank_name;
+            $Payment_method->branch = $request->branch;
+            $Payment_method->account_name = $request->account_name;
+            $Payment_method->account_holder = $request->account_holder;
+            $Payment_method->account_no = $request->account_number;
+            $Payment_method->phone = $request->phone;
+            $Payment_method->balance = $request->account_balance;
             $Payment_method->save();
             return redirect(route('payment-method.index'))->with('success','Payment_method Create Successfully!');
         }
@@ -64,7 +75,7 @@ class PaymentMethodController extends Controller
     public function edit(string $id)
     {
         $payment_method = Payment_method::findorFail($id);
-        return view('settings.payment_method.edit')->with(compact('payment_method'));
+        return view('settings.payment_method.bank.edit')->with(compact('payment_method'));
     }
 
     /**
@@ -73,20 +84,23 @@ class PaymentMethodController extends Controller
     public function update(Request $request, string $id)
     {
         $rules = [
-            'name'=>'required',
-            'method'=> 'required'
+            'bank_name'=>'required',
+            'branch'=> 'required',
+            'account_name'=> 'required',
+            'account_holder'=> 'required',
+            'account_number'=> 'required',
+            'phone'=> 'required|min:11',
+            'account_balance'=> 'required|regex:/^\d+(\.\d{1,2})?$/'
             ];
         $this->validate($request,$rules);
-        if($CopyCheck != null){
-            return redirect(route('payment-method.index'))->with('error','Payment_method Already Exist');
-        }
-        else{
-            $Payment_method = Payment_method::findorFail($id);
-            $Payment_method->name = $request->name;
-            $Payment_method->type = $request->method;
-            $Payment_method->update();
-            return redirect(route('payment-method.index'))->with('success','Payment_method Update Successfully!');
-        }
+        $Payment_method = Payment_method::findorFail($id);
+        $Payment_method->bank_name = $request->bank_name;
+        $Payment_method->branch = $request->branch;
+        $Payment_method->account_name = $request->account_name;
+        $Payment_method->account_holder = $request->account_holder;
+        $Payment_method->phone = $request->phone;
+        $Payment_method->update();
+        return redirect(route('payment-method.index'))->with('success','Payment_method Update Successfully!');
     }
 
     /**

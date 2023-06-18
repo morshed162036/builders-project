@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment_methods', function (Blueprint $table) {
+        Schema::create('payment_transfers', function (Blueprint $table) {
             $table->id();
-            $table->string('bank_name');
-            $table->string('branch');
-            $table->string('account_name');
-            $table->string('account_holder');
-            $table->string('account_no')->unique();
-            $table->string('phone');
+            $table->bigInteger('from_id');
+            $table->bigInteger('to_id');
             $table->double('balance');
-            $table->enum('status',['Active','Inactive'])->default('Active');
+            $table->string('reference');
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment_methods');
+        Schema::dropIfExists('payment_transfers');
     }
 };

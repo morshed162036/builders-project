@@ -31,14 +31,14 @@
     <div class="content-header-left col-12 mb-2 mt-1">
         <div class="row breadcrumbs-top">
             <div class="col-12">
-                <h5 class="content-header-title float-left pr-1 mb-0">Payment Method Create</h5>
+                <h5 class="content-header-title float-left pr-1 mb-0">Transfer Create</h5>
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('payment-method.index') }}">Payment Methods</a>
+                        <li class="breadcrumb-item"><a href="{{ route('payment-transfer.index') }}">Transfers</a>
                         </li>
-                        <li class="breadcrumb-item active">Payment Method Create
+                        <li class="breadcrumb-item active">Transfer Create
                         </li>
                     </ol>
                 </div>
@@ -64,31 +64,71 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-content">
-                        <form action="{{ route('payment-method.store') }}" method="post" enctype="multipart/form-data"> @csrf
+                        <form action="{{ route('payment-transfer.store') }}" method="post" enctype="multipart/form-data"> @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-10">
                                         <fieldset>
-                                            <h5>Name</h5>
+                                            <h5>From Account</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" required>
+                                                <select name="from_id" id="from_id" class="form-control" required>
+                                                    <option value="">Select Account</option>
+                                                    @if ($accounts)
+                                                        @foreach ($accounts as $account)
+                                                            <option value="{{ $account->id }}">{{ $account->account_name }}({{ $account->account_no }})</option>
+                                                            
+                                                        @endforeach
+                                                    @endif
+                                                </select>
                                             </div>
                                         </fieldset>
                         
                                         <fieldset class="mt-2">
-                                            <h5>Method</h5>
+                                            <h5>To Account</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <select name="method" id="method" class="form-control" required>
-                                                    <option value="Cash">Cash</option>
-                                                    <option value="Bank">Bank</option>
-                                                    <option value="Mobile Banking">Mobile Banking</option>
+                                                <select name="to_id" id="to_id" class="form-control" required>
+                                                    <option value="">Select Account</option>
+                                                    @if ($accounts)
+                                                        @foreach ($accounts as $account)
+                                                            <option value="{{ $account->id }}">  {{ $account->account_name }}({{ $account->account_no }})</option>
+
+                                                        @endforeach
+                                                        
+                                                    @endif
                                                 </select>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Amount</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="amount" required>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Reference Id</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="reference" aria-describedby="basic-Createon1" name="reference" required>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Remarks (If Any)</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                </div>
+                                                <textarea class="form-control" name="remarks" id="remarks" cols="30" rows="5"></textarea>
                                             </div>
                                         </fieldset>
                                         <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>

@@ -83,8 +83,11 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Method</th>
+                                                <th>Bank Name</th>
+                                                <th>Branch</th>
+                                                <th>Account No</th>
+                                                <th>Account Name</th>
+                                                <th>Balance</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -93,8 +96,11 @@
                                             @if ($payment_methods)
                                                 @foreach ($payment_methods as $method)
                                                     <tr>
-                                                        <td>{{ $method->name }}</td>
-                                                        <td>{{ $method->type }}</td>
+                                                        <td>{{ $method->bank_name }}</td>
+                                                        <td>{{ $method->branch }}</td>
+                                                        <td>{{ $method->account_no }}</td>
+                                                        <td>{{ $method->account_name }}</td>
+                                                        <td>{{ $method->balance }}</td>
                                                         <td>
                                                             @if($method->status == 'Active')
                                                                 <a class="updateMethodStatus" id="method-{{ $method->id }}"
@@ -130,8 +136,11 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Method</th>
+                                                <th>Bank Name</th>
+                                                <th>Branch</th>
+                                                <th>Account No</th>
+                                                <th>Account Name</th>
+                                                <th>Balance</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

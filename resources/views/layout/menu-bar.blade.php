@@ -223,15 +223,11 @@
                 </li>
                 <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Colors">Unit Management</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Icons">Payment Method Management</span></a>
+                <li class=" nav-item"><a href="#"><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Icons">Payment Management</span></a>
                     <ul class="menu-content">
                         <li><a href="{{ route('payment-method.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item">Payment Method</span></a>
                         </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Cash</span></a>
-                        </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Bank</span></a>
-                        </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Mobile Banking</span></a>
+                        <li><a href="{{ route('payment-transfer.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Transfer Balance</span></a>
                         </li>
                     </ul>
                 </li>
