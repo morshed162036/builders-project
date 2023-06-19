@@ -74,7 +74,12 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findorFail($id);
+        $getCategories = Category::with('subcategories')->where(['parent_id'=>0,'catalogue_id'=>$category['catalogue_id']])->get()->toArray();
+        $catalogue = Catalogue::get()->all();
+
+        return view('category.edit')->with(compact('category','getCategories','catalogue'));
+
     }
 
     /**
@@ -82,7 +87,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::findorFail($id);
+        if($request->category_discount == ''){
+            $category_discount = 0;
+        }
+        else{
+            $category_discount = $request->category_discount;
+        }
+        $category->name = $request->category_name;
+        $category->parent_id = $request->parent_id;
+        $category->catalogue_id = $request->catalogue_id;
+        $category->discount = $category_discount;
+        $category->description = $request->category_description;
+        $category->update();
+        $categories = Category::with(['catalogue','parentcategory'])->get()->toArray();
+        return redirect(route('category.index'))->with('success','Category Update Successfully!');
     }
 
     /**

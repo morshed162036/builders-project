@@ -184,9 +184,9 @@
                 </li>
                 <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bx-envelope"></i><span class="menu-title">Brand</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-chat"></i><span class="menu-title">Catalogue Management</span></a>
+                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-chat"></i><span class="menu-title">Catalogue</span></a>
                 <li class=" nav-item"><a href="{{ route('category.index') }}"><i class="bx bx-chat"></i><span class="menu-title">Categories</span></a>
-                <li class=" nav-item"><a href=""><i class="bx bx-chat"></i><span class="menu-title">Product</span></a>
+                <li class=" nav-item"><a href="{{ route('product.index') }}"><i class="bx bx-chat"></i><span class="menu-title">Product</span></a>
                 </li>
                 
                 <li class=" navigation-header"><span>Supplier Management</span>
@@ -197,6 +197,33 @@
                 </li>
                 <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Payable Supplier</span></a>
                 </li>
+
+
+                <li class=" navigation-header"><span>Project Management</span>
+                </li>
+                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Client</span></a>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span class="menu-title">Team Setup</span></a>
+                    <ul class='menu-content'>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team Members</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span class="menu-title">Project Setup</span></a>
+                    <ul class='menu-content'>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Estimate Project Cost</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Setup</span></a>
+                        </li>
+                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project Expense</span></a>
+                        </li>
+                    </ul>
+                </li>
+
 
                 <li class=" navigation-header"><span>Accounts</span>
                 </li>

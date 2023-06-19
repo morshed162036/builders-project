@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Accounts\AccountGroupController;
 use App\Http\Controllers\Accounts\ChartofAccountController;
 use App\Http\Controllers\settings\UnitController;
@@ -39,6 +40,8 @@ Route::prefix('/')->group(function(){
         Route::resource('category', CategoryController::class);
         Route::get('append-categories-level',[CategoryController::class,'appendCategoryLevel'])->name('appendCategory');
         Route::post('update-category-status',[CategoryController::class,'updateCategoryStatus'])->name('updateCategoryStatus');
+        Route::resource('product', ProductController::class);
+        Route::post('update-product-status',[ProductController::class,'updateProductStatus'])->name('updateProductStatus');
         // Accounts
         Route::resource('accounts', AccountGroupController::class);
         Route::resource('chart-of-account',ChartofAccountController::class);

@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('catalogue_id');
             $table->bigInteger('category_id');
-            $table->bigInteger('brand_id');
+            $table->bigInteger('brand_id')->default(0);
             $table->string('title');
             $table->string('product_code')->unique();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->enum('type',['One Time Use','Reusable']);
+            $table->enum('type',['Product','Machine']);
             $table->enum('status',['Active','Inactive'])->default('Active');
 
             $table->timestamps();
