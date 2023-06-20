@@ -138,11 +138,11 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
+    {{-- <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/pickers/daterange/moment.min.js')}}"></script>
-    <script src="{{ asset('admin_template/app-assets/vendors/js/pickers/daterange/daterangepicker.js')}}"></script>
+    <script src="{{ asset('admin_template/app-assets/vendors/js/pickers/daterange/daterangepicker.js')}}"></script> --}}
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -153,7 +153,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="{{ asset('admin_template/app-assets/js/scripts/pages/table-extended.js')}}"></script>
+    {{-- <script src="{{ asset('admin_template/app-assets/js/scripts/pages/table-extended.js')}}"></script> --}}
     <!-- END: Page JS-->
     <script>
         $(document).ready(function(){

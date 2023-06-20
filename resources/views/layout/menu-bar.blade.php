@@ -201,13 +201,13 @@
 
                 <li class=" navigation-header"><span>Project Management</span>
                 </li>
-                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span class="menu-title">Client</span></a>
+                <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span class="menu-title">Client</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span class="menu-title">Team Setup</span></a>
                     <ul class='menu-content'>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team</span></a>
+                        <li><a href="{{ route('team.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team</span></a>
                         </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team Members</span></a>
+                        <li><a href="{{ route('team-members.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team Members</span></a>
                         </li>
                     </ul>
                 </li>
@@ -215,7 +215,7 @@
                     <ul class='menu-content'>
                         <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project</span></a>
                         </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Estimate Project Cost</span></a>
+                        <li><a href="{{ route('project-estimation.create') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Estimate Project Cost</span></a>
                         </li>
                         <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Setup</span></a>
                         </li>

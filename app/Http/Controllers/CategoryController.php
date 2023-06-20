@@ -23,15 +23,17 @@ class CategoryController extends Controller
     public function create()
     {
         $catalogues = Catalogue::get()->all();
-        return view('category.create')->with(compact('catalogues'));
+        $category = new Category();
+        
+        return view('category.create')->with(compact('catalogues','category'));
     }
     public function appendCategoryLevel(Request $request){
-        dd($request->all());
+        //dd($request->all());
         if($request->ajax()){
             $data = $request->all();
-            dd($data);
+            //dd($data);
             $getCategories = Category::with('subcategories')->where(['parent_id'=>0,'catalogue_id'=>$data['catalogue_id']])->get()->toArray();
-            dd($getCategories);
+            //dd($getCategories);
 
             return view('category.append_categories_level')->with(compact('getCategories'));
         }

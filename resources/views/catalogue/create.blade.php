@@ -77,6 +77,7 @@
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="catalogue_name" required>
                                             </div>
                                         <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
@@ -92,12 +93,6 @@
 @endsection
 
 @section('js')
-    <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        }
-    </script>
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js')}}"></script>
