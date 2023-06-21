@@ -3,7 +3,8 @@
 @section('css')
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/vendors.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -16,45 +17,46 @@
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
     <style>
-        a label{
+        a label {
             cursor: pointer;
         }
-    </style> 
+    </style>
 @endsection
 
 @section('content')
-
     <div class="content-header row">
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    @if(Session::has('success'))
+                    @if (Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success: </strong>{{ Session::get('success') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     @endif
-                    @if(Session::has('error'))
+                    @if (Session::has('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>Success: </strong>{{ Session::get('error') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     @endif
                     <h5 class="content-header-title float-left pr-1 mb-0">Client Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
+                                        class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active">Clients
                             </li>
@@ -73,7 +75,8 @@
                             <h5 class="card-title">Client List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('client.create') }}" class="btn btn-primary">+
+                                            Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -140,12 +143,9 @@
             </div>
         </section>
     </div>
-
 @endsection
 
 @section('js')
-
-    
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js') }}"></script>
@@ -155,7 +155,8 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}">
+    </script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
@@ -175,4 +176,3 @@
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
 @endsection
-

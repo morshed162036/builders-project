@@ -52,13 +52,13 @@
                             </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">Project Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Supplier Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
                                         class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Projects
+                            <li class="breadcrumb-item active">Suppliers
                             </li>
                         </ol>
                     </div>
@@ -72,11 +72,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Project List</h5>
+                            <h5 class="card-title">Supplier List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('project.create') }}" class="btn btn-primary">+
-                                            Create</a></li>
+                                    <li class="ml-2"><a href="" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,13 +85,12 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Project</th>
-                                                <th>Client</th>
-                                                <th>Starting Day</th>
-                                                <th>Expected Finished Day</th>
-                                                <th>Finished Day</th>
-                                                <th>Estimate Cost</th>
-                                                <th>Actual Cost</th>
+                                                <th>Supplier Name</th>
+                                                <th>Company</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                                <th>Remarks</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -125,13 +123,12 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Project</th>
-                                                <th>Client</th>
-                                                <th>Starting Day</th>
-                                                <th>Expected Finished Day</th>
-                                                <th>Finished Day</th>
-                                                <th>Estimate Cost</th>
-                                                <th>Actual Cost</th>
+                                                <th>Supplier Name</th>
+                                                <th>Company</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                                <th>Remarks</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

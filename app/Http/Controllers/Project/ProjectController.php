@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('project-management.client.index');
+        return view('project-management.project-setup.project.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('project-management.client.create');
+        return view('project-management.project-setup.project.create');
     }
 
     /**

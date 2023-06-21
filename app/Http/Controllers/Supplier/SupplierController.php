@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Project;
+namespace App\Http\Controllers\Supplier;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('project-management.client.index');
+        return view('supplier-management.supplier.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('project-management.client.create');
+        //
     }
 
     /**

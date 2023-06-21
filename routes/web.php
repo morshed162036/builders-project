@@ -6,7 +6,9 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Supplier\SupplierController;
 use App\Http\Controllers\Project\ProjectEstimationController;
+use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Project\ClientController;
 use App\Http\Controllers\Project\TeamController;
 use App\Http\Controllers\Project\TeamMembersController;
@@ -46,11 +48,15 @@ Route::prefix('/')->group(function(){
         Route::post('update-category-status',[CategoryController::class,'updateCategoryStatus'])->name('updateCategoryStatus');
         Route::resource('product', ProductController::class);
         Route::post('update-product-status',[ProductController::class,'updateProductStatus'])->name('updateProductStatus');
+        //Supplier Management
+        Route::resource('supplier',SupplierController::class);
+
         //Project Management
-        Route::resource('project-estimation',ProjectEstimationController::class);
         Route::resource('client',ClientController::class);
         Route::resource('team',TeamController::class);
         Route::resource('team-members',TeamMembersController::class);
+        Route::resource('project',ProjectController::class);
+        Route::resource('project-estimation',ProjectEstimationController::class);
         // Accounts
         Route::resource('accounts', AccountGroupController::class);
         Route::resource('chart-of-account',ChartofAccountController::class);
