@@ -106,7 +106,15 @@
                                                         <td>{{ $client['email'] }}</td>
                                                         <td>{{ $client['address'] }}</td>
                                                         <td>{{ $client['remarks'] }}</td>
-                                                        <td>{{ $client['status'] }}</td>
+                                                        <td>@if ($client['status']== "Active")
+                                                            <label class="badge badge-success" status="Active">Active</label>
+                                                        @elseif ($client['status']== "Inactive")
+                                                        <label class="badge badge-danger" status="Inactive">Inactive</label>
+                                                        @elseif ($client['status']== "Inquiry")
+                                                        <label class="badge badge-info" status="Inquiry">Inquiry</label>
+                                                        @elseif ($client['status']== "Ongoing Project")
+                                                        <label class="badge badge-secondary" status="Ongoing Project">Ongoing Project</label>
+                                                        @endif</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>

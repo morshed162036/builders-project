@@ -54,6 +54,7 @@ Route::prefix('/')->group(function(){
         //Project Management
         Route::resource('client',ClientController::class);
         Route::resource('team',TeamController::class);
+        Route::post('update-team-status',[TeamController::class,'updateTeamStatus'])->name('updateTeamStatus');
         Route::resource('team-members',TeamMembersController::class);
         Route::resource('project',ProjectController::class);
         Route::resource('project-estimation',ProjectEstimationController::class);

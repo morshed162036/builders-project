@@ -152,6 +152,7 @@
                                                         <option value="Active">Active</option>
                                                         <option value="Inactive">Inactive</option>
                                                         <option value="Inquiry">Inquiry</option>
+                                                        <option value="Ongoing Project">Ongoing Project</option>
                                                     </select>
                                                 </div>
                                             </fieldset>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Project\Team;
+
 class TeamController extends Controller
 {
     /**
@@ -12,7 +14,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return view('project-management.team-setup.team.index');
+        $teams = Team::get();
+        return view('project-management.team-setup.team.index')->with(compact('teams'));
     }
 
     /**
@@ -20,7 +23,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('project-management.team-setup.team.create');
     }
 
     /**
@@ -28,7 +31,17 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $repeat = Team::where('name',$request->team_name)->get()->first();
+        //dd($repeat);
+        if($repeat != null){
+            return redirect(route('team.index'))->with('error','Team Name Already Exist');
+        }
+        $team = new Team();
+        $team->name = $request->team_name;
+        $team->team_type = $request->team_type;
+        $team->description = $request->description;
+        $team->save();
+        return redirect(route('team.index'))->with('success','Team Create Successfully');
     }
 
     /**
@@ -44,7 +57,8 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $team = Team::findorFail($id);
+        return view('project-management.team-setup.team.edit')->with(compact('team'));
     }
 
     /**
@@ -52,7 +66,12 @@ class TeamController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $team = Team::findorFail($id);
+        $team->name = $request->team_name;
+        $team->team_type = $request->team_type;
+        $team->description = $request->description;
+        $team->update();
+        return redirect(route('team.index'))->with('success','Team Update Successfully');
     }
 
     /**
@@ -60,6 +79,23 @@ class TeamController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Team::findorFail($id)->delete();
+        return redirect(route('team.index'))->with('success','Team Delete Successfully');
+    }
+
+    public function updateTeamStatus(Request $request){
+        if($request->ajax()){
+            $data = $request->all();
+            //dd($data);
+             //echo "<pre>"; print_r($data);die;
+            if ($data['status']== 'Active') {
+                $status = 'Inactive';
+            }
+            else{
+                $status = 'Active';
+            }
+            Team::where('id',$data['team_id'])->update(['status'=>$status]);
+            return response()->json(['status'=>$status,'team_id'=> $data['team_id']]);
+        }
     }
 }

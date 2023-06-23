@@ -73,7 +73,7 @@
                             <h5 class="card-title">Team List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('team.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -85,26 +85,41 @@
                                             <tr>
                                                 <th>Team Name</th>
                                                 <th>Team Member Count</th>
-                                                <th>Team Code</th>
+                                                <th>Team Type</th>
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($transfers)
-                                                @foreach ($transfers as $transfer)
+                                            @if ($teams)
+                                                @foreach ($teams as $team)
                                                     <tr>
-                                                        <td>{{ $transfer['reference'] }}</td>
-                                                        <td>{{ $transfer['payment_from_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['payment_to_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['balance'] }}</td>
+                                                        <td>{{ $team->name }}</td>
+                                                        <td>{{ $team->member_count }}</td>
+                                                        <td>{{ $team->team_type }}</td>
+                                                        <td>{{ $team->description }}</td>
+                                                        <td>
+                                                            @if($team->status == 'Active')
+                                                                <a class="updateTeamStatus" id="team-{{ $team->id }}"
+                                                                    team_id = "{{ $team->id }}"
+                                                                    href="javascript:void(0)">
+                                                                        <label class="badge badge-success" status="Active">Active</label>
+                                                                </a>
+                                                            @else
+                                                                <a class="updateTeamStatus" id="team-{{ $team->id }}"
+                                                                    team_id = "{{ $team->id }}"
+                                                                    href="javascript:void(0)">
+                                                                        <label class="badge badge-danger" status="Inactive">Inactive</label>
+                                                                </a>
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('payment-transfer.edit',$transfer->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('payment-transfer.destroy',$transfer->id) }}" transfer="post"> @csrf @transfer('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('team.edit',$team->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('team.destroy',$team->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -115,13 +130,13 @@
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Team Name</th>
                                                 <th>Team Member Count</th>
-                                                <th>Team Code</th>
+                                                <th>Team Type</th>
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -170,5 +185,39 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
+
+    <script>
+
+        $(document).ready(function (){
+            $(document).on("click", ".updateTeamStatus", function () {
+                var status = $(this).children("label").attr("status");
+                var team_id = $(this).attr("team_id");
+
+                $.ajax({
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    type: "post",
+                    url: "{{ route('updateTeamStatus') }}",
+                    data: { status: status, team_id: team_id },
+                    success: function (resp) {
+                        if (resp["status"] == 'Inactive') {
+                            $("#team-" + team_id).html(
+                                "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
+                            );
+                        } else if (resp["status"] == 'Active') {
+                            $("#team-" + team_id).html(
+                                "<label class='badge badge-success' status='Active'>Active</label>"
+                            );
+                        }
+                    },
+                    error: function () {
+                        alert("Error");
+                    },
+                });
+            });
+        })
+        
+    </script>
 @endsection
 

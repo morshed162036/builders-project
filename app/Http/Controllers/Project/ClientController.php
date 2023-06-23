@@ -92,4 +92,5 @@ class ClientController extends Controller
         Client::findorFail($id)->delete();
         return redirect(route('client.index'))->with('success','Client Delete Success!');
     }
+
 }
