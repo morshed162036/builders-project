@@ -93,7 +93,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="company"
-                                                        aria-describedby="basic-Createon1" name="company" required>
+                                                        aria-describedby="basic-Createon1" name="company" >
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -107,7 +107,7 @@
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="01xx"
                                                         aria-describedby="basic-Createon1" name="phone" maxlength="11"
-                                                        required>
+                                                        >
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -121,8 +121,8 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="email" class="form-control" placeholder="Holder Name"
-                                                        aria-describedby="basic-Createon1" name="account_holder" required>
+                                                    <input type="email" class="form-control" placeholder="Email"
+                                                        aria-describedby="basic-Createon1" name="email" >
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -135,7 +135,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="address"
-                                                        aria-describedby="basic-Createon1" name="address" required>
+                                                        aria-describedby="basic-Createon1" name="address">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -147,7 +147,7 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <select class="form-control" name="" id="">
+                                                    <select class="form-control" name="status" id="status">
                                                         <option value="">Select</option>
                                                         <option value="Active">Active</option>
                                                         <option value="Inactive">Inactive</option>

@@ -24,8 +24,9 @@ class CategoryController extends Controller
     {
         $catalogues = Catalogue::get()->all();
         $category = new Category();
+        $getCategories = array();
         
-        return view('category.create')->with(compact('catalogues','category'));
+        return view('category.create')->with(compact('catalogues','category','getCategories'));
     }
     public function appendCategoryLevel(Request $request){
         //dd($request->all());
@@ -78,9 +79,9 @@ class CategoryController extends Controller
     {
         $category = Category::findorFail($id);
         $getCategories = Category::with('subcategories')->where(['parent_id'=>0,'catalogue_id'=>$category['catalogue_id']])->get()->toArray();
-        $catalogue = Catalogue::get()->all();
+        $catalogues = Catalogue::get()->all();
 
-        return view('category.edit')->with(compact('category','getCategories','catalogue'));
+        return view('category.edit')->with(compact('category','getCategories','catalogues'));
 
     }
 

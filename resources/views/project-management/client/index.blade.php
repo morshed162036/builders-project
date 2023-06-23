@@ -97,19 +97,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($transfers)
-                                                @foreach ($transfers as $transfer)
+                                            @if ($clients)
+                                                @foreach ($clients as $client)
                                                     <tr>
-                                                        <td>{{ $transfer['reference'] }}</td>
-                                                        <td>{{ $transfer['payment_from_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['payment_to_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['balance'] }}</td>
+                                                        <td>{{ $client['name'] }}</td>
+                                                        <td>{{ $client['company'] }}</td>
+                                                        <td>{{ $client['phone'] }}</td>
+                                                        <td>{{ $client['email'] }}</td>
+                                                        <td>{{ $client['address'] }}</td>
+                                                        <td>{{ $client['remarks'] }}</td>
+                                                        <td>{{ $client['status'] }}</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('payment-transfer.edit',$transfer->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('payment-transfer.destroy',$transfer->id) }}" transfer="post"> @csrf @transfer('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('client.edit',$client->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('client.destroy',$client->id) }}" client="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -120,7 +123,7 @@
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>

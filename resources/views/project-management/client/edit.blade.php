@@ -34,15 +34,15 @@
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h5 class="content-header-title float-left pr-1 mb-0">Client Update</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Client Edit</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
                                         class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('payment-method.index') }}">Clients</a>
+                            <li class="breadcrumb-item"><a href="{{ route('client.index') }}">Clients</a>
                             </li>
-                            <li class="breadcrumb-item active">Client Update
+                            <li class="breadcrumb-item active">Client Edit
                             </li>
                         </ol>
                     </div>
@@ -68,7 +68,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
-                            <form action="{{ route('client.store') }}" method="post" enctype="multipart/form-data"> @csrf
+                            <form action="{{ route('client.update',$client->id) }}" method="post" enctype="multipart/form-data"> @csrf
                                 @method('put')
                                 <div class="card-body">
                                     <div class="row">
@@ -81,7 +81,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
-                                                        aria-describedby="basic-Createon1" name="client_name" required>
+                                                        aria-describedby="basic-Createon1" name="client_name" value="{{ $client->name }}" required>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -94,7 +94,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="company"
-                                                        aria-describedby="basic-Createon1" name="company" required>
+                                                        aria-describedby="basic-Createon1" name="company" value="{{ $client->company }}">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -107,8 +107,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="01xx"
-                                                        aria-describedby="basic-Createon1" name="phone" maxlength="11"
-                                                        required>
+                                                        aria-describedby="basic-Createon1" name="phone" value="{{ $client->phone }}" maxlength="11">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -122,8 +121,8 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="email" class="form-control" placeholder="Holder Name"
-                                                        aria-describedby="basic-Createon1" name="account_holder" required>
+                                                    <input type="email" class="form-control" placeholder="email"
+                                                        aria-describedby="basic-Createon1" name="email" value="{{ $client->email }}">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -136,7 +135,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="address"
-                                                        aria-describedby="basic-Createon1" name="address" required>
+                                                        aria-describedby="basic-Createon1" name="address" value="{{ $client->address }}">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -148,11 +147,28 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <select class="form-control" name="" id="">
+                                                    <select class="form-control" name="status" id="">
                                                         <option value="">Select</option>
-                                                        <option value="Active">Active</option>
-                                                        <option value="Inactive">Inactive</option>
-                                                        <option value="Inquiry">Inquiry</option>
+                                                        <option 
+                                                        @if ($client->status == 'Active')
+                                                            selected    
+                                                        @endif 
+                                                        value="Active">Active</option>
+                                                        <option 
+                                                        @if ($client->status == 'Inactive')
+                                                            selected    
+                                                        @endif 
+                                                        value="Inactive">Inactive</option>
+                                                        <option 
+                                                        @if ($client->status == 'Inquiry')
+                                                            selected    
+                                                        @endif 
+                                                        value="Inquiry">Inquiry</option>
+                                                        <option 
+                                                        @if ($client->status == 'Ongoing Project')
+                                                            selected    
+                                                        @endif 
+                                                        value="Ongoing Project">Ongoing Project</option>
                                                     </select>
                                                 </div>
                                             </fieldset>
@@ -168,7 +184,7 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <textarea class="form-control" name="remarks" id="" cols="30" rows="2"></textarea>
+                                                    <textarea class="form-control" name="remarks" id="" cols="30" rows="2">{{ $client->remarks }}</textarea>
                                                 </div>
                                             </fieldset>
                                         </div>
