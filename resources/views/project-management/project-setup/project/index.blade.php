@@ -75,8 +75,9 @@
                             <h5 class="card-title">Project List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('project.create') }}" class="btn btn-primary">+
-                                            Create</a></li>
+                                    <li class="ml-2">
+                                        <a href="{{ route('project.create') }}" class="btn btn-primary">+Create</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -88,9 +89,9 @@
                                             <tr>
                                                 <th>Project</th>
                                                 <th>Client</th>
-                                                <th>Starting Day</th>
-                                                <th>Expected Finished Day</th>
-                                                <th>Finished Day</th>
+                                                <th>Starting Date</th>
+                                                <th>Expected Finished Date</th>
+                                                <th>Finished Date</th>
                                                 <th>Estimate Cost</th>
                                                 <th>Actual Cost</th>
                                                 <th>Status</th>
@@ -98,38 +99,51 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($transfers)
-                                                @foreach ($transfers as $transfer)
+                                            @if ($projects)
+                                                @foreach ($projects as $project)
                                                     <tr>
-                                                        <td>{{ $transfer['reference'] }}</td>
-                                                        <td>{{ $transfer['payment_from_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['payment_to_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['balance'] }}</td>
+                                                        <td>{{ $project['name'] }}</td>
+                                                        <td>{{ $project['client_id'] }}</td>
+                                                        <td>{{ $project['starting_date'] }}</td>
+                                                        <td>{{ $project['expected_finished_date'] }}</td>
+                                                        <td>{{ $project['finished_date'] }}</td>
+                                                        <td>{{ $project['estimate_cost'] }}</td>
+                                                        <td>{{ $project['actual_cost'] }}</td>
+                                                        <td>{{ $project['status'] }}</td>
                                                         <td>
                                                             <div class="dropdown">
-                                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
+                                                                <span
+                                                                    class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('payment-transfer.edit',$transfer->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('payment-transfer.destroy',$transfer->id) }}" transfer="post"> @csrf @transfer('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('project.edit', $project->id) }}"><i
+                                                                            class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form
+                                                                        action="{{ route('project.destroy', $project->id) }}"
+                                                                        method="post"> @csrf @method('Delete')
+                                                                        <button type="submit" class="dropdown-item"><i
+                                                                                class="bx bx-trash mr-1"></i>
+                                                                            delete</button>
                                                                     </form>
-                                                                    
+
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                    </tr>   
+                                                    </tr>
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Project</th>
                                                 <th>Client</th>
-                                                <th>Starting Day</th>
-                                                <th>Expected Finished Day</th>
-                                                <th>Finished Day</th>
+                                                <th>Starting Date</th>
+                                                <th>Expected Finished Date</th>
+                                                <th>Finished Date</th>
                                                 <th>Estimate Cost</th>
                                                 <th>Actual Cost</th>
                                                 <th>Status</th>

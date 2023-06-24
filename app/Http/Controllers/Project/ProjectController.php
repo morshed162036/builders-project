@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Project\Client;
+use App\Models\Project\Project;
 class ProjectController extends Controller
 {
     /**
@@ -12,7 +13,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project-management.project-setup.project.index');
+        $projects = Project::get();
+        return view('project-management.project-setup.project.index')->with(compact('projects'));
     }
 
     /**
@@ -20,7 +22,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project-management.project-setup.project.create');
+        $clients = Client::get();
+        return view('project-management.project-setup.project.create')->with(compact('clients'));
     }
 
     /**
@@ -28,7 +31,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project  = new Project();
+        $project->name = $request->project_name;
+        $project->client_id = $request->client_id;
+        $project->save();
+        return redirect(route('project.index'))->with('success','Project Create Successfully!!');
     }
 
     /**
@@ -44,7 +51,9 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $clients = Client::get();
+        $project = Project::findorFail($id)->get()->first();
+        return view('project-management.project-setup.project.edit')->with(compact('clients','project'));
     }
 
     /**

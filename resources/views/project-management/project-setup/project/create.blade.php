@@ -68,7 +68,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
-                            <form action="{{ route('client.store') }}" method="post" enctype="multipart/form-data"> @csrf
+                            <form action="{{ route('project.store') }}" method="post" enctype="multipart/form-data"> @csrf
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
@@ -80,7 +80,7 @@
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
-                                                        aria-describedby="basic-Createon1" name="client_name" required>
+                                                        aria-describedby="basic-Createon1" name="project_name" required>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -92,17 +92,21 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <select class="form-control" name="client_id" id="client_id">
+                                                    <select class="form-control" name="client_id" id="client_id" required>
                                                         <option value="">Select</option>
-                                                        <option value="">Client-1</option>
-                                                        <option value="">Client-2</option>
-                                                        <option value="">Client-3</option>
+                                                        @isset($clients)
+                                                            @foreach ($clients as $client)
+                                                                <option value="{{ $client->id }}">
+                                                                    {{ $client->name }}({{ $client->company }})
+                                                                </option>
+                                                            @endforeach
+                                                        @endisset
                                                     </select>
                                                 </div>
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <h5>Starting Day</h5>
@@ -162,7 +166,7 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
 
                                 </div>

@@ -3,7 +3,8 @@
 @section('css')
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/vendors.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -16,17 +17,18 @@
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
     <style>
-        a label{
+        a label {
             cursor: pointer;
         }
-    </style> 
+    </style>
 @endsection
 
 @section('content')
@@ -35,18 +37,19 @@
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    @if(Session::has('success'))
+                    @if (Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success: </strong>{{ Session::get('success') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     @endif
                     <h5 class="content-header-title float-left pr-1 mb-0">Categories Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
+                                        class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active">Categories
                             </li>
@@ -65,7 +68,8 @@
                             <h5 class="card-title">Category List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('category.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('category.create') }}" class="btn btn-primary">+
+                                            Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,43 +90,56 @@
                                             @if ($categories)
                                                 @foreach ($categories as $category)
                                                     <tr>
-                                                        <td class="text-bold-600" >{{ $category['name'] }}</td>
+                                                        <td class="text-bold-600">{{ $category['name'] }}</td>
                                                         <td>
-                                                            @if (isset($category['parentcategory']['category_name']) && !empty($category['parentcategory']['category_name']))
-                                                                {{ $category['parentcategory']['category_name'] }}
+                                                            @if (isset($category['parentcategory']['name']) && !empty($category['parentcategory']['name']))
+                                                                {{ $category['parentcategory']['name'] }}
                                                             @else
                                                                 {{ 'Root' }}
                                                             @endif
                                                         </td>
                                                         <td>{{ $category['catalogue']['name'] }}</td>
                                                         <td>
-                                                            @if($category['status'] == 'Active')
-                                                                <a class="updateCategoryStatus" id="category-{{ $category['id'] }}"
-                                                                    category_id = "{{ $category['id'] }}"
+                                                            @if ($category['status'] == 'Active')
+                                                                <a class="updateCategoryStatus"
+                                                                    id="category-{{ $category['id'] }}"
+                                                                    category_id="{{ $category['id'] }}"
                                                                     href="javascript:void(0)">
-                                                                        <label class="badge badge-success" status="Active">Active</label>
+                                                                    <label class="badge badge-success"
+                                                                        status="Active">Active</label>
                                                                 </a>
                                                             @else
-                                                                <a class="updateCategoryStatus" id="category-{{ $category['id'] }}"
-                                                                    category_id = "{{ $category['id'] }}"
+                                                                <a class="updateCategoryStatus"
+                                                                    id="category-{{ $category['id'] }}"
+                                                                    category_id="{{ $category['id'] }}"
                                                                     href="javascript:void(0)">
-                                                                        <label class="badge badge-danger" status="Inactive">Inactive</label>
+                                                                    <label class="badge badge-danger"
+                                                                        status="Inactive">Inactive</label>
                                                                 </a>
                                                             @endif
                                                         </td>
                                                         <td>
                                                             <div class="dropdown">
-                                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
+                                                                <span
+                                                                    class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('category.edit',$category['id']) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('category.destroy',$category['id']) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('category.edit', $category['id']) }}"><i
+                                                                            class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form
+                                                                        action="{{ route('category.destroy', $category['id']) }}"
+                                                                        method="post"> @csrf @method('Delete')
+                                                                        <button type="submit" class="dropdown-item"><i
+                                                                                class="bx bx-trash mr-1"></i>
+                                                                            delete</button>
                                                                     </form>
-                                                                    
+
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                    </tr>   
+                                                    </tr>
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
@@ -150,8 +167,6 @@
 @endsection
 
 @section('js')
-
-    
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js') }}"></script>
@@ -161,7 +176,8 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}">
+    </script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
@@ -181,8 +197,8 @@
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
     <script>
-        $(document).ready(function (){
-            $(document).on("click", ".updateCategoryStatus", function () {
+        $(document).ready(function() {
+            $(document).on("click", ".updateCategoryStatus", function() {
                 var status = $(this).children("label").attr("status");
                 var category_id = $(this).attr("category_id");
 
@@ -192,8 +208,11 @@
                     },
                     type: "post",
                     url: "{{ route('updateCategoryStatus') }}",
-                    data: { status: status, category_id: category_id },
-                    success: function (resp) {
+                    data: {
+                        status: status,
+                        category_id: category_id
+                    },
+                    success: function(resp) {
                         if (resp["status"] == 'Inactive') {
                             $("#category-" + category_id).html(
                                 "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
@@ -204,7 +223,7 @@
                             );
                         }
                     },
-                    error: function () {
+                    error: function() {
                         alert("Error");
                     },
                 });

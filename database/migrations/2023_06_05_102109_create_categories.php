@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->float('discount')->default(0);
             $table->text('description')->nullable();
-            $table->enum('status',['Active','Inactive']);
+            $table->enum('status',['Active','Inactive'])->default('Active');
             $table->timestamps();
         });
     }

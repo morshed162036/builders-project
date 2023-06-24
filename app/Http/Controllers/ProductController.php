@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
+use Image;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -16,7 +18,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
+        $products = Product::with(['catalogue'=>function($q){
+            $q->select('id','name');
+        },'category'=>function($q){
+            $q->select('id','name');
+        },'brand'=>function($q){
+            $q->select('id','name');
+        }])->get();
+        //dd($products);
         return view('product.index')->with(compact('products'));
     }
 
@@ -26,6 +35,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Catalogue::with('category')->get()->toArray();
+        
         $brands = Brand::where('status','Active')->get()->toArray();
         return view('product.create')->with(compact('categories','brands'));
     }
@@ -85,6 +95,7 @@ class ProductController extends Controller
     {
         $product = Product::findorFail($id);
         $categories = Catalogue::with('category')->get()->toArray();
+        //dd($product);
         $brands = Brand::where('status','Active')->get()->toArray();
         return view('product.edit')->with(compact('product','categories','brands'));
     }
@@ -103,17 +114,10 @@ class ProductController extends Controller
         ];
         $this->validate($request,$rules);
         $categoryDetails = Category::find($request->category_id);
-        $product = Product::where('id',$id);
-        $product->catalogue_id = $categoryDetails['catalogue_id'];
-        $product->category_id = $request->category_id;
-        $product->title = $request->title;
-        $product->brand_id = $request->brand_id;
-        $product->product_code = $request->product_code;
-        $product->type = $request->type;
-        $product->description = $request->description;
-
+        $product = Product::where('id',$id)->get()->first();
+        //dd($product->get());
         if($request->hasFile('image')){
-            $exists = 'images/product_image/'.$product->image;
+            $exists = 'images/product_image/'. $product['image'];
             if(File::exists($exists))
             {
                 File::delete($exists);
@@ -129,7 +133,15 @@ class ProductController extends Controller
                 $product->image = $imageName;
             }
         }
+        $product->catalogue_id = $categoryDetails['catalogue_id'];
+        $product->category_id = $request->category_id;
+        $product->title = $request->title;
+        $product->brand_id = $request->brand_id;
+        $product->product_code = $request->product_code;
+        $product->type = $request->type;
+        $product->description = $request->description;
 
+        
         $product->update();
         return redirect(route('product.index'))->with('success','Product Create Successfully!');
     }
@@ -159,8 +171,8 @@ class ProductController extends Controller
             else{
                 $status = 'Active';
             }
-            Product::where('id',$data['method_id'])->update(['status'=>$status]);
-            return response()->json(['status'=>$status,'method_id'=> $data['method_id']]);
+            Product::where('id',$data['product_id'])->update(['status'=>$status]);
+            return response()->json(['status'=>$status,'product_id'=> $data['product_id']]);
         }
     }
 }
