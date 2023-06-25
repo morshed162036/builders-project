@@ -34,7 +34,7 @@
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h5 class="content-header-title float-left pr-1 mb-0">Project Create</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Project Edit</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
@@ -42,7 +42,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('project.index') }}">Projects</a>
                             </li>
-                            <li class="breadcrumb-item active">Project Create
+                            <li class="breadcrumb-item active">Project Edit
                             </li>
                         </ol>
                     </div>
@@ -68,7 +68,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
-                            <form action="{{ route('project.store', $project->id) }}" method="post"
+                            <form action="{{ route('project.update', $project->id) }}" method="post"
                                 enctype="multipart/form-data"> @csrf @method('put')
                                 <div class="card-body">
                                     <div class="row">
@@ -163,7 +163,7 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <select class="form-control" name="" id="">
+                                                    <select class="form-control" name="status" id="">
                                                         <option value="">Select</option>
                                                         <option @if ($project->status == 'Just Create') selected @endif
                                                             value="Just Create">Just Create</option>

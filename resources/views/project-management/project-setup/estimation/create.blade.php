@@ -80,8 +80,15 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Name"
-                                                        aria-describedby="basic-Createon1" name="catalogue_name" required>
+                                                    <select class="form-control" name="project_id" id="">
+                                                        <option value="">Select</option>
+                                                        @isset($projects)
+                                                            @foreach ($projects as $project)
+                                                                <option value="{{ $project->id }}">{{ $project->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        @endisset
+                                                    </select>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -147,11 +154,17 @@
                                                             <select name="product_name[]" id="product_name"
                                                                 class="form-control">
                                                                 <option value="">Select</option>
-                                                                <option value="Concrete">Concrete</option>
+                                                                @isset($products)
+                                                                    @foreach ($products as $product)
+                                                                        <option value="{{ $product->id }}">
+                                                                            {{ $product->title }}</option>
+                                                                    @endforeach
+                                                                @endisset
+                                                                {{-- <option value="Concrete">Concrete</option>
                                                                 <option value="Steel">Steel</option>
                                                                 <option value="Cement">Cement</option>
                                                                 <option value="Brick">Brick</option>
-                                                                <option value="Sand">Sand</option>
+                                                                <option value="Sand">Sand</option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -163,11 +176,17 @@
                                                             <label for="unit_id">Unit</label>
                                                             <select name="unit_id[]" id="unit_id" class="form-control">
                                                                 <option value="">Select</option>
-                                                                <option value="Kg/cu.m">Kg/cu.m</option>
+                                                                @isset($units)
+                                                                    @foreach ($units as $unit)
+                                                                        <option value="{{ $unit->id }}">
+                                                                            {{ $unit->unit }}</option>
+                                                                    @endforeach
+                                                                @endisset
+                                                                {{-- <option value="Kg/cu.m">Kg/cu.m</option>
                                                                 <option value="G/cu.cm">G/cu.cm</option>
                                                                 <option value="lb/cu.ft">lb/cu.ft</option>
                                                                 <option value="Piece">Piece</option>
-                                                                <option value="Box">Box</option>
+                                                                <option value="Box">Box</option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">

@@ -61,7 +61,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $project = Project::findorFail($id);
+        $project->name = $request->project_name;
+        $project->client_id = $request->client_id;
+        $project->starting_date = $request->starting_date;
+        $project->expected_finished_date = $request->expected_finished_date;
+        $project->finished_date = $request->finished_date;
+        $project->status = $request->status;
+        $project->update();
+        return redirect(route('project.index'))->with('success','Project Update Successfully!!');
     }
 
     /**
@@ -69,6 +77,6 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }

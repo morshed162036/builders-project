@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\settings\Unit;
+use App\Models\Project\Project;
 
 class ProjectEstimationController extends Controller
 {
@@ -20,7 +23,12 @@ class ProjectEstimationController extends Controller
      */
     public function create()
     {
-        return view('project-management.project-setup.estimation.create');
+        $units = Unit::where('status','Active')->get();
+        $projects = Project::where('status','Just Create')->get();
+        $products = Product::where('type','Product')->where('status','Active')->get();
+        $machines = Product::where('type','Machine')->where('status','Active')->get();
+        //dd($products);
+        return view('project-management.project-setup.estimation.create')->with(compact('units','projects','products','machines'));
     }
 
     /**

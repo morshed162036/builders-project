@@ -120,13 +120,13 @@
                                                                     <a class="dropdown-item"
                                                                         href="{{ route('project.edit', $project->id) }}"><i
                                                                             class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form
+                                                                    {{-- <form
                                                                         action="{{ route('project.destroy', $project->id) }}"
                                                                         method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i
                                                                                 class="bx bx-trash mr-1"></i>
                                                                             delete</button>
-                                                                    </form>
+                                                                    </form> --}}
 
                                                                 </div>
                                                             </div>
