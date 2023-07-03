@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('starting_date')->nullable();
             $table->date('finished_date')->nullable();
             $table->date('expected_finished_date')->nullable();
-            $table->double('estimate_cost')->nullable();
-            $table->double('actual_cost')->nullable();
+            $table->double('estimate_cost')->default(0);
+            $table->double('actual_cost')->default(0);
             $table->enum('status',['Just Create','Start','Finished','Ongoing','Estimate','Hold'])->default('Just Create');
             $table->timestamps();
         });

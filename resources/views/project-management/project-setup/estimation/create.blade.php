@@ -146,12 +146,12 @@
                                     <h1>Product Details</h1>
                                     <div class="row mt-2">
                                         <div class="repeater-default">
-                                            <div data-repeater-list="group-a">
+                                            <div data-repeater-list="group-product">
                                                 <div data-repeater-item>
-                                                    <div class="row justify-content-between">
+                                                    <div class="row justify-content-between" id='product_details'>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="product_name">Product</label>
-                                                            <select name="product_name[]" id="product_name"
+                                                            <select name="product_name" id="product_name"
                                                                 class="form-control">
                                                                 <option value="">Select</option>
                                                                 @isset($products)
@@ -170,11 +170,11 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="qnt">Quantity</label>
                                                             <input type="number" class="form-control" id="qnt"
-                                                                name="qnt[]" placeholder="0">
+                                                                name="qnt" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="unit_id">Unit</label>
-                                                            <select name="unit_id[]" id="unit_id" class="form-control">
+                                                            <select name="unit_id" id="unit_id" class="form-control">
                                                                 <option value="">Select</option>
                                                                 @isset($units)
                                                                     @foreach ($units as $unit)
@@ -192,7 +192,13 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="unit_price">Unit Price</label>
                                                             <input type="text" class="form-control" id="unit_price"
-                                                                name="unit_price[]" placeholder="0">
+                                                                name="unit_price" placeholder="0">
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                            <label for="total_price">Total Price</label>
+                                                            <input type="text" class="form-control" id="total_price"
+                                                                 name="total_price" placeholder="0"
+                                                                readonly>
                                                         </div>
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
@@ -208,7 +214,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col p-0">
-                                                    <button class="btn btn-primary" data-repeater-create type="button"><i
+                                                    <button class="btn btn-primary" data-repeater-create type="button" id="product"><i
                                                             class="bx bx-plus"></i>
                                                         Add
                                                     </button>
@@ -229,7 +235,7 @@
                                     <h1>Machine Details</h1>
                                     <div class="row mt-2">
                                         <div class="repeater-default">
-                                            <div data-repeater-list="group-a">
+                                            <div data-repeater-list="group-machine">
                                                 <div data-repeater-item>
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -296,7 +302,7 @@
                                     <h1>Employee Details</h1>
                                     <div class="row mt-2">
                                         <div class="repeater-default">
-                                            <div data-repeater-list="group-a">
+                                            <div data-repeater-list="group-employee">
                                                 <div data-repeater-item>
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -371,7 +377,7 @@
                                     <h1>Laborer Details</h1>
                                     <div class="row mt-2">
                                         <div class="repeater-default">
-                                            <div data-repeater-list="group-a">
+                                            <div data-repeater-list="group-laborer">
                                                 <div data-repeater-item>
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -442,7 +448,7 @@
                                     <h1>Other Expense Details</h1>
                                     <div class="row mt-2">
                                         <div class="repeater-default">
-                                            <div data-repeater-list="group-a">
+                                            <div data-repeater-list="group-other_expense">
                                                 <div data-repeater-item>
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -516,4 +522,41 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/forms/form-repeater.js') }}"></script>
     <!-- END: Page JS-->
+
+    <script>
+        // $(function() {
+        //     $('#product_details').each(function() {
+        //         var price = $(this).find('#unit_price').val();
+        //         var qty = $(this).find('#qnt').val();
+        //         $(this).find('#total_price').val(parseFloat(price) * parseFloat(qty));
+        //     });
+        // });
+        // function productDetails() {
+        //     $('.group-a').each(function() {
+        //         var price = $(this).find('#unit_price').val();
+        //         var qty = $(this).find('#qnt').val();
+        //         $(this).find('#total_price').val(parseFloat(price) * parseFloat(qty));
+        //     });
+        // }
+
+        $(document).ready(function() {
+            //alert('in');
+            // $("#product").click(function(){
+            //      var elements1 = document.querySelectorAll('[name^="group-product"]');
+            //     console.log(elements1);
+                $("#unit_price, #qnt").keyup(function() {
+                    
+                    var total = 0;
+                    var unit_price = $("#unit_price").val();
+                    var qnt = $("#qnt").val();
+                    console.log(unit_price);
+                    console.log(qnt);
+                    total = unit_price * qnt;
+                    console.log(total);
+                    $("#total_price").val(total);
+                })
+                })
+           
+        //})
+    </script>
 @endsection

@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $clients = Client::get();
+        $clients = Client::where('status','!=','Inactive')->get();
         return view('project-management.project-setup.project.create')->with(compact('clients'));
     }
 
