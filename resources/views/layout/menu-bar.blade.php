@@ -274,7 +274,7 @@
                         <li><a href="{{ route('project.index') }}"><i class="bx bx-right-arrow-alt"></i><span
                                     class="menu-item" data-i18n="LivIcons">Project</span></a>
                         </li>
-                        <li><a href="{{ route('project-estimation.create') }}"><i
+                        <li><a href="{{ route('project-estimation.index') }}"><i
                                     class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="LivIcons">Estimate Project Cost</span></a>
                         </li>

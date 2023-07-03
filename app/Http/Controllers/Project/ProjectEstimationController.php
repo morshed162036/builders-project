@@ -15,7 +15,7 @@ class ProjectEstimationController extends Controller
      */
     public function index()
     {
-        //
+        return view('project-management.project-setup.estimation.index');
     }
 
     /**

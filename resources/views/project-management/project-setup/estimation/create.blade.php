@@ -169,7 +169,7 @@
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="qnt">Quantity</label>
-                                                            <input type="number" class="form-control" id="qnt"
+                                                            <input type="number" class="form-control" id="product_qnt"
                                                                 name="qnt" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -240,7 +240,7 @@
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="machine_name">Machine</label>
-                                                            <select name="machine_name[]" id="machine_name"
+                                                            <select name="machine_name" id="machine_name"
                                                                 class="form-control">
                                                                 <option value="">Select</option>
                                                                 <option value="Boom/Crane Truck ">Boom/Crane Truck
@@ -254,18 +254,18 @@
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="qnt">Quantity</label>
-                                                            <input type="number" class="form-control" id="qnt"
-                                                                name="qnt[]" placeholder="0">
+                                                            <input type="number" class="form-control" id="machine_qnt"
+                                                                name="qnt" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="daily_hour">Daily Usable Hour</label>
                                                             <input type="number" class="form-control" id="daily_hour"
-                                                                name="daily_hour[]" placeholder="0">
+                                                                name="daily_hour" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="hourly_price">Hourly Cost</label>
                                                             <input type="text" class="form-control" id="hourly_price"
-                                                                name="hourly_price[]" placeholder="0">
+                                                                name="hourly_price" placeholder="0">
                                                         </div>
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
@@ -307,7 +307,7 @@
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_designation">Designation</label>
-                                                            <select name="employee_designation[]"
+                                                            <select name="employee_designation"
                                                                 id="employee_designation" class="form-control">
                                                                 <option value="">Select</option>
                                                                 <option value="Site Engineer">Site Engineer
@@ -326,7 +326,7 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_head_count">Head Count</label>
                                                             <input type="number" class="form-control"
-                                                                id="employee_head_count" name="employee_head_count[]"
+                                                                id="employee_head_count" name="employee_head_count"
                                                                 placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -334,13 +334,13 @@
                                                                 Hour</label>
                                                             <input type="number" class="form-control"
                                                                 id="employee_daily_working_hour"
-                                                                name="employee_daily_working_hour[]" placeholder="0">
+                                                                name="employee_daily_working_hour" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_hourly_salary">Hourly Salary</label>
                                                             <input type="text" class="form-control"
                                                                 id="employee_hourly_salary"
-                                                                name="employee_hourly_salary[]" placeholder="0">
+                                                                name="employee_hourly_salary" placeholder="0">
                                                         </div>
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
@@ -382,7 +382,7 @@
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_designation">Designation</label>
-                                                            <select name="laborer_designation[]" id="laborer_designation"
+                                                            <select name="laborer_designation" id="laborer_designation"
                                                                 class="form-control">
                                                                 <option value="">Select</option>
                                                                 <option value="Plumber">Plumber
@@ -398,19 +398,19 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_head_count">Head Count</label>
                                                             <input type="number" class="form-control"
-                                                                id="laborer_head_count" name="laborer_head_count[]"
+                                                                id="laborer_head_count" name="laborer_head_count"
                                                                 placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_working_days">Working Days</label>
                                                             <input type="number" class="form-control"
-                                                                id="laborer_working_days" name="laborer_working_days[]"
+                                                                id="laborer_working_days" name="laborer_working_days"
                                                                 placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_daily_salary">Daily Salary</label>
                                                             <input type="text" class="form-control"
-                                                                id="laborer_daily_salary" name="laborer_daily_salary[]"
+                                                                id="laborer_daily_salary" name="laborer_daily_salary"
                                                                 placeholder="0">
                                                         </div>
                                                         <div
@@ -454,7 +454,7 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="expense_head">Expense Head</label>
                                                             <input type="text" class="form-control" id="expense_head"
-                                                                name="expense_head[]" placeholder="expense name">
+                                                                name="expense_head" placeholder="expense name">
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 form-group">
                                                             <label for="expense_details">Details</label>
@@ -463,7 +463,7 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="expense_expected_cost">Expected Cost</label>
                                                             <input type="text" class="form-control"
-                                                                id="expense_expected_cost" name="expense_expected_cost[]"
+                                                                id="expense_expected_cost" name="expense_expected_cost"
                                                                 placeholder="0">
                                                         </div>
                                                         <div
