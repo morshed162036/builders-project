@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('supplier_company_id')->default(0);
             $table->string('name');
             $table->string('address');
             $table->string('city');

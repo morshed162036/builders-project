@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('supplier_bank_details', function (Blueprint $table) {
+        Schema::create('estimation_otherexpenses', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('supplier_id');
-            $table->string('acount_holder_name');
-            $table->string('bank_name');
-            $table->string('account_number');
-            $table->string('bank_ifsc_code');
+            $table->bigInteger('estimation_id');
+            $table->string('expense_head');
+            $table->text('details')->nullable();
+            $table->double('cost');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supplier_bank_details');
+        Schema::dropIfExists('estimation_otherexpenses');
     }
 };

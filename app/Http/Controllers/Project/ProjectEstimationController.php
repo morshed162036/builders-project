@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\settings\Unit;
 use App\Models\Project\Project;
+use App\Models\Project\Project_estimation;
 
 class ProjectEstimationController extends Controller
 {
@@ -15,7 +16,9 @@ class ProjectEstimationController extends Controller
      */
     public function index()
     {
-        return view('project-management.project-setup.estimation.index');
+        $estimations = Project_estimation::with('project')->get();
+        //dd($estimations);
+        return view('project-management.project-setup.estimation.index')->with(compact('estimations'));
     }
 
     /**

@@ -75,7 +75,7 @@
                             <h5 class="card-title">Supplier List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('supplier.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>

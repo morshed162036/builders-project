@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_estimations', function (Blueprint $table) {
+        Schema::create('estimation_products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('project_id');
-            $table->date('starting_date');
-            $table->date('ending_date');
-            $table->integer('holy_days');
-            $table->double('cost');
+            $table->bigInteger('estimation_id');
+            $table->bigInteger('product_id');
+            $table->bigInteger('unit_id');
+            $table->integer('qnt');
+            $table->double('unit_price');
+            $table->double('total_cost');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_estimations');
+        Schema::dropIfExists('estimation_products');
     }
 };

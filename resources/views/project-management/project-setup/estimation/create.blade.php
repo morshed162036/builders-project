@@ -258,9 +258,14 @@
                                                                 name="qnt" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
-                                                            <label for="daily_hour">Daily Usable Hour</label>
-                                                            <input type="number" class="form-control" id="daily_hour"
-                                                                name="daily_hour" placeholder="0">
+                                                            <label for="using_days">Using Days</label>
+                                                            <input type="number" class="form-control" id="using_days"
+                                                                name="using_days" placeholder="0">
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                            <label for="daily_hours">Daily Usable Hours</label>
+                                                            <input type="number" class="form-control" id="daily_hours"
+                                                                name="daily_hours" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="hourly_price">Hourly Cost</label>
@@ -331,10 +336,10 @@
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_daily_working_hour">Daily Working
-                                                                Hour</label>
+                                                                Hours</label>
                                                             <input type="number" class="form-control"
-                                                                id="employee_daily_working_hour"
-                                                                name="employee_daily_working_hour" placeholder="0">
+                                                                id="employee_daily_working_hours"
+                                                                name="employee_daily_working_hours" placeholder="0">
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_hourly_salary">Hourly Salary</label>
