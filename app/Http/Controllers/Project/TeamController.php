@@ -66,6 +66,13 @@ class TeamController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $repeat = Team::where('name',$request->team_name)->get()->first();
+        //dd($repeat);
+        if($repeat != null){
+            if($id != $repeat->id){
+                return redirect(route('team.index'))->with('error','Team Name Already Exist');
+            }
+        }
         $team = Team::findorFail($id);
         $team->name = $request->team_name;
         $team->team_type = $request->team_type;

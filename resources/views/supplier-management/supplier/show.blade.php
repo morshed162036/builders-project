@@ -43,7 +43,7 @@
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h5 class="content-header-title float-left pr-1 mb-0">Supplier Edit</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Supplier Details</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
@@ -51,7 +51,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('supplier.index') }}">Suppliers</a>
                             </li>
-                            <li class="breadcrumb-item active">Supplier Edit
+                            <li class="breadcrumb-item active">Supplier Details
                             </li>
                         </ol>
                     </div>
@@ -77,7 +77,6 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
-                            <form action="{{ route('supplier.update',$supplier->id) }}" method="post" enctype="multipart/form-data"> @csrf @method('put')
                                 <div class="card-body">
                                     <div class="row">
                                         <h2 style="color: rgba(20, 120, 212, 0.815)">Profile</h2>
@@ -88,7 +87,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" value="{{ $supplier->name }}" required>
+                                                    <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" value="{{ $supplier->name }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -99,7 +98,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" value="{{ $supplier->address }}" required>
+                                                    <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" value="{{ $supplier->address }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>         
@@ -110,7 +109,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="city" value="{{ $supplier->city }}" required>
+                                                    <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="city" value="{{ $supplier->city }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -123,7 +122,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="pincode" value="{{ $supplier->pincode }}" required>
+                                                    <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="pincode" value="{{ $supplier->pincode }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -134,7 +133,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-Createon1" name="email" value="{{ $supplier->email }}" required>
+                                                    <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-Createon1" name="email" value="{{ $supplier->email }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>         
@@ -145,7 +144,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="phone" maxlength="11" value="{{ $supplier->mobile }}" required>
+                                                    <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="phone" maxlength="11" value="{{ $supplier->mobile }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div> 
@@ -158,7 +157,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="NID Number" aria-describedby="basic-Createon1" name="nid" value="{{ $supplier->nid }}" required>
+                                                    <input type="text" class="form-control" placeholder="NID Number" aria-describedby="basic-Createon1" name="nid" value="{{ $supplier->nid }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -169,7 +168,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="License Number" aria-describedby="basic-Createon1" name="trade_license" value="{{ $supplier->trade_license }}" required>
+                                                    <input type="text" class="form-control" placeholder="License Number" aria-describedby="basic-Createon1" name="trade_license" value="{{ $supplier->trade_license }}" readonly>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -186,7 +185,7 @@
                                                     <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="company_name" 
                                                     @isset($supplier->company)  
                                                         value="{{ $supplier->company->name }}" 
-                                                    @endisset>
+                                                    @endisset readonly>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -197,7 +196,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="company_address" @isset($supplier->company)   value="{{ $supplier->company->address }}"@endisset>
+                                                    <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="company_address" @isset($supplier->company)   value="{{ $supplier->company->address }}"@endisset readonly>
                                                 </div>
                                             </fieldset>
                                         </div>         
@@ -211,7 +210,7 @@
                                                     <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="company_city" 
                                                     @isset($supplier->company) 
                                                         value="{{ $supplier->company->city }}"
-                                                    @endisset>
+                                                    @endisset readonly>
                                           
                                                 </div>
                                             </fieldset>
@@ -226,7 +225,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="company_pincode" @isset($supplier->company) value="{{ $supplier->company->pincode }}"@endisset>
+                                                    <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="company_pincode" @isset($supplier->company) value="{{ $supplier->company->pincode }}"@endisset readonly>
                                                 </div>
                                             </fieldset>
                                             
@@ -238,7 +237,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-Createon1" name="company_email" @isset($supplier->company) value="{{ $supplier->company->email }}"@endisset>
+                                                    <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-Createon1" name="company_email" @isset($supplier->company) value="{{ $supplier->company->email }}"@endisset readonly>
                                                 </div>
                                             </fieldset>
                                             
@@ -250,7 +249,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="company_phone" maxlength="11" @isset($supplier->company) value="{{ $supplier->company->mobile }}"@endisset>
+                                                    <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="company_phone" maxlength="11" @isset($supplier->company) value="{{ $supplier->company->mobile }}"@endisset readonly>
                                                 </div>
                                             </fieldset>
                                             
@@ -264,13 +263,13 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="www.https:" aria-describedby="basic-Createon1" name="company_website" @isset($supplier->company) value="{{ $supplier->company->website }}"@endisset>
+                                                    <input type="text" class="form-control" placeholder="www.https:" aria-describedby="basic-Createon1" name="company_website" @isset($supplier->company) value="{{ $supplier->company->website }}"@endisset readonly>
                                                 </div>
                                                 
                                             </fieldset>
                                             
                                         </div>
-                                        <div class="col-sm-4">
+                                        {{-- <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <h5>Address Proof</h5>
                                                 <div class="input-group">
@@ -299,16 +298,15 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="file" class="form-control"  aria-describedby="basic-Createon1" name="company_tin_certificate" >
+                                                    <input type="file" class="form-control"  aria-describedby="basic-Createon1" name="company_tin_certificate">
                                                 </div>
                                             </fieldset>
-                                        </div> 
+                                        </div>  --}}
                                     </div>
                                     
-                                    <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Update</button>
+                                    <a href="{{ route('supplier.edit',$supplier->id) }}" class="btn btn-primary mt-2 btn-lg mx-1">Edit</a>
                                         
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

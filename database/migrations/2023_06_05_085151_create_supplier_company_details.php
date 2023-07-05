@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('supplier_id');
             $table->string('name');
-            $table->string('address');
-            $table->string('city');
-            $table->string('pincode');
-            $table->string('mobile');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('pincode')->nullable();
+            $table->string('mobile')->nullable();
             $table->string('website')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('address_proof')->nullable();
             $table->string('license_certificate')->nullable();
             $table->string('tin_certificate')->nullable();

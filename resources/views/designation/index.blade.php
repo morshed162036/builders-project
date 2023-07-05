@@ -3,8 +3,7 @@
 @section('css')
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/vendors.min.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -17,48 +16,39 @@
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
     <style>
-        a label {
+        a label{
             cursor: pointer;
         }
-    </style>
+    </style> 
 @endsection
 
 @section('content')
+
     <div class="content-header row">
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    @if (Session::has('success'))
+                    @if(Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success: </strong>{{ Session::get('success') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                         </div>
                     @endif
-                    @if (Session::has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>Success: </strong>{{ Session::get('error') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">Supplier Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Designation Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
-                                        class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Suppliers
+                            <li class="breadcrumb-item active">Designations
                             </li>
                         </ol>
                     </div>
@@ -72,10 +62,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Supplier List</h5>
+                            <h5 class="card-title">Designation List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('supplier.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('designation.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -85,38 +75,30 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Supplier Name</th>
-                                                <th>Company</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Address</th>
+                                                <th>Designation Title</th>
+                                                <th>Description</th>
+                                                <th>Designation For</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($suppliers)
-                                                @foreach ($suppliers as $supplier)
+                                            @if ($designations)
+                                                @foreach ($designations as $designation)
                                                     <tr>
-                                                        <td>{{ $supplier->name }}</td>
-                                                        <td>@if ($supplier->company != null)
-                                                            {{ $supplier->company->name}}
-                                                        @else
-                                                             <span>Empty</span>
-                                                        @endif</td>
-                                                        <td>{{ $supplier->mobile }}</td>
-                                                        <td>{{ $supplier->email }}</td>
-                                                        <td>{{ $supplier->address }}</td>
+                                                        <td>{{ $designation->title }}</td>
+                                                        <td>{{ $designation->description }}</td>
+                                                        <td>{{ $designation->type }}</td>
                                                         <td>
-                                                            @if($supplier->status == 'Active')
-                                                                <a class="updateSupplierStatus" id="supplier-{{ $supplier->id }}"
-                                                                    supplier_id = "{{ $supplier->id }}"
+                                                            @if($designation->status == 'Active')
+                                                                <a class="updateDesignationStatus" id="designation-{{ $designation->id }}"
+                                                                    designation_id = "{{ $designation->id }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-success" status="Active">Active</label>
                                                                 </a>
                                                             @else
-                                                                <a class="updateSupplierStatus" id="supplier-{{ $supplier->id }}"
-                                                                    supplier_id = "{{ $supplier->id }}"
+                                                                <a class="updateDesignationStatus" id="designation-{{ $designation->id }}"
+                                                                    designation_id = "{{ $designation->id }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-danger" status="Inactive">Inactive</label>
                                                                 </a>
@@ -126,9 +108,8 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('supplier.show',$supplier->id) }}"><i class="bx bx-edit-alt mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item" href="{{ route('supplier.edit',$supplier->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('supplier.destroy',$supplier->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('designation.edit',$designation->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('designation.destroy',$designation->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -143,11 +124,9 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Supplier Name</th>
-                                                <th>Company</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Address</th>
+                                                <th>Designation Title</th>
+                                                <th>Description</th>
+                                                <th>Designation For</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -161,9 +140,12 @@
             </div>
         </section>
     </div>
+
 @endsection
 
 @section('js')
+
+    
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js') }}"></script>
@@ -173,8 +155,7 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}">
-    </script>
+    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
@@ -197,24 +178,24 @@
     <script>
 
         $(document).ready(function (){
-            $(document).on("click", ".updateSupplierStatus", function () {
+            $(document).on("click", ".updateDesignationStatus", function () {
                 var status = $(this).children("label").attr("status");
-                var supplier_id = $(this).attr("supplier_id");
+                var designation_id = $(this).attr("designation_id");
 
                 $.ajax({
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                     },
                     type: "post",
-                    url: "{{ route('updateSupplierStatus') }}",
-                    data: { status: status, supplier_id: supplier_id },
+                    url: "{{ route('updateDesignationStatus') }}",
+                    data: { status: status, designation_id: designation_id },
                     success: function (resp) {
                         if (resp["status"] == 'Inactive') {
-                            $("#supplier-" + supplier_id).html(
+                            $("#designation-" + designation_id).html(
                                 "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
                             );
                         } else if (resp["status"] == 'Active') {
-                            $("#supplier-" + supplier_id).html(
+                            $("#designation-" + designation_id).html(
                                 "<label class='badge badge-success' status='Active'>Active</label>"
                             );
                         }
@@ -228,3 +209,4 @@
         
     </script>
 @endsection
+

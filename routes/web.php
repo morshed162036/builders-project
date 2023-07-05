@@ -17,6 +17,8 @@ use App\Http\Controllers\Accounts\ChartofAccountController;
 use App\Http\Controllers\settings\UnitController;
 use App\Http\Controllers\settings\PaymentMethodController;
 use App\Http\Controllers\settings\TransferController;
+
+use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\RoleController;
 
 /*
@@ -50,6 +52,7 @@ Route::prefix('/')->group(function(){
         Route::post('update-product-status',[ProductController::class,'updateProductStatus'])->name('updateProductStatus');
         //Supplier Management
         Route::resource('supplier',SupplierController::class);
+        Route::post('update-supplier-status',[SupplierController::class,'updateSupplierStatus'])->name('updateSupplierStatus');
 
         //Project Management
         Route::resource('client',ClientController::class);
@@ -67,6 +70,9 @@ Route::prefix('/')->group(function(){
         Route::resource('payment-method', PaymentMethodController::class);
         Route::post('update-payment-method-status',[PaymentMethodController::class,'updateMethodStatus'])->name('updateMethodStatus');
         Route::resource('payment-transfer', TransferController::class);
+        // Role Management
+        Route::resource('designation',DesignationController::class);
+        Route::post('update-designation-status',[DesignationController::class,'updateDesignationStatus'])->name('updateDesignationStatus');
         Route::resource('role', RoleController::class);
     });
 });

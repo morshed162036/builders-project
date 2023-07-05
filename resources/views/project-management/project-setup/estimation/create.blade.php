@@ -549,11 +549,11 @@
             // $("#product").click(function(){
             //      var elements1 = document.querySelectorAll('[name^="group-product"]');
             //     console.log(elements1);
-                $("#unit_price, #qnt").keyup(function() {
+                $("#unit_price, #product_qnt").keyup(function() {
                     
                     var total = 0;
                     var unit_price = $("#unit_price").val();
-                    var qnt = $("#qnt").val();
+                    var qnt = $("#product_qnt").val();
                     console.log(unit_price);
                     console.log(qnt);
                     total = unit_price * qnt;
