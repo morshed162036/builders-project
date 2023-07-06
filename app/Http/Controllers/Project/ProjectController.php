@@ -13,7 +13,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::get();
+        $projects = Project::with('client')->get();
+        //dd($projects);
         return view('project-management.project-setup.project.index')->with(compact('projects'));
     }
 

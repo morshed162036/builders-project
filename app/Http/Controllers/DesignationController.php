@@ -20,7 +20,7 @@ class DesignationController extends Controller
      */
     public function create()
     {
-        //
+        return view('designation.create');
     }
 
     /**
@@ -28,7 +28,12 @@ class DesignationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $designation = new Designation();
+        $designation->title = $request->title;
+        $designation->description = $request->description;
+        $designation->type = $request->type;
+        $designation->save();
+        return redirect(route('designation.index'))->with('success','Designation Create Successfully');
     }
 
     /**
@@ -44,7 +49,7 @@ class DesignationController extends Controller
      */
     public function edit(Designation $designation)
     {
-        //
+        return view('designation.edit')->with(compact('designation'));
     }
 
     /**
@@ -52,7 +57,11 @@ class DesignationController extends Controller
      */
     public function update(Request $request, Designation $designation)
     {
-        //
+        $designation->title = $request->title;
+        $designation->description = $request->description;
+        $designation->type = $request->type;
+        $designation->update();
+        return redirect(route('designation.index'))->with('success','Designation Update Successfully');
     }
 
     /**
@@ -60,7 +69,8 @@ class DesignationController extends Controller
      */
     public function destroy(Designation $designation)
     {
-        //
+        $designation->delete();
+        return redirect(route('designation.index'))->with('success','Designation Delete Successfully');
     }
     public function updateDesignationStatus(Request $request){
         if($request->ajax()){

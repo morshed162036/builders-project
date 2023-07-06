@@ -150,9 +150,9 @@
                                                 <div data-repeater-item>
                                                     <div class="row justify-content-between" id='product_details'>
                                                         <div class="col-md-2 col-sm-12 form-group">
-                                                            <label for="product_name">Product</label>
-                                                            <select name="product_name" id="product_name"
-                                                                class="form-control">
+                                                            <label for="product_id">Product</label>
+                                                            <select name="product_id" id="product_id"
+                                                                class="form-control" required>
                                                                 <option value="">Select</option>
                                                                 @isset($products)
                                                                     @foreach ($products as $product)
@@ -170,11 +170,11 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="qnt">Quantity</label>
                                                             <input type="number" class="form-control" id="product_qnt"
-                                                                name="qnt" placeholder="0">
+                                                                name="qnt" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="unit_id">Unit</label>
-                                                            <select name="unit_id" id="unit_id" class="form-control">
+                                                            <select name="unit_id" id="unit_id" class="form-control" required>
                                                                 <option value="">Select</option>
                                                                 @isset($units)
                                                                     @foreach ($units as $unit)
@@ -192,7 +192,7 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="unit_price">Unit Price</label>
                                                             <input type="text" class="form-control" id="unit_price"
-                                                                name="unit_price" placeholder="0">
+                                                                name="unit_price" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="total_price">Total Price</label>
@@ -239,38 +239,44 @@
                                                 <div data-repeater-item>
                                                     <div class="row justify-content-between">
                                                         <div class="col-md-2 col-sm-12 form-group">
-                                                            <label for="machine_name">Machine</label>
-                                                            <select name="machine_name" id="machine_name"
-                                                                class="form-control">
+                                                            <label for="machine_id">Machine</label>
+                                                            <select name="machine_id" id="machine_id"
+                                                                class="form-control" required>
                                                                 <option value="">Select</option>
-                                                                <option value="Boom/Crane Truck ">Boom/Crane Truck
+                                                                @isset($machines)
+                                                                    @foreach ($machines as $machine)
+                                                                        <option value="{{ $machine->id }}">
+                                                                            {{ $machine->title }}</option>
+                                                                    @endforeach
+                                                                @endisset
+                                                                {{-- <option value="Boom/Crane Truck ">Boom/Crane Truck
                                                                 </option>
                                                                 <option value="Manlift/Bucket Truck">Manlift/Bucket Truck
                                                                 </option>
                                                                 <option value="Grader">Grader</option>
                                                                 <option value="Loader">Loader</option>
-                                                                <option value="Haul Truck">Haul Truck</option>
+                                                                <option value="Haul Truck">Haul Truck</option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="qnt">Quantity</label>
                                                             <input type="number" class="form-control" id="machine_qnt"
-                                                                name="qnt" placeholder="0">
+                                                                name="qnt" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="using_days">Using Days</label>
                                                             <input type="number" class="form-control" id="using_days"
-                                                                name="using_days" placeholder="0">
+                                                                name="using_days" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="daily_hours">Daily Usable Hours</label>
                                                             <input type="number" class="form-control" id="daily_hours"
-                                                                name="daily_hours" placeholder="0">
+                                                                name="daily_hours" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="hourly_price">Hourly Cost</label>
                                                             <input type="text" class="form-control" id="hourly_price"
-                                                                name="hourly_price" placeholder="0">
+                                                                name="hourly_price" placeholder="0" required>
                                                         </div>
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
@@ -313,9 +319,15 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_designation">Designation</label>
                                                             <select name="employee_designation"
-                                                                id="employee_designation" class="form-control">
+                                                                id="employee_designation" class="form-control" required>
                                                                 <option value="">Select</option>
-                                                                <option value="Site Engineer">Site Engineer
+                                                                @isset($employees)
+                                                                    @foreach ($employees as $employee)
+                                                                        <option value="{{ $employee->id }}">
+                                                                            {{ $employee->title }}</option>
+                                                                    @endforeach
+                                                                @endisset
+                                                                {{-- <option value="Site Engineer">Site Engineer
                                                                 </option>
                                                                 <option value="Quality Control Engineer">Quality Control
                                                                     Engineer
@@ -325,27 +337,33 @@
                                                                 <option value="Construction Planning Engineer">Construction
                                                                     Planning Engineer</option>
                                                                 <option value="Construction Engineer">Construction Engineer
-                                                                </option>
+                                                                </option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_head_count">Head Count</label>
                                                             <input type="number" class="form-control"
                                                                 id="employee_head_count" name="employee_head_count"
-                                                                placeholder="0">
+                                                                placeholder="0" required>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                            <label for="employee_daily_working_hour">Working Days</label>
+                                                            <input type="number" class="form-control"
+                                                                id="employee_working_days"
+                                                                name="employee_working_days" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_daily_working_hour">Daily Working
                                                                 Hours</label>
                                                             <input type="number" class="form-control"
                                                                 id="employee_daily_working_hours"
-                                                                name="employee_daily_working_hours" placeholder="0">
+                                                                name="employee_daily_working_hours" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="employee_hourly_salary">Hourly Salary</label>
                                                             <input type="text" class="form-control"
                                                                 id="employee_hourly_salary"
-                                                                name="employee_hourly_salary" placeholder="0">
+                                                                name="employee_hourly_salary" placeholder="0" required>
                                                         </div>
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
@@ -388,35 +406,41 @@
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_designation">Designation</label>
                                                             <select name="laborer_designation" id="laborer_designation"
-                                                                class="form-control">
+                                                                class="form-control" required>
                                                                 <option value="">Select</option>
-                                                                <option value="Plumber">Plumber
+                                                                @isset($laborers)
+                                                                    @foreach ($laborers as $laborer)
+                                                                        <option value="{{ $laborer->id }}">
+                                                                            {{ $laborer->title }}</option>
+                                                                    @endforeach
+                                                                @endisset
+                                                                {{-- <option value="Plumber">Plumber
                                                                 </option>
                                                                 <option value="Electricians">Electricians
                                                                 </option>
                                                                 <option value="Ironworker">Ironworker</option>
                                                                 <option value="Mason">Mason</option>
                                                                 <option value="Pipefitter">Pipefitter
-                                                                </option>
+                                                                </option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_head_count">Head Count</label>
                                                             <input type="number" class="form-control"
                                                                 id="laborer_head_count" name="laborer_head_count"
-                                                                placeholder="0">
+                                                                placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_working_days">Working Days</label>
                                                             <input type="number" class="form-control"
                                                                 id="laborer_working_days" name="laborer_working_days"
-                                                                placeholder="0">
+                                                                placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="laborer_daily_salary">Daily Salary</label>
                                                             <input type="text" class="form-control"
                                                                 id="laborer_daily_salary" name="laborer_daily_salary"
-                                                                placeholder="0">
+                                                                placeholder="0" required>
                                                         </div>
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">

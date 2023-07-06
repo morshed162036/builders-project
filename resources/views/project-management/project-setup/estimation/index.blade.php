@@ -105,7 +105,8 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModalScrollable">Details</a>
+                                                                    
+                                                                    <a class="dropdown-item" href="{{ route('project-estimation.show',$estimation->id) }}"><i class="bx bx-edit-alt mr-1"></i> Details</a>
                                                                     <a class="dropdown-item" href="{{ route('project-estimation.edit',$estimation->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
                                                                     <form action="{{ route('project-estimation.destroy',$estimation->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
@@ -138,7 +139,7 @@
             </div>
         </section>
     </div>
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    {{-- <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -228,7 +229,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('js')

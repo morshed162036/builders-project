@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('starting_date');
             $table->date('ending_date');
             $table->integer('holy_days');
-            $table->double('cost');
+            $table->double('cost')->default(0);
             $table->timestamps();
         });
     }

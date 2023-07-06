@@ -252,6 +252,23 @@
                 </li>
 
 
+                <li class=" navigation-header"><span>Inventory Management</span>
+                </li>
+                <li class=" nav-item"><a href=""><i class="bx bx-envelope">
+                    </i><span class="menu-title">Stock</span></a>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Invoice</span></a>
+                            <ul class='menu-content'>
+                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Purchase</span></a>
+                                </li>
+                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Sell</span></a>
+                                </li>
+                            </ul>
+                </li>
+
                 <li class=" navigation-header"><span>Project Management</span>
                 </li>
                 <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span

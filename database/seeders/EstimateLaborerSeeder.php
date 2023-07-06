@@ -13,7 +13,7 @@ class EstimateLaborerSeeder extends Seeder
     public function run(): void
     {
         $laborer = [
-            ['id'=>1,'estimation_id'=>1,'designation'=>'Plumber','head_count'=>2,'working_days'=>20,'daily_salary'=>100,'Total_cost'=>2*20*100]
+            ['id'=>1,'estimation_id'=>1,'designation_id'=>6,'head_count'=>2,'working_days'=>20,'daily_salary'=>100,'Total_cost'=>2*20*100]
         ];
         Estimation_laborer::insert($laborer);
     }

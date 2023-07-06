@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('estimation_employees', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('estimation_id');
-            $table->string('designation');
+            $table->bigInteger('designation_id');
             $table->integer('head_count');
             $table->integer('working_hours');
             $table->integer('working_days');

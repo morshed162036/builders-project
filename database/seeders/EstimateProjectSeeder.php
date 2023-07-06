@@ -14,7 +14,7 @@ class EstimateProjectSeeder extends Seeder
     public function run(): void
     {
         $estimate_projects = [
-            ['id'=>1,'project_id'=>1,'starting_date'=>'2023-07-05','ending_date'=>'2023-09-05','holy_days'=>'8','cost'=>'0']
+            ['id'=>1,'project_id'=>1,'starting_date'=>'2023-07-05','ending_date'=>'2023-09-05','holy_days'=>'8','cost'=>50260.4]
         ];
         Project_estimation::insert($estimate_projects);
     }

@@ -103,7 +103,7 @@
                                                 @foreach ($projects as $project)
                                                     <tr>
                                                         <td>{{ $project['name'] }}</td>
-                                                        <td>{{ $project['client_id'] }}</td>
+                                                        <td>{{ $project->client->name }}({{ $project->client->company }})</td>
                                                         <td>{{ $project['starting_date'] }}</td>
                                                         <td>{{ $project['expected_finished_date'] }}</td>
                                                         <td>{{ $project['finished_date'] }}</td>
