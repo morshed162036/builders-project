@@ -93,8 +93,10 @@
                                             @if ($products)
                                                 @foreach ($products as $product)
                                                     <tr>
-                                                        <td><img src="{{ asset('images/product_image/' . $product->image) }}"
-                                                                class="mr-50" alt="logo" height="25" width="35">
+                                                        <td>@if ($product->image)
+                                                            
+                                                        <img src="{{ asset('images/product_image/' . $product->image) }}"
+                                                                class="mr-50" alt="logo" height="25" width="35">@endif
                                                         </td>
                                                         <td class="text-bold-600">{{ $product->title }}</td>
                                                         <td>{{ $product->category->name }}</td>

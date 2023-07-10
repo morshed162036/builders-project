@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
 use App\Models\Supplier_company_detail;
+use App\Models\Invoice\Invoice;
 class SupplierController extends Controller
 {
     /**
@@ -162,5 +163,17 @@ class SupplierController extends Controller
             Supplier::where('id',$data['supplier_id'])->update(['status'=>$status]);
             return response()->json(['status'=>$status,'supplier_id'=> $data['supplier_id']]);
         }
+    }
+    public function advanceSupplier()
+    {
+        $suppliers = Invoice::with('supplier')->where('invoice_type','Purchase')->where('payment_status','Advance')->get();
+        //dd($suppliers);
+        return view('supplier-management.advance')->with(compact('suppliers'));
+    }
+    public function payableSupplier()
+    {
+        $suppliers = Invoice::with('supplier')->where('invoice_type','Purchase')->where('payment_status','Due')->orWhere('payment_status','Partial')->get();
+        //dd($suppliers);
+        return view('supplier-management.payable')->with(compact('suppliers'));
     }
 }

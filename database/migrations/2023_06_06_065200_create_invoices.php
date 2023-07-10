@@ -13,10 +13,18 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('supplier_id');
-            $table->string('invoice_code');
-            $table->integer('total_item');
-            $table->double('total_price');
+            $table->bigInteger('supplier_id')->default(0);
+            $table->bigInteger('client_id')->default(0);
+            $table->bigInteger('project_id')->default(0);
+            $table->string('invoice_code')->unique();
+            $table->date('issue_date');
+            $table->date('due_date');
+            $table->double('discount')->default(0);
+            $table->double('payment_amount')->default(0);
+            $table->enum('payment_status',['Paid','Due','Partial','Advance']);
+            $table->enum('invoice_type',['Purchase','Sell','Project']);
+            $table->integer('total_item')->default(0);
+            $table->double('total_amount')->default(0);
             $table->timestamps();
         });
     }

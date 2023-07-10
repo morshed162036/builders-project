@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('invoice_purchases', function (Blueprint $table) {
+        Schema::create('machine_stock_details', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('machine_stock_id');
+            $table->bigInteger('invoice_id');
+            $table->string('sku')->unique();
+            $table->double('purchase_unit_price');
+            $table->bigInteger('project_id')->default(0);
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('invoice_purchases');
+        Schema::dropIfExists('machine_stock_details');
     }
 };

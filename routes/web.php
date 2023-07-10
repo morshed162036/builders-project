@@ -12,11 +12,19 @@ use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Project\ClientController;
 use App\Http\Controllers\Project\TeamController;
 use App\Http\Controllers\Project\TeamMembersController;
+
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\InvoiceDetailController;
+
 use App\Http\Controllers\Accounts\AccountGroupController;
 use App\Http\Controllers\Accounts\ChartofAccountController;
+
+use App\Http\Controllers\Stock\StockController;
+
 use App\Http\Controllers\settings\UnitController;
 use App\Http\Controllers\settings\PaymentMethodController;
 use App\Http\Controllers\settings\TransferController;
+use App\Http\Controllers\settings\TransectionHistoryController;
 
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\RoleController;
@@ -53,7 +61,9 @@ Route::prefix('/')->group(function(){
         //Supplier Management
         Route::resource('supplier',SupplierController::class);
         Route::post('update-supplier-status',[SupplierController::class,'updateSupplierStatus'])->name('updateSupplierStatus');
-
+        Route::get('supplier-advance',[SupplierController::class,'advanceSupplier'])->name('supplier.advance');
+        Route::get('supplier-payable',[SupplierController::class,'payableSupplier'])->name('supplier.payable');
+        
         //Project Management
         Route::resource('client',ClientController::class);
         Route::resource('team',TeamController::class);
@@ -61,6 +71,16 @@ Route::prefix('/')->group(function(){
         Route::resource('team-members',TeamMembersController::class);
         Route::resource('project',ProjectController::class);
         Route::resource('project-estimation',ProjectEstimationController::class);
+
+        // Stock
+        Route::resource('stock', StockController::class);
+        
+        // Invoice
+        Route::resource('invoice', InvoiceController::class);
+        Route::get('invoice-purchase', [InvoiceController::class,'purchaseIndex'])->name('purchase_index');
+        Route::get('invoice-sell', [InvoiceController::class,'sellIndex'])->name('sell_index');
+        Route::get('invoice-project', [InvoiceController::class,'projectIndex'])->name('project_index');
+        Route::resource('invoice-details', InvoiceDetailController::class);
         // Accounts
         Route::resource('accounts', AccountGroupController::class);
         Route::resource('chart-of-account',ChartofAccountController::class);
@@ -69,6 +89,7 @@ Route::prefix('/')->group(function(){
         Route::post('update-unit-status',[UnitController::class,'updateUnitStatus'])->name('UnitStatus');
         Route::resource('payment-method', PaymentMethodController::class);
         Route::post('update-payment-method-status',[PaymentMethodController::class,'updateMethodStatus'])->name('updateMethodStatus');
+        Route::resource('transection-history', TransectionHistoryController::class);
         Route::resource('payment-transfer', TransferController::class);
         // Role Management
         Route::resource('designation',DesignationController::class);

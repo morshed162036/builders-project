@@ -3,7 +3,8 @@
 @section('css')
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/vendors.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('admin_template/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -16,39 +17,48 @@
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('admin_template/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_template/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
     <style>
-        a label{
+        a label {
             cursor: pointer;
         }
-    </style> 
+    </style>
 @endsection
 
 @section('content')
-
     <div class="content-header row">
         <div class="content-header-left col-12 mb-2 mt-1">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    @if(Session::has('success'))
+                    @if (Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success: </strong>{{ Session::get('success') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">Brand Table</h5>
+                    @if (Session::has('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Success: </strong>{{ Session::get('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    <h5 class="content-header-title float-left pr-1 mb-0">Invoice Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
+                                        class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Brands
+                            <li class="breadcrumb-item active">Sell Invoices
                             </li>
                         </ol>
                     </div>
@@ -62,11 +72,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Brand List</h5>
+                            <h5 class="card-title">Invoice List</h5>
                             <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('brand.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
+                                {{-- <ul class="list-inline mb-0">
+                                    <li class="ml-2"><a href="{{ route('invoice.create') }}" class="btn btn-primary">+ Create</a></li>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="card-content">
@@ -75,45 +85,54 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Logo</th>
-                                                <th>Brand</th>
-                                                <th>Description</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
+                                                <th>Invoice Id</th>
+                                                <th>Client</th>
+                                                <th>Issue Date</th>
+                                                <th>Due Date</th>
+                                                <th>Total Items</th>
+                                                <th>Total Amount</th>
+                                                <th>Discount</th>
+                                                <th>Pay Amount</th>
+                                                <th>Due Amount</th>
+                                                <th>Payment Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($brands)
-                                                @foreach ($brands as $brand)
+                                            @if ($invoices)
+                                                @foreach ($invoices as $invoice)
                                                     <tr>
-                                                        <td>@if ($brand->image != null)<img src="
-                                                            {{ asset('images/brand_logo/'.$brand->image) }}
-                                                       " class="mr-50" alt="" height="25" width="35">@endif</td>
-                                                        <td class="text-bold-600" >{{ $brand->name }}</td>
-                                                        <td>{{ $brand->description }}</td>
-                                                        <td>{{ $brand->address }}</td>
-                                                        <td>
-                                                            @if($brand->status == 'Active')
-                                                                <a class="updateBrandStatus" id="brand-{{ $brand->id }}"
-                                                                    brand_id = "{{ $brand->id }}"
-                                                                    href="javascript:void(0)">
-                                                                        <label class="badge badge-success" status="Active">Active</label>
-                                                                </a>
-                                                            @else
-                                                                <a class="updateBrandStatus" id="brand-{{ $brand->id }}"
-                                                                    brand_id = "{{ $brand->id }}"
-                                                                    href="javascript:void(0)">
-                                                                        <label class="badge badge-danger" status="Inactive">Inactive</label>
-                                                                </a>
-                                                            @endif
-                                                        </td>
+                                                        <td class="text-primary">#{{ $invoice->invoice_code }}</td>
+                                                        <td>{{ $invoice->client->name }}@if ($invoice->client->company != null)
+                                                            ({{ $invoice->supplier->company }})
+                                                        @endif</td>
+                                                        <td>{{ $invoice->issue_date }}</td>
+                                                        <td>{{ $invoice->due_date }}</td>
+                                                        <td>{{ $invoice->total_item }}</td>
+                                                        <td>{{ $invoice->total_amount }}</td>
+                                                        <td>{{ $invoice->discount }}</td>
+                                                        <td>{{ $invoice->payment_amount }}</td>
+                                                        <td>{{ $invoice->total_amount - $invoice->payment_amount }}</td>
+                                                        <td 
+                                                        @if ($invoice->payment_status == 'Paid')
+                                                            class="text-success"
+                                                        @elseif ($invoice->payment_status == 'Due')
+                                                            class="text-danger"
+                                                        @elseif ($invoice->payment_status == 'Partial')
+                                                             class="text-secondary"
+                                                        @elseif ($invoice->payment_status == 'Advance')
+                                                            class="text-warning"
+                                                        @endif
+                                                        ><strong>{{ $invoice->payment_status }}</strong></td>
+                                                        
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('brand.edit',$brand->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('brand.destroy',$brand->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
+                                                                        bxs-spreadsheet mr-1"></i> Details</a>
+                                                                    <a class="dropdown-item" href="{{ route('invoice.edit',$invoice->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -128,11 +147,16 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Logo</th>
-                                                <th>Brand</th>
-                                                <th>Description</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
+                                                <th>Invoice Id</th>
+                                                <th>Supplier</th>
+                                                <th>Issue Date</th>
+                                                <th>Due Date</th>
+                                                <th>Total Items</th>
+                                                <th>Total Amount</th>
+                                                <th>Discount</th>
+                                                <th>Pay Amount</th>
+                                                <th>Due Amount</th>
+                                                <th>Payment Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -145,12 +169,9 @@
             </div>
         </section>
     </div>
-
 @endsection
 
 @section('js')
-
-    
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/vendors.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js') }}"></script>
@@ -160,7 +181,8 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
-    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}">
+    </script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('admin_template/app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
@@ -179,38 +201,5 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/datatables/datatable.js') }}"></script>
     <!-- END: Page JS-->
-    <script>
 
-        $(document).ready(function (){
-            $(document).on("click", ".updateBrandStatus", function () {
-                var status = $(this).children("label").attr("status");
-                var brand_id = $(this).attr("brand_id");
-
-                $.ajax({
-                    headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                    },
-                    type: "post",
-                    url: "{{ route('updateBrandStatus') }}",
-                    data: { status: status, brand_id: brand_id },
-                    success: function (resp) {
-                        if (resp["status"] == 'Inactive') {
-                            $("#brand-" + brand_id).html(
-                                "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
-                            );
-                        } else if (resp["status"] == 'Active') {
-                            $("#brand-" + brand_id).html(
-                                "<label class='badge badge-success' status='Active'>Active</label>"
-                            );
-                        }
-                    },
-                    error: function () {
-                        alert("Error");
-                    },
-                });
-            });
-        })
-        
-    </script>
 @endsection
-

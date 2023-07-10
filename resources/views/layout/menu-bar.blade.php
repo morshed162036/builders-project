@@ -244,27 +244,33 @@
                 <li class=" nav-item"><a href="{{ route('supplier.index') }}"><i class="bx bx-envelope"></i><span
                             class="menu-title">Supplier</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('supplier.advance') }}"><i class="bx bx-envelope"></i><span
                             class="menu-title">Advance Supplier</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('supplier.payable') }}"><i class="bx bx-envelope"></i><span
                             class="menu-title">Payable Supplier</span></a>
                 </li>
 
 
                 <li class=" navigation-header"><span>Inventory Management</span>
                 </li>
-                <li class=" nav-item"><a href=""><i class="bx bx-envelope">
+                <li class=" nav-item"><a href="{{ route('stock.index') }}"><i class="bx bx-envelope">
                     </i><span class="menu-title">Stock</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
                             class="menu-title">Invoice</span></a>
                             <ul class='menu-content'>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">Purchase</span></a>
+                                <li><a href="{{ route('invoice.index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">All Invoice</span></a>
                                 </li>
-                                <li><a href="#"><i class="bx bx-right-arrow-alt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">Sell</span></a>
+                                <li><a href="{{ route('purchase_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Purchase Invoice</span></a>
+                                </li>
+                                <li><a href="{{ route('sell_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Sell Invoice</span></a>
+                                </li>
+                                <li><a href="{{ route('project_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Project Invoice</span></a>
                                 </li>
                             </ul>
                 </li>
@@ -350,6 +356,10 @@
                         <li><a href="{{ route('payment-transfer.index') }}"><i
                                     class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="boxicons">Transfer Balance</span></a>
+                        </li>
+                        <li><a href="{{ route('transection-history.index') }}"><i
+                                    class="bx bx-right-arrow-alt"></i><span class="menu-item"
+                                    data-i18n="boxicons">Balance Transaction History</span></a>
                         </li>
                     </ul>
                 </li>
