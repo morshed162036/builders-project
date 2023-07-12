@@ -74,9 +74,9 @@
                         <div class="card-header">
                             <h5 class="card-title">Invoice List</h5>
                             <div class="heading-elements">
-                                {{-- <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('invoice.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul> --}}
+                                <ul class="list-inline mb-0">
+                                    <li class="ml-2"><a href="{{ route('sell_create') }}" class="btn btn-primary">+ Create</a></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="card-content">

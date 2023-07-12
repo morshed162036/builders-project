@@ -90,39 +90,31 @@
                                                 <th>Available</th>
                                                 <th>Unit</th>
                                                 <th>Sell Unit Price</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($invoices)
-                                                @foreach ($invoices as $invoice)
+                                            @if ($products)
+                                                @foreach ($products as $product)
                                                     <tr>
-                                                        <td class="text-primary">#{{ $invoice->invoice_code }}</td>
-                                                        <td>{{ $invoice->issue_date }}</td>
-                                                        <td>{{ $invoice->due_date }}</td>
-                                                        <td>{{ $invoice->invoice_type }}</td>
-                                                        <td>{{ $invoice->total_item }}</td>
-                                                        <td>{{ $invoice->total_amount }}</td>
-                                                        <td>{{ $invoice->payment_amount }}</td>
-                                                        <td 
-                                                        @if ($invoice->payment_status == 'Paid')
-                                                            class="text-success"
-                                                        @elseif ($invoice->payment_status == 'Due')
-                                                            class="text-danger"
-                                                        @elseif ($invoice->payment_status == 'Partial')
-                                                             class="text-secondary"
-                                                        @elseif ($invoice->payment_status == 'Advance')
-                                                            class="text-warning"
-                                                        @endif
-                                                        ><strong>{{ $invoice->payment_status }}</strong></td>
+                                                        <td class="text-primary">{{ $product->product->title}}</td>
+                                                        <td>{{ $product->stock }}</td>
+                                                        <td>{{ $product->available }}</td>
+                                                        <td>@if ($product->unit_id != 0)
+                                                            {{ $product->unit->unit }}
+                                                            @else
+                                                            0
+                                                        @endif</td>
+                                                        <td>{{ $product->unit_price }}</td>
                                                         
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
+                                                                    <a class="dropdown-item" href="{{ route('stock.show',$product->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item" href="{{ route('invoice.edit',$invoice->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{ 'stock-edit/product/'.$product->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('stock.destroy',$product->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -133,7 +125,7 @@
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -142,6 +134,7 @@
                                                 <th>Available</th>
                                                 <th>Unit</th>
                                                 <th>Sell Unit Price</th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -173,39 +166,31 @@
                                                 <th>Available</th>
                                                 <th>Unit</th>
                                                 <th>Hourly Rent</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($invoices)
-                                                @foreach ($invoices as $invoice)
+                                            @if ($machines)
+                                                @foreach ($machines as $machine)
                                                     <tr>
-                                                        <td class="text-primary">#{{ $invoice->invoice_code }}</td>
-                                                        <td>{{ $invoice->issue_date }}</td>
-                                                        <td>{{ $invoice->due_date }}</td>
-                                                        <td>{{ $invoice->invoice_type }}</td>
-                                                        <td>{{ $invoice->total_item }}</td>
-                                                        <td>{{ $invoice->total_amount }}</td>
-                                                        <td>{{ $invoice->payment_amount }}</td>
-                                                        <td 
-                                                        @if ($invoice->payment_status == 'Paid')
-                                                            class="text-success"
-                                                        @elseif ($invoice->payment_status == 'Due')
-                                                            class="text-danger"
-                                                        @elseif ($invoice->payment_status == 'Partial')
-                                                             class="text-secondary"
-                                                        @elseif ($invoice->payment_status == 'Advance')
-                                                            class="text-warning"
-                                                        @endif
-                                                        ><strong>{{ $invoice->payment_status }}</strong></td>
+                                                        <td class="text-primary">{{ $machine->product->title}}</td>
+                                                        <td>{{ $machine->stock }}</td>
+                                                        <td>{{ $machine->available }}</td>
+                                                        <td>@if ($machine->unit_id != 0)
+                                                            {{ $machine->unit->unit }}
+                                                            @else
+                                                            0
+                                                        @endif</td>
+                                                        <td>{{ $machine->hourly_rent }}</td>
                                                         
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
+                                                                    <a class="dropdown-item" href="{{ route('stock.show',$machine->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item" href="{{ route('invoice.edit',$invoice->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{'stock-edit/machine/'.$machine->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('stock.destroy',$machine->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -216,7 +201,7 @@
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -225,6 +210,7 @@
                                                 <th>Available</th>
                                                 <th>Unit</th>
                                                 <th>Hourly Rent</th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>

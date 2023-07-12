@@ -74,12 +74,16 @@ Route::prefix('/')->group(function(){
 
         // Stock
         Route::resource('stock', StockController::class);
+        Route::get('stock-edit/{slug}/{id}',[StockController::class,'editStock']);
         
         // Invoice
         Route::resource('invoice', InvoiceController::class);
         Route::get('invoice-purchase', [InvoiceController::class,'purchaseIndex'])->name('purchase_index');
+        Route::get('invoice-purchase-create', [InvoiceController::class,'purchaseCreate'])->name('purchase_create');
         Route::get('invoice-sell', [InvoiceController::class,'sellIndex'])->name('sell_index');
+        Route::get('invoice-sell-create', [InvoiceController::class,'sellCreate'])->name('sell_create');
         Route::get('invoice-project', [InvoiceController::class,'projectIndex'])->name('project_index');
+        Route::get('invoice-project-create', [InvoiceController::class,'projectCreate'])->name('project_create');
         Route::resource('invoice-details', InvoiceDetailController::class);
         // Accounts
         Route::resource('accounts', AccountGroupController::class);

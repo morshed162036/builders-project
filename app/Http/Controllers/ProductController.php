@@ -11,6 +11,9 @@ use App\Models\Catalogue;
 use App\Models\Category;
 use App\Models\Brand;
 
+use App\Models\Stock\Product_stock;
+use App\Models\Stock\Machine_stock;
+
 class ProductController extends Controller
 {
     /**
@@ -77,6 +80,20 @@ class ProductController extends Controller
         }
 
         $product->save();
+        $last = $product->id;
+        if($request->type == 'Product')
+        {
+            $product_stock = new Product_stock();
+            $product_stock->product_id = $last;
+            $product_stock->save();
+        }
+        else{
+            $machine_stock = new Machine_stock();
+            $machine_stock->product_id = $last;
+            $machine_stock->save();
+        }
+
+        
         return redirect(route('product.index'))->with('success','Product Create Successfully!');
     }
 

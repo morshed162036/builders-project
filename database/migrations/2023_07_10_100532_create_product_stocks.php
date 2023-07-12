@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('product_stocks', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_id');
-            $table->bigInteger('unit_id');
-            $table->integer('stock');
-            $table->double('available');
-            $table->double('unit_price');
+            $table->bigInteger('unit_id')->default(0);
+            $table->integer('stock')->default(0);
+            $table->double('available')->default(0);
+            $table->double('unit_price')->default(0);
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([PermissionSeeder::class,SuperAdminSeeder::class]);
         $this->call([UnitSeeder::class,DesignationSeeder::class,PaymentMethodSeeder::class,BalanceTransferSeeder::class]);
-        $this->call([BrandSeeder::class,CatalogueSeeder::class,CatagorySeeder::class,ProductSeeder::class]);
+        $this->call([BrandSeeder::class,CatalogueSeeder::class,CatagorySeeder::class,ProductSeeder::class,StockSeeder::class]);
         $this->call([SupplierSeeder::class]);
         $this->call([AccountGroupSeeder::class,AccountChartSeeder::class]);
         $this->call([ClientSeeder::class,TeamSeeder::class,ProjectSeeder::class]);

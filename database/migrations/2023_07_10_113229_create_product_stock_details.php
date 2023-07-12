@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('sku')->unique();
             $table->double('purchase_unit_price');
             $table->double('sell_unit_price')->default(0);
+            $table->integer('qnt')->default(0);
+            $table->integer('available')->default(0);
             $table->bigInteger('project_id')->default(0);
             $table->timestamps();
         });

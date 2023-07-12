@@ -74,9 +74,9 @@
                         <div class="card-header">
                             <h5 class="card-title">Invoice List</h5>
                             <div class="heading-elements">
-                                {{-- <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('invoice.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul> --}}
+                                <ul class="list-inline mb-0">
+                                    <li class="ml-2"><a href="{{ route('purchase_create') }}" class="btn btn-primary">+ Create</a></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="card-content">
@@ -132,9 +132,9 @@
                                                                     <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
                                                                     <a class="dropdown-item" href="{{ route('invoice.edit',$invoice->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
+                                                                    {{-- <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
+                                                                    </form> --}}
                                                                     
                                                                 </div>
                                                             </div>

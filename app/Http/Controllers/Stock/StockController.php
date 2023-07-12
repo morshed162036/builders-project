@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Stock;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Stock\Product_stock;
+use App\Models\Stock\Machine_stock;
+use App\Models\settings\Unit;
 class StockController extends Controller
 {
     /**
@@ -12,7 +14,10 @@ class StockController extends Controller
      */
     public function index()
     {
-        return view('inventory-management.stock.index');
+        $products = Product_stock::with('product','unit')->get();
+        $machines = Machine_stock::with('product','unit')->get();
+        //dd($products);
+        return view('inventory-management.stock.index')->with(compact('products','machines'));
     }
 
     /**
@@ -44,7 +49,22 @@ class StockController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
+    }
+    public function editStock(string $slug, string $id)
+    {
+        $product = '';
+        $machine = '';
+        //dd($machine);
+        if($slug == 'product')
+        {
+            $product = Product_stock::with('product')->findorFail($id);
+        }
+        else{
+            $machine = Machine_stock::with('product')->findorFail($id);
+        }
+        $units = Unit::select('id','unit')->get();
+        return view('inventory-management.stock.edit')->with(compact('product','machine','units'));
     }
 
     /**
@@ -52,7 +72,41 @@ class StockController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if($request->type == 'product')
+        {
+            $product_stock = Product_stock::findorFail($id);
+            $product_stock->unit_id = $request->unit_id;
+            $product_stock->unit_price = $request->unit_price;
+            $product_stock->update();
+            return redirect(route('stock.index'))->with('success','Product Stock Update Successfully!');
+        }
+        else
+        {
+            $machine_stock = Machine_stock::findorFail($id);
+            $machine_stock->unit_id = $request->unit_id;
+            $machine_stock->hourly_rent = $request->hourly_rent;
+            $machine_stock->update();
+            return redirect(route('stock.index'))->with('success','Machine Stock Update Successfully!');
+        }
+    }
+    public function updateStock(Request $request,string $slug, string $id)
+    {
+        if($slug == 'product')
+        {
+            $product_stock = Product_stock::findorFail($id);
+            $product_stock->unit_id = $request->unit_id;
+            $product_stock->unit_price = $request->unit_price;
+            $product_stock->update();
+            return redirect(route('stock.index'))->with('success','Product Stock Update Successfully!');
+        }
+        else
+        {
+            $machine_stock = Machine_stock::findorFail($id);
+            $machine_stock->unit_id = $request->unit_id;
+            $machine_stock->hourly_rent = $request->hourly_rent;
+            $machine_stock->update();
+            return redirect(route('stock.index'))->with('success','Machine Stock Update Successfully!');
+        }
     }
 
     /**

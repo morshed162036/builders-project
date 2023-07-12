@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('supplier_id')->default(0);
             $table->bigInteger('client_id')->default(0);
             $table->bigInteger('project_id')->default(0);
+            $table->bigInteger('payment_method_id')->default(0);
             $table->string('invoice_code')->unique();
             $table->date('issue_date');
             $table->date('due_date');
