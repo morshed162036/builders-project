@@ -149,7 +149,7 @@
                         <!-- product details table-->
                         <div class="invoice-product-details table-responsive mx-md-25">
                             <table class="table table-borderless mb-2">
-                                <h5 class="ml-2 primary">Product:</h5>
+                                <h5 class="ml-2 primary">Product/Machine:</h5>
                                 <thead>
                                     <tr class="border-0">
                                         <th scope="col">Item</th>

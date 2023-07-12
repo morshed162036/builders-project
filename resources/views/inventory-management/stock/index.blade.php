@@ -114,9 +114,9 @@
                                                                     <a class="dropdown-item" href="{{ route('stock.show',$product->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
                                                                     <a class="dropdown-item" href="{{ 'stock-edit/product/'.$product->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('stock.destroy',$product->id) }}" method="post"> @csrf @method('Delete')
+                                                                    {{-- <form action="{{ route('stock.destroy',$product->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
+                                                                    </form> --}}
                                                                     
                                                                 </div>
                                                             </div>
@@ -190,9 +190,9 @@
                                                                     <a class="dropdown-item" href="{{ route('stock.show',$machine->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
                                                                     <a class="dropdown-item" href="{{'stock-edit/machine/'.$machine->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('stock.destroy',$machine->id) }}" method="post"> @csrf @method('Delete')
+                                                                    {{-- <form action="{{ route('stock.destroy',$machine->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
+                                                                    </form> --}}
                                                                     
                                                                 </div>
                                                             </div>

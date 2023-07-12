@@ -87,14 +87,25 @@ class InvoiceController extends Controller
             $invoice->issue_date = $request->issue_date;
             $invoice->due_date = $request->due_date;
             $invoice->invoice_type = $request->invoice_type;
-            $invoice->payment_method_id = $request->payment_method_id;
             $invoice->discount = $request->discount;
-            if($request->payment_amount != null){
-                $invoice->payment_amount = $request->payment_amount;
+            if($request->payment_amount != null && $request->payment_method_id != 0){
+                $invoice->paid_amount = $request->payment_amount;
+                $payment_method = Payment_method::where('id',$request->payment_method_id)->get()->first();
+                $payment_method->balance -= $request->payment_amount;
+                $payment_method->update();
+                $invoice_payment = new Invoice_payment();
+                $invoice_payment->payment_method_id = $request->payment_method_id;
+                $invoice_payment->amount = $request->payment_amount;
+                $invoice_payment->save();
+                $invoice_payment_id = $invoice_payment->id;
+
             }
             $invoice->payment_status = $request->payment_status;
             $invoice->save();
             $invoice_id = $invoice->id;
+            $invoice_payment = Invoice_payment::findorFail($invoice_payment_id);
+            $invoice_payment->invoice_id = $invoice_id;
+            $invoice_payment->update();
 
             foreach($request['group-product'] as $product)
             {
@@ -198,13 +209,23 @@ class InvoiceController extends Controller
     {
         //
     }
+    public function invoiceEdit(string $slug, string $id)
+    {
+        $payment_methods = Payment_method::get();
+        if($slug == 'purchase')
+        {
+            $invoice = Invoice::with('details','supplier','client','project')->where('id',$id)->get()->first();
+            //dd($invoice);
+            return view('inventory-management.invoice.purchase_edit')->with(compact('invoice','payment_methods'));
+        }
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Invoice $invoice)
     {
-        //
+        dd($request->all());
     }
 
     /**

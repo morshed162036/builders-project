@@ -80,6 +80,7 @@ Route::prefix('/')->group(function(){
         Route::resource('invoice', InvoiceController::class);
         Route::get('invoice-purchase', [InvoiceController::class,'purchaseIndex'])->name('purchase_index');
         Route::get('invoice-purchase-create', [InvoiceController::class,'purchaseCreate'])->name('purchase_create');
+        Route::get('invoice-edit/{slug}/{id}', [InvoiceController::class,'invoiceEdit']);
         Route::get('invoice-sell', [InvoiceController::class,'sellIndex'])->name('sell_index');
         Route::get('invoice-sell-create', [InvoiceController::class,'sellCreate'])->name('sell_create');
         Route::get('invoice-project', [InvoiceController::class,'projectIndex'])->name('project_index');

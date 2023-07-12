@@ -14,6 +14,6 @@ class Invoice_detail extends Model
         return $this->belongsTo(Unit::class,'unit_id')->select('id','unit');
     }
     public function product(){
-        return $this->belongsTo(Product::class,'product_id')->select('id','title');
+        return $this->belongsTo(Product::class,'product_id')->select('id','title','type');
     }
 }
