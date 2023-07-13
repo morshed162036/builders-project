@@ -111,8 +111,8 @@
                                                         <td>{{ $invoice->total_item }}</td>
                                                         <td>{{ $invoice->total_amount }}</td>
                                                         <td>{{ $invoice->discount }}</td>
-                                                        <td>{{ $invoice->payment_amount }}</td>
-                                                        <td>{{ $invoice->total_amount - $invoice->payment_amount }}</td>
+                                                        <td>{{ $invoice->paid_amount }}</td>
+                                                        <td>{{ $invoice->total_amount - $invoice->paid_amount }}</td>
                                                         <td 
                                                         @if ($invoice->payment_status == 'Paid')
                                                             class="text-success"
@@ -131,7 +131,9 @@
                                                                 <div class="dropdown-menu dropdown-menu-right">
                                                                     <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item" href="{{'invoice-edit/purchase/'.$invoice->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                        <a class="dropdown-item" href="{{'invoice-edit/purchase/'.$invoice->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                        <a class="dropdown-item" href="{{ route('invoice_payment',$invoice->id) }}"><i class="bx 
+                                                                            bxs-spreadsheet mr-1"></i> Payment History</a>
                                                                     {{-- <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form> --}}

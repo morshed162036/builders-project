@@ -52,13 +52,13 @@
                             </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">Invoice Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Payment History Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
                                         class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Project Invoices
+                            <li class="breadcrumb-item active">Invoice Payment History
                             </li>
                         </ol>
                     </div>
@@ -72,11 +72,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Invoice List</h5>
+                            <h5 class="card-title">Payment History Details</h5>
                             <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('project_create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
+                                {{-- <ul class="list-inline mb-0">
+                                    <li class="ml-2"><a href="{{ route('sell_create') }}" class="btn btn-primary">+ Create</a></li>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="card-content">
@@ -86,57 +86,20 @@
                                         <thead>
                                             <tr>
                                                 <th>Invoice Id</th>
-                                                <th>Project</th>
-                                                <th>Issue Date</th>
-                                                <th>Due Date</th>
-                                                <th>Total Items</th>
-                                                <th>Total Amount</th>
-                                                <th>Discount</th>
-                                                <th>Pay Amount</th>
-                                                <th>Due Amount</th>
-                                                <th>Payment Status</th>
-                                                <th>Action</th>
+                                                <th>Payment Method</th>
+                                                <th>Amount</th>
+                                                <th>Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($invoices)
-                                                @foreach ($invoices as $invoice)
+                                            @if ($invoice->payment)
+                                                @foreach ($invoice->payment as $payment)
                                                     <tr>
                                                         <td class="text-primary">#{{ $invoice->invoice_code }}</td>
-                                                        <td>{{ $invoice->project->name }}
-                                                        <td>{{ $invoice->issue_date }}</td>
-                                                        <td>{{ $invoice->due_date }}</td>
-                                                        <td>{{ $invoice->total_item }}</td>
-                                                        <td>{{ $invoice->total_amount }}</td>
-                                                        <td>{{ $invoice->discount }}</td>
-                                                        <td>{{ $invoice->paid_amount }}</td>
-                                                        <td>{{ $invoice->total_amount - $invoice->paid_amount }}</td>
-                                                        <td 
-                                                        @if ($invoice->payment_status == 'Paid')
-                                                            class="text-success"
-                                                        @elseif ($invoice->payment_status == 'Due')
-                                                            class="text-danger"
-                                                        @elseif ($invoice->payment_status == 'Partial')
-                                                             class="text-secondary"
-                                                        @elseif ($invoice->payment_status == 'Advance')
-                                                            class="text-warning"
-                                                        @endif
-                                                        ><strong>{{ $invoice->payment_status }}</strong></td>
+                                                        <td>{{ $payment->payment_method->bank_name }}({{ $payment->payment_method->account_no }})</td>
+                                                        <td>{{ $payment->amount }}</td>
+                                                        <td>{{ $payment->created_at }}</td>
                                                         
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
-                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
-                                                                        bxs-spreadsheet mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item" href="{{ route('invoice.edit',$invoice->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </td>
                                                     </tr>   
                                                 @endforeach
                                             @else
@@ -146,16 +109,9 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Invoice Id</th>
-                                                <th>Supplier</th>
-                                                <th>Issue Date</th>
-                                                <th>Due Date</th>
-                                                <th>Total Items</th>
-                                                <th>Total Amount</th>
-                                                <th>Discount</th>
-                                                <th>Pay Amount</th>
-                                                <th>Due Amount</th>
-                                                <th>Payment Status</th>
-                                                <th>Action</th>
+                                                <th>Payment Method</th>
+                                                <th>Amount</th>
+                                                <th>Date</th>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -109,6 +109,21 @@ class StockController extends Controller
         }
     }
 
+    public function showStock(string $slug, string $id)
+    {
+        if($slug == 'product')
+        {
+            $stockproduct = Product_stock::with('details')->where('id',$id)->get()->first();
+            //dd($stockproduct);
+            return view('inventory-management.stock.product_show')->with(compact('stockproduct'));
+        }
+        elseif ($slug == 'machine') {
+            $stockmachine = Machine_stock::with('details')->where('id',$id)->get()->first();
+            return view('inventory-management.stock.machine_show')->with(compact('stockmachine'));
+        }
+        
+    }
+
     /**
      * Remove the specified resource from storage.
      */

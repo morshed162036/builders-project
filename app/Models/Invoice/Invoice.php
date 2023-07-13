@@ -5,6 +5,7 @@ namespace App\Models\Invoice;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Invoice\Invoice_detail;
+use App\Models\Invoice\Invoice_payment;
 use App\Models\Project\Project;
 use App\Models\Project\Client;
 use App\Models\Supplier;
@@ -23,5 +24,8 @@ class Invoice extends Model
     }
     public function project(){
         return $this->belongsTo(Project::class,'project_id')->with('client');
+    }
+    Public Function payment(){
+        return $this->hasMany(Invoice_payment::class,'invoice_id')->with('payment_method');
     }
 }

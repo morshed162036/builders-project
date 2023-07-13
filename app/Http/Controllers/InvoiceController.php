@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoice\Invoice;
 use App\Models\Invoice\Invoice_detail;
+use App\Models\Invoice\Invoice_payment;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
 use App\Models\settings\Payment_method;
@@ -91,14 +92,21 @@ class InvoiceController extends Controller
             if($request->payment_amount != null && $request->payment_method_id != 0){
                 $invoice->paid_amount = $request->payment_amount;
                 $payment_method = Payment_method::where('id',$request->payment_method_id)->get()->first();
-                $payment_method->balance -= $request->payment_amount;
-                $payment_method->update();
-                $invoice_payment = new Invoice_payment();
-                $invoice_payment->payment_method_id = $request->payment_method_id;
-                $invoice_payment->amount = $request->payment_amount;
-                $invoice_payment->save();
-                $invoice_payment_id = $invoice_payment->id;
-
+                if($payment_method->balance >= $request->payment_amount)
+                {
+                    $payment_method->balance -= $request->payment_amount;
+                    $payment_method->update();
+                    $invoice_payment = new Invoice_payment();
+                    $invoice_payment->payment_method_id = $request->payment_method_id;
+                    $invoice_payment->amount = $request->payment_amount;
+                    $invoice_payment->save();
+                    $invoice_payment_id = $invoice_payment->id;
+                }
+                else
+                {
+                     return redirect(route('purchase_index'))->with('error','No Sufficient Balance');
+                }
+               
             }
             $invoice->payment_status = $request->payment_status;
             $invoice->save();
@@ -225,9 +233,85 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, Invoice $invoice)
     {
-        dd($request->all());
+        //dd($request->all());
+        if($request->invoice_type == 'Purchase')
+        {
+            $invoice->due_date = $request->due_date;
+            
+            if($request->payment_amount != null && $request->payment_method_id != 0){
+                $invoice->paid_amount += $request->payment_amount;
+                $payment_method = Payment_method::where('id',$request->payment_method_id)->get()->first();
+                if($payment_method->balance >= $request->payment_amount)
+                {
+                    $payment_method->balance -= $request->payment_amount;
+                    $payment_method->update();
+                    $invoice_payment = new Invoice_payment();
+                    $invoice_payment->invoice_id = $invoice->id;
+                    $invoice_payment->payment_method_id = $request->payment_method_id;
+                    $invoice_payment->amount = $request->payment_amount;
+                    $invoice_payment->save();
+                }
+                else
+                {
+                     return redirect(route('purchase_index'))->with('error','No Sufficient Balance');
+                }
+               
+            }
+            if($invoice->payment_status == 'Advance' && $request->payment_status != 'Advance')
+            {
+                foreach($request['group-product'] as $product)
+                {
+                    if($product['product_id'] != null)
+                    {
+                        $product_stock = Product_stock::where('product_id',$product['product_id'])->get()->first();
+                        //dd($product_stock);
+                        $product_stock_id  = $product_stock->id;
+                        $product_stock->stock += $product['qnt'];
+                        $product_stock->available += $product['qnt'];
+                        $product_stock->update();
+
+                        $product_stock_details = new Product_stock_detail();
+                        $product_stock_details->product_stock_id =  $product_stock_id;
+                        $product_stock_details->invoice_id = $invoice->id;
+                        $product_stock_details->sku = $product['sku'];
+                        $product_stock_details->purchase_unit_price = $product['unit_price'];
+                        $product_stock_details->qnt += $product['qnt'];
+                        $product_stock_details->available += $product['qnt'];
+                        $product_stock_details->save();
+                    }
+                }
+            }
+            foreach($request['group-machine'] as $machine)
+            {
+                if($machine['machine_id'] != null)
+                {
+                        $machine_stock = Machine_stock::where('product_id',$machine['machine_id'])->get()->first();
+                        $machine_stock_id  = $machine_stock->id;
+                        $machine_stock->stock += $machine['qnt'];
+                        $machine_stock->available += $machine['qnt'];
+                        $machine_stock->update();
+
+                        $machine_stock_details = new Machine_stock_detail();
+                        $machine_stock_details->machine_stock_id =  $machine_stock_id;
+                        $machine_stock_details->invoice_id = $invoice->id;
+                        $machine_stock_details->sku = $machine['sku'];
+                        $machine_stock_details->purchase_unit_price = $machine['unit_price'];
+                        $machine_stock_details->save();
+                }
+            }
+            $invoice->payment_status = $request->payment_status;
+            $invoice->update();
+            return redirect(route('purchase_index'))->with('success','Purchase Invoice Update Successfully');
+
+        }
     }
 
+    public function paymentDetails(string $id)
+    {
+        $invoice  = Invoice::with('payment')->findorFail($id);
+        //dd($invoice);
+        return view('inventory-management.invoice.payment_details')->with(compact('invoice'));
+    }
     /**
      * Remove the specified resource from storage.
      */

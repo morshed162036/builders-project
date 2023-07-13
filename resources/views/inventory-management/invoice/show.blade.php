@@ -217,11 +217,11 @@
                                         </div>
                                         <div class="invoice-calc d-flex justify-content-between">
                                             <span class="invoice-title">Paid to date</span>
-                                            <span class="invoice-value">{{ $invoice->payment_amount }}</span>
+                                            <span class="invoice-value">{{ $invoice->paid_amount }}</span>
                                         </div>
                                         <div class="invoice-calc d-flex justify-content-between">
                                             <span class="invoice-title">Due Balance</span>
-                                            <span class="invoice-value text-danger">{{  $invoice->total_amount - $invoice->payment_amount }}</span>
+                                            <span class="invoice-value text-danger">{{  $invoice->total_amount - $invoice->paid_amount }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -250,12 +250,12 @@
                                 <span>Edit Invoice</span>
                             </a>
                         </div> --}}
-                        <div class="">
+                        {{-- <div class="">
                             <a class="btn btn-success btn-block" href="">
                                 <i class='bx bx-dollar'></i>
                                 <span>Edit</span>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

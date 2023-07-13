@@ -245,13 +245,16 @@
                                                     <div class="row mt-2">
                                                         <div class="repeater-default">
                                                             <div data-repeater-list="group-product">
+                                                                @foreach ($invoice->details as $product )
                                                                 <div data-repeater-item>
                                                                     <div class="row justify-content-between" id='product_details'>
-                                                                        @foreach ($invoice->details as $product )
+                                                                        
                                                                             @if ($product->product->type == 'Product')
                                                                                 <div class="col-md-2 col-sm-12 form-group">
                                                                                     <label for="product_id">Product</label>
-                                                                                    <input type="text" class="form-control" value="{{ $product->product->title }}" readonly>
+                                                                                    <select name="product_id" id="product_id" class="form-control" @readonly(true)>
+                                                                                        <option value="{{ $product->product->id }}">{{ $product->product->title }}</option>
+                                                                                    </select>
                                                                                 </div>
                                                                                 <div class="col-md-2 col-sm-12 form-group">
                                                                                     <label for="product_sku">Sku</label>
@@ -279,28 +282,29 @@
                                                                                         readonly>
                                                                                 </div>
                                                                             @endif
-                                                                        @endforeach
                                                                         
-                                                                        {{-- <div
+                                                                        
+                                                                        <div
                                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
                                                                             <button class="btn btn-danger text-nowrap px-1"
-                                                                                data-repeater-delete type="button"> <i
+                                                                                data-repeater-delete type="button" hidden> <i
                                                                                     class="bx bx-x"></i>
                                                                                 Delete
                                                                             </button>
-                                                                        </div> --}}
+                                                                        </div>
                                                                     </div>
                                                                     <hr>
                                                                 </div>
+                                                                @endforeach
                                                             </div>
-                                                            {{-- <div class="form-group">
+                                                            <div class="form-group" hidden>
                                                                 <div class="col p-0">
                                                                     <button class="btn btn-primary" data-repeater-create type="button" id="product"><i
                                                                             class="bx bx-plus"></i>
                                                                         Add
                                                                     </button>
                                                                 </div>
-                                                            </div> --}}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -317,13 +321,16 @@
                                                     <div class="row mt-2">
                                                         <div class="repeater-default">
                                                             <div data-repeater-list="group-machine">
+                                                                @foreach ($invoice->details as $product )
                                                                 <div data-repeater-item>
                                                                     <div class="row justify-content-between">
-                                                                        @foreach ($invoice->details as $product )
+                                                                        
                                                                         @if ($product->product->type == 'Machine')
                                                                             <div class="col-md-2 col-sm-12 form-group">
-                                                                                <label for="product_id">Machine</label>
-                                                                                <input type="text" class="form-control" value="{{ $product->product->title }}" readonly>
+                                                                                <label for="machine_id">Machine</label>
+                                                                                <select name="machine_id" id="machine_id" class="form-control" @readonly(true)>
+                                                                                    <option value="{{ $product->product->id }}">{{ $product->product->title }}</option>
+                                                                                </select>
                                                                             </div>
                                                                             <div class="col-md-2 col-sm-12 form-group">
                                                                                 <label for="product_sku">Sku</label>
@@ -351,27 +358,28 @@
                                                                                     readonly>
                                                                             </div>
                                                                         @endif
-                                                                    @endforeach
-                                                                        {{-- <div
-                                                                            class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
+                                                                   
+                                                                        <div
+                                                                            class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2" >
                                                                             <button class="btn btn-danger text-nowrap px-1"
-                                                                                data-repeater-delete type="button"> <i
+                                                                                data-repeater-delete type="button" hidden> <i
                                                                                     class="bx bx-x"></i>
                                                                                 Delete
                                                                             </button>
-                                                                        </div> --}}
+                                                                        </div>
                                                                     </div>
                                                                     <hr>
                                                                 </div>
+                                                                @endforeach
                                                             </div>
-                                                            {{-- <div class="form-group">
+                                                            <div class="form-group" hidden>
                                                                 <div class="col p-0">
                                                                     <button class="btn btn-primary" data-repeater-create type="button"><i
                                                                             class="bx bx-plus"></i>
                                                                         Add
                                                                     </button>
                                                                 </div>
-                                                            </div> --}}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

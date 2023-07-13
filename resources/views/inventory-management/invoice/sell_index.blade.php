@@ -111,8 +111,8 @@
                                                         <td>{{ $invoice->total_item }}</td>
                                                         <td>{{ $invoice->total_amount }}</td>
                                                         <td>{{ $invoice->discount }}</td>
-                                                        <td>{{ $invoice->payment_amount }}</td>
-                                                        <td>{{ $invoice->total_amount - $invoice->payment_amount }}</td>
+                                                        <td>{{ $invoice->paid_amount }}</td>
+                                                        <td>{{ $invoice->total_amount - $invoice->paid_amount }}</td>
                                                         <td 
                                                         @if ($invoice->payment_status == 'Paid')
                                                             class="text-success"

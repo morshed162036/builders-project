@@ -5,6 +5,7 @@ namespace App\Models\Stock;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
+use App\Models\Stock\Product_stock_detail;
 use App\Models\settings\Unit;
 class Product_stock extends Model
 {
@@ -16,5 +17,9 @@ class Product_stock extends Model
     }
     public function unit(){
         return $this->belongsTo(Unit::class,'unit_id')->select('id','unit');
+    }
+    public function details()
+    {
+        return $this->hasMany(Product_stock_detail::class,'product_stock_id')->with('invoice');
     }
 }

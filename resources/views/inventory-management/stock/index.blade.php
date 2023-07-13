@@ -111,7 +111,7 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('stock.show',$product->id) }}"><i class="bx 
+                                                                    <a class="dropdown-item" href="{{ 'stock-show/product/'.$product->id }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
                                                                     <a class="dropdown-item" href="{{ 'stock-edit/product/'.$product->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
                                                                     {{-- <form action="{{ route('stock.destroy',$product->id) }}" method="post"> @csrf @method('Delete')
@@ -187,7 +187,7 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('stock.show',$machine->id) }}"><i class="bx 
+                                                                    <a class="dropdown-item" href="{{ 'stock-show/machine/'.$machine->id }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
                                                                     <a class="dropdown-item" href="{{'stock-edit/machine/'.$machine->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
                                                                     {{-- <form action="{{ route('stock.destroy',$machine->id) }}" method="post"> @csrf @method('Delete')
