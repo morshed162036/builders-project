@@ -168,8 +168,8 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
-                                                            <label for="qnt">Quantity</label>
-                                                            <input type="number" class="form-control" id="product_qnt"
+                                                            <label for="product_qnt">Quantity</label>
+                                                            <input type="number" class="form-control product_qnt" id="product_qnt"
                                                                 name="qnt" placeholder="0" required>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -191,15 +191,15 @@
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="unit_price">Unit Price</label>
-                                                            <input type="text" class="form-control" id="unit_price"
+                                                            <input type="text" class="form-control unit_price"
                                                                 name="unit_price" placeholder="0" required>
                                                         </div>
-                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                        {{-- <div class="col-md-2 col-sm-12 form-group">
                                                             <label for="total_price">Total Price</label>
-                                                            <input type="text" class="form-control" id="total_price"
+                                                            <input type="text" class="form-control total_price"
                                                                  name="total_price" placeholder="0"
                                                                 readonly>
-                                                        </div>
+                                                        </div> --}}
                                                         <div
                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
                                                             <button class="btn btn-danger text-nowrap px-1"
@@ -573,19 +573,27 @@
             // $("#product").click(function(){
             //      var elements1 = document.querySelectorAll('[name^="group-product"]');
             //     console.log(elements1);
-                $("#unit_price, #product_qnt").keyup(function() {
+                // $("#unit_price, #product_qnt").keyup(function() {
                     
-                    var total = 0;
-                    var unit_price = $("#unit_price").val();
-                    var qnt = $("#product_qnt").val();
-                    console.log(unit_price);
-                    console.log(qnt);
-                    total = unit_price * qnt;
-                    console.log(total);
-                    $("#total_price").val(total);
-                })
-                })
+                //     var total = 0;
+                //     var unit_price = $("#unit_price").val();
+                //     var qnt = $("#product_qnt").val();
+                //     console.log(unit_price);
+                //     console.log(qnt);
+                //     total = unit_price * qnt;
+                //     console.log(total);
+                //     $("#total_price").val(total);
+                // })
+                $('.unit_price, .product_qnt').on('keyup', function() { 
+                    //alart('ini');
+                    const quantity = $(this).closest('tr').find('.product_qnt').first().val();
+                    const rate = $(this).closest('tr').find('.unit_price').first().val();
+                    //alart('set');
+                    // Assign the total to the total
+                    $(this).closest('tr').find('.total_price').first().val(parseFloat(quantity) * parseFloat(rate));
+                    });
+                
            
-        //})
+        })
     </script>
 @endsection

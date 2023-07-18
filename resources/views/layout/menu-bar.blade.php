@@ -267,7 +267,7 @@
                                             class="menu-item" data-i18n="LivIcons">Purchase Invoice</span></a>
                                 </li>
                                 <li><a href="{{ route('sell_index') }}"><i class="bx bx-right-arrow-alt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">Sell Invoice</span></a>
+                                            class="menu-item" data-i18n="LivIcons">Sale Invoice</span></a>
                                 </li>
                                 <li><a href="{{ route('project_index') }}"><i class="bx bx-right-arrow-alt"></i><span
                                             class="menu-item" data-i18n="LivIcons">Project Invoice</span></a>

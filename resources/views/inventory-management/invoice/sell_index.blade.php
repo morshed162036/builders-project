@@ -58,7 +58,7 @@
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
                                         class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Sell Invoices
+                            <li class="breadcrumb-item active">Sale Invoices
                             </li>
                         </ol>
                     </div>

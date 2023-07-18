@@ -91,7 +91,7 @@
                                                         @foreach ($catalogue['category'] as $category)
                                                             <option value="{{ $category['id'] }}">&nbsp;&nbsp;&nbsp;--&nbsp;{{ $category['name'] }}</option>
                                                             @foreach ($category['subcategories'] as $subcategories)
-                                                                <option value="{{ $subcategories['id'] }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;{{ $subcategory['name'] }}</option>
+                                                                <option value="{{ $subcategories['id'] }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;{{ $subcategories['name'] }}</option>
                                                             @endforeach 
                                                         @endforeach
                                                     @endforeach

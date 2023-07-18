@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Supplier;
 use App\Models\settings\Payment_method;
 use App\Models\Product;
+use App\Models\Project\Client;
 use App\Models\Stock\Product_stock;
 use App\Models\Stock\Machine_stock;
 use App\Models\Stock\Machine_stock_detail;
@@ -65,7 +66,12 @@ class InvoiceController extends Controller
     }
     public function sellCreate()
     {
-        return view('inventory-management.invoice.create');
+        $payment_methods = Payment_method::get();
+        $units = Unit::where('status','Active')->get();
+        $clients = Client::get();
+        $products = Product_stock::with('product','unit')->get();
+        //dd($products);
+        return view('inventory-management.invoice.sell_create')->with(compact('products','units','clients','payment_methods'));
     }
     public function projectCreate()
     {
@@ -303,6 +309,10 @@ class InvoiceController extends Controller
             $invoice->update();
             return redirect(route('purchase_index'))->with('success','Purchase Invoice Update Successfully');
 
+        }
+        if($request->invoice_type == 'Sell')
+        {
+            
         }
     }
 
