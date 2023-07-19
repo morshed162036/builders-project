@@ -104,7 +104,7 @@
                                                     <tr>
                                                         <td class="text-primary">#{{ $invoice->invoice_code }}</td>
                                                         <td>{{ $invoice->client->name }}@if ($invoice->client->company != null)
-                                                            ({{ $invoice->supplier->company }})
+                                                            ({{ $invoice->client->company }})
                                                         @endif</td>
                                                         <td>{{ $invoice->issue_date }}</td>
                                                         <td>{{ $invoice->due_date }}</td>
@@ -131,10 +131,12 @@
                                                                 <div class="dropdown-menu dropdown-menu-right">
                                                                     <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item" href="{{ route('invoice.edit',$invoice->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
+                                                                        <a class="dropdown-item" href="{{'invoice-edit/sell/'.$invoice->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <a class="dropdown-item" href="{{ route('invoice_payment',$invoice->id) }}"><i class="bx 
+                                                                        bxs-spreadsheet mr-1"></i> Payment History</a>
+                                                                    {{-- <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
+                                                                    </form> --}}
                                                                     
                                                                 </div>
                                                             </div>

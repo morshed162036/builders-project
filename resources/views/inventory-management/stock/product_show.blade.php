@@ -90,7 +90,7 @@
                                                 <th>Purchase Unit Price</th>
                                                 <th>Sell Unit Price</th>
                                                 <th>Purchase Quantity</th>
-                                                <th>Available Quantity</th>
+                                                {{-- <th>Available Quantity</th> --}}
                                                 <th>Purchase Date</th>
                                             </tr>
                                         </thead>
@@ -103,7 +103,7 @@
                                                         <td>{{ $product_detail->purchase_unit_price }}</td>
                                                         <td>{{ $product_detail->sell_unit_price }}</td>
                                                         <td>{{ $product_detail->qnt }}</td>
-                                                        <td>{{ $product_detail->available }}</td>
+                                                        {{-- <td>{{ $product_detail->available }}</td> --}}
                                                         <td>{{ $product_detail->created_at }}</td>
                                                     </tr>   
                                                 @endforeach
@@ -118,7 +118,7 @@
                                                 <th>Purchase Unit Price</th>
                                                 <th>Sell Unit Price</th>
                                                 <th>Purchase Quantity</th>
-                                                <th>Available Quantity</th>
+                                                {{-- <th>Available Quantity</th> --}}
                                                 <th>Purchase Date</th>
                                             </tr>
                                         </tfoot>

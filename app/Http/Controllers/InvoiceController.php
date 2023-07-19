@@ -69,7 +69,7 @@ class InvoiceController extends Controller
         $payment_methods = Payment_method::get();
         $units = Unit::where('status','Active')->get();
         $clients = Client::get();
-        $products = Product_stock::with('product','unit')->get();
+        $products = Product::where('type','Product')->where('status','Active')->get();
         //dd($products);
         return view('inventory-management.invoice.sell_create')->with(compact('products','units','clients','payment_methods'));
     }
@@ -155,8 +155,6 @@ class InvoiceController extends Controller
                         $product_stock_details->save();
                     }
                 }
-                
-
             }
             foreach($request['group-machine'] as $machine)
             {
@@ -188,9 +186,7 @@ class InvoiceController extends Controller
                         $machine_stock_details->purchase_unit_price = $machine['unit_price'];
                         $machine_stock_details->save();
                     }
-                }
-                
-
+                } 
             }
            // dd($total_amount);
             $invoice = Invoice::findorFail($invoice_id);
@@ -201,8 +197,100 @@ class InvoiceController extends Controller
             return redirect(route('purchase_index'))->with('success','Purchase Invoice Create Successfully');
 
         }
-        elseif ($request->invoice_type == 'Sell') {
-            # code...
+        elseif ($request->invoice_type == 'Sell') 
+        {
+            //dd($request->all());
+            $total_item = 0;
+            $total_amount = 0;
+            $invoice = new Invoice();
+            $invoice->client_id = $request->client_id;
+            $invoice->invoice_code = $request->invoice_code;
+            $invoice->issue_date = $request->issue_date;
+            $invoice->due_date = $request->due_date;
+            $invoice->invoice_type = $request->invoice_type;
+            $invoice->discount = $request->discount;
+            $invoice->payment_status = $request->payment_status;
+            foreach($request['group-product'] as $product)
+            {
+                if($product['product_id'] != null)
+                {
+                    if($request->payment_status != 'Advance')
+                    {
+                        $product_stock = Product_stock::with('product')->where('product_id',$product['product_id'])->get()->first();
+                        //dd($product_stock);
+                        if($product_stock->available >= $product['qnt'])
+                        {
+                            $product_stock_id  = $product_stock->id;
+                            $product_stock->available -= $product['qnt'];
+                            $product_stock->update();
+                            $invoice->save();
+                            $invoice_id = $invoice->id;
+
+                            // $product_stock_details = new Product_stock_detail();
+                            // $product_stock_details->product_stock_id =  $product_stock_id;
+                            // $product_stock_details->invoice_id = $invoice_id;
+                            // $product_stock_details->sku = $product['sku'];
+                            // $product_stock_details->purchase_unit_price = $product['unit_price'];
+                            // $product_stock_details->qnt += $product['qnt'];
+                            // $product_stock_details->available += $product['qnt'];
+                            // $product_stock_details->save();
+                        }
+                        else{
+                            return redirect(route('sell_index'))->with('error',' Not Enough Stock For -> '.$product_stock->product->title);
+                        }
+                        
+                    }
+                    if($request->payment_status == 'Advance')
+                    {
+                        $product_stock = Product_stock::with('product')->where('product_id',$product['product_id'])->get()->first();
+                        //dd($product_stock);
+                        if($product_stock->available < $product['qnt'])
+                        {
+                            return redirect(route('sell_index'))->with('error',' Not Enough Stock For -> '.$product_stock->product->title);
+                        }
+                        $invoice->save();
+                        $invoice_id = $invoice->id;
+                    }
+                    $invoice_details = new Invoice_detail();
+                    $invoice_details->invoice_id = $invoice_id;
+                    $invoice_details->product_id = $product['product_id'];
+                    //$invoice_details->sku = $product['sku'];
+                    $invoice_details->quantity = $product['qnt'];
+                    //$invoice_details->unit_id = $product['unit_id'];
+                    $invoice_details->unit_price = $product['unit_price'];
+                    $invoice_details->total_price = $product['unit_price'] * $product['qnt'];
+
+                    $total_item++;
+                    $total_amount += $product['unit_price'] * $product['qnt'];
+                    $invoice_details->save();
+                    
+                }
+            }
+            if($request->payment_amount != null && $request->payment_method_id != 0){
+                $invoice = Invoice::findorFail($invoice_id);
+                $invoice->paid_amount = $request->payment_amount;
+                $invoice->update();
+                $payment_method = Payment_method::where('id',$request->payment_method_id)->get()->first();
+                $payment_method->balance += $request->payment_amount;
+                $payment_method->update();
+                $invoice_payment = new Invoice_payment();
+                $invoice_payment->payment_method_id = $request->payment_method_id;
+                $invoice_payment->amount = $request->payment_amount;
+                $invoice_payment->save();
+                $invoice_payment_id = $invoice_payment->id; 
+            }
+            $invoice_payment = Invoice_payment::findorFail($invoice_payment_id);
+            $invoice_payment->invoice_id = $invoice_id;
+            $invoice_payment->update();
+
+           
+                // dd($total_amount);
+            $invoice = Invoice::findorFail($invoice_id);
+            $invoice->total_item = $total_item;
+            $invoice->total_amount = $total_amount;
+            $invoice->update();
+
+            return redirect(route('sell_index'))->with('success','Sale Invoice Create Successfully');
         }
     }
 
@@ -231,6 +319,11 @@ class InvoiceController extends Controller
             $invoice = Invoice::with('details','supplier','client','project')->where('id',$id)->get()->first();
             //dd($invoice);
             return view('inventory-management.invoice.purchase_edit')->with(compact('invoice','payment_methods'));
+        }
+        elseif ($slug == 'sell') {
+            $invoice = Invoice::with('details','supplier','client','project')->where('id',$id)->get()->first();
+            //dd($invoice);
+            return view('inventory-management.invoice.sell_edit')->with(compact('invoice','payment_methods'));
         }
     }
 
@@ -312,7 +405,35 @@ class InvoiceController extends Controller
         }
         if($request->invoice_type == 'Sell')
         {
+            $invoice->due_date = $request->due_date;
             
+            if($request->payment_amount != null && $request->payment_method_id != 0){
+                $invoice->paid_amount += $request->payment_amount;
+                $payment_method = Payment_method::where('id',$request->payment_method_id)->get()->first();
+                $payment_method->balance += $request->payment_amount;
+                $payment_method->update();
+                $invoice_payment = new Invoice_payment();
+                $invoice_payment->invoice_id = $invoice->id;
+                $invoice_payment->payment_method_id = $request->payment_method_id;
+                $invoice_payment->amount = $request->payment_amount;
+                $invoice_payment->save();
+               
+            }
+            if($invoice->payment_status == 'Advance' && $request->payment_status != 'Advance')
+            {
+                foreach($request['group-product'] as $product)
+                {
+                    $product_stock = Product_stock::with('product')->where('product_id',$product['product_id'])->get()->first();
+                    //dd($product_stock);
+            
+                    $product_stock_id  = $product_stock->id;
+                    $product_stock->available -= $product['qnt'];
+                    $product_stock->update();
+                }
+            }
+            $invoice->payment_status = $request->payment_status;
+            $invoice->update();
+            return redirect(route('sell_index'))->with('success','Sale Invoice Update Successfully');
         }
     }
 

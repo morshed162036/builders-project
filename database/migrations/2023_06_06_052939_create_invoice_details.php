@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('invoice_id');
             $table->bigInteger('product_id');
-            $table->string('sku');
+            $table->string('sku')->nullable();
             $table->integer('quantity');
             $table->bigInteger('unit_id')->default(0);
             $table->double('unit_price');

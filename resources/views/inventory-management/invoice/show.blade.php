@@ -168,7 +168,9 @@
                                         <tr>
                                             <td>{{ $item->product->title }}</td>
                                             <td>{{ $item->sku }}</td>
-                                            <td>{{ $item->quantity }} {{ $item->unit->unit }}</td>
+                                            <td>{{ $item->quantity }} @if ($item->unit)
+                                                {{ $item->unit->unit }}
+                                            @endif</td>
                                             <td>{{ $item->unit_price}}</td>
                                             <td class="text-primary text-right font-weight-bold">{{ $item->total_price}}</td>
                                             @php
