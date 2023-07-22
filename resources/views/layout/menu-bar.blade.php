@@ -323,10 +323,13 @@
                             class="menu-title">Accounts Ledgers</span></a>
                 </li>
 
-                <li class=" navigation-header"><span>Role Management</span>
+                <li class=" navigation-header"><span>Payroll & Role Management</span>
                 </li>
                 <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
                             data-i18n="Colors">Designation</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('benefits.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
+                            data-i18n="Colors">Benefits</span></a>
                 </li>
                 <li class=" nav-item"><a href=""><i class="bx bx-droplet"></i><span class="menu-title"
                             data-i18n="Colors">Users</span></a>

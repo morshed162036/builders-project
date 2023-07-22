@@ -27,6 +27,7 @@ use App\Http\Controllers\settings\TransferController;
 use App\Http\Controllers\settings\TransectionHistoryController;
 
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\RoleController;
 
 /*
@@ -98,9 +99,11 @@ Route::prefix('/')->group(function(){
         Route::post('update-payment-method-status',[PaymentMethodController::class,'updateMethodStatus'])->name('updateMethodStatus');
         Route::resource('transection-history', TransectionHistoryController::class);
         Route::resource('payment-transfer', TransferController::class);
-        // Role Management
+        // Payroll & Role Management
         Route::resource('designation',DesignationController::class);
+        Route::resource('benefits',BenefitController::class);
         Route::post('update-designation-status',[DesignationController::class,'updateDesignationStatus'])->name('updateDesignationStatus');
+        Route::resource('user',AdminController::class);
         Route::resource('role', RoleController::class);
     });
 });
