@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('designation');
+            $table->bigInteger('designation_id')->default(0);
             $table->string('address');
             $table->string('image')->nullable();
             $table->enum('status',['Active','Inactive'])->default('Active');

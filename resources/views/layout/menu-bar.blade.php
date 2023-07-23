@@ -331,7 +331,7 @@
                 <li class=" nav-item"><a href="{{ route('benefits.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
                             data-i18n="Colors">Benefits</span></a>
                 </li>
-                <li class=" nav-item"><a href=""><i class="bx bx-droplet"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{ route('user.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
                             data-i18n="Colors">Users</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-bulb"></i><span class="menu-title"

@@ -73,7 +73,7 @@
                             <h5 class="card-title">Team Member List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('team-members.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -88,24 +88,24 @@
                                                 <th>Designation</th>
                                                 <th>Team Joining Date</th>
                                                 <th>Team Leaving Date</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($transfers)
-                                                @foreach ($transfers as $transfer)
+                                            @if ($members)
+                                                @foreach ($members as $member)
                                                     <tr>
-                                                        <td>{{ $transfer['reference'] }}</td>
-                                                        <td>{{ $transfer['payment_from_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['payment_to_account']['account_name'] }}</td>
-                                                        <td>{{ $transfer['balance'] }}</td>
+                                                        <td>{{ $member->team->name }}</td>
+                                                        <td>{{ $member->employee->name }}</td>
+                                                        <td>{{ $member->employee->designation->title }}</td>
+                                                        <td>{{ $member->join_date }}</td>
+                                                        <td>{{ $member->leave_date }}</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('payment-transfer.edit',$transfer->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('payment-transfer.destroy',$transfer->id) }}" transfer="post"> @csrf @transfer('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('team-members.edit',$member->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('team-members.destroy',$member->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -116,7 +116,7 @@
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -125,7 +125,6 @@
                                                 <th>Designation</th>
                                                 <th>Team Joining Date</th>
                                                 <th>Team Leaving Date</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>

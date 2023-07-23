@@ -85,25 +85,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($brands)
-                                                @foreach ($brands as $brand)
+                                            @if ($users)
+                                                @foreach ($users as $user)
                                                     <tr>
-                                                        <td>@if ($brand->image != null)<img src="
-                                                            {{ asset('images/brand_logo/'.$brand->image) }}
-                                                       " class="mr-50" alt="" height="25" width="35">@endif</td>
-                                                        <td class="text-bold-600" >{{ $brand->name }}</td>
-                                                        <td>{{ $brand->description }}</td>
-                                                        <td>{{ $brand->address }}</td>
+                                                        <td>@if ($user->image != null)<img src="
+                                                            {{ asset('images/profile_image/'.$user->image) }}
+                                                       " class="mr-50" alt="null" height="25" width="35">@endif</td>
+                                                        <td class="text-bold-600" >{{ $user->name }}</td>
+                                                        <td>@if ($user->designation != null)
+                                                            {{ $user->designation->title }}
+                                                            @else {{ 'Not Set' }}
+                                                        @endif</td>
+                                                        <td>{{ $user->email }} <br> {{ $user->phone }}</td>
+                                                        <td>{{ $user->address }}</td>
                                                         <td>
-                                                            @if($brand->status == 'Active')
-                                                                <a class="updateBrandStatus" id="brand-{{ $brand->id }}"
-                                                                    brand_id = "{{ $brand->id }}"
+                                                            @if($user->status == 'Active')
+                                                                <a class="updateuserStatus" id="user-{{ $user->id }}"
+                                                                    user_id = "{{ $user->id }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-success" status="Active">Active</label>
                                                                 </a>
                                                             @else
-                                                                <a class="updateBrandStatus" id="brand-{{ $brand->id }}"
-                                                                    brand_id = "{{ $brand->id }}"
+                                                                <a class="updateuserStatus" id="user-{{ $user->id }}"
+                                                                    user_id = "{{ $user->id }}"
                                                                     href="javascript:void(0)">
                                                                         <label class="badge badge-danger" status="Inactive">Inactive</label>
                                                                 </a>
@@ -113,8 +117,9 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('brand.edit',$brand->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('brand.destroy',$brand->id) }}" method="post"> @csrf @method('Delete')
+                                                                    <a class="dropdown-item" href="{{ route('user.show',$user->id) }}"><i class="bx bx-edit-alt mr-1"></i> details</a>
+                                                                    <a class="dropdown-item" href="{{ route('user.edit',$user->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('user.destroy',$user->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
                                                                     
@@ -125,13 +130,14 @@
                                                 @endforeach
                                             @else
                                                 {{ 'No Data Found' }}
-                                            @endif --}}
+                                            @endif
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Logo</th>
-                                                <th>Brand</th>
-                                                <th>Description</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Designation</th>
+                                                <th>Contact</th>
                                                 <th>Address</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -183,24 +189,24 @@
     <script>
 
         $(document).ready(function (){
-            $(document).on("click", ".updateBrandStatus", function () {
+            $(document).on("click", ".updateuserStatus", function () {
                 var status = $(this).children("label").attr("status");
-                var brand_id = $(this).attr("brand_id");
+                var user_id = $(this).attr("user_id");
 
                 $.ajax({
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                     },
                     type: "post",
-                    url: "{{ route('updateBrandStatus') }}",
-                    data: { status: status, brand_id: brand_id },
+                    url: "{{ route('updateuserStatus') }}",
+                    data: { status: status, user_id: user_id },
                     success: function (resp) {
                         if (resp["status"] == 'Inactive') {
-                            $("#brand-" + brand_id).html(
+                            $("#user-" + user_id).html(
                                 "<label class='badge badge-danger' status='Inactive'>Inactive</label>"
                             );
                         } else if (resp["status"] == 'Active') {
-                            $("#brand-" + brand_id).html(
+                            $("#user-" + user_id).html(
                                 "<label class='badge badge-success' status='Active'>Active</label>"
                             );
                         }

@@ -104,6 +104,7 @@ Route::prefix('/')->group(function(){
         Route::resource('benefits',BenefitController::class);
         Route::post('update-designation-status',[DesignationController::class,'updateDesignationStatus'])->name('updateDesignationStatus');
         Route::resource('user',AdminController::class);
+        Route::post('update-user-status',[AdminController::class,'updateUserStatus'])->name('updateuserStatus');
         Route::resource('role', RoleController::class);
     });
 });

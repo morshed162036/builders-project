@@ -31,14 +31,14 @@
     <div class="content-header-left col-12 mb-2 mt-1">
         <div class="row breadcrumbs-top">
             <div class="col-12">
-                <h5 class="content-header-title float-left pr-1 mb-0">User Create</h5>
+                <h5 class="content-header-title float-left pr-1 mb-0">User Details</h5>
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
                         <li class="breadcrumb-item"><a href="{{ route('user.index') }}">Users</a>
                         </li>
-                        <li class="breadcrumb-item active">User Create
+                        <li class="breadcrumb-item active">User Details
                         </li>
                     </ol>
                 </div>
@@ -64,27 +64,24 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-content">
-                        <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data"> @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <fieldset class="mt-2">
                                             <h5>Image</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
-                                                </div>
-                                                <input type="file" class="form-control" aria-describedby="basic-Createon1" name="image" id="image" onchange="loadFile(event)">
-                                            </div>
+                                            <img id="output" class="w-25 mt-2" 
+                                            @if ($user->image)
+                                                src='{{ asset('images/profile_image/'.$user->image) }}'
+                                            @endif>
                                         </fieldset>
-                                        <img id="output" class="w-25 mt-2">
+                                       
                                         <fieldset class="mt-2">
                                             <h5>Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" required>
+                                                <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" value="{{ $user->name }}" readonly>
                                             </div>
                                         </fieldset >
                                         <fieldset class="mt-2">
@@ -93,15 +90,8 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <select name="designation_id" id="" class="form-control" required>
-                                                    <option value="0">Select</option>
-                                                    @isset($designations)
-                                                        @foreach ($designations as $designation)
-                                                            <option value="{{ $designation->id }}">{{ $designation->title }}</option>
-                                                        @endforeach
-                                                        
-                                                    @endisset
-                                                </select>
+                                                <input type="text" class="form-control" value="{{ $user->designation->title }}" readonly>
+                                               
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -110,7 +100,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="email" class="form-control" placeholder="abc@gmail.com" aria-describedby="basic-Createon1" name="email" required>
+                                                <input type="email" class="form-control" placeholder="abc@gmail.com" aria-describedby="basic-Createon1" name="email" value="{{ $user->email }}" readonly>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -119,7 +109,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="017xxxx" aria-describedby="basic-Createon1" name="phone" maxlength="11" required>
+                                                <input type="text" class="form-control" placeholder="017xxxx" aria-describedby="basic-Createon1" name="phone" maxlength="11" value="{{ $user->phone }}" readonly>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -128,7 +118,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" required>
+                                                <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" value="{{ $user->address }}" name="address" readonly>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -137,7 +127,16 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="joining_date">
+                                                <input type="test" class="form-control"  aria-describedby="basic-Createon1" name="joining_date" value="{{ $user->info->joining_date }}" readonly>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Resign Date</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                </div>
+                                                <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="resign_date" value="{{ $user->info->resign_date }}" readonly>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -146,70 +145,56 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" required>
+                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" value="{{ $user->info->salary}}" readonly>
                                             </div>
                                         </fieldset>
-                                        {{-- <fieldset class="mt-2">
-                                            <h5>Status</h5>
+                                        <fieldset class="mt-2">
+                                            <h5>Available Status</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <select name="status" id="" class="form-control" required>
-                                                    <option value="">select</option>
-                                                </select>
+                                                <input type="text" class="form-control" value="{{ $user->info->available_status }}" readonly>
                                             </div>
-                                        </fieldset> --}}
+                                        </fieldset>
                                         
                                         <div class="row mt-2">
                                             <h3 class="text-primary">Benefits:</h3>
                                             <div class="repeater-default">
                                                 <div data-repeater-list="group-benefit">
-                                                    <div data-repeater-item>
-                                                        <div class="row justify-content-between" id='benefit_details'>
-                                                            <div class="col-md-10 col-sm-12 form-group">
-                                                                <label for="benefit_id">Title</label>
-                                                                <select name="benefit_id" id="benefit_id"
-                                                                    class="form-control" required>
-                                                                    <option value="0">Select</option>
-                                                                    @isset($benefits)
-                                                                        @foreach ($benefits as $benefit)
-                                                                            <option value="{{ $benefit->id }}">
-                                                                                {{ $benefit->title }}</option>
-                                                                        @endforeach
-                                                                    @endisset
-                                                                </select>
+                                                    @foreach ($user->benefits as $user_benefit)
+                                                        <div data-repeater-item>
+                                                            <div class="row justify-content-between" id='benefit_details'>
+                                                                <div class="col-md-10 col-sm-12 form-group">
+                                                                    <label for="benefit_id">Title</label>
+                                                                    <input type="text" class="form-control" value="{{ $user_benefit->details->title }}" readonly>
+                                                                </div>
+                                                                
+                                                                <div
+                                                                    class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
+                                                                    <button class="btn btn-danger text-nowrap px-1"
+                                                                        data-repeater-delete type="button" hidden> <i
+                                                                            class="bx bx-x"></i>
+                                                                        Delete
+                                                                    </button>
+                                                                </div>
                                                             </div>
-                                                            
-                                                            <div
-                                                                class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
-                                                                <button class="btn btn-danger text-nowrap px-1"
-                                                                    data-repeater-delete type="button"> <i
-                                                                        class="bx bx-x"></i>
-                                                                    Delete
-                                                                </button>
-                                                            </div>
+                                                            <hr>
                                                         </div>
-                                                        <hr>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col p-0">
-                                                        <button class="btn btn-primary" data-repeater-create type="button" id="benefit"><i
+                                                        <button class="btn btn-primary" data-repeater-create type="button" id="benefit" hidden><i
                                                                 class="bx bx-plus"></i>
                                                             Add
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-
-                                        <button type="submit" class="btn btn-primary mt-2 btn-lg">Create</button>
-                                    
+                                        </div>                                  
                                     </div>
                                 </div>
-                                
                             </div>
                         </form>
                     </div>
