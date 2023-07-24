@@ -33,7 +33,7 @@ class BrandController extends Controller
     {
         //dd($request->all());
         $rules = [
-            'brand_name'=>'required|regex:/^[\pL\s\-]+$/u',
+            'brand_name'=>'required',
             ];
         $this->validate($request,$rules);
 
@@ -86,7 +86,7 @@ class BrandController extends Controller
     public function update(Request $request, string $id)
     {
         $rules = [
-            'brand_name'=>'required|regex:/^[\pL\s\-]+$/u',
+            'brand_name'=>'required',
             ];
         $this->validate($request,$rules);
         $brand = Brand::findorFail($id);

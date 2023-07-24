@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('parent_id');
             $table->bigInteger('catalogue_id');
             $table->string('name');
-            $table->float('discount')->default(0);
+            // $table->float('discount')->default(0);
             $table->text('description')->nullable();
             $table->enum('status',['Active','Inactive'])->default('Active');
             $table->timestamps();

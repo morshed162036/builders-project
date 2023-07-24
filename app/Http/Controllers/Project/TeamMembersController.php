@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Payroll\Info_user;
 use App\Models\Project\Team;
 use App\Models\Project\Team_member;
 class TeamMembersController extends Controller
@@ -36,11 +37,21 @@ class TeamMembersController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'team_id'=>'required',
+            'employee_id'=>'required',
+            'join_date'=>'required',
+            ];
+        $this->validate($request,$rules);
         $team_member = new Team_member();
         $team_member->team_id = $request->team_id;
         $team_member->user_id = $request->employee_id;
         $team_member->join_date = $request->join_date;
         $team_member->save();
+
+        $user = Info_user::where('user_id',$request->employee_id)->get()->first();
+        $user->available_status = 'Project';
+        $user->update();
         return redirect(route('team-members.index'))->with('success','Member Add Successfully');
     }
 
@@ -72,6 +83,12 @@ class TeamMembersController extends Controller
     {
         $team_member = Team_member::findorFail($id);
         $team_member->join_date = $request->join_date;
+        if($team_member->leave_date == null && $request->leave_date != null)
+        {
+            $user = Info_user::where('user_id',$request->employee_id)->get()->first();
+            $user->available_status = 'Available';
+            $user->update();
+        }
         $team_member->leave_date = $request->leave_date;
         $team_member->update();
         return redirect(route('team-members.index'))->with('success','Member Update Successfully');

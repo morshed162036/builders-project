@@ -36,7 +36,7 @@
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('user.index') }}">Team Members</a>
+                        <li class="breadcrumb-item"><a href="{{ route('team-members.index') }}">Team Members</a>
                         </li>
                         <li class="breadcrumb-item active">Add Team Member
                         </li>
@@ -75,7 +75,7 @@
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
                                                 <select name="team_id" id="" class="form-control" required>
-                                                    <option value="0">Select</option>
+                                                    <option value="">Select</option>
                                                     @isset($teams)
                                                         @foreach ($teams as $team)
                                                             <option value="{{ $team->id }}">{{ $team->name }}</option>
@@ -92,7 +92,7 @@
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
                                                 <select name="employee_id" id="" class="form-control" required>
-                                                    <option value="0">Select</option>
+                                                    <option value="">Select</option>
                                                     @isset($employees)
                                                         @foreach ($employees as $employee)
                                                             <option value="{{ $employee->id }}">{{ $employee->name }}({{ $employee->designation->title }})</option>

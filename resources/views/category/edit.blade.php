@@ -106,7 +106,7 @@
                                             <div id="appendCategoriesLevel">
                                                 @include('category.append_categories_level')
                                             </div>
-                                            <fieldset class="mt-2">
+                                            {{-- <fieldset class="mt-2">
                                                 <h5>Category Discount</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
@@ -118,7 +118,7 @@
                                                         id="category_discount" placeholder="Discount Value"
                                                         value{{ $category['discount'] }}>
                                                 </div>
-                                            </fieldset>
+                                            </fieldset> --}}
                                             <fieldset class="mt-2">
                                                 <h5>Category Description</h5>
                                                 <div class="input-group">

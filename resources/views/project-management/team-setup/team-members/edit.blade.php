@@ -36,7 +36,7 @@
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('user.index') }}">Team Members</a>
+                        <li class="breadcrumb-item"><a href="{{ route('team-members.index') }}">Team Members</a>
                         </li>
                         <li class="breadcrumb-item active">Edit Team Member
                         </li>
@@ -83,7 +83,8 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" name="employee_id" id="" class="form-control" value="{{ $member->employee->name }} ({{ $member->employee->designation->title }})" readonly>
+                                                <input type="text"  class="form-control" value="{{ $member->employee->name }} ({{ $member->employee->designation->title }})" readonly>
+                                                <input type="text" name="employee_id" value="{{ $member->user_id }}" hidden>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">

@@ -59,14 +59,19 @@ Route::prefix('/')->group(function(){
         Route::post('update-category-status',[CategoryController::class,'updateCategoryStatus'])->name('updateCategoryStatus');
         Route::resource('product', ProductController::class);
         Route::post('update-product-status',[ProductController::class,'updateProductStatus'])->name('updateProductStatus');
+        
         //Supplier Management
         Route::resource('supplier',SupplierController::class);
         Route::post('update-supplier-status',[SupplierController::class,'updateSupplierStatus'])->name('updateSupplierStatus');
         Route::get('supplier-advance',[SupplierController::class,'advanceSupplier'])->name('supplier.advance');
         Route::get('supplier-payable',[SupplierController::class,'payableSupplier'])->name('supplier.payable');
         
-        //Project Management
+        //Client Management
         Route::resource('client',ClientController::class);
+        Route::get('client-advance',[ClientController::class,'advanceClient'])->name('client.advance');
+        Route::get('client-payable',[ClientController::class,'payableClient'])->name('client.payable');
+
+        //Project Management
         Route::resource('team',TeamController::class);
         Route::post('update-team-status',[TeamController::class,'updateTeamStatus'])->name('updateTeamStatus');
         Route::resource('team-members',TeamMembersController::class);

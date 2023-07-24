@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project\Client;
+use App\Models\Invoice\Invoice;
 
 class ClientController extends Controller
 {
@@ -91,6 +92,19 @@ class ClientController extends Controller
     {
         Client::findorFail($id)->delete();
         return redirect(route('client.index'))->with('success','Client Delete Success!');
+    }
+
+    public function advanceClient()
+    {
+        $clients = Invoice::with('client')->where('invoice_type','Sell')->where('payment_status','Advance')->get();
+        //dd($clients);
+        return view('project-management.client.advance')->with(compact('clients'));
+    }
+    public function payableClient()
+    {
+        $clients = Invoice::with('client')->where('invoice_type','Sell')->where('payment_status','Due')->orWhere('payment_status','Partial')->get();
+        //dd($clients);
+        return view('project-management.client.payable')->with(compact('clients'));
     }
 
 }

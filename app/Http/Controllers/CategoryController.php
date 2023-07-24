@@ -56,7 +56,7 @@ class CategoryController extends Controller
         $category->name = $request->category_name;
         $category->parent_id = $request->parent_id;
         $category->catalogue_id = $request->catalogue_id;
-        $category->discount = $category_discount;
+        // $category->discount = $category_discount;
         $category->description = $request->category_description;
         $category->save();
         $categories = Category::with(['catalogue','parentcategory'])->get()->toArray();
@@ -100,7 +100,7 @@ class CategoryController extends Controller
         $category->name = $request->category_name;
         $category->parent_id = $request->parent_id;
         $category->catalogue_id = $request->catalogue_id;
-        $category->discount = $category_discount;
+        //$category->discount = $category_discount;
         $category->description = $request->category_description;
         $category->update();
         $categories = Category::with(['catalogue','parentcategory'])->get()->toArray();

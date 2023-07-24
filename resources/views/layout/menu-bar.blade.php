@@ -251,6 +251,18 @@
                             class="menu-title">Payable Supplier</span></a>
                 </li>
 
+                <li class=" navigation-header"><span>Client Management</span>
+                </li>
+                <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Client</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('client.advance') }}"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Advance Client</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('client.payable') }}"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Payable Client</span></a>
+                </li>
+
 
                 <li class=" navigation-header"><span>Inventory Management</span>
                 </li>
@@ -277,9 +289,9 @@
 
                 <li class=" navigation-header"><span>Project Management</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span
+                {{-- <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span
                             class="menu-title">Client</span></a>
-                </li>
+                </li> --}}
                 <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span class="menu-title">Team
                             Setup</span></a>
                     <ul class='menu-content'>
