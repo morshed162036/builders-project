@@ -140,6 +140,21 @@
                                             <span>{{$invoice->project->client->phone}}</span>
                                         </div>
                                     </div>
+                                    <div class="col-6 mt-1">
+                                        <h6 class="invoice-form">Project Details</h6>
+                                        <div class="mb-1">
+                                            <span>{{$invoice->project->name}}</span>
+                                        </div>
+                                        {{-- <div class="mb-1">
+                                            <span>{{$invoice->project->client->company}}</span>
+                                        </div>
+                                        <div class="mb-1">
+                                            <span>{{$invoice->project->client->email}}</span>
+                                        </div>
+                                        <div class="mb-1">
+                                            <span>{{$invoice->project->client->phone}}</span>
+                                        </div> --}}
+                                    </div>
 
                                 @endif
                                 
@@ -190,45 +205,63 @@
                         </div>
 
                         <!-- invoice subtotal -->
-                        <div class="card-body pt-0 mx-25">
-                            <hr>
-                            <div class="row">
-                                <div class="col-4 col-sm-6 mt-75">
-                                    <p>Thanks for your business.</p>
-                                    <span class="invoice-title">Payment Status: </span>
-                                    <span class="invoice-value text-primary">{{ $invoice->payment_status }}</span>
-                                </div>
-                                <div class="col-8 col-sm-6 d-flex justify-content-end mt-75">
-                                    <div class="invoice-subtotal">
-                                        <div class="invoice-calc d-flex justify-content-between">
-                                            <span class="invoice-title text-primary"> Total</span>
-                                            <span class="invoice-value text-primary">{{ $product_subtotal }}</span>
-                                        </div>
-                                        <div class="invoice-calc d-flex justify-content-between">
-                                            <span class="invoice-title">Discount</span>
-                                            <span class="invoice-value">{{$invoice->discount}}</span>
-                                        </div>
-                                        {{-- <div class="invoice-calc d-flex justify-content-between">
-                                            <span class="invoice-title">Tax</span>
-                                            <span class="invoice-value">21%</span>
-                                        </div> --}}
-                                        <hr>
-                                        <div class="invoice-calc d-flex justify-content-between">
-                                            <span class="invoice-title">Invoice Total</span>
-                                            <span class="invoice-value">{{ $invoice->total_amount }}</span>
-                                        </div>
-                                        <div class="invoice-calc d-flex justify-content-between">
-                                            <span class="invoice-title">Paid to date</span>
-                                            <span class="invoice-value">{{ $invoice->paid_amount }}</span>
-                                        </div>
-                                        <div class="invoice-calc d-flex justify-content-between">
-                                            <span class="invoice-title">Due Balance</span>
-                                            <span class="invoice-value text-danger">{{  $invoice->total_amount - $invoice->paid_amount }}</span>
+                        @if($invoice->invoice_type != 'Project')
+                        
+                            <div class="card-body pt-0 mx-25">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-4 col-sm-6 mt-75">
+                                        <p>Thanks for your business.</p>
+                                        <span class="invoice-title">Payment Status: </span>
+                                        <span class="invoice-value text-primary">{{ $invoice->payment_status }}</span>
+                                    </div>
+                                    <div class="col-8 col-sm-6 d-flex justify-content-end mt-75">
+                                        <div class="invoice-subtotal">
+                                            <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title text-primary"> Total</span>
+                                                <span class="invoice-value text-primary">{{ $product_subtotal }}</span>
+                                            </div>
+                                            <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title">Discount</span>
+                                                <span class="invoice-value">{{$invoice->discount}}</span>
+                                            </div>
+                                            {{-- <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title">Tax</span>
+                                                <span class="invoice-value">21%</span>
+                                            </div> --}}
+                                            <hr>
+                                            <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title">Invoice Total</span>
+                                                <span class="invoice-value">{{ $invoice->total_amount }}</span>
+                                            </div>
+                                            <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title">Paid to date</span>
+                                                <span class="invoice-value">{{ $invoice->paid_amount }}</span>
+                                            </div>
+                                            <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title">Due Balance</span>
+                                                <span class="invoice-value text-danger">{{  $invoice->total_amount - $invoice->paid_amount }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        
+                        @else
+                            
+                                <div class="card-body pt-0 mx-25">
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6 d-flex justify-content-end mt-75">
+                                            <div class="invoice-calc d-flex justify-content-between">
+                                                <span class="invoice-title text-primary"> Total: </span>
+                                                <span class="invoice-value text-primary pl-2">{{ $product_subtotal }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                        @endif
                     </div>
                 </div>
             </div>

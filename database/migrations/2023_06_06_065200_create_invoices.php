@@ -18,10 +18,10 @@ return new class extends Migration
             $table->bigInteger('project_id')->default(0);
             $table->string('invoice_code')->unique();
             $table->date('issue_date');
-            $table->date('due_date');
+            $table->date('due_date')->nullable();
             $table->double('discount')->default(0);
             $table->double('paid_amount')->default(0);
-            $table->enum('payment_status',['Paid','Due','Partial','Advance']);
+            $table->enum('payment_status',['Paid','Due','Partial','Advance','Project']);
             $table->enum('invoice_type',['Purchase','Sell','Project']);
             $table->integer('total_item')->default(0);
             $table->double('total_amount')->default(0);

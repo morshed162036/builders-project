@@ -181,6 +181,29 @@
                                                 </div>
                                             </fieldset>
                                         </div>
+                                        @if ($project->team == null)
+                                            <div class="col-sm-4">
+                                            <fieldset class="form-group">
+                                                <h5>Team</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-Createon1"><i
+                                                                class="bx bx-spreadsheet"></i></span>
+                                                    </div>
+                                                    <select name="team_id" id="team_id" class="form-control">
+                                                        <option value="">select</option>
+                                                        @isset($teams)
+                                                            @foreach ($teams as $team)
+                                                                <option value="{{ $team->id }}">
+                                                                    {{ $team->name }}</option>
+                                                            @endforeach
+                                                        @endisset
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        @endif
+                                        
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Update</button>
 

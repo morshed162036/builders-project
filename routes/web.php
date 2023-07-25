@@ -77,6 +77,8 @@ Route::prefix('/')->group(function(){
         Route::resource('team-members',TeamMembersController::class);
         Route::resource('project',ProjectController::class);
         Route::resource('project-estimation',ProjectEstimationController::class);
+        Route::get('project-start',[ProjectController::class,'projectSetup'])->name('project.start');
+        Route::post('project-save',[ProjectController::class,'SaveSetup'])->name('project.save');
 
         // Stock
         Route::resource('stock', StockController::class);

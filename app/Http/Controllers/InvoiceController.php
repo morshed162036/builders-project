@@ -10,6 +10,7 @@ use App\Models\Supplier;
 use App\Models\settings\Payment_method;
 use App\Models\Product;
 use App\Models\Project\Client;
+use App\Models\Project\Project;
 use App\Models\Stock\Product_stock;
 use App\Models\Stock\Machine_stock;
 use App\Models\Stock\Machine_stock_detail;
@@ -75,7 +76,9 @@ class InvoiceController extends Controller
     }
     public function projectCreate()
     {
-        return view('inventory-management.invoice.create');
+        $products = Product::where('type','Product')->where('status','Active')->get();
+        $projects = Project::where('status','Start')->orWhere('status','Ongoing')->get();
+        return view('inventory-management.invoice.project_create')->with(compact('products','projects'));
     }
 
     /**
@@ -292,6 +295,68 @@ class InvoiceController extends Controller
 
             return redirect(route('sell_index'))->with('success','Sale Invoice Create Successfully');
         }
+        elseif ($request->invoice_type == 'Project') {
+            dd($request->all());
+            $total_item = 0;
+            $total_amount = 0;
+            $invoice = new Invoice();
+            $invoice->project_id = $request->project_id;
+            $invoice->invoice_code = $request->invoice_code;
+            $invoice->issue_date = $request->issue_date;
+            // $invoice->due_date = $request->due_date;
+            $invoice->invoice_type = $request->invoice_type;
+            // $invoice->discount = $request->discount;
+            $invoice->payment_status = 'Project';
+
+            foreach($request['group-product'] as $product)
+            {
+                if($product['product_id'] != null)
+                {
+                    $product_stock = Product_stock::with('product')->where('product_id',$product['product_id'])->get()->first();
+                        //dd($product_stock);
+                        $product_unit_price = $product_stock->unit_price;
+                        if($product_stock->available >= $product['qnt'])
+                        {
+                            $product_stock_id  = $product_stock->id;
+                            $product_stock->available -= $product['qnt'];
+                            $product_stock->update();
+                            $invoice->save();
+                            $invoice_id = $invoice->id;
+
+                            // $product_stock_details = new Product_stock_detail();
+                            // $product_stock_details->product_stock_id =  $product_stock_id;
+                            // $product_stock_details->invoice_id = $invoice_id;
+                            // $product_stock_details->sku = $product['sku'];
+                            // $product_stock_details->purchase_unit_price = $product['unit_price'];
+                            // $product_stock_details->qnt += $product['qnt'];
+                            // $product_stock_details->available += $product['qnt'];
+                            // $product_stock_details->save();
+                        }
+                        else{
+                            return redirect(route('project_index'))->with('error',' Not Enough Stock For -> '.$product_stock->product->title);
+                        }
+                        
+                    $invoice_details = new Invoice_detail();
+                    $invoice_details->invoice_id = $invoice_id;
+                    $invoice_details->product_id = $product['product_id'];
+                    //$invoice_details->sku = $product['sku'];
+                    $invoice_details->quantity = $product['qnt'];
+                    //$invoice_details->unit_id = $product['unit_id'];
+                    $invoice_details->unit_price = $product_unit_price;
+                    $invoice_details->total_price = $product_unit_price * $product['qnt'];
+
+                    $total_item++;
+                    $total_amount += $product_unit_price * $product['qnt'];
+                    $invoice_details->save();
+                    
+                }
+            }
+            $invoice = Invoice::findorFail($invoice_id);
+            $invoice->total_item = $total_item;
+            $invoice->total_amount = $total_amount;
+            $invoice->update();
+        }
+        return redirect(route('project_index'))->with('success','Project Invoice Create Successfully');
     }
 
     /**

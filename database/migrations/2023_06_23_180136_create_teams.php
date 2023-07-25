@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('project_id')->default(0);
             $table->string('name')->unique();
             $table->integer('member_count')->default(0);
-            $table->Enum('team_type',['Employee','Laborer']);
+            // $table->Enum('team_type',['Employee','Laborer']);
             $table->text('description')->nullable();
             $table->Enum('status',['Active','Inactive'])->default('Active');
             $table->timestamps();

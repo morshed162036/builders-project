@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project\Client;
 use App\Models\Project\Project;
+use App\Models\Project\Team;
 class ProjectController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('client')->get();
+        $projects = Project::with('client','team')->get();
         //dd($projects);
         return view('project-management.project-setup.project.index')->with(compact('projects'));
     }
@@ -53,8 +54,10 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $clients = Client::get();
-        $project = Project::findorFail($id)->get()->first();
-        return view('project-management.project-setup.project.edit')->with(compact('clients','project'));
+        $project = Project::with('team')->findorFail($id);
+        $teams = Team::where('status','Active')->where('project_id',0)->get();
+        //dd($project);
+        return view('project-management.project-setup.project.edit')->with(compact('clients','project','teams'));
     }
 
     /**
@@ -70,6 +73,12 @@ class ProjectController extends Controller
         $project->finished_date = $request->finished_date;
         $project->status = $request->status;
         $project->update();
+        if($request->team_id){
+            $team = Team::findorFail($request->team_id);
+            $team->project_id = $id;
+            $team->update();
+        }
+        
         return redirect(route('project.index'))->with('success','Project Update Successfully!!');
     }
 
@@ -79,5 +88,27 @@ class ProjectController extends Controller
     public function destroy(string $id)
     {
         
+    }
+
+    public function projectSetup()
+    {
+        $projects = Project::where('status','Just Create')->orWhere('status','Estimate')->get();
+        $teams = Team::where('status','Active')->where('project_id',0)->get();
+        return view('project-management.project-setup.project-start.start')->with(compact('teams','projects'));
+    }
+
+    public function saveSetup(Request $request)
+    {
+        //dd($request->all());
+        $project = Project::findorFail($request->project_id);
+        $project->status = 'Start';
+        $project->starting_date = $request->start_date;
+        //dd($project->starting_date);
+        $project->update();
+
+        $team = Team::findorFail($request->team_id);
+        $team->project_id = $request->project_id;
+        $team->update();
+        return redirect(route('project.index'))->with('success','Project Start Successfully!!');
     }
 }

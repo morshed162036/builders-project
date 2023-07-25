@@ -84,8 +84,8 @@
                                         <thead>
                                             <tr>
                                                 <th>Team Name</th>
-                                                <th>Team Member Count</th>
-                                                <th>Team Type</th>
+                                                <th>Project Name</th>
+                                                <th>Active Member Count</th>
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -96,8 +96,12 @@
                                                 @foreach ($teams as $team)
                                                     <tr>
                                                         <td>{{ $team->name }}</td>
+                                                        <td>@if ($team->project)
+                                                            {{  $team->project->name }}
+                                                            @else
+                                                            {{ 'Not Set Yet' }}
+                                                        @endif</td>
                                                         <td>{{ $team->member_count }}</td>
-                                                        <td>{{ $team->team_type }}</td>
                                                         <td>{{ $team->description }}</td>
                                                         <td>
                                                             @if($team->status == 'Active')
@@ -135,8 +139,8 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Team Name</th>
-                                                <th>Team Member Count</th>
-                                                <th>Team Type</th>
+                                                <th>Project Name</th>
+                                                <th>Active Member Count</th>
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>

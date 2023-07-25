@@ -36,9 +36,9 @@
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('purchase_index') }}">Purchase Invoice</a>
+                        <li class="breadcrumb-item"><a href="{{ route('project_index') }}">Project Invoice</a>
                         </li>
-                        <li class="breadcrumb-item active">Purchase Invoice Create
+                        <li class="breadcrumb-item active">Project Invoice Create
                         </li>
                     </ol>
                 </div>
@@ -66,33 +66,7 @@
                     <div class="card-content">
                         <form action="{{ route('invoice.store') }}" method="post" enctype="multipart/form-data"> @csrf
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <fieldset class="form-group">
-                                            <h5>Supplier</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
-                                                </div>
-                                                <select name="supplier_id" id="supplier_id" class="form-control">
-                                                    <option value="0">Select</option>
-                                                </select>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <fieldset class="form-group">
-                                            <h5>Client</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
-                                                </div>
-                                                <select name="client_id" id="client_id" class="form-control">
-                                                    <option value="0">Select</option>
-                                                </select>
-                                            </div>
-                                        </fieldset>
-                                    </div>         
+                                <div class="row">    
                                     <div class="col-sm-4">
                                         <fieldset class="form-group">
                                             <h5>Project</h5>
@@ -100,14 +74,19 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <select name="project_id" id="project_id" class="form-control">
-                                                    <option value="0">Select</option>
+                                                <select name="project_id" id="project_id" class="form-control" required>
+                                                    <option value="">Select</option>
+                                                    @isset($projects)
+                                                        @foreach ($projects as $project)
+                                                            <option value="{{ $project->id }}">
+                                                                {{ $project->name }}</option>
+                                                        @endforeach
+                                                    @endisset
                                                 </select>
                                             </div>
                                         </fieldset>
                                     </div>
-                                </div>
-                                
+                                </div> 
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <fieldset class="form-group">
@@ -116,7 +95,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="text" name="invoice_code" id="invoice_code" class="form-control" placeholder="Start pu-(purchase),pr-(project),s-(sell)">
+                                                <input type="text" name="invoice_code" id="invoice_code" class="form-control" placeholder="Start with (pr-)">
                                             </div>
                                         </fieldset>
                                     </div>         
@@ -127,11 +106,13 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
-                                                <input type="date" name="issue_date" id="issue_date" class="form-control">
+                                                <input type="date" name="issue_date" id="issue_date" class="form-control" required>
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <div class="col-sm-4">
+
+                                    <input type="text" name="invoice_type" value="Project" hidden>
+                                    {{-- <div class="col-sm-4">
                                         <fieldset class="form-group">
                                             <h5>Due Date</h5>
                                             <div class="input-group">
@@ -142,8 +123,8 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                </div>
-                                <div class="row">
+                                </div> --}}
+                                {{-- <div class="row">
                                     <div class="col-sm-4">
                                         <fieldset class="form-group">
                                             <h5>Invoice Type</h5>
@@ -160,9 +141,9 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-10">
                                         <div class="card">
                                             <div class="card-content">
                                                 <div class="card-body">
@@ -172,7 +153,7 @@
                                                             <div data-repeater-list="group-product">
                                                                 <div data-repeater-item>
                                                                     <div class="row justify-content-between" id='product_details'>
-                                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                                        <div class="col-md-6 col-sm-10 form-group">
                                                                             <label for="product_id">Product</label>
                                                                             <select name="product_id" id="product_id"
                                                                                 class="form-control" required>
@@ -183,11 +164,6 @@
                                                                                             {{ $product->title }}</option>
                                                                                     @endforeach
                                                                                 @endisset
-                                                                                {{-- <option value="Concrete">Concrete</option>
-                                                                                <option value="Steel">Steel</option>
-                                                                                <option value="Cement">Cement</option>
-                                                                                <option value="Brick">Brick</option>
-                                                                                <option value="Sand">Sand</option> --}}
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -195,24 +171,7 @@
                                                                             <input type="number" class="form-control" id="product_qnt"
                                                                                 name="qnt" placeholder="0" required>
                                                                         </div>
-                                                                        <div class="col-md-2 col-sm-12 form-group">
-                                                                            <label for="unit_id">Unit</label>
-                                                                            <select name="unit_id" id="unit_id" class="form-control" required>
-                                                                                <option value="">Select</option>
-                                                                                @isset($units)
-                                                                                    @foreach ($units as $unit)
-                                                                                        <option value="{{ $unit->id }}">
-                                                                                            {{ $unit->unit }}</option>
-                                                                                    @endforeach
-                                                                                @endisset
-                                                                                {{-- <option value="Kg/cu.m">Kg/cu.m</option>
-                                                                                <option value="G/cu.cm">G/cu.cm</option>
-                                                                                <option value="lb/cu.ft">lb/cu.ft</option>
-                                                                                <option value="Piece">Piece</option>
-                                                                                <option value="Box">Box</option> --}}
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                                        {{-- <div class="col-md-2 col-sm-12 form-group">
                                                                             <label for="unit_price">Unit Price</label>
                                                                             <input type="text" class="form-control" id="unit_price"
                                                                                 name="unit_price" placeholder="0" required>
@@ -222,7 +181,7 @@
                                                                             <input type="text" class="form-control" id="total_price"
                                                                                  name="total_price" placeholder="0"
                                                                                 readonly>
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <div
                                                                             class="col-md-2 col-sm-12 form-group d-flex align-items-center pt-2">
                                                                             <button class="btn btn-danger text-nowrap px-1"
@@ -250,7 +209,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-content">
@@ -272,13 +231,7 @@
                                                                                             {{ $machine->title }}</option>
                                                                                     @endforeach
                                                                                 @endisset
-                                                                                {{-- <option value="Boom/Crane Truck ">Boom/Crane Truck
-                                                                                </option>
-                                                                                <option value="Manlift/Bucket Truck">Manlift/Bucket Truck
-                                                                                </option>
-                                                                                <option value="Grader">Grader</option>
-                                                                                <option value="Loader">Loader</option>
-                                                                                <option value="Haul Truck">Haul Truck</option> --}}
+                                                                               
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2 col-sm-12 form-group">
@@ -327,8 +280,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
+                                </div> --}}
+                                <button type="submit" class="btn btn-primary mt-2 btn-lg">Create</button>
                                     
                             </div>
                         </form>
@@ -367,5 +320,7 @@
 
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin_template/app-assets/js/scripts/pages/table-extended.js')}}"></script>
+    <script src="{{ asset('admin_template/app-assets/js/scripts/forms/form-repeater.js') }}"></script>
+    <script src="{{ asset('admin_template/app-assets/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
     <!-- END: Page JS-->
 @endsection

@@ -89,6 +89,7 @@
                                             <tr>
                                                 <th>Project</th>
                                                 <th>Client</th>
+                                                <th>Team name</th>
                                                 <th>Starting Date</th>
                                                 <th>Expected Finished Date</th>
                                                 <th>Finished Date</th>
@@ -104,6 +105,11 @@
                                                     <tr>
                                                         <td>{{ $project['name'] }}</td>
                                                         <td>{{ $project->client->name }}({{ $project->client->company }})</td>
+                                                        <td>@if ($project->team)
+                                                            {{ $project->team->name }}
+                                                            @else
+                                                            {{ 'Not Set Yet' }}
+                                                        @endif</td>
                                                         <td>{{ $project['starting_date'] }}</td>
                                                         <td>{{ $project['expected_finished_date'] }}</td>
                                                         <td>{{ $project['finished_date'] }}</td>
@@ -141,6 +147,7 @@
                                             <tr>
                                                 <th>Project</th>
                                                 <th>Client</th>
+                                                <th>Team name</th>
                                                 <th>Starting Date</th>
                                                 <th>Expected Finished Date</th>
                                                 <th>Finished Date</th>

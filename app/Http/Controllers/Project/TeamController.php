@@ -14,7 +14,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::get();
+        $teams = Team::with('project')->get();
         return view('project-management.team-setup.team.index')->with(compact('teams'));
     }
 
@@ -38,7 +38,7 @@ class TeamController extends Controller
         }
         $team = new Team();
         $team->name = $request->team_name;
-        $team->team_type = $request->team_type;
+        // $team->team_type = $request->team_type;
         $team->description = $request->description;
         $team->save();
         return redirect(route('team.index'))->with('success','Team Create Successfully');
@@ -57,7 +57,7 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        $team = Team::findorFail($id);
+        $team = Team::with('project')->findorFail($id);
         return view('project-management.team-setup.team.edit')->with(compact('team'));
     }
 
@@ -75,7 +75,11 @@ class TeamController extends Controller
         }
         $team = Team::findorFail($id);
         $team->name = $request->team_name;
-        $team->team_type = $request->team_type;
+        // $team->team_type = $request->team_type;
+        if($team->project_id != 0){
+            $team->project_id = $request->project_id;
+        }
+        
         $team->description = $request->description;
         $team->update();
         return redirect(route('team.index'))->with('success','Team Update Successfully');

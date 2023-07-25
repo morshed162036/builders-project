@@ -96,30 +96,24 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <h5>Team Type</h5>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                        @if ($team->project)
+                                            <div class="col-sm-4">
+                                                <fieldset class="form-group">
+                                                    <h5>Project Name</h5>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-Createon1"><i
+                                                                    class="bx bx-spreadsheet"></i></span>
+                                                        </div>
+                                                        <select class="form-control" name="project_id" id="" required>
+                                                            <option value="0">Clear</option>
+                                                            <option selected value="{{ $team->project_id }}">{{ $team->project->name }}</option>
+                                                        </select>
                                                     </div>
-                                                    <select class="form-control" name="team_type" id="" required>
-                                                        <option value="">Select</option>
-                                                        <option 
-                                                        @if ($team->team_type == 'Employee')
-                                                            selected
-                                                        @endif
-                                                        value="Employee">Employee</option>
-                                                        <option 
-                                                        @if ($team->team_type == 'Laborer')
-                                                            selected
-                                                        @endif
-                                                        value="Laborer">Laborer</option>
-                                                    </select>
-                                                </div>
-                                            </fieldset>
-                                        </div>
+                                                </fieldset>
+                                            </div>
+                                        @endif
+                                        
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Update</button>
                                 </div>

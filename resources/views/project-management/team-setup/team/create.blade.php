@@ -96,7 +96,7 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-                                        <div class="col-sm-4">
+                                        {{-- <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <h5>Team Type</h5>
                                                 <div class="input-group">
@@ -111,7 +111,7 @@
                                                     </select>
                                                 </div>
                                             </fieldset>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
                                 </div>

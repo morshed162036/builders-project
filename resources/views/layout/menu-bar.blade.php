@@ -313,7 +313,7 @@
                                     class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="LivIcons">Estimate Project Cost</span></a>
                         </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
+                        <li><a href="{{ route('project.start') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="LivIcons">Setup</span></a>
                         </li>
                         <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item"

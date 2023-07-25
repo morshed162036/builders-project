@@ -124,7 +124,9 @@
                                             </div>
                                         </fieldset>
                                     </div>
+
                                     <input type="text" name="invoice_type" value="Purchase" hidden>
+                                    
                                     <div class="col-sm-4">
                                         <fieldset class="form-group">
                                             <h5>Payment Status</h5>
