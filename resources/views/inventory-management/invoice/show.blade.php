@@ -245,22 +245,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        
-                        @else
-                            
-                                <div class="card-body pt-0 mx-25">
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-8 col-sm-6 d-flex justify-content-end mt-75">
-                                            <div class="invoice-calc d-flex justify-content-between">
-                                                <span class="invoice-title text-primary"> Total: </span>
-                                                <span class="invoice-value text-primary pl-2">{{ $product_subtotal }}</span>
-                                            </div>
+                            </div>                       
+                        @else                          
+                            <div class="card-body pt-0 mx-25">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-8 col-sm-6 d-flex justify-content-end mt-75">
+                                        <div class="invoice-calc d-flex justify-content-between">
+                                            <span class="invoice-title text-primary"> Total: </span>
+                                            <span class="invoice-value text-primary pl-2">{{ $product_subtotal }}</span>
                                         </div>
                                     </div>
                                 </div>
-                            
+                            </div>                            
                         @endif
                     </div>
                 </div>

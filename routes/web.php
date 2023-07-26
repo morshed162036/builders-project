@@ -6,12 +6,16 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\Supplier\SupplierController;
+
 use App\Http\Controllers\Project\ProjectEstimationController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Project\ClientController;
 use App\Http\Controllers\Project\TeamController;
 use App\Http\Controllers\Project\TeamMembersController;
+use App\Http\Controllers\Project\ProjectExpenseController;
+use App\Http\Controllers\Project\ProjectMachineController;
 
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoiceDetailController;
@@ -77,6 +81,8 @@ Route::prefix('/')->group(function(){
         Route::resource('team-members',TeamMembersController::class);
         Route::resource('project',ProjectController::class);
         Route::resource('project-estimation',ProjectEstimationController::class);
+        Route::resource('project-otherexpense',ProjectExpenseController::class);
+        Route::resource('project-machine',ProjectMachineController::class);
         Route::get('project-start',[ProjectController::class,'projectSetup'])->name('project.start');
         Route::post('project-save',[ProjectController::class,'SaveSetup'])->name('project.save');
 

@@ -304,7 +304,7 @@
                     </ul>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
-                            class="menu-title">Project Setup</span></a>
+                            class="menu-title">Project Management</span></a>
                     <ul class='menu-content'>
                         <li><a href="{{ route('project.index') }}"><i class="bx bx-right-arrow-alt"></i><span
                                     class="menu-item" data-i18n="LivIcons">Project</span></a>
@@ -314,10 +314,13 @@
                                     data-i18n="LivIcons">Estimate Project Cost</span></a>
                         </li>
                         <li><a href="{{ route('project.start') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Setup</span></a>
+                                    data-i18n="LivIcons">Project Setup</span></a>
                         </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Project Expense</span></a>
+                        <li><a href="{{ route('project-machine.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
+                                    data-i18n="LivIcons">Machine Setup</span></a>
+                        </li>
+                        <li><a href="{{ route('project-otherexpense.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
+                                    data-i18n="LivIcons">Project Other Expense</span></a>
                         </li>
                     </ul>
                 </li>
