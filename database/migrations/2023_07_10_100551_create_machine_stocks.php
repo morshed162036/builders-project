@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('unit_id')->default(0);
             $table->integer('stock')->default(0);
             $table->double('available')->default(0);
+            $table->double('daily_hour')->default(0);
             $table->double('hourly_rent')->default(0);
             $table->timestamps();
         });

@@ -89,6 +89,7 @@
                                                 <th>Project</th>
                                                 <th>Issue Date</th>
                                                 <th>Release Date</th>
+                                                <th>Total Day</th>
                                                 <th>Project Use Hour</th>
                                                 <th>Hourly Cost</th>
                                                 <th>Total Cost</th>
@@ -103,6 +104,7 @@
                                                         <td>{{ $project_machine->project->name }}</td>
                                                         <td>{{ $project_machine->issue_date }}</td>
                                                         <td>{{ $project_machine->release_date }}</td>
+                                                        <td>{{ $project_machine->total_hour / 8}}</td>
                                                         <td>{{ $project_machine->total_hour }}</td>
                                                         <td>{{ $project_machine->hourly_rent }}</td>
                                                         <td>{{ $project_machine->total_hour * $project_machine->hourly_rent }}</td>
@@ -130,6 +132,7 @@
                                                 <th>Project</th>
                                                 <th>Issue Date</th>
                                                 <th>Release Date</th>
+                                                <th>Total Day</th>
                                                 <th>Project Use Hour</th>
                                                 <th>Hourly Cost</th>
                                                 <th>Total Cost</th>

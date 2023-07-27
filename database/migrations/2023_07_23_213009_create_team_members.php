@@ -17,6 +17,8 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->date('join_date');
             $table->date('leave_date')->nullable();
+            $table->integer('working_day')->default(0);
+            $table->double('cost')->default(0);
             $table->timestamps();
         });
     }

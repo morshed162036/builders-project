@@ -195,6 +195,15 @@
                                                         </div>
                                                     </fieldset>
                                                     <fieldset class="mt-2">
+                                                        <h5>Daily Hour</h5>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $machine->daily_hour }}" name="daily_hour">
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="mt-2">
                                                         <h5>Hourly Rent</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">

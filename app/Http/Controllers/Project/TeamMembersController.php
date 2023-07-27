@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Payroll\Info_user;
 use App\Models\Project\Team;
@@ -15,6 +16,7 @@ class TeamMembersController extends Controller
      */
     public function index()
     {
+        $this->all_member_cost();
         $members = Team_member::with('team','employee')->get();
         //dd($members);
         return view('project-management.team-setup.team-members.index')->with(compact('members'));
@@ -102,5 +104,43 @@ class TeamMembersController extends Controller
         Team_member::findorFail($id)->delete();
         return redirect(route('team-members.index'))->with('success','Member Delete Successfully');
 
+    }
+
+    public static function all_member_cost():void
+    {
+        $members = Team_member::with('team','employee')->get();
+        
+        foreach ($members as $member) {
+            if($member->leave_date)
+            {
+                $start = Carbon::parse($member->join_date);
+                $end =  Carbon::parse($member->leave_date);
+            
+                $days = $end->diffInDays($start);
+
+                $employee_salary = Info_user::select('salary')->where('user_id',$member->user_id)->get()->first();
+                //dd($employee_salary->salary);
+                $daily_salary = $employee_salary->salary / 26;
+
+                $member->cost = $days * $daily_salary;
+                $member->working_day = $days;
+                $member->update();
+            }
+            else
+            {
+                $start = Carbon::parse($member->join_date);
+                $end =  Carbon::now();
+            
+                $days = $end->diffInDays($start);
+
+                $employee_salary = Info_user::select('salary')->where('user_id',$member->user_id)->get()->first();
+                //dd($employee_salary->salary);
+                $daily_salary = $employee_salary->salary / 26;
+
+                $member->cost = $days * $daily_salary;
+                $member->working_day = $days;
+                $member->update();
+            }
+        }
     }
 }

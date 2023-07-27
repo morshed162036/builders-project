@@ -165,6 +165,7 @@
                                                 <th>Stock</th>
                                                 <th>Available</th>
                                                 <th>Unit</th>
+                                                <th>Daily Hour</th>
                                                 <th>Hourly Rent</th>
                                                 <th>Action</th>
                                             </tr>
@@ -181,6 +182,7 @@
                                                             @else
                                                             0
                                                         @endif</td>
+                                                        <td>{{ $machine->daily_hour }}</td>
                                                         <td>{{ $machine->hourly_rent }}</td>
                                                         
                                                         <td>
@@ -209,6 +211,7 @@
                                                 <th>Stock</th>
                                                 <th>Available</th>
                                                 <th>Unit</th>
+                                                <th>Daily Hour</th>
                                                 <th>Hourly Rent</th>
                                                 <th>Action</th>
                                             </tr>

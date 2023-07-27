@@ -88,6 +88,7 @@
                                                 <th>Designation</th>
                                                 <th>Team Joining Date</th>
                                                 <th>Team Leaving Date</th>
+                                                <th>Total Working Day</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -100,6 +101,7 @@
                                                         <td>{{ $member->employee->designation->title }}</td>
                                                         <td>{{ $member->join_date }}</td>
                                                         <td>{{ $member->leave_date }}</td>
+                                                        <td>{{ $member->working_day }}</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
@@ -125,6 +127,7 @@
                                                 <th>Designation</th>
                                                 <th>Team Joining Date</th>
                                                 <th>Team Leaving Date</th>
+                                                <th>Total Working Day</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Project\Project;
 use App\Models\Project\Project_machine;
 use App\Models\Stock\Machine_stock;
+use DateTime;
+use Carbon\Carbon;
 class ProjectMachineController extends Controller
 {
     /**
@@ -14,6 +16,7 @@ class ProjectMachineController extends Controller
      */
     public function index()
     {
+        $this->all_cost_calculation();
         $project_machines = Project_machine::with('project','stock')->get();
         return view('project-management.project-setup.project-machine.index')->with(compact('project_machines'));
     }
@@ -47,19 +50,25 @@ class ProjectMachineController extends Controller
                     //dd($stock_machine->available);
                     if($stock_machine->available >= $machine['qnt'])
                     {
-                        for($i = 1; $i <= $machine['qnt']; $i++)
+                        if($stock_machine->hourly_rent != 0 && $stock_machine->daily_hour != 0)
                         {
-                            $project_machine = new Project_machine();
-                            $project_machine->project_id = $request->project_id;
-                            $project_machine->issue_date = $request->issue_date;
-                            $project_machine->stock_machine_id = $machine['machine_id'];
-                            $project_machine->hourly_rent = $stock_machine->hourly_rent;
-                            $project_machine->save();
-                            
+                            for($i = 1; $i <= $machine['qnt']; $i++)
+                            {
+                                $project_machine = new Project_machine();
+                                $project_machine->project_id = $request->project_id;
+                                $project_machine->issue_date = $request->issue_date;
+                                $project_machine->stock_machine_id = $machine['machine_id'];
+                                $project_machine->hourly_rent = $stock_machine->hourly_rent;
+                                $project_machine->save();
+                                
+                            }
+                                //dd($stock_machine->available);
+                                $stock_machine->available -= $machine['qnt'];
+                                $stock_machine->update();
                         }
-                            //dd($stock_machine->available);
-                            $stock_machine->available -= $machine['qnt'];
-                            $stock_machine->update();
+                        else{
+                            return redirect(route('project-machine.index'))->with('error', $stock_machine->product->title.' Hourly Rent Or Daily Hour Not Set Yet In Stock Table');
+                        }
                     }
                     else{
                         return redirect(route('project-machine.index'))->with('error', $stock_machine->product->title.' has not available stock');
@@ -123,5 +132,42 @@ class ProjectMachineController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public static function all_cost_calculation():void
+    {
+
+        $project_machines = Project_machine::with('project','stock')->get();
+
+        foreach ( $project_machines as $project_machine)
+        {
+            if($project_machine->release_date)
+            {
+                $start = Carbon::parse($project_machine->issue_date);
+                $end =  Carbon::parse($project_machine->release_date);
+            
+                $days = $end->diffInDays($start);
+                
+                $stock = Machine_stock::findorfail($project_machine->stock_machine_id);
+
+                // $project_machine->hourly_rent = $stock->hourly_rent;
+                $project_machine->total_hour = $stock->daily_hour * $days;
+                $project_machine->total_cost = $stock->daily_hour * $days * $project_machine->hourly_rent ;
+                $project_machine->update();
+            }
+            else{
+                $start = Carbon::parse($project_machine->issue_date);
+                $end =  Carbon::now();
+            
+                $days = $end->diffInDays($start);
+                
+                $stock = Machine_stock::findorfail($project_machine->stock_machine_id);
+
+                // $project_machine->hourly_rent = $stock->hourly_rent;
+                $project_machine->total_hour = $stock->daily_hour * $days;
+                $project_machine->total_cost = $stock->daily_hour * $days * $project_machine->hourly_rent ;
+                $project_machine->update();
+            }
+        }
     }
 }

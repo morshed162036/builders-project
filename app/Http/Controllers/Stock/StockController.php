@@ -84,6 +84,7 @@ class StockController extends Controller
         {
             $machine_stock = Machine_stock::findorFail($id);
             $machine_stock->unit_id = $request->unit_id;
+            $machine_stock->daily_hour = $request->daily_hour;
             $machine_stock->hourly_rent = $request->hourly_rent;
             $machine_stock->update();
             return redirect(route('stock.index'))->with('success','Machine Stock Update Successfully!');
@@ -103,6 +104,7 @@ class StockController extends Controller
         {
             $machine_stock = Machine_stock::findorFail($id);
             $machine_stock->unit_id = $request->unit_id;
+            $machine_stock->daily_hour = $request->daily_hour;
             $machine_stock->hourly_rent = $request->hourly_rent;
             $machine_stock->update();
             return redirect(route('stock.index'))->with('success','Machine Stock Update Successfully!');
