@@ -16,12 +16,14 @@ use App\Http\Controllers\Project\TeamController;
 use App\Http\Controllers\Project\TeamMembersController;
 use App\Http\Controllers\Project\ProjectExpenseController;
 use App\Http\Controllers\Project\ProjectMachineController;
+use App\Http\Controllers\Project\ProjectPaymentController;
 
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoiceDetailController;
 
 use App\Http\Controllers\Accounts\AccountGroupController;
 use App\Http\Controllers\Accounts\ChartofAccountController;
+use App\Http\Controllers\Accounts\AccountsLedgerController;
 
 use App\Http\Controllers\Stock\StockController;
 
@@ -83,6 +85,7 @@ Route::prefix('/')->group(function(){
         Route::resource('project-estimation',ProjectEstimationController::class);
         Route::resource('project-otherexpense',ProjectExpenseController::class);
         Route::resource('project-machine',ProjectMachineController::class);
+        Route::resource('project-payment',ProjectPaymentController::class);
         Route::get('project-start',[ProjectController::class,'projectSetup'])->name('project.start');
         Route::post('project-save',[ProjectController::class,'SaveSetup'])->name('project.save');
 
@@ -105,6 +108,7 @@ Route::prefix('/')->group(function(){
         // Accounts
         Route::resource('accounts', AccountGroupController::class);
         Route::resource('chart-of-account',ChartofAccountController::class);
+        Route::resource('accounts-ledger',AccountsLedgerController::class);
         // settings
         Route::resource('unit', UnitController::class);
         Route::post('update-unit-status',[UnitController::class,'updateUnitStatus'])->name('UnitStatus');

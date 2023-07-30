@@ -322,6 +322,9 @@
                         <li><a href="{{ route('project-otherexpense.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="LivIcons">Project Other Expense</span></a>
                         </li>
+                        <li><a href="{{ route('project-payment.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
+                                    data-i18n="LivIcons">Project Payment</span></a>
+                        </li>
                     </ul>
                 </li>
 
@@ -334,7 +337,7 @@
                 <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i
                             class="bx bx-envelope"></i><span class="menu-title">Chart of Accounts</span></a>
                 </li>
-                <li class=" nav-item"><a href=""><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-envelope"></i><span
                             class="menu-title">Accounts Ledgers</span></a>
                 </li>
 

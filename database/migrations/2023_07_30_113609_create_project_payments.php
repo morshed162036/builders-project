@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('acounts_ledgers', function (Blueprint $table) {
+        Schema::create('project_payments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('chart_of_account_id');
+            $table->bigInteger('project_id');
+            $table->bigInteger('payment_method_id');
             $table->double('amount');
-            $table->enum('type',['Credit','Debit']);
-            $table->text('description')->nullable();
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('acounts_ledgers');
+        Schema::dropIfExists('project_payment');
     }
 };
