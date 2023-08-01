@@ -122,6 +122,18 @@
                                         </div> 
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
+                                                <h5>Payment Method</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-Createon1"><i
+                                                                class="bx bx-spreadsheet"></i></span>
+                                                    </div>
+                                                    <input type="text" name="payment_id" class="form-control" value="{{ $expense->payment->bank_name }}({{ $expense->payment->account_no }})" readonly>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <fieldset class="form-group">
                                                 <h5>Amount</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">

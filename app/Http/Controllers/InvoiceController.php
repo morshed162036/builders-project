@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Supplier;
 use App\Models\settings\Payment_method;
 use App\Models\Product;
+use App\Models\Accounts\Cashflow;
 use App\Models\Project\Client;
 use App\Models\Project\Project;
 use App\Models\Stock\Product_stock;
@@ -110,6 +111,12 @@ class InvoiceController extends Controller
                     $invoice_payment->amount = $request->payment_amount;
                     $invoice_payment->save();
                     $invoice_payment_id = $invoice_payment->id;
+
+                    $cashflow = new Cashflow();
+                    $cashflow->payment_method_id = $request->payment_method_id;
+                    $cashflow->cash_out = $request->payment_amount;
+                    $cashflow->description = "(".$request->invoice_code.") Purchase Invoice Payment";
+                    $cashflow->save();
                 }
                 else
                 {
@@ -281,6 +288,12 @@ class InvoiceController extends Controller
                 $invoice_payment->amount = $request->payment_amount;
                 $invoice_payment->save();
                 $invoice_payment_id = $invoice_payment->id; 
+
+                $cashflow = new Cashflow();
+                $cashflow->payment_method_id = $request->payment_method_id;
+                $cashflow->cash_out = $request->payment_amount;
+                $cashflow->description = "(".$request->invoice_code.") Sale Invoice Payment";
+                $cashflow->save();
             }
             $invoice_payment = Invoice_payment::findorFail($invoice_payment_id);
             $invoice_payment->invoice_id = $invoice_id;
@@ -414,6 +427,12 @@ class InvoiceController extends Controller
                     $invoice_payment->payment_method_id = $request->payment_method_id;
                     $invoice_payment->amount = $request->payment_amount;
                     $invoice_payment->save();
+
+                    $cashflow = new Cashflow();
+                    $cashflow->payment_method_id = $request->payment_method_id;
+                    $cashflow->cash_out = $request->payment_amount;
+                    $cashflow->description = "(".$request->invoice_code.") Purchase Invoice Payment";
+                    $cashflow->save();
                 }
                 else
                 {
@@ -482,6 +501,12 @@ class InvoiceController extends Controller
                 $invoice_payment->payment_method_id = $request->payment_method_id;
                 $invoice_payment->amount = $request->payment_amount;
                 $invoice_payment->save();
+
+                $cashflow = new Cashflow();
+                $cashflow->payment_method_id = $request->payment_method_id;
+                $cashflow->cash_in = $request->payment_amount;
+                $cashflow->description = "(".$request->invoice_code.") Sale Invoice Payment";
+                $cashflow->save();
                
             }
             if($invoice->payment_status == 'Advance' && $request->payment_status != 'Advance')

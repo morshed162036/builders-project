@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Accounts\Chart_of_account;
 use App\Models\Accounts\Accounts_ledger;
+use App\Models\Accounts\Cashflow;
 use App\Models\settings\Payment_method;
 class AccountsLedgerController extends Controller
 {
@@ -52,6 +53,12 @@ class AccountsLedgerController extends Controller
             {
                 $payment_method->balance -= $request->amount;
                 $payment_method->update();
+
+                $cashflow = new Cashflow();
+                $cashflow->payment_method_id = $request->payment_id;
+                $cashflow->cash_out = $request->amount;
+                $cashflow->description = $request->description;
+                $cashflow->save();
             }
             else {
                 return redirect(route('accounts-ledger.index'))->with('error','Payment Method Has No Sufficient Balance');
@@ -59,9 +66,16 @@ class AccountsLedgerController extends Controller
             
         }
         else{
-            // tk account e dhukle
+            // tk account e dhukbe
             $payment_method->balance += $request->amount;
             $payment_method->update();
+
+            $cashflow = new Cashflow();
+            $cashflow->payment_method_id = $request->payment_id;
+            $cashflow->cash_in = $request->amount;
+            $cashflow->description = $request->description;
+            $cashflow->save();
+            
         }
 
         $ledger = new Accounts_ledger();

@@ -18,12 +18,16 @@ use App\Http\Controllers\Project\ProjectExpenseController;
 use App\Http\Controllers\Project\ProjectMachineController;
 use App\Http\Controllers\Project\ProjectPaymentController;
 
+use App\Http\Controllers\Return_product\ClientRefundController;
+use App\Http\Controllers\Return_product\SupplierRefundController;
+
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoiceDetailController;
 
 use App\Http\Controllers\Accounts\AccountGroupController;
 use App\Http\Controllers\Accounts\ChartofAccountController;
 use App\Http\Controllers\Accounts\AccountsLedgerController;
+use App\Http\Controllers\Accounts\CashflowController;
 
 use App\Http\Controllers\Stock\StockController;
 
@@ -93,6 +97,10 @@ Route::prefix('/')->group(function(){
         Route::resource('stock', StockController::class);
         Route::get('stock-edit/{slug}/{id}',[StockController::class,'editStock']);
         Route::get('stock-show/{slug}/{id}',[StockController::class,'showStock']);
+
+        // Damage & Return
+        Route::resource('client-return-product', ClientRefundController::class);
+        Route::resource('supplier-return-product', SupplierRefundController::class);
         
         // Invoice
         Route::resource('invoice', InvoiceController::class);
@@ -109,6 +117,7 @@ Route::prefix('/')->group(function(){
         Route::resource('accounts', AccountGroupController::class);
         Route::resource('chart-of-account',ChartofAccountController::class);
         Route::resource('accounts-ledger',AccountsLedgerController::class);
+        Route::resource('cash-flow',CashflowController::class);
         // settings
         Route::resource('unit', UnitController::class);
         Route::post('update-unit-status',[UnitController::class,'updateUnitStatus'])->name('UnitStatus');

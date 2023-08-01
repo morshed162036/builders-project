@@ -286,6 +286,31 @@
                                 </li>
                             </ul>
                 </li>
+                <li class=" navigation-header"><span>Damage and Return Product</span>
+                </li>
+                <li class=" nav-item"><a href="{{ route('client-return-product.index') }}"><i class="bx bx-envelope">
+                    </i><span class="menu-title">Client</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('supplier-return-product.index') }}"><i class="bx bx-envelope">
+                    </i><span class="menu-title">Supplier</span></a>
+                </li>
+                {{-- <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Invoice</span></a>
+                            <ul class='menu-content'>
+                                <li><a href="{{ route('invoice.index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">All Invoice</span></a>
+                                </li>
+                                <li><a href="{{ route('purchase_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Purchase Invoice</span></a>
+                                </li>
+                                <li><a href="{{ route('sell_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Sale Invoice</span></a>
+                                </li>
+                                <li><a href="{{ route('project_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                            class="menu-item" data-i18n="LivIcons">Project Invoice</span></a>
+                                </li>
+                            </ul>
+                </li> --}}
 
                 <li class=" navigation-header"><span>Project Management</span>
                 </li>
@@ -341,6 +366,18 @@
                             class="menu-title">Accounts Ledgers</span></a>
                 </li>
 
+                <li class=" navigation-header"><span>Reports</span>
+                </li>
+                <li class=" nav-item"><a href="{{ route('cash-flow.index') }}"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Cash-In/Out Statement</span></a>
+                </li>
+                {{-- <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i
+                            class="bx bx-envelope"></i><span class="menu-title">Chart of Accounts</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-envelope"></i><span
+                            class="menu-title">Accounts Ledgers</span></a>
+                </li> --}}
+
                 <li class=" navigation-header"><span>Payroll & Role Management</span>
                 </li>
                 <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
@@ -378,10 +415,10 @@
                                     class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="boxicons">Transfer Balance</span></a>
                         </li>
-                        <li><a href="{{ route('transection-history.index') }}"><i
+                        {{-- <li><a href="{{ route('transection-history.index') }}"><i
                                     class="bx bx-right-arrow-alt"></i><span class="menu-item"
                                     data-i18n="boxicons">Balance Transaction History</span></a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
 

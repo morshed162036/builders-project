@@ -43,12 +43,20 @@
                                 </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">General Ledger Table</h5>
+                    @if(Session::has('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Success: </strong>{{ Session::get('error') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                    @endif
+                    <h5 class="content-header-title float-left pr-1 mb-0">Supplier Product Return Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Accounts Ledger
+                            <li class="breadcrumb-item active">Return Products To Supplier
                             </li>
                         </ol>
                     </div>
@@ -62,10 +70,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">General Ledger</h5>
+                            <h5 class="card-title">Return  List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('accounts-ledger.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    <li class="ml-2"><a href="{{ route('supplier-return-product.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -75,28 +83,33 @@
                                     <table class="table zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Date</th>
-                                                <th>Particulars</th>
-                                                <th>DR or CR</th>
-                                                <th>Account Name</th>
-                                                <th>Post Ref</th>
+                                                <th>Supplier Name</th>
                                                 <th>Payment Method</th>
-                                                <th>Debit Amount</th>
-                                                <th>Credit Amount</th>
+                                                <th>Amount</th>
+                                                <th>Date</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($ledgers)
-                                                @foreach ($ledgers as $ledger)
+                                            @if ($return_products)
+                                                @foreach ($return_products as $return_product)
                                                     <tr>
-                                                        <td>{{ $ledger->date }}</td>
-                                                        <td>{{ $ledger->description }}</td>
-                                                        <td>{{ $ledger->type }}</td>
-                                                        <td>{{ $ledger->account->name }}</td>
-                                                        <td>{{ $ledger->post_ref }}</td>
-                                                        <td>{{ $ledger->payment->bank_name }}({{ $ledger->payment->account_no }})</td>
-                                                        <td>@if($ledger->type == 'Debit'){{ $ledger->amount }}@endif</td>
-                                                        <td>@if($ledger->type == 'Credit'){{ $ledger->amount }}@endif </td>
+                                                        <td>{{ $return_product->supplier->name }}@if ($return_product->supplier->company)
+                                                            ({{ $return_product->supplier->company->name }})
+                                                        @endif</td>
+                                                        <td>{{ $return_product->payment->bank_name }}({{ $return_product->payment->account_no }})</td>
+                                                        <td>{{ $return_product->amount }}</td>
+                                                        <td>{{ $return_product->date }}</td>
+                                                        
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="{{ route('supplier-return-product.show',$return_product->id) }}"><i class="bx bx-edit-alt mr-1"></i> Details</a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>   
                                                 @endforeach
                                             @else
@@ -105,14 +118,11 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Date</th>
-                                                <th>Particulars</th>
-                                                <th>DR or CR</th>
-                                                <th>Account Name</th>
-                                                <th>Post Ref</th>
+                                                <th>Supplier Name</th>
                                                 <th>Payment Method</th>
-                                                <th>Debit Amount</th>
-                                                <th>Credit Amount</th>
+                                                <th>Amount</th>
+                                                <th>Date</th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>

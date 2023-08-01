@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_expenses', function (Blueprint $table) {
+        Schema::create('supplier_refund_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('project_id');
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->bigInteger('payment_method_id');
-            $table->date('date');
-            $table->double('amount');
+            $table->bigInteger('supplier_refund_id');
+            $table->bigInteger('client_refund_id');
+            $table->double('price');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_expenses');
+        Schema::dropIfExists('supplier_refund_details');
     }
 };

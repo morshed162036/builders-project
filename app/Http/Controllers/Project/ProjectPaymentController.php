@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project\Project_payment;
 use App\Models\Project\Project;
+use App\Models\Accounts\Cashflow;
 use App\Models\settings\Payment_method;
 class ProjectPaymentController extends Controller
 {
@@ -40,9 +41,9 @@ class ProjectPaymentController extends Controller
             'amount' => 'required|numeric',
         ];
         $this->validate($request,$rules);
-
+        $project = Project::findorFail($request->project_id);
         $project_payment = new Project_payment();
-        $project_payment->project_id = $request->project_id;
+        $project_payment->project_id = $request->project_id; 
         $project_payment->payment_method_id = $request->payment_method_id;
         $project_payment->amount = $request->amount;
         $project_payment->date = $request->date;
@@ -51,6 +52,12 @@ class ProjectPaymentController extends Controller
         $method = Payment_method::findorFail($request->payment_method_id);
         $method->balance += $request->amount;
         $method->update();
+
+        $cashflow = new Cashflow();
+        $cashflow->payment_method_id = $request->payment_method_id;
+        $cashflow->cash_in = $request->amount;
+        $cashflow->description = "(".$project->name.") Project Payment";
+        $cashflow->save();
 
         return redirect(route('project-payment.index'))->with('success','Payment Create Successfully');
     }

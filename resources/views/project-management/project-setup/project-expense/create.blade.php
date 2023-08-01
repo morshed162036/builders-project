@@ -120,13 +120,34 @@
                                         </div> 
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
+                                                <h5>Payment Method</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-Createon1"><i
+                                                                class="bx bx-spreadsheet"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="payment_id" id="payment_id" required>
+                                                        <option value="">Select</option>
+                                                        @isset($payment_methods)
+                                                            @foreach ($payment_methods as $payment_method)
+                                                                <option value="{{ $payment_method->id }}">
+                                                                    {{ $payment_method->bank_name }}({{ $payment_method->account_no }})
+                                                                </option>
+                                                            @endforeach
+                                                        @endisset
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <fieldset class="form-group">
                                                 <h5>Amount</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" name="amount" class="form-control" required>
+                                                    <input type="text" name="amount" class="form-control" placeholder="0" required>
                                                 </div>
                                             </fieldset>
                                         </div>

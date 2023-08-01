@@ -43,12 +43,12 @@
                                 </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">General Ledger Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Cash Book</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Accounts Ledger
+                            <li class="breadcrumb-item active">Cash Flow Statement
                             </li>
                         </ol>
                     </div>
@@ -62,12 +62,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">General Ledger</h5>
-                            <div class="heading-elements">
+                            <h5 class="card-title">Cash-In/Out Statement</h5>
+                            {{-- <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li class="ml-2"><a href="{{ route('accounts-ledger.create') }}" class="btn btn-primary">+ Create</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -76,27 +76,21 @@
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
-                                                <th>Particulars</th>
-                                                <th>DR or CR</th>
-                                                <th>Account Name</th>
-                                                <th>Post Ref</th>
+                                                <th>Description</th>
                                                 <th>Payment Method</th>
-                                                <th>Debit Amount</th>
-                                                <th>Credit Amount</th>
+                                                <th>Cash In</th>
+                                                <th>Cash Out</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($ledgers)
-                                                @foreach ($ledgers as $ledger)
+                                            @if ($cashflows)
+                                                @foreach ($cashflows as $cashflow)
                                                     <tr>
-                                                        <td>{{ $ledger->date }}</td>
-                                                        <td>{{ $ledger->description }}</td>
-                                                        <td>{{ $ledger->type }}</td>
-                                                        <td>{{ $ledger->account->name }}</td>
-                                                        <td>{{ $ledger->post_ref }}</td>
-                                                        <td>{{ $ledger->payment->bank_name }}({{ $ledger->payment->account_no }})</td>
-                                                        <td>@if($ledger->type == 'Debit'){{ $ledger->amount }}@endif</td>
-                                                        <td>@if($ledger->type == 'Credit'){{ $ledger->amount }}@endif </td>
+                                                        <td>{{ $cashflow->created_at }}</td>
+                                                        <td>{{ $cashflow->description }}</td>
+                                                        <td>{{ $cashflow->payment->bank_name }}({{ $cashflow->payment->account_no }})</td>
+                                                        <td>@if($cashflow->cash_in != 0){{ $cashflow->cash_in }}@endif</td>
+                                                        <td>@if($cashflow->cash_out != 0){{ $cashflow->cash_out }}@endif </td>
                                                     </tr>   
                                                 @endforeach
                                             @else
@@ -106,13 +100,10 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Date</th>
-                                                <th>Particulars</th>
-                                                <th>DR or CR</th>
-                                                <th>Account Name</th>
-                                                <th>Post Ref</th>
+                                                <th>Description</th>
                                                 <th>Payment Method</th>
-                                                <th>Debit Amount</th>
-                                                <th>Credit Amount</th>
+                                                <th>Cash In</th>
+                                                <th>Cash Out</th>
                                             </tr>
                                         </tfoot>
                                     </table>
