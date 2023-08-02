@@ -8,6 +8,7 @@ use App\Models\Project\Client;
 use App\Models\Project\Project;
 use App\Models\Project\Project_machine;
 use App\Models\Project\Project_expense;
+use App\Models\Project\Project_payment;
 use App\Models\Project\Team;
 use App\Models\Project\Team_member;
 use App\Models\Invoice\Invoice;
@@ -50,7 +51,15 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //dd($id);
+        $members = Team_member::with('team','employee')->wherehas('team',function($q) use ($id){
+            $q->where('project_id',$id);
+        } )->get();
+        $project_machines = Project_machine::with('project','stock')->where('project_id',$id)->get();
+        $payments = Project_payment::with('project','payment')->where('project_id',$id)->get();
+        $expenses = Project_expense::with('project')->where('project_id',$id)->get();
+
+        return view('project-management.project-setup.project.show')->with(compact('members','project_machines','payments','expenses'));
     }
 
     /**
@@ -76,7 +85,11 @@ class ProjectController extends Controller
         $project->starting_date = $request->starting_date;
         $project->expected_finished_date = $request->expected_finished_date;
         $project->finished_date = $request->finished_date;
-        $project->status = $request->status;
+        if($request->status)
+        {
+            $project->status = $request->status;
+        }
+        
         $project->update();
         if($request->team_id){
             $team = Team::findorFail($request->team_id);

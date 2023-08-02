@@ -89,7 +89,7 @@
                                                 <th>SKU</th>
                                                 <th>Purchase Unit Price</th>
                                                 <th>Purchase Date</th>
-                                                <th>Project Name</th>
+                                                {{-- <th>Project Name</th> --}}
 
                                             </tr>
                                         </thead>
@@ -102,11 +102,11 @@
                                                     <td>{{ $machine_detail->purchase_unit_price }}</td>
                                                     <td>{{ $machine_detail->created_at }}</td>
                                                 
-                                                    <td>@if ($machine_detail->project)
+                                                    {{-- <td>@if ($machine_detail->project)
                                                         {{ $machine_detail->project->name }}
                                                         @else
                                                         {{ 'N/A' }}
-                                                    @endif</td>
+                                                    @endif</td> --}}
                                                     
                                                 </tr>   
                                             @endforeach
@@ -120,7 +120,7 @@
                                                 <th>SKU</th>
                                                 <th>Purchase Unit Price</th>
                                                 <th>Purchase Date</th>
-                                                <th>Project Name</th>
+                                                {{-- <th>Project Name</th> --}}
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -163,18 +163,25 @@
                                                         <span class="input-group-text" id="basic-Createon1"><i
                                                                 class="bx bx-spreadsheet"></i></span>
                                                     </div>
+                                                    <input type="text" class="form-control" value="{{ $project->status }}" readonly>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <fieldset class="form-group">
+                                                <h5>Update Status</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-Createon1"><i
+                                                                class="bx bx-spreadsheet"></i></span>
+                                                    </div>
                                                     <select class="form-control" name="status" id="">
                                                         <option value="">Select</option>
-                                                        <option @if ($project->status == 'Just Create') selected @endif
-                                                            value="Just Create">Just Create</option>
-                                                        <option @if ($project->status == 'Start') selected @endif
-                                                            value="Start">Start</option>
-                                                        <option @if ($project->status == 'Finished') selected @endif
-                                                            value="Finished">Finished</option>
+                                                        
                                                         <option @if ($project->status == 'Ongoing') selected @endif
                                                             value="Ongoing">Ongoing</option>
-                                                        <option @if ($project->status == 'Estimate') selected @endif
-                                                            value="Estimate">Estimate</option>
+                                                        <option @if ($project->status == 'Finished') selected @endif
+                                                            value="Finished">Finished</option>
                                                         <option @if ($project->status == 'Hold') selected @endif
                                                             value="Hold">Hold</option>
                                                     </select>

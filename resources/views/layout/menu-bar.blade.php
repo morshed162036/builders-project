@@ -183,9 +183,15 @@
                                 data-toggle="dropdown">
                                 <div class="user-nav d-sm-flex d-none"><span
                                         class="user-name">{{ Auth::guard('web')->user()->name }}</span><span
-                                        class="user-status text-muted">{{ Auth::guard('web')->user()->designation }}</span>
+                                        class="user-status text-muted">@if (Auth::guard('web')->user()->designation)
+                                            {{ Auth::guard('web')->user()->designation->title }}
+                                        @endif</span>
                                 </div><span><img class="round"
-                                        src="{{ asset('admin_template/app-assets/images/portrait/small/avatar-s-11.jpg') }}"
+                                        src="@if(Auth::guard('web')->user()->image)
+                                        {{ asset('images/profile_image').'/'.Auth::guard('web')->user()->image }}
+                                        @else
+                                        {{ asset('admin_template/app-assets/images/portrait/small/avatar-s-11.jpg') }}
+                                        @endif"
                                         alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item"
@@ -228,70 +234,70 @@
 
                 <li class=" navigation-header"><span>Product Section</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bxl-slack"></i><span
                             class="menu-title">Brand</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-chat"></i><span
+                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-building"></i><span
                             class="menu-title">Catalogue</span></a>
-                <li class=" nav-item"><a href="{{ route('category.index') }}"><i class="bx bx-chat"></i><span
+                <li class=" nav-item"><a href="{{ route('category.index') }}"><i class="bx bxs-categories"></i><span
                             class="menu-title">Categories</span></a>
-                <li class=" nav-item"><a href="{{ route('product.index') }}"><i class="bx bx-chat"></i><span
+                <li class=" nav-item"><a href="{{ route('product.index') }}"><i class="bx bx-package"></i><span
                             class="menu-title">Product</span></a>
                 </li>
 
                 <li class=" navigation-header"><span>Supplier Management</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('supplier.index') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('supplier.index') }}"><i class="bx bx-user"></i><span
                             class="menu-title">Supplier</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('supplier.advance') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('supplier.advance') }}"><i class="bx bx-archive-out"></i><span
                             class="menu-title">Advance Supplier</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('supplier.payable') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('supplier.payable') }}"><i class="bx bx-archive-out"></i><span
                             class="menu-title">Payable Supplier</span></a>
                 </li>
 
                 <li class=" navigation-header"><span>Client Management</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-user"></i><span
                             class="menu-title">Client</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('client.advance') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('client.advance') }}"><i class="bx bx-archive-in"></i><span
                             class="menu-title">Advance Client</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('client.payable') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('client.payable') }}"><i class="bx bx-archive-in"></i><span
                             class="menu-title">Payable Client</span></a>
                 </li>
 
 
                 <li class=" navigation-header"><span>Inventory Management</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('stock.index') }}"><i class="bx bx-envelope">
+                <li class=" nav-item"><a href="{{ route('stock.index') }}"><i class="bx bx-store-alt">
                     </i><span class="menu-title">Stock</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="#"><i class="bx bxs-barcode"></i><span
                             class="menu-title">Invoice</span></a>
                             <ul class='menu-content'>
-                                <li><a href="{{ route('invoice.index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                <li><a href="{{ route('invoice.index') }}"><i class="bx bx-receipt"></i><span
                                             class="menu-item" data-i18n="LivIcons">All Invoice</span></a>
                                 </li>
-                                <li><a href="{{ route('purchase_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                <li><a href="{{ route('purchase_index') }}"><i class="bx bx-receipt"></i><span
                                             class="menu-item" data-i18n="LivIcons">Purchase Invoice</span></a>
                                 </li>
-                                <li><a href="{{ route('sell_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                <li><a href="{{ route('sell_index') }}"><i class="bx bx-receipt"></i><span
                                             class="menu-item" data-i18n="LivIcons">Sale Invoice</span></a>
                                 </li>
-                                <li><a href="{{ route('project_index') }}"><i class="bx bx-right-arrow-alt"></i><span
+                                <li><a href="{{ route('project_index') }}"><i class="bx bx-receipt"></i><span
                                             class="menu-item" data-i18n="LivIcons">Project Invoice</span></a>
                                 </li>
                             </ul>
                 </li>
                 <li class=" navigation-header"><span>Damage and Return Product</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('client-return-product.index') }}"><i class="bx bx-envelope">
+                <li class=" nav-item"><a href="{{ route('client-return-product.index') }}"><i class="bx bx-user">
                     </i><span class="menu-title">Client</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('supplier-return-product.index') }}"><i class="bx bx-envelope">
+                <li class=" nav-item"><a href="{{ route('supplier-return-product.index') }}"><i class="bx bx-user">
                     </i><span class="menu-title">Supplier</span></a>
                 </li>
                 {{-- <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
@@ -317,7 +323,7 @@
                 {{-- <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span
                             class="menu-title">Client</span></a>
                 </li> --}}
-                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span class="menu-title">Team
+                <li class=" nav-item"><a href="#"><i class="bx bx-group"></i><span class="menu-title">Team
                             Setup</span></a>
                     <ul class='menu-content'>
                         <li><a href="{{ route('team.index') }}"><i class="bx bx-right-arrow-alt"></i><span
@@ -328,7 +334,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="#"><i class="bx bxs-buoy"></i><span
                             class="menu-title">Project Management</span></a>
                     <ul class='menu-content'>
                         <li><a href="{{ route('project.index') }}"><i class="bx bx-right-arrow-alt"></i><span
@@ -356,19 +362,19 @@
 
                 <li class=" navigation-header"><span>Accounts</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('accounts.index') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('accounts.index') }}"><i class="bx bx-list-ul"></i><span
                             class="menu-title">Accounts Groups</span></a>
                 </li>
                 <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i
-                            class="bx bx-envelope"></i><span class="menu-title">Chart of Accounts</span></a>
+                            class="bx bx-book-content"></i><span class="menu-title">Chart of Accounts</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-book-bookmark"></i><span
                             class="menu-title">Accounts Ledgers</span></a>
                 </li>
 
                 <li class=" navigation-header"><span>Reports</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('cash-flow.index') }}"><i class="bx bx-envelope"></i><span
+                <li class=" nav-item"><a href="{{ route('cash-flow.index') }}"><i class="bx bx-repost"></i><span
                             class="menu-title">Cash-In/Out Statement</span></a>
                 </li>
                 {{-- <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i
@@ -380,13 +386,13 @@
 
                 <li class=" navigation-header"><span>Payroll & Role Management</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-id-card"></i><span class="menu-title"
                             data-i18n="Colors">Designation</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('benefits.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{ route('benefits.index') }}"><i class="bx bx-user-plus"></i><span class="menu-title"
                             data-i18n="Colors">Benefits</span></a>
                 </li>
-                <li class=" nav-item"><a href="{{ route('user.index') }}"><i class="bx bx-droplet"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{ route('user.index') }}"><i class="bx bx-user-circle"></i><span class="menu-title"
                             data-i18n="Colors">Users</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-bulb"></i><span class="menu-title"
@@ -402,10 +408,10 @@
                 </li>
                 <li class=" navigation-header"><span>Basic Settings</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-droplet"></i><span
+                <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-grid-alt"></i><span
                             class="menu-title" data-i18n="Colors">Unit Management</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-droplet"></i><span class="menu-title"
+                <li class=" nav-item"><a href="#"><i class="bx bx-wallet"></i><span class="menu-title"
                             data-i18n="Icons">Payment Management</span></a>
                     <ul class="menu-content">
                         <li><a href="{{ route('payment-method.index') }}"><i class="bx bx-right-arrow-alt"></i><span

@@ -88,7 +88,7 @@
                                                 <th>Invoice Id</th>
                                                 <th>SKU</th>
                                                 <th>Purchase Unit Price</th>
-                                                <th>Sell Unit Price</th>
+                                                {{-- <th>Sell Unit Price</th> --}}
                                                 <th>Purchase Quantity</th>
                                                 {{-- <th>Available Quantity</th> --}}
                                                 <th>Purchase Date</th>
@@ -101,7 +101,7 @@
                                                         <td class="text-primary">#{{ $product_detail->invoice->invoice_code }}</td>
                                                         <td>{{ $product_detail->sku }}</td>
                                                         <td>{{ $product_detail->purchase_unit_price }}</td>
-                                                        <td>{{ $product_detail->sell_unit_price }}</td>
+                                                        {{-- <td>{{ $product_detail->sell_unit_price }}</td> --}}
                                                         <td>{{ $product_detail->qnt }}</td>
                                                         {{-- <td>{{ $product_detail->available }}</td> --}}
                                                         <td>{{ $product_detail->created_at }}</td>
@@ -116,7 +116,7 @@
                                                 <th>Invoice Id</th>
                                                 <th>SKU</th>
                                                 <th>Purchase Unit Price</th>
-                                                <th>Sell Unit Price</th>
+                                                {{-- <th>Sell Unit Price</th> --}}
                                                 <th>Purchase Quantity</th>
                                                 {{-- <th>Available Quantity</th> --}}
                                                 <th>Purchase Date</th>

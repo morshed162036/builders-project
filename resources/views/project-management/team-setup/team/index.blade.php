@@ -85,7 +85,7 @@
                                             <tr>
                                                 <th>Team Name</th>
                                                 <th>Project Name</th>
-                                                <th>Active Member Count</th>
+                                                {{-- <th>Active Member Count</th> --}}
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -101,7 +101,7 @@
                                                             @else
                                                             {{ 'Not Set Yet' }}
                                                         @endif</td>
-                                                        <td>{{ $team->member_count }}</td>
+                                                        {{-- <td>{{ $team->member_count }}</td> --}}
                                                         <td>{{ $team->description }}</td>
                                                         <td>
                                                             @if($team->status == 'Active')
@@ -140,7 +140,7 @@
                                             <tr>
                                                 <th>Team Name</th>
                                                 <th>Project Name</th>
-                                                <th>Active Member Count</th>
+                                                {{-- <th>Active Member Count</th> --}}
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
