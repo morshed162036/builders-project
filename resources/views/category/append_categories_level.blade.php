@@ -2,7 +2,7 @@
     <h5>Select Category Level</h5>
     <div class="input-group">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+            <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-categories"></i></span>
         </div>
         <select name="parent_id" id="parent_id" class="form-control" required>
             <option value="0"

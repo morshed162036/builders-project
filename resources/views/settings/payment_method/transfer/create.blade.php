@@ -72,7 +72,7 @@
                                             <h5>From Account</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-bank"></i></span>
                                                 </div>
                                                 <select name="from_id" id="from_id" class="form-control" required>
                                                     <option value="">Select Account</option>
@@ -90,7 +90,7 @@
                                             <h5>To Account</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-bank"></i></span>
                                                 </div>
                                                 <select name="to_id" id="to_id" class="form-control" required>
                                                     <option value="">Select Account</option>
@@ -108,7 +108,7 @@
                                             <h5>Amount</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="amount" required>
                                             </div>
@@ -117,7 +117,7 @@
                                             <h5>Reference Id</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="reference" aria-describedby="basic-Createon1" name="reference" required>
                                             </div>
@@ -126,7 +126,7 @@
                                             <h5>Remarks (If Any)</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-message-square"></i></span>
                                                 </div>
                                                 <textarea class="form-control" name="remarks" id="remarks" cols="30" rows="5"></textarea>
                                             </div>

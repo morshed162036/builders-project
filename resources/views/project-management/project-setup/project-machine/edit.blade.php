@@ -72,7 +72,7 @@
                                             <h5>Machine</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-package"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" value="{{ $project_machine->stock->product->title }}" readonly>
                                             </div>
@@ -83,7 +83,7 @@
                                             <h5>Project</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-buoy"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" value="{{ $project_machine->project->name }}" readonly>
                                             </div>
@@ -94,7 +94,7 @@
                                             <h5>Issue Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="text"  class="form-control" value="{{ $project_machine->issue_date }}" readonly>
                                             </div>
@@ -107,7 +107,7 @@
                                             <h5>Release Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" name="release_date" id="release_date" class="form-control" value="{{ $project_machine->release_date }}" required>
                                             </div>

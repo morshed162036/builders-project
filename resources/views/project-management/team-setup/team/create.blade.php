@@ -77,22 +77,22 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="team_name" required>
                                                 </div>
                                             </fieldset>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <fieldset class="form-group">
                                                 <h5>Description</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-detail"></i></span>
                                                     </div>
-                                                    <textarea class="form-control" name="description" id="" cols="30" rows="2"></textarea>
+                                                    <textarea class="form-control" name="description" id="" cols="30" rows="1"></textarea>
                                                 </div>
                                             </fieldset>
                                         </div>

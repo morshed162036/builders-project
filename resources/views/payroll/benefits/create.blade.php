@@ -72,7 +72,7 @@
                                             <h5>Benefit Title</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-Createon1" name="title" required>
                                             </div>
@@ -81,7 +81,7 @@
                                             <h5>Description</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-detail"></i></span>
                                                 </div>
                                                 <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea" name="description"></textarea>
                                             </div>

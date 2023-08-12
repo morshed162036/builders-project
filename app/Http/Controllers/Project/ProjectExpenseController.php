@@ -16,7 +16,7 @@ class ProjectExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Project_expense::with('project')->get();
+        $expenses = Project_expense::with('project','payment')->get();
         return view('project-management.project-setup.project-expense.index')->with(compact('expenses'));
     }
 
@@ -88,8 +88,9 @@ class ProjectExpenseController extends Controller
      */
     public function edit(string $id)
     {
-        $expense = Project_expense::findorFail($id);
+        $expense = Project_expense::with('payment')->findorFail($id);
         $projects = Project::where('status','Start')->orWhere('status','Ongoing')->get();
+        //dd($expense);
         return view('project-management.project-setup.project-expense.edit')->with(compact('expense','projects'));
     }
 

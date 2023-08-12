@@ -77,7 +77,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxs-buoy"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="project_name" required>
@@ -90,7 +90,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-user"></i></span>
                                                     </div>
                                                     <select class="form-control" name="client_id" id="client_id" required>
                                                         <option value="">Select</option>

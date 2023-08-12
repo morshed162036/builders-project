@@ -81,7 +81,7 @@
                                             <h5>Description</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea" name="brand_description">{{ $brand->description }}</textarea>
                                             </div>
@@ -90,7 +90,7 @@
                                             <h5>Address</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mail-send"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="brand_address" value="{{ $brand->address }}">
                                             </div>
@@ -99,7 +99,7 @@
                                             <h5>Logo</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-image"></i></span>
                                                 </div>
                                                 <input type="file" class="form-control" aria-describedby="basic-Createon1" name="brand_image" id="brand_image">    
                                             </div>

@@ -73,7 +73,7 @@
                                             <h5>Bank Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-bank"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" value="{{ $payment_method->bank_name }}" name="bank_name" required>
                                             </div>
@@ -84,7 +84,7 @@
                                             <h5>Branch</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="branch" aria-describedby="basic-Createon1" name="branch" value="{{ $payment_method->branch }}"required>
                                             </div>
@@ -95,7 +95,7 @@
                                             <h5>Account Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Account Name" aria-describedby="basic-Createon1" name="account_name" value="{{ $payment_method->account_name }}" required>
                                             </div>
@@ -108,7 +108,7 @@
                                             <h5>Account Holder</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Holder Name" aria-describedby="basic-Createon1" name="account_holder" value="{{ $payment_method->account_holder }}" required>
                                             </div>
@@ -119,7 +119,7 @@
                                             <h5>Account No</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Account ID" aria-describedby="basic-Createon1" name="account_number" value="{{ $payment_method->account_no }}" readonly>
                                             </div>
@@ -130,7 +130,7 @@
                                             <h5>Phone</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mobile"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="phone" value="{{ $payment_method->phone }}" required>
                                             </div>
@@ -143,7 +143,7 @@
                                             <h5>Balance</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="account_balance" value="{{ $payment_method->balance }}" readonly>
                                             </div>

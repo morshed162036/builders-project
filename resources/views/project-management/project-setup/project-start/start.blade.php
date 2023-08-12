@@ -31,14 +31,14 @@
     <div class="content-header-left col-12 mb-2 mt-1">
         <div class="row breadcrumbs-top">
             <div class="col-12">
-                <h5 class="content-header-title float-left pr-1 mb-0">Invoice Create</h5>
+                <h5 class="content-header-title float-left pr-1 mb-0">Start Project</h5>
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('project_index') }}">Project Invoice</a>
+                        <li class="breadcrumb-item"><a href="{{ route('project.index') }}">Project List</a>
                         </li>
-                        <li class="breadcrumb-item active">Project Invoice Create
+                        <li class="breadcrumb-item active">Start Project
                         </li>
                     </ol>
                 </div>
@@ -72,7 +72,7 @@
                                             <h5>Project</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-buoy"></i></span>
                                                 </div>
                                                 <select name="project_id" id="project_id" class="form-control" required>
                                                     <option value="">Select</option>
@@ -93,7 +93,7 @@
                                             <h5>Select Team</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-group"></i></span>
                                                 </div>
                                                 <select name="team_id" id="team_id" class="form-control">
                                                     <option value="">select</option>
@@ -112,7 +112,7 @@
                                             <h5>Start Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" name="start_date" id="start_date" class="form-control" required>
                                             </div>

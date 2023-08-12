@@ -77,7 +77,7 @@
                                                 <h5>Designation Title</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="title" value="{{ $designation->title }}" required>
                                                 </div>
@@ -88,7 +88,7 @@
                                                 <h5>Description</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-detail"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Description" aria-describedby="basic-Createon1" name="description" value="{{ $designation->description }}" required>
                                                 </div>
@@ -99,7 +99,7 @@
                                                 <h5>Designation For</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-user"></i></span>
                                                     </div>
                                                     <select name="type" id="type" class="form-control" required>
                                                         <option value="">Select</option>

@@ -78,7 +78,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxs-buoy"></i></span>
                                                     </div>
                                                     <select class="form-control" name="project_id" id="">
                                                         <option value="">Select</option>
@@ -98,7 +98,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-calendar"></i></span>
                                                     </div>
                                                     <input type="date" class="form-control"
                                                         aria-describedby="basic-Createon1" name="start_date" required>
@@ -111,7 +111,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-calendar"></i></span>
                                                     </div>
                                                     <input type="date" class="form-control"
                                                         aria-describedby="basic-Createon1" name="end_date" required>
@@ -124,7 +124,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-time"></i></span>
                                                     </div>
                                                     <input type="number" class="form-control"
                                                         aria-describedby="basic-Createon1" name="holy_days"

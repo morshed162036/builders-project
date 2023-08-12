@@ -78,7 +78,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="title"
@@ -91,7 +91,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxs-categories"></i></span>
                                                     </div>
                                                     <select name="category_id" id="category_id" class="form-control">
                                                         <option value="">select</option>
@@ -119,7 +119,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxl-slack"></i></span>
                                                     </div>
                                                     <select name="brand_id" id="" class="form-control">
                                                         <option value="">select</option>
@@ -135,7 +135,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-barcode"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="sku"
                                                         aria-describedby="basic-Createon1" name="product_code"
@@ -147,7 +147,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bxs-message"></i></span>
+                                                                class="bx bx-spreadsheet"></i></span>
                                                     </div>
                                                     <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea" name="description">{{ $product->description }}</textarea>
                                                 </div>
@@ -157,7 +157,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bxs-message"></i></span>
+                                                                class="bx bx-purchase-tag-alt"></i></span>
                                                     </div>
                                                     <select name="type" id="" class="form-control" required>
                                                         <option @if ($product->type == 'Product') selected @endif
@@ -172,7 +172,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bxs-message"></i></span>
+                                                                class="bx bx-image"></i></span>
                                                     </div>
                                                     <input type="file" class="form-control"
                                                         aria-describedby="basic-Createon1" name="image" id="image"

@@ -72,7 +72,7 @@
                                             <h5>Full Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" required @isset($unit->name)
                                                     value="{{ $unit->name }}"
@@ -84,7 +84,7 @@
                                             <h5>Unit</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-grid-alt"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="unit" required @isset($unit->unit)
                                                     value="{{ $unit->unit }}"

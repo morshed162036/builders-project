@@ -78,7 +78,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxs-buoy"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="project_name"
@@ -92,7 +92,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-user"></i></span>
                                                     </div>
                                                     <select class="form-control" name="client_id" id="client_id">
                                                         <option value="">Select</option>
@@ -116,7 +116,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-calendar"></i></span>
                                                     </div>
                                                     <input type="date" class="form-control"
                                                         aria-describedby="basic-Createon1"
@@ -130,7 +130,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-calendar"></i></span>
                                                     </div>
                                                     <input type="date" class="form-control"
                                                         aria-describedby="basic-Createon1" name="expected_finished_date"
@@ -144,7 +144,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-calendar"></i></span>
                                                     </div>
                                                     <input type="date" class="form-control"
                                                         aria-describedby="basic-Createon1" name="finished_date"
@@ -161,7 +161,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-purchase-tag-alt"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value="{{ $project->status }}" readonly>
                                                 </div>
@@ -173,7 +173,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-purchase-tag-alt"></i></span>
                                                     </div>
                                                     <select class="form-control" name="status" id="">
                                                         <option value="">Select</option>
@@ -188,16 +188,17 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-                                        @if ($project->team == null)
+                                        @if ($project->team != null)
                                             <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <h5>Team</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-group"></i></span>
                                                     </div>
-                                                    <select name="team_id" id="team_id" class="form-control">
+                                                    <input type="text" name="team_id" class="form-control" value="{{ $project->team->name }}" readonly>
+                                                    {{-- <select name="team_id" id="team_id" class="form-control">
                                                         <option value="">select</option>
                                                         @isset($teams)
                                                             @foreach ($teams as $team)
@@ -205,7 +206,7 @@
                                                                     {{ $team->name }}</option>
                                                             @endforeach
                                                         @endisset
-                                                    </select>
+                                                    </select> --}}
                                                 </div>
                                             </fieldset>
                                         </div>

@@ -72,7 +72,7 @@
                                             <h5>Group Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" value="{{ $group->name }}">
                                             </div>
@@ -82,7 +82,7 @@
                                             <h5>Description</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-detail"></i></span>
                                                 </div>
                                                 <textarea name="description" id="description"  class="form-control" cols="30" rows="5">{{ $group->description }}</textarea>
                                             </div>

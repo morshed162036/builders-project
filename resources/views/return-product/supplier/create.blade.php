@@ -72,7 +72,7 @@
                                             <h5>Supplier</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-user"></i></span>
                                                 </div>
                                                 <select name="supplier_id" id="supplier_id" class="form-control" required>
                                                     <option value="0">Select</option>
@@ -95,7 +95,7 @@
                                             <h5>Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" name="date" id="date" class="form-control" required>
                                             </div>
@@ -106,7 +106,7 @@
                                             <h5>Payment Method</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-bank"></i></span>
                                                 </div>
                                                 <select name="payment_method_id" id="payment_method_id" class="form-control">
                                                     <option value="0">select</option>
@@ -124,7 +124,7 @@
                                             <h5>Payment Amount</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
                                                 <input type="text" name="payment_amount" id="payment_amount" class="form-control" placeholder="0">
                                             </div>
