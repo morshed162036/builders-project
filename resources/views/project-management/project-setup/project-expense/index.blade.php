@@ -90,6 +90,7 @@
                                                 <th>Project</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
+                                                <th>Payment Method</th>
                                                 <th>Amount</th>
                                                 <th>Date</th>
                                                 <th>Action</th>
@@ -104,6 +105,7 @@
                                                         <td>
                                                             {{ $expense->description }}
                                                         </td>
+                                                        <td> {{ $expense->payment->bank_name }}({{ $expense->payment->account_no }}) </td>
                                                         <td>{{ $expense->amount }}</td>
                                                         <td>{{ $expense->date }}</td>
                                                         <td>
@@ -138,6 +140,7 @@
                                                 <th>Project</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
+                                                <th>Payment Method</th>
                                                 <th>Amount</th>
                                                 <th>Date</th>
                                                 <th>Action</th>

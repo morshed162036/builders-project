@@ -36,7 +36,7 @@
                     <ol class="breadcrumb p-0 mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('accounts.index') }}">General Ledger</a>
+                        <li class="breadcrumb-item"><a href="{{ route('accounts-ledger.index') }}">General Ledger</a>
                         </li>
                         <li class="breadcrumb-item active">Voucher Create
                         </li>
@@ -72,7 +72,7 @@
                                             <h5>Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="date" required>
                                             </div>
@@ -81,7 +81,7 @@
                                             <h5>Account Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <select name="account_id" id="account_id" class="form-control" required>
                                                     <option value="">Select</option>
@@ -98,7 +98,7 @@
                                             <h5>Particular</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-detail"></i></span>
                                                 </div>
                                                 <textarea name="description" id="description"  class="form-control" cols="30" rows="5"></textarea>
                                             </div>
@@ -107,7 +107,7 @@
                                             <h5>Post Ref</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-detail"></i></span>
                                                 </div>
                                                 <textarea name="post_ref" id="post_ref"  class="form-control" cols="30" rows="5"></textarea>
                                             </div>
@@ -116,7 +116,7 @@
                                             <h5>Voucher Type</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-purchase-tag-alt"></i></span>
                                                 </div>
                                                 <select name="type" id="" class="form-control" required>
                                                     <option value="">Select</option>
@@ -129,7 +129,7 @@
                                             <h5>Payment Method</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-bank"></i></span>
                                                 </div>
                                                 <select name="payment_id" id="payment_id" class="form-control" required>
                                                     <option value="">Select</option>
@@ -145,7 +145,7 @@
                                             <h5>Amount</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-Createon1" name="amount" required>
                                             </div>

@@ -72,7 +72,7 @@
                                             <h5>Project</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-buoy"></i></span>
                                                 </div>
                                                 <select name="project_id" id="project_id" class="form-control" required>
                                                     <option value="">Select</option>
@@ -91,7 +91,7 @@
                                             <h5>Issue Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" name="issue_date" id="issue_date" class="form-control" required>
                                             </div>

@@ -84,21 +84,25 @@
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" value="{{ $user->name }}" readonly>
                                             </div>
                                         </fieldset >
-                                        <fieldset class="mt-2">
-                                            <h5>Designation</h5>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                        @if ($user->designation)
+                                            <fieldset class="mt-2">
+                                                <h5>Designation</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-id-card"></i></span>
+                                                    </div>
+                                                    
+                                                    <input type="text" class="form-control" value="{{ $user->designation->title }}" readonly>
+                                                
                                                 </div>
-                                                <input type="text" class="form-control" value="{{ $user->designation->title }}" readonly>
-                                               
-                                            </div>
-                                        </fieldset>
+                                            </fieldset> 
+                                        @endif
+                                        
                                         <fieldset class="mt-2">
                                             <h5>Email</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-at"></i></span>
                                                 </div>
                                                 <input type="email" class="form-control" placeholder="abc@gmail.com" aria-describedby="basic-Createon1" name="email" value="{{ $user->email }}" readonly>
                                             </div>
@@ -107,7 +111,7 @@
                                             <h5>Phone</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mobile"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="017xxxx" aria-describedby="basic-Createon1" name="phone" maxlength="11" value="{{ $user->phone }}" readonly>
                                             </div>
@@ -116,7 +120,7 @@
                                             <h5>Address</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mail-send"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" value="{{ $user->address }}" name="address" readonly>
                                             </div>
@@ -125,7 +129,7 @@
                                             <h5>Join Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="test" class="form-control"  aria-describedby="basic-Createon1" name="joining_date" value="{{ $user->info->joining_date }}" readonly>
                                             </div>
@@ -134,7 +138,7 @@
                                             <h5>Resign Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="resign_date" value="{{ $user->info->resign_date }}" readonly>
                                             </div>
@@ -143,7 +147,7 @@
                                             <h5>Salary</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" value="{{ $user->info->salary}}" readonly>
                                             </div>
@@ -152,7 +156,7 @@
                                             <h5>Available Status</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-purchase-tag-alt"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" value="{{ $user->info->available_status }}" readonly>
                                             </div>

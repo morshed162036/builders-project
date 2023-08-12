@@ -72,7 +72,7 @@
                                             <h5>Catalogue Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="catalogue_name" value="{{ $catalogue->name }}" required>
                                             </div>

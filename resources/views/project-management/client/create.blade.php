@@ -77,7 +77,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="client_name" required>
@@ -90,7 +90,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="company"
                                                         aria-describedby="basic-Createon1" name="company" >
@@ -103,7 +103,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-phone"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="01xx"
                                                         aria-describedby="basic-Createon1" name="phone" maxlength="11"
@@ -119,7 +119,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-at"></i></span>
                                                     </div>
                                                     <input type="email" class="form-control" placeholder="Email"
                                                         aria-describedby="basic-Createon1" name="email" >
@@ -132,7 +132,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-mail-send"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="address"
                                                         aria-describedby="basic-Createon1" name="address">
@@ -145,7 +145,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-purchase-tag-alt"></i></span>
                                                     </div>
                                                     <select class="form-control" name="status" id="status">
                                                         <option value="">Select</option>
@@ -166,7 +166,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-message-square"></i></span>
                                                     </div>
                                                     <textarea class="form-control" name="remarks" id="" cols="30" rows="2"></textarea>
                                                 </div>

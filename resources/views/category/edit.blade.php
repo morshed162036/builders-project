@@ -78,7 +78,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="category_name"
@@ -90,7 +90,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bxs-message"></i></span>
+                                                                class="bxbx-building"></i></span>
                                                     </div>
                                                     <select name="catalogue_id" id="catalogue_id" class="form-control"
                                                         required>
@@ -124,7 +124,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bxs-message"></i></span>
+                                                                class="bx bxs-spreadsheet"></i></span>
                                                     </div>
                                                     <textarea name="category_description" id="category_description" cols="30" rows="5" class="form-control"
                                                         aria-describedby="basic-Createon1">value{{ $category['description'] }}</textarea>

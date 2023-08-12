@@ -72,7 +72,7 @@
                                             <h5>Image</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-image"></i></span>
                                                 </div>
                                                 <input type="file" class="form-control" aria-describedby="basic-Createon1" name="image" id="image" onchange="loadFile(event)">
                                             </div>
@@ -82,7 +82,7 @@
                                             <h5>Name</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" required>
                                             </div>
@@ -91,7 +91,7 @@
                                             <h5>Designation</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-id-card"></i></span>
                                                 </div>
                                                 <select name="designation_id" id="" class="form-control" required>
                                                     <option value="0">Select</option>
@@ -108,7 +108,7 @@
                                             <h5>Email</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-at"></i></span>
                                                 </div>
                                                 <input type="email" class="form-control" placeholder="abc@gmail.com" aria-describedby="basic-Createon1" name="email" required>
                                             </div>
@@ -117,7 +117,7 @@
                                             <h5>Phone</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mobile"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="017xxxx" aria-describedby="basic-Createon1" name="phone" maxlength="11" required>
                                             </div>
@@ -126,7 +126,7 @@
                                             <h5>Address</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mail-send"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" required>
                                             </div>
@@ -135,7 +135,7 @@
                                             <h5>Join Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="joining_date">
                                             </div>
@@ -144,7 +144,7 @@
                                             <h5>Salary</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" required>
                                             </div>

@@ -72,7 +72,7 @@
                                             <h5>Product Title</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="title" required>
                                             </div>
@@ -82,7 +82,7 @@
                                             <h5>Category</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-categories"></i></span>
                                                 </div>
                                                 <select name="category_id" id="category_id" class="form-control">
                                                     <option value="">select</option>
@@ -102,7 +102,7 @@
                                             <h5>Brand</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxl-slack"></i></span>
                                                 </div>
                                                 <select name="brand_id" id="" class="form-control">
                                                     <option value="">select</option>
@@ -116,7 +116,7 @@
                                             <h5>Product Code</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="sku" aria-describedby="basic-Createon1" name="product_code" required>
                                             </div>
@@ -125,7 +125,7 @@
                                             <h5>Description</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                 </div>
                                                 <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea" name="description"></textarea>
                                             </div>
@@ -134,7 +134,7 @@
                                             <h5>Product Type</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-purchase-tag-alt"></i></span>
                                                 </div>
                                                 <select name="type" id="" class="form-control" required>
                                                     <option value="Product">Product</option>
@@ -146,7 +146,7 @@
                                             <h5>Image</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-image"></i></span>
                                                 </div>
                                                 <input type="file" class="form-control" aria-describedby="basic-Createon1" name="image" id="image" onchange="loadFile(event)">
                                             </div>

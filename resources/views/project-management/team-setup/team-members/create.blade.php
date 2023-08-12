@@ -72,7 +72,7 @@
                                             <h5>Team</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-group"></i></span>
                                                 </div>
                                                 <select name="team_id" id="" class="form-control" required>
                                                     <option value="">Select</option>
@@ -89,7 +89,7 @@
                                             <h5>Team Member</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-user"></i></span>
                                                 </div>
                                                 <select name="employee_id" id="" class="form-control" required>
                                                     <option value="">Select</option>
@@ -106,7 +106,7 @@
                                             <h5>Team Join Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" class="form-control" name="join_date" required>
                                             </div>

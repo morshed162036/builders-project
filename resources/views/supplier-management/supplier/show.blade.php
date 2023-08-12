@@ -85,7 +85,7 @@
                                                 <h5>Supplier Name</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="name" value="{{ $supplier->name }}" readonly>
                                                 </div>
@@ -96,7 +96,7 @@
                                                 <h5>Address</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mail-send"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" value="{{ $supplier->address }}" readonly>
                                                 </div>
@@ -107,7 +107,7 @@
                                                 <h5>City</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="city" value="{{ $supplier->city }}" readonly>
                                                 </div>
@@ -120,7 +120,7 @@
                                                 <h5>Pin Code</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="pincode" value="{{ $supplier->pincode }}" readonly>
                                                 </div>
@@ -131,7 +131,7 @@
                                                 <h5>Email</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-at"></i></span>
                                                     </div>
                                                     <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-Createon1" name="email" value="{{ $supplier->email }}" readonly>
                                                 </div>
@@ -142,7 +142,7 @@
                                                 <h5>Phone</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-phone"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="phone" maxlength="11" value="{{ $supplier->mobile }}" readonly>
                                                 </div>
@@ -155,7 +155,7 @@
                                                 <h5>NID</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-id-card"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="NID Number" aria-describedby="basic-Createon1" name="nid" value="{{ $supplier->nid }}" readonly>
                                                 </div>
@@ -180,7 +180,7 @@
                                                 <h5>Company Name </h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-Createon1" name="company_name" 
                                                     @isset($supplier->company)  
@@ -194,7 +194,7 @@
                                                 <h5>Address</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mail-send"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="company_address" @isset($supplier->company)   value="{{ $supplier->company->address }}"@endisset readonly>
                                                 </div>
@@ -205,7 +205,7 @@
                                                 <h5>City</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="company_city" 
                                                     @isset($supplier->company) 
@@ -223,7 +223,7 @@
                                                 <h5>Pin Code</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="company_pincode" @isset($supplier->company) value="{{ $supplier->company->pincode }}"@endisset readonly>
                                                 </div>
@@ -235,7 +235,7 @@
                                                 <h5>Email</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-at"></i></span>
                                                     </div>
                                                     <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-Createon1" name="company_email" @isset($supplier->company) value="{{ $supplier->company->email }}"@endisset readonly>
                                                 </div>
@@ -247,7 +247,7 @@
                                                 <h5>Phone</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-phone"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="01xx" aria-describedby="basic-Createon1" name="company_phone" maxlength="11" @isset($supplier->company) value="{{ $supplier->company->mobile }}"@endisset readonly>
                                                 </div>
@@ -261,7 +261,7 @@
                                                 <h5>Web site</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-globe"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="www.https:" aria-describedby="basic-Createon1" name="company_website" @isset($supplier->company) value="{{ $supplier->company->website }}"@endisset readonly>
                                                 </div>
@@ -274,7 +274,7 @@
                                                 <h5>Address Proof</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-image"></i></span>
                                                     </div>
                                                     <input type="file" class="form-control"  aria-describedby="basic-Createon1" name="company_address_proof" >
                                                 </div>
@@ -285,7 +285,7 @@
                                                 <h5>Trade License Certificate</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-image"></i></span>
                                                     </div>
                                                     <input type="file" class="form-control"  aria-describedby="basic-Createon1" name="company_license_certificate" >
                                                 </div>
@@ -296,7 +296,7 @@
                                                 <h5>Tin Certificate</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                        <span class="input-group-text" id="basic-Createon1"><i class="bx bx-image"></i></span>
                                                     </div>
                                                     <input type="file" class="form-control"  aria-describedby="basic-Createon1" name="company_tin_certificate">
                                                 </div>

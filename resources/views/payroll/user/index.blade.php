@@ -117,7 +117,7 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('user.show',$user->id) }}"><i class="bx bx-edit-alt mr-1"></i> details</a>
+                                                                    <a class="dropdown-item" href="{{ route('user.show',$user->id) }}"><i class="bx bx-spreadsheet mr-1"></i> details</a>
                                                                     <a class="dropdown-item" href="{{ route('user.edit',$user->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
                                                                     <form action="{{ route('user.destroy',$user->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>

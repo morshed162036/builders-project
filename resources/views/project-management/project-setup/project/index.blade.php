@@ -125,7 +125,7 @@
                                                                 <div class="dropdown-menu dropdown-menu-right">
                                                                     <a class="dropdown-item"
                                                                         href="{{ route('project.show', $project->id) }}"><i
-                                                                            class="bx bx-edit-alt mr-1"></i> Details</a>
+                                                                            class="bx bx-spreadsheet mr-1"></i> Details</a>
                                                                     <a class="dropdown-item"
                                                                         href="{{ route('project.edit', $project->id) }}"><i
                                                                             class="bx bx-edit-alt mr-1"></i> edit</a>

@@ -77,7 +77,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxs-buoy"></i></span>
                                                     </div>
                                                     <select class="form-control" name="project_id" id="project_id" required>
                                                         <option value="">Select</option>
@@ -100,7 +100,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-calendar"></i></span>
                                                     </div>
                                                     <input type="date" name="date" class="form-control" value="{{ $expense->date }}" required>
                                                 </div>
@@ -114,7 +114,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" name="title" class="form-control" value="{{ $expense->title }}" required>
                                                 </div>
@@ -126,7 +126,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bxs-bank"></i></span>
                                                     </div>
                                                     <input type="text" name="payment_id" class="form-control" value="{{ $expense->payment->bank_name }}({{ $expense->payment->account_no }})" readonly>
                                                 </div>
@@ -138,7 +138,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-money"></i></span>
                                                     </div>
                                                     <input type="text" name="amount" class="form-control" value="{{ $expense->amount }}" required>
                                                 </div>
@@ -150,7 +150,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-detail"></i></span>
                                                     </div>
                                                     <textarea name="description" class="form-control" id="" cols="30" rows="3">{{ $expense->description }}</textarea>
                                                 </div>

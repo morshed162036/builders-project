@@ -83,7 +83,7 @@
                                                         <h5>Title</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $product->product->title }}" readonly>
                                                         </div>
@@ -92,7 +92,7 @@
                                                         <h5>Stock</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-store-alt"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $product->stock }}" readonly>
                                                         </div>
@@ -101,7 +101,7 @@
                                                         <h5>Available Stock</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-store-alt"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $product->available }}" readonly>
                                                         </div>
@@ -110,7 +110,7 @@
                                                         <h5>Unit</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-grid-alt"></i></span>
                                                             </div>
                                                             <select name="unit_id" id="unit" class="form-control">
                                                                 <option 
@@ -132,7 +132,7 @@
                                                         <h5>Sell Unit Price</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $product->unit_price }}" name="unit_price">
                                                         </div>
@@ -149,7 +149,7 @@
                                                         <h5>Title</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $machine->product->title }}" readonly>
                                                         </div>
@@ -158,7 +158,7 @@
                                                         <h5>Stock</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-store-alt"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $machine->stock }}" readonly>
                                                         </div>
@@ -167,7 +167,7 @@
                                                         <h5>Available Stock</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-store-alt"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $machine->available }}" readonly>
                                                         </div>
@@ -176,7 +176,7 @@
                                                         <h5>Unit</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-grid-alt"></i></span>
                                                             </div>
                                                             <select name="unit_id" id="unit" class="form-control">
                                                                 <option 
@@ -198,7 +198,7 @@
                                                         <h5>Daily Hour</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-time"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $machine->daily_hour }}" name="daily_hour">
                                                         </div>
@@ -207,7 +207,7 @@
                                                         <h5>Hourly Rent</h5>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                                <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                             </div>
                                                             <input type="text" class="form-control" aria-describedby="basic-Createon1" value="{{ $machine->hourly_rent }}" name="hourly_rent">
                                                         </div>

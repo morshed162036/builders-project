@@ -77,7 +77,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-file"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name"
                                                         aria-describedby="basic-Createon1" name="team_name" value="{{ $team->name }}" required>
@@ -90,9 +90,9 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bx-spreadsheet"></i></span>
+                                                                class="bx bx-detail"></i></span>
                                                     </div>
-                                                    <textarea class="form-control" name="description" id="" cols="30" rows="2">{{ $team->description }}</textarea>
+                                                    <textarea class="form-control" name="description" id="" cols="30" rows="1">{{ $team->description }}</textarea>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -103,7 +103,7 @@
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-Createon1"><i
-                                                                    class="bx bx-spreadsheet"></i></span>
+                                                                    class="bx bxs-buoy"></i></span>
                                                         </div>
                                                         <select class="form-control" name="project_id" id="" required>
                                                             <option value="0">Clear</option>

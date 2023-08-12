@@ -72,7 +72,7 @@
                                             <h5>Team</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-group"></i></span>
                                                 </div>
                                                 <input type="text" name="team_id" id="" class="form-control" value="{{ $member->team->name }}" readonly>
                                             </div>
@@ -81,7 +81,7 @@
                                             <h5>Team Member</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-user"></i></span>
                                                 </div>
                                                 <input type="text"  class="form-control" value="{{ $member->employee->name }} ({{ $member->employee->designation->title }})" readonly>
                                                 <input type="text" name="employee_id" value="{{ $member->user_id }}" hidden>
@@ -91,7 +91,7 @@
                                             <h5>Team Join Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" class="form-control" name="join_date" value="{{ $member->join_date }}" required>
                                             </div>
@@ -100,7 +100,7 @@
                                             <h5>Team Leave Date</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
                                                 <input type="date" class="form-control" name="leave_date" value="@if ($member->leave_date){{ $member->leave_date }}                                                    
                                                 @endif">
