@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->enum('type',['Employee','Laborer']);
+            $table->enum('type',['Employee','Laborer','Admin']);
             $table->enum('status',['Active','Inactive'])->default('Active');
             $table->timestamps();
         });

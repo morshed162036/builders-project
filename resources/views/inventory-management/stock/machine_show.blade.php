@@ -86,7 +86,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Invoice Id</th>
-                                                <th>SKU</th>
+                                                {{-- <th>SKU</th> --}}
                                                 <th>Purchase Unit Price</th>
                                                 <th>Purchase Date</th>
                                                 {{-- <th>Project Name</th> --}}
@@ -98,7 +98,7 @@
                                             @foreach ($stockmachine->details as $machine_detail)
                                                 <tr>
                                                     <td class="text-primary">#{{ $machine_detail->invoice->invoice_code }}</td>
-                                                    <td>{{ $machine_detail->sku }}</td>
+                                                    {{-- <td>{{ $machine_detail->sku }}</td> --}}
                                                     <td>{{ $machine_detail->purchase_unit_price }}</td>
                                                     <td>{{ $machine_detail->created_at }}</td>
                                                 
@@ -117,7 +117,7 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Invoice Id</th>
-                                                <th>SKU</th>
+                                                {{-- <th>SKU</th> --}}
                                                 <th>Purchase Unit Price</th>
                                                 <th>Purchase Date</th>
                                                 {{-- <th>Project Name</th> --}}

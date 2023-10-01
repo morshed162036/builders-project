@@ -14,8 +14,8 @@ class ClientSeeder extends Seeder
     public function run(): void
     {
         $client = [
-            ['id'=>1,'name'=>'Asad','company'=>'company1','phone'=>'017xxxxxxxx','Email'=>'client1@gmail.com','address'=>'mirpur','status'=>'Inquiry','remarks'=>'Get The Details'],
-            ['id'=>2,'name'=>'bashir','company'=>'company2','phone'=>'017xxxxxxxx','Email'=>'client2@gmail.com','address'=>'','status'=>'Inquiry','remarks'=>'Get The Details']
+            ['id'=>1,'name'=>'Asad','company'=>'company1','phone'=>'017xxxxxxxx','Email'=>'client1@gmail.com','address'=>'mirpur','type'=>'Project','status'=>'Inquiry','remarks'=>'Get The Details'],
+            ['id'=>2,'name'=>'bashir','company'=>'company2','phone'=>'017xxxxxxxx','Email'=>'client2@gmail.com','address'=>'','type'=>'Sale','status'=>'Inquiry','remarks'=>'Get The Details']
         ];
         Client::Insert($client);
     }

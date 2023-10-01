@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('address')->nullable();
             $table->string('remarks')->nullable();
+            $table->enum('type',['Project','Sale'])->default('Project');
             $table->enum('status',['Active','Inactive','Inquiry','Estimation','Ongoing Project'])->default('Inquiry');
             $table->timestamps();
         });

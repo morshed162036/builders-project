@@ -72,7 +72,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Client List</h5>
+                            <h5 class="card-title">Project Client List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li class="ml-2"><a href="{{ route('client.create') }}" class="btn btn-primary">+
@@ -142,6 +142,92 @@
                                                 <th>Address</th>
                                                 <th>Remarks</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="basic-datatable">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Product Sale Client List</h5>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li class="ml-2"><a href="{{ route('client.create') }}" class="btn btn-primary">+
+                                            Create</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body card-dashboard">
+                                <div class="table-responsive">
+                                    <table class="table zero-configuration">
+                                        <thead>
+                                            <tr>
+                                                <th>Client Name</th>
+                                                <th>Company</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                                <th>Remarks</th>
+                                                {{-- <th>Status</th> --}}
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if ($clients1)
+                                                @foreach ($clients1 as $client)
+                                                    <tr>
+                                                        <td>{{ $client['name'] }}</td>
+                                                        <td>{{ $client['company'] }}</td>
+                                                        <td>{{ $client['phone'] }}</td>
+                                                        <td>{{ $client['email'] }}</td>
+                                                        <td>{{ $client['address'] }}</td>
+                                                        <td>{{ $client['remarks'] }}</td>
+                                                        {{-- <td>@if ($client['status']== "Active")
+                                                            <label class="badge badge-success" status="Active">Active</label>
+                                                        @elseif ($client['status']== "Inactive")
+                                                        <label class="badge badge-danger" status="Inactive">Inactive</label>
+                                                        @elseif ($client['status']== "Inquiry")
+                                                        <label class="badge badge-info" status="Inquiry">Inquiry</label>
+                                                        @elseif ($client['status']== "Ongoing Project")
+                                                        <label class="badge badge-secondary" status="Ongoing Project">Ongoing Project</label>
+                                                        @endif</td> --}}
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="{{ route('client.edit',$client->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    <form action="{{ route('client.destroy',$client->id) }}" client="post"> @csrf @method('Delete')
+                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                    </form>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>   
+                                                @endforeach
+                                            @else
+                                                {{ 'No Data Found' }}
+                                            @endif
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Client Name</th>
+                                                <th>Company</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                                <th>Remarks</th>
+                                                {{-- <th>Status</th> --}}
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>

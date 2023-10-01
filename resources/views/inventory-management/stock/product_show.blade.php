@@ -86,7 +86,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Invoice Id</th>
-                                                <th>SKU</th>
+                                                {{-- <th>SKU</th> --}}
                                                 <th>Purchase Unit Price</th>
                                                 {{-- <th>Sell Unit Price</th> --}}
                                                 <th>Purchase Quantity</th>
@@ -99,7 +99,7 @@
                                                 @foreach ($stockproduct->details as $product_detail)
                                                     <tr>
                                                         <td class="text-primary">#{{ $product_detail->invoice->invoice_code }}</td>
-                                                        <td>{{ $product_detail->sku }}</td>
+                                                        {{-- <td>{{ $product_detail->sku }}</td> --}}
                                                         <td>{{ $product_detail->purchase_unit_price }}</td>
                                                         {{-- <td>{{ $product_detail->sell_unit_price }}</td> --}}
                                                         <td>{{ $product_detail->qnt }}</td>
@@ -114,7 +114,7 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Invoice Id</th>
-                                                <th>SKU</th>
+                                                {{-- <th>SKU</th> --}}
                                                 <th>Purchase Unit Price</th>
                                                 {{-- <th>Sell Unit Price</th> --}}
                                                 <th>Purchase Quantity</th>

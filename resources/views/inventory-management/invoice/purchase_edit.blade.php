@@ -256,11 +256,11 @@
                                                                                         <option value="{{ $product->product->id }}">{{ $product->product->title }}</option>
                                                                                     </select>
                                                                                 </div>
-                                                                                <div class="col-md-2 col-sm-12 form-group">
+                                                                                {{-- <div class="col-md-2 col-sm-12 form-group">
                                                                                     <label for="product_sku">Sku</label>
                                                                                     <input type="text" class="form-control" id="product_sku"
                                                                                         name="sku" placeholder="sku" value="{{ $product->sku }}" readonly>
-                                                                                </div>
+                                                                                </div> --}}
                                                                                 <div class="col-md-2 col-sm-12 form-group">
                                                                                     <label for="qnt">Quantity</label>
                                                                                     <input type="number" class="form-control" id="product_qnt"
@@ -332,11 +332,11 @@
                                                                                     <option value="{{ $product->product->id }}">{{ $product->product->title }}</option>
                                                                                 </select>
                                                                             </div>
-                                                                            <div class="col-md-2 col-sm-12 form-group">
+                                                                            {{-- <div class="col-md-2 col-sm-12 form-group">
                                                                                 <label for="product_sku">Sku</label>
                                                                                 <input type="text" class="form-control" id="product_sku"
                                                                                     name="sku" placeholder="sku" value="{{ $product->sku }}" readonly>
-                                                                            </div>
+                                                                            </div> --}}
                                                                             <div class="col-md-2 col-sm-12 form-group">
                                                                                 <label for="qnt">Quantity</label>
                                                                                 <input type="number" class="form-control" id="product_qnt"

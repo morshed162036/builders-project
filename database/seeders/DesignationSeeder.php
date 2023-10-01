@@ -13,7 +13,7 @@ class DesignationSeeder extends Seeder
     public function run(): void
     {
         $designations = [
-            ['id'=>1,'title'=>'Site Engineer','description'=>'test','type'=>'Employee','status'=>'Active'],
+            ['id'=>1,'title'=>'Managing Director','description'=>'test','type'=>'Admin','status'=>'Active'],
             ['id'=>2,'title'=>'Quality Control Engineer','description'=>'test','type'=>'Employee','status'=>'Active'],
             ['id'=>3,'title'=>'Technical Field Engineer','description'=>'test','type'=>'Employee','status'=>'Active'],
             ['id'=>4,'title'=>'Construction Planning Engineer','description'=>'test','type'=>'Employee','status'=>'Active'],

@@ -178,6 +178,30 @@
 
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
+                                                <h5>Client Type</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-Createon1"><i
+                                                                class="bx bx-purchase-tag-alt"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="type" id="type">
+                                                        <option value="">Select</option>
+                                                        <option
+                                                        @if ($client->type == 'Project')
+                                                            selected    
+                                                        @endif 
+                                                        value="Project">Project</option>
+                                                        <option 
+                                                        @if ($client->type == 'Sale')
+                                                            selected    
+                                                        @endif 
+                                                        value="Sale">Sale</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <fieldset class="form-group">
                                                 <h5>Remarks</h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">

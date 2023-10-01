@@ -216,11 +216,11 @@
                                                                                 <option value="Sand">Sand</option> --}}
                                                                             </select>
                                                                         </div>
-                                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                                        {{-- <div class="col-md-2 col-sm-12 form-group">
                                                                             <label for="product_sku">Sku</label>
                                                                             <input type="text" class="form-control" id="product_sku"
                                                                                 name="sku" placeholder="sku" >
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <div class="col-md-2 col-sm-12 form-group">
                                                                             <label for="qnt">Quantity</label>
                                                                             <input type="number" class="form-control" id="product_qnt"
@@ -300,11 +300,11 @@
                                                                                 @endisset
                                                                             </select>
                                                                         </div>
-                                                                        <div class="col-md-2 col-sm-12 form-group">
+                                                                        {{-- <div class="col-md-2 col-sm-12 form-group">
                                                                             <label for="machine_sku">Sku</label>
                                                                             <input type="text" class="form-control" id="machine_sku"
                                                                                 name="sku" placeholder="sku" >
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <div class="col-md-2 col-sm-12 form-group">
                                                                             <label for="qnt">Quantity</label>
                                                                             <input type="number" class="form-control" id="machine_qnt"

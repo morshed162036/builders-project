@@ -14,8 +14,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::get();
-        return view('project-management.client.index')->with(compact('clients'));
+        $clients = Client::where('type','Project')->get();
+        $clients1 = Client::where('type','Sale')->get();
+        return view('project-management.client.index')->with(compact('clients','clients1'));
     }
 
     /**
@@ -43,6 +44,7 @@ class ClientController extends Controller
         $client->address = $request->address;
         $client->remarks = $request->remarks;
         $client->status = $request->status;
+        $client->type = $request->type;
         $client->save();
         return redirect(route('client.index'))->with('success','Client Create Success!');
     }
@@ -81,6 +83,7 @@ class ClientController extends Controller
         $client->address = $request->address;
         $client->remarks = $request->remarks;
         $client->status = $request->status;
+        $client->type = $request->type;
         $client->update();
         return redirect(route('client.index'))->with('success','Client Update Success!');
     }

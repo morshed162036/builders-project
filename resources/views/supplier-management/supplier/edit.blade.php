@@ -99,7 +99,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-mail-send"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" value="{{ $supplier->address }}" required>
+                                                    <input type="text" class="form-control" placeholder="Address" aria-describedby="basic-Createon1" name="address" value="{{ $supplier->address }}">
                                                 </div>
                                             </fieldset>
                                         </div>         
@@ -110,7 +110,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="city" value="{{ $supplier->city }}" required>
+                                                    <input type="text" class="form-control" placeholder="City" aria-describedby="basic-Createon1" name="city" value="{{ $supplier->city }}">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -123,7 +123,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="pincode" value="{{ $supplier->pincode }}" required>
+                                                    <input type="text" class="form-control" placeholder="Code" aria-describedby="basic-Createon1" name="pincode" value="{{ $supplier->pincode }}">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -158,7 +158,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-id-card"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="NID Number" aria-describedby="basic-Createon1" name="nid" value="{{ $supplier->nid }}" required>
+                                                    <input type="text" class="form-control" placeholder="NID Number" aria-describedby="basic-Createon1" name="nid" value="{{ $supplier->nid }}">
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -169,7 +169,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="License Number" aria-describedby="basic-Createon1" name="trade_license" value="{{ $supplier->trade_license }}" required>
+                                                    <input type="text" class="form-control" placeholder="License Number" aria-describedby="basic-Createon1" name="trade_license" value="{{ $supplier->trade_license }}">
                                                 </div>
                                             </fieldset>
                                         </div>

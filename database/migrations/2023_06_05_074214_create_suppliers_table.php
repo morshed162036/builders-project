@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address');
-            $table->string('city');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
             $table->string('pincode')->nullable();
             $table->string('mobile');
             $table->string('email')->unique();
-            $table->string('nid');
+            $table->string('nid')->nullable();
             $table->string('trade_license')->nullable();
             $table->enum('status',['Active','Inactive'])->default('Active');
             $table->timestamps();

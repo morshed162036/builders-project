@@ -101,7 +101,7 @@
                                             </div>
                                             
                                         </div>
-                                        {{-- <div class="row">
+                                        <div class="row">
                                             <div class="col-md-10 mt-2">
                                                 <h5>Permission</h5>
                                                 <table class="table table-bordered table-striped userrole-table table-middle">
@@ -3104,7 +3104,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                         <div class="row">
                                             <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
                                         </div>

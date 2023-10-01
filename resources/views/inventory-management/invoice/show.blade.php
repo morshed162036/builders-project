@@ -168,7 +168,7 @@
                                 <thead>
                                     <tr class="border-0">
                                         <th scope="col">Item</th>
-                                        <th scope="col">sku</th>
+                                        {{-- <th scope="col">sku</th> --}}
                                         <th scope="col">Qty</th>
                                         <th scope="col">Unit Price</th>
                                         <th scope="col" class="text-right">Cost</th>
@@ -182,7 +182,7 @@
                                     @foreach ( $invoice->details as $item)
                                         <tr>
                                             <td>{{ $item->product->title }}</td>
-                                            <td>{{ $item->sku }}</td>
+                                            {{-- <td>{{ $item->sku }}</td> --}}
                                             <td>{{ $item->quantity }} @if ($item->unit)
                                                 {{ $item->unit->unit }}
                                             @endif</td>
