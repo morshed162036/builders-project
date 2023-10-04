@@ -59,27 +59,31 @@ class InvoiceController extends Controller
         
         $payment_methods = Payment_method::get();
         $suppliers = Supplier::get();
+        $count = Invoice::with('project')->where('invoice_type','Project')->get()->count();
+        //dd($count);
         $units = Unit::where('status','Active')->get();
         $products = Product::where('type','Product')->where('status','Active')->get();
         $machines = Product::where('type','Machine')->where('status','Active')->get();
         
         //dd($payment_methods);
-        return view('inventory-management.invoice.purchase_create')->with(compact('suppliers','payment_methods','units','products','machines'));
+        return view('inventory-management.invoice.purchase_create')->with(compact('count','suppliers','payment_methods','units','products','machines'));
     }
     public function sellCreate()
     {
+        $count = Invoice::with('project')->where('invoice_type','Sell')->get()->count();
         $payment_methods = Payment_method::get();
         $units = Unit::where('status','Active')->get();
         $clients = Client::get();
         $products = Product::where('type','Product')->where('status','Active')->get();
         //dd($products);
-        return view('inventory-management.invoice.sell_create')->with(compact('products','units','clients','payment_methods'));
+        return view('inventory-management.invoice.sell_create')->with(compact('count','products','units','clients','payment_methods'));
     }
     public function projectCreate()
     {
+        $count = Invoice::with('project')->where('invoice_type','Project')->get()->count();
         $products = Product::where('type','Product')->where('status','Active')->get();
         $projects = Project::where('status','Start')->orWhere('status','Ongoing')->get();
-        return view('inventory-management.invoice.project_create')->with(compact('products','projects'));
+        return view('inventory-management.invoice.project_create')->with(compact('count','products','projects'));
     }
 
     /**

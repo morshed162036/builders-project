@@ -372,6 +372,18 @@
                             class="menu-title">Accounts Ledgers</span></a>
                 </li>
 
+                <li class=" navigation-header"><span>Payroll</span>
+                </li>
+                <li class=" nav-item"><a href="{{ route('salary.create') }}"><i class="bx bx-list-ul"></i><span
+                            class="menu-title">Generate Salary Sheet</span></a>
+                </li>
+                <li class=" nav-item"><a href="{{ route('salary.index') }}"><i
+                            class="bx bx-book-content"></i><span class="menu-title">Salary Sheet</span></a>
+                </li>
+                {{-- <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-book-bookmark"></i><span
+                            class="menu-title">Accounts Ledgers</span></a>
+                </li> --}}
+
                 <li class=" navigation-header"><span>Reports</span>
                 </li>
                 <li class=" nav-item"><a href="{{ route('cash-flow.index') }}"><i class="bx bx-repost"></i><span
@@ -384,7 +396,7 @@
                             class="menu-title">Accounts Ledgers</span></a>
                 </li> --}}
 
-                <li class=" navigation-header"><span>Payroll & Role Management</span>
+                <li class=" navigation-header"><span>Role Management</span>
                 </li>
                 <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-id-card"></i><span class="menu-title"
                             data-i18n="Colors">Designation</span></a>

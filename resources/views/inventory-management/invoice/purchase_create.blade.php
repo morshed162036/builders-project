@@ -94,7 +94,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-barcode"></i></span>
                                                 </div>
-                                                <input type="text" name="invoice_code" id="invoice_code" class="form-control" placeholder="Start with (pu-)">
+                                                <input type="text" name="invoice_code" id="invoice_code" class="form-control disabled" placeholder="Start with (pu-)" value="pu-{{ $count+1 }}" readonly>
                                             </div>
                                         </fieldset>
                                     </div>         

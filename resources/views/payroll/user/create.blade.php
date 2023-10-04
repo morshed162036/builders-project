@@ -137,7 +137,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
-                                                <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="joining_date">
+                                                <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="joining_date" required>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -149,17 +149,28 @@
                                                 <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" required>
                                             </div>
                                         </fieldset>
-                                        {{-- <fieldset class="mt-2">
-                                            <h5>Status</h5>
+                                        <fieldset class="mt-2">
+                                            <h5>Food Bill</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="food_bill" required>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Employee Type</h5>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
                                                 </div>
-                                                <select name="status" id="" class="form-control" required>
-                                                    <option value="">select</option>
+                                                <select name="type" id="" class="form-control" required>
+                                                    <option value="">Select</option>
+                                                    <option value="Admin">Admin</option>
+                                                    <option selected value="Employee">Employee</option>
                                                 </select>
                                             </div>
-                                        </fieldset> --}}
+                                        </fieldset>
                                         
                                         <div class="row mt-2">
                                             <h3 class="text-primary">Benefits:</h3>

@@ -75,7 +75,7 @@
                                         <h2 style="color: rgba(20, 120, 212, 0.815)">Profile</h2>
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
-                                                <h5>Supplier Name</h5>
+                                                <h5>Supplier Name <span class="danger">*</span></h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-file"></i></span>
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
-                                                <h5>Email</h5>
+                                                <h5>Email <span class="danger">*</span></h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-at"></i></span>
@@ -132,7 +132,7 @@
                                         </div>         
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
-                                                <h5>Phone</h5>
+                                                <h5>Phone <span class="danger">*</span></h5>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-Createon1"><i class="bx bx-phone"></i></span>

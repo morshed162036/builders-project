@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call([ClientSeeder::class,TeamSeeder::class,ProjectSeeder::class]);
         $this->call([EstimateProjectSeeder::class,EstimateProductSeeder::class,EstimateMachineSeeder::class,EstimateEmployeeSeeder::class,EstimateLaborerSeeder::class,EstimateOtherexpenseSeeder::class]);
         $this->call([InvoiceSeeder::class,InvoiceDetailsSeeder::class]);
-        $this->call([BenefitsSeeder::class]);
+        $this->call([BenefitsSeeder::class,SalarySeeder::class]);
+        
 
     }
 }

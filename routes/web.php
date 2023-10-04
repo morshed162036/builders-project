@@ -39,6 +39,7 @@ use App\Http\Controllers\settings\TransectionHistoryController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,6 +132,11 @@ Route::prefix('/')->group(function(){
         Route::post('update-designation-status',[DesignationController::class,'updateDesignationStatus'])->name('updateDesignationStatus');
         Route::resource('user',AdminController::class);
         Route::post('update-user-status',[AdminController::class,'updateUserStatus'])->name('updateuserStatus');
+        
+        Route::resource('salary', SalaryController::class);
+        Route::match(['get', 'post'], 'salary-sheet',[SalaryController::class,'index'])->name('salary.index');
+        Route::post('salary-sheet-update',[SalaryController::class,'updateAdvance'])->name('salary.update');
+        
         Route::resource('role', RoleController::class);
     });
 });

@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('info_users', function (Blueprint $table) {
+        Schema::create('salaries', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->date('joining_date')->nullable();
-            $table->date('resign_date')->nullable();
-            $table->double('salary');
+            $table->date('date');
+            $table->string('year');
+            $table->string('month');
+            $table->double('basic');
             $table->double('food_bill');
-            $table->double('total_salary');
-            $table->enum('available_status',['Available','Project'])->default('Available');
+            $table->double('amount');
+            $table->double('advance')->default(0);
+            $table->double('current_balance')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('info_users');
+        Schema::dropIfExists('salaries');
     }
 };

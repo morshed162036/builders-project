@@ -141,7 +141,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-calendar"></i></span>
                                                 </div>
-                                                <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="joining_date" value="{{ $user->info->joining_date }}">
+                                                <input type="date" class="form-control"  aria-describedby="basic-Createon1" name="joining_date" value="{{ $user->info->joining_date }}" required>
                                             </div>
                                         </fieldset>
                                         <fieldset class="mt-2">
@@ -159,7 +159,33 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" value="{{ $user->info->salary}}">
+                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="salary" value="{{ $user->info->salary}}" required>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Food Bill</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bx-money"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="0" aria-describedby="basic-Createon1" name="food_bill" value="{{ $user->info->food_bill }}" required>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>Employee Type</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                </div>
+                                                <select name="type" id="" class="form-control" required>
+                                                    <option value="">Select</option>
+                                                    <option @if ($user->type == 'Admin')
+                                                        selected
+                                                    @endif value="Admin">Admin</option>
+                                                    <option @if ($user->type == 'Employee')
+                                                        selected
+                                                    @endif value="Employee">Employee</option>
+                                                </select>
                                             </div>
                                         </fieldset>
                                         {{-- <fieldset class="mt-2">

@@ -46,6 +46,7 @@ class AdminController extends Controller
         $user->password = bcrypt($request->email);
         $user->designation_id = $request->designation_id;
         $user->address = $request->address;
+        $user->type = $request->type;
         if($request->hasFile('image')){
             $image_temp = $request->file('image');
             if($image_temp->isValid()){
@@ -66,6 +67,8 @@ class AdminController extends Controller
         $info->user_id = $user_id;
         $info->joining_date = $request->joining_date;
         $info->salary = $request->salary;
+        $info->food_bill = $request->food_bill;
+        $info->total_salary = $request->food_bill + $request->salary;
         $info->save();
 
         foreach ($request['group-benefit'] as $benefit) {
@@ -117,6 +120,7 @@ class AdminController extends Controller
         $user->phone = $request->phone;
         $user->designation_id = $request->designation_id;
         $user->address = $request->address;
+        
         //dd($user);
         if($request->hasFile('image')){
             $exists = 'images/profile_image/'.$user->image;
@@ -142,6 +146,8 @@ class AdminController extends Controller
         $info->joining_date = $request->joining_date;
         $info->resign_date = $request->resign_date;
         $info->salary = $request->salary;
+        $info->food_bill = $request->food_bill;
+        $info->total_salary = $request->food_bill + $request->salary;
         $info->update();
         Benefits_user::where('user_id',$id)->delete();
         
@@ -197,7 +203,7 @@ class AdminController extends Controller
                 'password' => 'required',
             ]);
 
-            if(Auth::guard('web')->attempt(['email'=>$data['email'],'password'=>$data['password'],'status'=>'Active'])){
+            if(Auth::guard('web')->attempt(['email'=>$data['email'],'password'=>$data['password'],'status'=>'Active','type'=>'Admin'])){
                 return redirect('dashboard');
                 }
             else{
