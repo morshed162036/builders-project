@@ -43,12 +43,12 @@
                                 </button>
                         </div>
                     @endif
-                    <h5 class="content-header-title float-left pr-1 mb-0">User Table</h5>
+                    <h5 class="content-header-title float-left pr-1 mb-0">Employee Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active">Users
+                            <li class="breadcrumb-item active">Employees
                             </li>
                         </ol>
                     </div>
@@ -62,7 +62,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">User List</h5>
+                            <h5 class="card-title">Employee List</h5>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li class="ml-2"><a href="{{ route('user.create') }}" class="btn btn-primary">+ Create</a></li>
@@ -90,7 +90,7 @@
                                                     <tr>
                                                         <td>@if ($user->image != null)<img src="
                                                             {{ asset('images/profile_image/'.$user->image) }}
-                                                       " class="mr-50" alt="null" height="25" width="35">@endif</td>
+                                                       " class="mr-50" alt="null" height="50" width="50">@endif</td>
                                                         <td class="text-bold-600" >{{ $user->name }}</td>
                                                         <td>@if ($user->designation != null)
                                                             {{ $user->designation->title }}

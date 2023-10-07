@@ -11,16 +11,16 @@
                                         class="ficon bx bx-menu"></i></a></li>
                         </ul>
                         <ul class="nav navbar-nav bookmark-icons">
-                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-email.html"
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#"
                                     data-toggle="tooltip" data-placement="top" title="Email"><i
                                         class="ficon bx bx-envelope"></i></a></li>
-                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-chat.html"
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#"
                                     data-toggle="tooltip" data-placement="top" title="Chat"><i
                                         class="ficon bx bx-chat"></i></a></li>
-                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-todo.html"
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#"
                                     data-toggle="tooltip" data-placement="top" title="Todo"><i
                                         class="ficon bx bx-check-circle"></i></a></li>
-                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calendar.html"
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#"
                                     data-toggle="tooltip" data-placement="top" title="Calendar"><i
                                         class="ficon bx bx-calendar-alt"></i></a></li>
                         </ul>
@@ -29,7 +29,7 @@
                                         class="ficon bx bx-star warning"></i></a>
                                 <div class="bookmark-input search-input">
                                     <div class="bookmark-input-icon"><i class="bx bx-search primary"></i></div>
-                                    <input class="form-control input" type="text" placeholder="Explore Frest..."
+                                    <input class="form-control input" type="text" placeholder="Explore Us..."
                                         tabindex="0" data-search="template-search">
                                     <ul class="search-list"></ul>
                                 </div>
@@ -61,11 +61,11 @@
                                 <ul class="search-list"></ul>
                             </div>
                         </li>
-                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label"
+                        {{-- <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label"
                                 href="#" data-toggle="dropdown"><i
                                     class="ficon bx bx-bell bx-tada bx-flip-horizontal"></i><span
                                     class="badge badge-pill badge-danger badge-up">5</span></a>
-                            {{-- <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
                                     <div class="dropdown-header px-1 py-75 d-flex justify-content-between"><span class="notification-title">7 new Notification</span><span class="text-bold-400 cursor-pointer">Mark all as read</span></div>
                                 </li>
@@ -176,8 +176,8 @@
                                     </div>
                                 </li>
                                 <li class="dropdown-menu-footer"><a class="dropdown-item p-50 text-primary justify-content-center" href="javascript:void(0)">Read all notifications</a></li>
-                            </ul> --}}
-                        </li>
+                            </ul>
+                        </li> --}}
                         <li class="dropdown dropdown-user nav-item"><a
                                 class="dropdown-toggle nav-link dropdown-user-link" href="#"
                                 data-toggle="dropdown">
@@ -195,11 +195,9 @@
                                         alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item"
-                                    href=""><i class="bx bx-user mr-50"></i> Edit Profile</a><a
-                                    class="dropdown-item" href=""><i class="bx bx-envelope mr-50"></i> My
-                                    Inbox</a><a class="dropdown-item" href=""><i
-                                        class="bx bx-check-square mr-50"></i> Task</a><a class="dropdown-item"
-                                    href=""><i class="bx bx-message mr-50"></i> Chats</a>
+                                    href="{{ route('user.edit',Auth::guard('web')->user()->id) }}"><i class="bx bx-user mr-50"></i> Edit Profile</a>
+                                    <a class="dropdown-item"
+                                    href="{{ route('user.change-password') }}"><i class="bx bx-message mr-50"></i> Change Password</a>
                                 <div class="dropdown-divider mb-0"></div><a class="dropdown-item"
                                     href="{{ route('admin.logout') }}"><i class="bx bx-power-off mr-50"></i>
                                     Logout</a>
@@ -405,9 +403,9 @@
                             data-i18n="Colors">Benefits</span></a>
                 </li>
                 <li class=" nav-item"><a href="{{ route('user.index') }}"><i class="bx bx-user-circle"></i><span class="menu-title"
-                            data-i18n="Colors">Users</span></a>
+                            data-i18n="Colors">Employee</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-bulb"></i><span class="menu-title"
+                {{-- <li class=" nav-item"><a href="#"><i class="bx bx-bulb"></i><span class="menu-title"
                             data-i18n="Icons">Role & Permission</span></a>
                     <ul class="menu-content">
                         <li><a href="{{ route('role.index') }}"><i class="bx bx-right-arrow-alt"></i><span
@@ -417,7 +415,7 @@
                                     data-i18n="boxicons">Permission</span></a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class=" navigation-header"><span>Basic Settings</span>
                 </li>
                 <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-grid-alt"></i><span

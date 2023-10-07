@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
+use Hash;
 use Illuminate\Support\Facades\File;
 use App\Models\Designation;
 use App\Models\Payroll\Benefit;
 use App\Models\Payroll\Benefits_user;
 use App\Models\Payroll\Info_user;
 use App\Models\User;
+use App\Models\Supplier;
+use App\Models\Project\Project;
+use App\Models\Project\Client;
+use App\Models\Invoice\Invoice;
 class AdminController extends Controller
 {
     /**
@@ -18,7 +23,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::with('designation')->get();
+        if(Auth::user()->id == 1){
+            $users = User::with('designation')->get();
+        }
+        else{
+            $users = User::with('designation')->where('id','!=','1')->get();
+        }
         //dd($users);
         return view('payroll.user.index')->with(compact('users'));
     }
@@ -55,7 +65,7 @@ class AdminController extends Controller
                 //Generate New Image Name
                 $imageName = time().'.'.$extension;
                 $imagePath = 'images/profile_image/'.$imageName;
-                Image::make($image_temp)->save($imagePath);
+                Image::make($image_temp)->resize(300,300)->save($imagePath);
                 $user->image = $imageName;
             }
         }
@@ -100,9 +110,11 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
+    
         $user = User::with('designation','info','benefits')->where('id',$id)->get()->first();
-        //dd($user);
-        $designations = Designation::where('status','Active')->Where('type','Employee')->get();
+        
+        $designations = Designation::where('status','Active')->Where('type','!=','Laborer')->get()->all();
+        //dd($designations);
         $benefits = Benefit::get();
         return view('payroll.user.edit')->with(compact('user','designations','benefits'));
     }
@@ -135,7 +147,7 @@ class AdminController extends Controller
                 //Generate New Image Name
                 $imageName = time().'.'.$extension;
                 $imagePath = 'images/profile_image/'.$imageName;
-                Image::make($image_temp)->save($imagePath);
+                Image::make($image_temp)->resize(300,300)->save($imagePath);
                 $user->image = $imageName;
             }
         }
@@ -150,17 +162,19 @@ class AdminController extends Controller
         $info->total_salary = $request->food_bill + $request->salary;
         $info->update();
         Benefits_user::where('user_id',$id)->delete();
-        
-        foreach ($request['group-benefit'] as $benefit) {
-            if($benefit['benefit_id'] != 0)
-            {
-                $benefit_user = new Benefits_user();
-                $benefit_user->user_id = $id;
-                $benefit_user->benefit_id = $benefit['benefit_id'];
-                $benefit_user->save();
-            }
+        if($request['group-benefit'] != null){
+            foreach ($request['group-benefit'] as $benefit) {
+                if($benefit['benefit_id'] != 0)
+                {
+                    $benefit_user = new Benefits_user();
+                    $benefit_user->user_id = $id;
+                    $benefit_user->benefit_id = $benefit['benefit_id'];
+                    $benefit_user->save();
+                }
             
+            }
         }
+        
         return redirect(route('user.index'))->with('success','User Update Successfully');
 
     }
@@ -217,6 +231,48 @@ class AdminController extends Controller
         return redirect('login');
     }
     public function dashboard(){
-        return view('admin.dashboard');
+        $admin = User::where('type','Admin')->where('designation_id','!=','0')->get()->count();
+        $employee = User::with('designation')->where('type','Employee')->whereHas('designation',function($q){
+            $q->where('type','Employee');})->get()->count();
+        $labore = User::with('designation')->where('type','Employee')->whereHas('designation',function($q){
+            $q->where('type','Laborer');})->get()->count();
+
+        $project = Project::get()->count();
+        $complete_project = Project::where('status','Finished')->get()->count();
+        $running_project = Project::where('status','Ongoing')->get()->count();
+
+        $invoice = Invoice::get()->count();
+        $purchase_invoice = Invoice::where('invoice_type','Purchase')->get()->count();
+        $sale_invoice = Invoice::where('invoice_type','Sell')->get()->count();
+        $project_invoice = Invoice::where('invoice_type','Project')->get()->count();
+
+        $client = Client::get()->count();
+        $supplier = Supplier::get()->count();
+        $project_client = Client::where('type','Project')->get()->count();
+        $sale_client = Client::where('type','Sale')->get()->count();
+        return view('admin.dashboard')->with(compact('admin','employee','labore','project','complete_project','running_project','invoice','purchase_invoice','sale_invoice','project_invoice','client','project_client','sale_client','supplier'));
+    }
+    public function changePassword(Request $request)
+    {
+        if($request->isMethod('post'))
+        {
+            //dd($request->all());
+            $employee = User::where('email',$request->email)->get()->first();
+            if($employee){
+                if(Hash::check($request->current_password, $employee->password)) {
+                    //dd($request->new_password);
+                    $employee->password = bcrypt($request->new_password);
+                    $employee->update();
+                    return redirect(route('user.change-password'))->with('success','Password Change Successfully');
+                } else {
+                    return redirect(route('user.change-password'))->with('error','Password Not Matching');
+                }
+            }
+            else{
+                return redirect(route('user.change-password'))->with('error','Email Id Not Correct');
+            }
+           
+        }
+        return view('payroll.user.change-password');
     }
 }

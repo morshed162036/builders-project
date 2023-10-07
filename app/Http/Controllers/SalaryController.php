@@ -15,10 +15,12 @@ class SalaryController extends Controller
         if($request->isMethod('post'))
         {
             //dd($request->month);
-            $salary_sheets = Salary::with('employee')->where('year',$request->year)->where('month',$request->month)->get()->all();
+            $salary_sheets = Salary::with('employee')->where('year',$request->year)->where('month',$request->month)->whereHas('employee',function($q){
+                $q->where('id','!=','1');})->get()->all();
         }
         else{
-            $salary_sheets = Salary::with('employee')->where('year',date('Y'))->where('month',date('m'))->get()->all();
+            $salary_sheets = Salary::with('employee')->where('year',date('Y'))->where('month',date('m'))->whereHas('employee',function($q){
+                $q->where('id','!=','1');})->get()->all();
         }
         
         //dd(date('m'));
@@ -40,7 +42,7 @@ class SalaryController extends Controller
      */
     public function store(Request $request)
     {
-        $employee_list = User::with('info')->get()->all();
+        $employee_list = User::with('info')->where('id','!=','1')->get()->all();
         //dd(date('Y-m-d'));
         //dd($employee_list);
         $check = Salary::where('year',date('Y'))->where('month',date('m'))->get()->all();

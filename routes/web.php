@@ -132,6 +132,7 @@ Route::prefix('/')->group(function(){
         Route::post('update-designation-status',[DesignationController::class,'updateDesignationStatus'])->name('updateDesignationStatus');
         Route::resource('user',AdminController::class);
         Route::post('update-user-status',[AdminController::class,'updateUserStatus'])->name('updateuserStatus');
+        Route::match(['get', 'post'], 'user-change-password',[AdminController::class,'changePassword'])->name('user.change-password');
         
         Route::resource('salary', SalaryController::class);
         Route::match(['get', 'post'], 'salary-sheet',[SalaryController::class,'index'])->name('salary.index');

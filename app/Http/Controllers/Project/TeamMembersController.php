@@ -28,7 +28,7 @@ class TeamMembersController extends Controller
     public function create()
     {
         $teams = Team::where('status','Active')->get();
-        $employees = User::with(['designation','info'])->where('status','Active')->whereHas('info',function($q){
+        $employees = User::with(['designation','info'])->where('status','Active')->where('id','!=','1')->whereHas('info',function($q){
             $q->where('available_status','Available');})->get();
         //dd($employees);
         return view('project-management.team-setup.team-members.create')->with(compact('teams','employees'));

@@ -15,7 +15,7 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         $superAdminRole = Role::create(['description'=>'Super Admin Can Access Everything','name'=> 'Super Admin']);
-        $AdminRole = Role::create(['description'=>'Admin Can Access Everything','name'=> 'Admin']);
+        $adminRole = Role::create(['description'=>'Admin Can Access Everything','name'=> 'Admin']);
 
         $permissionGroup = [
             'dashboard' => [
@@ -218,8 +218,8 @@ class PermissionSeeder extends Seeder
                 
                 $superAdminRole->givePermissionTo($permission);
                 $permission->assignRole($superAdminRole);
-                $AdminRole->givePermissionTo($permission);
-                $permission->assignRole($AdminRole);
+                $adminRole->givePermissionTo($permission);
+                $permission->assignRole($adminRole);
             }
         }
     }
