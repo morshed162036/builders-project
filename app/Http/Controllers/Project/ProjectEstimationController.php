@@ -17,6 +17,14 @@ use App\Models\Designation;
 
 class ProjectEstimationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:estimate_project.index'])->only(['index']);
+        $this->middleware(['permission:estimate_project.create'])->only(['create']);
+        $this->middleware(['permission:estimate_project.delete'])->only(['destroy']);
+        $this->middleware(['permission:estimate_project.show'])->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      */

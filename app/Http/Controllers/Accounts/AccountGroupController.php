@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Accounts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Accounts\Accounts_group;
+use Spatie\Permission\Models\Permission;
 
 class AccountGroupController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:accounts_group.index'])->only(['index']);
+        $this->middleware(['permission:accounts_group.create'])->only(['create']);
+        $this->middleware(['permission:accounts_group.edit'])->only(['edit']);
+        $this->middleware(['permission:accounts_group.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

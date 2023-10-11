@@ -63,11 +63,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Catalogue List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('catalogue.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+                            @can('catalogue.create')    
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('catalogue.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -104,10 +106,16 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('catalogue.edit',$catalogue->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('catalogue.destroy',$catalogue->id) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
+                                                                    @can('catalogue.edit')
+                                                                        <a class="dropdown-item" href="{{ route('catalogue.edit',$catalogue->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    @can('catalogue.delete')
+                                                                        <form action="{{ route('catalogue.destroy',$catalogue->id) }}" method="post"> @csrf @method('Delete')
+                                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                        </form>
+                                                                    @endcan
+                                                                    
+                                                                    
                                                                     
                                                                 </div>
                                                             </div>

@@ -9,6 +9,13 @@ use Image;
 
 class BrandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:brand.index'])->only(['index']);
+        $this->middleware(['permission:brand.create'])->only(['create']);
+        $this->middleware(['permission:brand.edit'])->only(['edit']);
+        $this->middleware(['permission:brand.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

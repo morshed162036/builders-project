@@ -10,6 +10,11 @@ use App\Models\Accounts\Cashflow;
 use App\Models\settings\Payment_method;
 class ProjectPaymentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:payment_project.index'])->only(['index']);
+        $this->middleware(['permission:payment_project.create'])->only(['create']);
+    }
     /**
      * Display a listing of the resource.
      */

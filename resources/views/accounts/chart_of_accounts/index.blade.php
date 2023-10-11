@@ -63,6 +63,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Chart of Account List</h5>
+                            @can('chart_of_account.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('chart-of-account.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li class="ml-2"><a href="{{ route('chart-of-account.create') }}" class="btn btn-primary">+ Create</a></li>
@@ -92,10 +99,16 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('chart-of-account.edit',$account['id']) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('chart-of-account.destroy',$account['id']) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
+                                                                    @can('chart_of_account.edit')
+                                                                        <a class="dropdown-item" href="{{ route('chart-of-account.edit',$account['id']) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    @can('chart_of_account.delete')
+                                                                        <form action="{{ route('chart-of-account.destroy',$account['id']) }}" method="post"> @csrf @method('Delete')
+                                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                        </form>
+                                                                    @endcan
+                                                                    
+                                                                    
                                                                     
                                                                 </div>
                                                             </div>

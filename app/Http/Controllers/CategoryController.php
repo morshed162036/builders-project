@@ -8,6 +8,13 @@ use App\Models\Catalogue;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:category.index'])->only(['index']);
+        $this->middleware(['permission:category.create'])->only(['create']);
+        $this->middleware(['permission:category.edit'])->only(['edit']);
+        $this->middleware(['permission:category.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -26,16 +33,16 @@ class CategoryController extends Controller
         $category = new Category();
         $getCategories = array();
         
-        return view('category.create')->with(compact('catalogues','category','getCategories'));
+        return view('category.create')->with(compact('catalogues','getCategories'));
     }
     public function appendCategoryLevel(Request $request){
         //dd($request->all());
         if($request->ajax()){
             $data = $request->all();
             //dd($data);
-            $getCategories = Category::with('subcategories')->where(['parent_id'=>0,'catalogue_id'=>$data['catalogue_id']])->get()->toArray();
+            $getCategories = Category::with('subcategories')->where(['parent_id'=>0,'catalogue_id'=>$data['catalogue_id']])->where('status','Active')->get()->toArray();
             //dd($getCategories);
-
+            //return $getCategories;
             return view('category.append_categories_level')->with(compact('getCategories'));
         }
     }

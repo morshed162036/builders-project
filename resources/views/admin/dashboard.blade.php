@@ -27,6 +27,7 @@
 
 @section('content')
 
+    @can('dashboard')
     <!-- Dashboard Analytics Start -->
     <div class="content-header row">
     </div>
@@ -783,7 +784,7 @@
         </section> --}}
     </div>
     <!-- Dashboard Analytics end -->
-
+    @endcan
 @endsection
 
 @section('js')

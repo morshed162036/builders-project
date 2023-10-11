@@ -63,11 +63,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">General Ledger</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('accounts-ledger.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+                            @can('general_ledger.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('accounts-ledger.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">

@@ -11,6 +11,12 @@ use App\Models\settings\Payment_method;
 use App\Models\Accounts\Cashflow;
 class ProjectExpenseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:expense_project.index'])->only(['index']);
+        $this->middleware(['permission:expense_project.create'])->only(['create']);
+        $this->middleware(['permission:expense_project.edit'])->only(['edit']);
+    }
     /**
      * Display a listing of the resource.
      */

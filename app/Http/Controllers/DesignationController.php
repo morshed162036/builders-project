@@ -6,6 +6,13 @@ use App\Models\Designation;
 use Illuminate\Http\Request;
 class DesignationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:designation.index'])->only(['index']);
+        $this->middleware(['permission:designation.create'])->only(['create']);
+        $this->middleware(['permission:designation.edit'])->only(['edit']);
+        $this->middleware(['permission:designation.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

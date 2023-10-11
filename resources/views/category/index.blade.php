@@ -66,12 +66,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Category List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('category.create') }}" class="btn btn-primary">+
-                                            Create</a></li>
-                                </ul>
-                            </div>
+                            @can('category.create')    
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('category.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -125,17 +126,18 @@
                                                                     data-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item"
+                                                                    @can('category.edit')
+                                                                        <a class="dropdown-item"
                                                                         href="{{ route('category.edit', $category['id']) }}"><i
                                                                             class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form
+                                                                    @endcan
+                                                                    @can('category.delete')
+                                                                        <form
                                                                         action="{{ route('category.destroy', $category['id']) }}"
                                                                         method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i
-                                                                                class="bx bx-trash mr-1"></i>
-                                                                            delete</button>
-                                                                    </form>
-
+                                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                        </form>
+                                                                    @endcan
                                                                 </div>
                                                             </div>
                                                         </td>

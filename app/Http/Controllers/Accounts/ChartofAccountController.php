@@ -8,6 +8,14 @@ use App\Models\Accounts\Chart_of_account;
 use App\Models\Accounts\Accounts_group;
 class ChartofAccountController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:chart_of_account.index'])->only(['index']);
+        $this->middleware(['permission:chart_of_account.create'])->only(['create']);
+        $this->middleware(['permission:chart_of_account.edit'])->only(['edit']);
+        $this->middleware(['permission:chart_of_account.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

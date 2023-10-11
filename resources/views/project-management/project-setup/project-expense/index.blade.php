@@ -55,8 +55,7 @@
                     <h5 class="content-header-title float-left pr-1 mb-0">expense Other Expense</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
-                                        class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active">Expenses
                             </li>
@@ -73,13 +72,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">expense Other Expense List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2">
-                                        <a href="{{ route('project-otherexpense.create') }}" class="btn btn-primary">+Create</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @can('expense_project.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2">
+                                            <a href="{{ route('project-otherexpense.create') }}" class="btn btn-primary">+Create</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -115,9 +117,11 @@
                                                                     data-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
+                                                                    @can('expense_project.edit')
                                                                     <a class="dropdown-item"
-                                                                        href="{{ route('project-otherexpense.edit', $expense->id) }}"><i
-                                                                            class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                        href="{{ route('project-otherexpense.edit', $expense->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    
                                                                     {{-- <form
                                                                         action="{{ route('project-otherexpense.destroy', $expense->id) }}"
                                                                         method="post"> @csrf @method('Delete')

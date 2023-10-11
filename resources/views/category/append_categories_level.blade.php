@@ -1,4 +1,4 @@
-<fieldset class="mt-2">
+
     <h5>Select Category Level</h5>
     <div class="input-group">
         <div class="input-group-prepend">
@@ -20,7 +20,7 @@
                                 selected
                             @endif
                         @endisset>
-                        {{ $item['name'] }}
+                        &nbsp;-&gt;&nbsp;{{ $item['name'] }}
                     </option>
                     @if (!empty($item['subcategories']))
                         @foreach ($item['subcategories'] as $subcategory)
@@ -30,7 +30,18 @@
                                         selected
                                     @endif
                                 @endisset>
-                                &nbsp;&raquo;&nbsp;{{ $subcategory['name'] }}</option>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&nbsp;{{ $subcategory['name'] }}</option>
+                                @if (!empty($subcategory['subcategories']))
+                                    @foreach ($subcategory['subcategories'] as $sub_subcategory)
+                                        <option value="{{ $sub_subcategory['id'] }}"
+                                            @isset($category)
+                                                @if ($category['parent_id'] == $sub_subcategory['id'])
+                                                    selected
+                                                @endif
+                                            @endisset>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&nbsp;{{ $sub_subcategory['name'] }}</option>
+                                    @endforeach
+                                @endif
                         @endforeach
                     @endif
                 @endforeach
@@ -41,4 +52,3 @@
 
         </select>
     </div>
-</fieldset>

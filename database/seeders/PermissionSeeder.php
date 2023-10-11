@@ -181,10 +181,6 @@ class PermissionSeeder extends Seeder
                 'user.delete',
                 'user.show',
             ],
-            'add_permission' => [
-                'add_permission.edit',
-                'add_permission.show',
-            ],
             'user_role' => [
                 'user_role.index',
                 'user_role.create',
@@ -207,6 +203,10 @@ class PermissionSeeder extends Seeder
             'transfer_balance' => [
                 'transfer_balance.index',
                 'transfer_balance.create',
+            ],
+            'salary_sheet' => [
+                'salary_sheet.index',
+                'salary_sheet.create',
             ],
         ];
         foreach ( $permissionGroup as $permissionGroupKey => $permissions){

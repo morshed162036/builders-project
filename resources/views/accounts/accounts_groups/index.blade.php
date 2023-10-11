@@ -63,11 +63,15 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Accounts Group List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('accounts.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+
+                            @can('accounts_group.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('accounts.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -90,10 +94,16 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('accounts.edit',$group->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @can('accounts_group.edit')
+                                                                        <a class="dropdown-item" href="{{ route('accounts.edit',$group->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    @can('accounts_group.delete')
                                                                     <form action="{{ route('accounts.destroy',$group->id) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                     <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
+                                                                    @endcan
+                                                                    
+                                                                   
                                                                     
                                                                 </div>
                                                             </div>

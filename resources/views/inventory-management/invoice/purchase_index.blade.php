@@ -73,11 +73,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Invoice List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('purchase_create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+                            @can('purchase_invoice.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('purchase_create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -129,11 +132,16 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
+                                                                    @can('purchase_invoice.show')
+                                                                         <a class="dropdown-item" href="{{ route('invoice.show',$invoice->id) }}"><i class="bx 
                                                                         bxs-spreadsheet mr-1"></i> Details</a>
+                                                                    @endcan
+                                                                    @can('purchase_invoice.edit')
                                                                         <a class="dropdown-item" href="{{'invoice-edit/purchase/'.$invoice->id }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                        <a class="dropdown-item" href="{{ route('invoice_payment',$invoice->id) }}"><i class="bx 
-                                                                            bxs-spreadsheet mr-1"></i> Payment History</a>
+                                                                    @endcan
+                                                                    @can('purchase_invoice.payment_history')
+                                                                        <a class="dropdown-item" href="{{ route('invoice_payment',$invoice->id) }}"><i class="bx bxs-spreadsheet mr-1"></i> Payment History</a>
+                                                                    @endcan 
                                                                     {{-- <form action="{{ route('invoice.destroy',$invoice->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form> --}}

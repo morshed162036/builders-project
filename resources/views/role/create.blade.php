@@ -80,7 +80,7 @@
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <fieldset>
-                                                    <h5>Role Name</h5>
+                                                    <h5>Role Name <span class="text-danger">*</span></h5>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-Createon1"><i class="bx bx-spreadsheet"></i></span>
@@ -89,7 +89,7 @@
                                                     </div>
                                                 </fieldset>
                                                 <fieldset class="mt-2">
-                                                    <h5>Role Description</h5>
+                                                    <h5>Role Description <span class="text-danger">*</span></h5>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
@@ -104,7 +104,7 @@
                                         <div class="row">
                                             <div class="col-md-10 mt-2">
                                                 <h5>Permission</h5>
-                                                <table class="table table-bordered table-striped userrole-table table-middle">
+                                                <table class="table table-bordered table-striped userrole-table table-middle text-center">
                                                     <tbody>
                                                             <tr>
                                                                 <td>Dashboard</td>
@@ -123,469 +123,25 @@
                                                                         >
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="dashboardappointment"
-                                                                            value="dashboard.appointment"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="dashbaordappointment"
-                                                                            >Calendar Appointment</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Patient</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.list"
-                                                                            value="patient.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.list"
-                                                                            >Patient List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.create"
-                                                                            value="patient.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.create"
-                                                                            >Patient Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.edit"
-                                                                            value="patient.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.edit"
-                                                                            >Patient Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.delete"
-                                                                            value="patient.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.delete"
-                                                                            >Patient Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.view"
-                                                                            value="patient.view"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.view"
-                                                                            >Patient View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Patient Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.clinical_notes"
-                                                                            value="patient.clinical_notes"
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.clinical_notes"
-                                                                            >Patient Clinical Notes</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.print"
-                                                                            value="patient.print"
-                                                                        />
-                                                                        <label class="custom-control-label" for="patient.print"
-                                                                            >Patient Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patients.documents"
-                                                                            value="patients.documents"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="patients.documents"
-                                                                            >Paitent Documents</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="patient.sendmail"
-                                                                            value="patient.sendmail"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="patient.sendmail"
-                                                                            >Patient Sendmail</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Appointment</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.list"
-                                                                            value="appointment.list"
-                                                                        />
-                                                                        <label class="custom-control-label" for="appointment.list"
-                                                                            >Appointment List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.create"
-                                                                            value="appointment.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.create"
-                                                                            >Appointment Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.edit"
-                                                                            value="appointment.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.edit"
-                                                                            >Appointment Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.delete"
-                                                                            value="appointment.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.delete"
-                                                                            >Appointment Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.view"
-                                                                            value="appointment.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.view"
-                                                                            >Appointment View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Appointment Other</td>
-                                                                
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.print"
-                                                                            value="appointment.print"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.print"
-                                                                            >Appointment Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.clinical_notes"
-                                                                            value="appointment.clinical_notes"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.clinical_notes"
-                                                                            >Appointment Clinical Notes</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.documents"
-                                                                            value="appointment.documents"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.documents"
-                                                                            >Appointment Documents</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.documents_upload"
-                                                                            value="appointment.documents_upload"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.documents_upload"
-                                                                            >Document Upload</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="appointment.documents_delete"
-                                                                            value="appointment.documents_delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="appointment.documents_delete"
-                                                                            >Document Remove</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Prescription</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="prescription.list"
-                                                                            value="prescription.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="prescription.list"
-                                                                            >Prescription List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="prescription.create"
-                                                                            value="prescription.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="prescription.create"
-                                                                            >Prescription Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="prescription.edit"
-                                                                            value="prescription.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="prescription.edit"
-                                                                            >Prescription Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="prescription.delete"
-                                                                            value="prescription.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="prescription.delete"
-                                                                            >Prescription Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="prescription.view"
-                                                                            value="prescription.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="prescription.view"
-                                                                            >Prescription View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Prescription Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="prescription.print"
-                                                                            value="prescription.print"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="prescription.print"
-                                                                            >Prescription Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
                                                                 <td></td>
                                                                 <td></td>
                                                                 <td></td>
                                                                 <td></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Invoice</td>
+                                                                <td>Brand</td>
                                                                 <td>
                                                                     <div class="custom-control custom-checkbox">
                                                                         <input
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="invoice.list"
-                                                                            value="invoice.list"
+                                                                            id="brand.index"
+                                                                            value="brand.index"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="invoice.list"
-                                                                            >Invoice List</label
+                                                                        <label class="custom-control-label" for="brand.index"
+                                                                            >Brand List</label
                                                                         >
                                                                     </div>
                                                                 </td>
@@ -595,12 +151,12 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="invoice.create"
-                                                                            value="invoice.create"
+                                                                            id="brand.create"
+                                                                            value="brand.create"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="invoice.create"
-                                                                            >Invoice Create</label
+                                                                        <label class="custom-control-label" for="brand.create"
+                                                                            >Brand Create</label
                                                                         >
                                                                     </div>
                                                                 </td>
@@ -610,12 +166,12 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="invoice.edit"
-                                                                            value="invoice.edit"
+                                                                            id="brand.edit"
+                                                                            value="brand.edit"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="invoice.edit"
-                                                                            >Invoice Edit</label
+                                                                        <label class="custom-control-label" for="brand.edit"
+                                                                            >Brand Edit</label
                                                                         >
                                                                     </div>
                                                                 </td>
@@ -625,2155 +181,16 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="invoice.delete"
-                                                                            value="invoice.delete"
+                                                                            id="brand.delete"
+                                                                            value="brand.delete"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="invoice.delete"
-                                                                            >Invoice Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice.view"
-                                                                            value="invoice.view"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice.view"
-                                                                            >Invoice View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Invoice Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice.print"
-                                                                            value="invoice.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice.print"
-                                                                            >Invoice Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice.sentmail"
-                                                                            value="invoice.sentmail"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="invoice.sentmail"
-                                                                            >Invoice Sendmail</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="Createpayment"
-                                                                            value="Createpayment"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="Createpayment"
-                                                                            >Create Payment</label
+                                                                        <label class="custom-control-label" for="brand.delete"
+                                                                            >Brand Delete</label
                                                                         >
                                                                     </div>
                                                                 </td>
                                                                 <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Invoice Items</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice_item.list"
-                                                                            value="invoice_item.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice_item.list"
-                                                                            >Items List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice_item.create"
-                                                                            value="invoice_item.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice_item.create"
-                                                                            >Items Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice_item.edit"
-                                                                            value="invoice_item.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice_item.edit"
-                                                                            >Items Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice_item.delete"
-                                                                            value="invoice_item.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice_item.delete"
-                                                                            >Items Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="invoice_item.print"
-                                                                            value="invoice_item.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="invoice_item.print"
-                                                                            >Items Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Request</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="request.list"
-                                                                            value="request.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="request.list"
-                                                                            >Request List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="request.create"
-                                                                            value="request.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="request.create"
-                                                                            >Request Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="request.edit"
-                                                                            value="request.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="request.edit"
-                                                                            >Request Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="request.delete"
-                                                                            value="request.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="request.delete"
-                                                                            >Request Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="request.view"
-                                                                            value="request.view"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="request.view"
-                                                                            >Request View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="request.print"
-                                                                            value="request.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="request.print"
-                                                                            >Request Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>POS/Bill</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.billing_list"
-                                                                            value="medicine.billing_list"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.billing_list"
-                                                                            >POS/Bill List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.billing_create"
-                                                                            value="medicine.billing_create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.billing_create"
-                                                                            >Bill Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.billing_edit"
-                                                                            value="medicine.billing_edit"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.billing_edit"
-                                                                            >Bill Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.billing_delete"
-                                                                            value="medicine.billing_delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.billing_delete"
-                                                                            >Bill Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.billing_view"
-                                                                            value="medicine.billing_view"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.billing_view"
-                                                                            >Bill View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>POS/Bill Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.billing_print"
-                                                                            value="medicine.billing_print"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.billing_print"
-                                                                            >Bill PDF/Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Purchase</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.purchase_list"
-                                                                            value="medicine.purchase_list"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.purchase_list"
-                                                                            >Purchase List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.purchase_create"
-                                                                            value="medicine.purchase_create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.purchase_create"
-                                                                            >Purchase Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.purchase_edit"
-                                                                            value="medicine.purchase_edit"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.purchase_edit"
-                                                                            >Purchase Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.purchase_delete"
-                                                                            value="medicine.purchase_delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.purchase_delete"
-                                                                            >Purchase Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.purchase_view"
-                                                                            value="medicine.purchase_view"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.purchase_view"
-                                                                            >Purchase View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Purchase Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.purchase_print"
-                                                                            value="medicine.purchase_print"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.purchase_print"
-                                                                            >Purchase PDF/Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Stock adjustment</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.stock_list"
-                                                                            value="medicine.stock_list"
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.stock_list"
-                                                                            >Stock List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.stock_create"
-                                                                            value="medicine.stock_create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.stock_create"
-                                                                            >Stock Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.stock_edit"
-                                                                            value="medicine.stock_edit"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.stock_edit"
-                                                                            >Stock Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.stock_delete"
-                                                                            value="medicine.stock_delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.stock_delete"
-                                                                            >Stock Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.stock_view"
-                                                                            value="medicine.stock_view"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.stock_view"
-                                                                            >Stock View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.stock_print"
-                                                                            value="medicine.stock_print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.stock_print"
-                                                                            >Stock Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Medicine</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.list"
-                                                                            value="medicine.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.list"
-                                                                            >Medicine List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.create"
-                                                                            value="medicine.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.create"
-                                                                            >Medicine Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.edit"
-                                                                            value="medicine.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.edit"
-                                                                            >Medicine Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.delete"
-                                                                            value="medicine.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.delete"
-                                                                            >Medicine Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.view"
-                                                                            value="medicine.view"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.view"
-                                                                            >Medicine View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Medicine Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.print"
-                                                                            value="medicine.print"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.print"
-                                                                            >Medicine Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Medicine Category</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.category_list"
-                                                                            value="medicine.category_list"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.category_list"
-                                                                            >Medicine Category List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.category_create"
-                                                                            value="medicine.category_create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.category_create"
-                                                                            >Medicine Category Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.category_edit"
-                                                                            value="medicine.category_edit"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.category_edit"
-                                                                            >Medicine Category Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.category_delete"
-                                                                            value="medicine.category_delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="medicine.category_delete"
-                                                                            >Medicine Category Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="medicine.category_print"
-                                                                            value="medicine.category_print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="medicine.category_print"
-                                                                            >Medicine Category Print</label
-                                                                        >
-                                                                    </div></td>
-                                                                    <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Department</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="department.list"
-                                                                            value="department.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="department.list"
-                                                                            >Department List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="department.create"
-                                                                            value="department.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="department.create"
-                                                                            >Department Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="department.edit"
-                                                                            value="department.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="department.edit"
-                                                                            >Department Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="department.delete"
-                                                                            value="department.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="department.delete"
-                                                                            >Department Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="department.view"
-                                                                            value="department.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="department.view"
-                                                                            >Department View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="department.print"
-                                                                            value="department.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="department.print"
-                                                                            >Department Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Doctor</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="doctor.list"
-                                                                            value="doctor.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="doctor.list"
-                                                                            >Doctor List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="doctor.create"
-                                                                            value="doctor.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="doctor.create"
-                                                                            >Doctor Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="doctor.edit"
-                                                                            value="doctor.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="doctor.edit"
-                                                                            >Doctor Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="doctor.delete"
-                                                                            value="doctor.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="doctor.delete"
-                                                                            >Doctor Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="doctor.view"
-                                                                            value="doctor.view"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="doctor.view"
-                                                                            >Doctor view</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="doctor.print"
-                                                                            value="doctor.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="doctor.print"
-                                                                            >Doctor Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Expenses</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expenses.list"
-                                                                            value="expenses.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expenses.list"
-                                                                            >Expense List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expense.create"
-                                                                            value="expense.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expense.create"
-                                                                            >Expense Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expense.edit"
-                                                                            value="expense.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expense.edit"
-                                                                            >Expense Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expense.delete"
-                                                                            value="expense.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expense.delete">Expense Delete</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expense.view"
-                                                                            value="expense.view"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expense.view"
-                                                                            >Expense View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expense.print"
-                                                                            value="expense.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expense.print"
-                                                                            >Expense Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Expenses Type</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expensetype.list"
-                                                                            value="expensetype.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expensetype.list"
-                                                                            >Expenses Type List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expensetype.create"
-                                                                            value="expensetype.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="expensetype.create"
-                                                                            >Expenses Type Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expensetype.edit"
-                                                                            value="expensetype.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="expensetype.edit"
-                                                                            >Expenses Type Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expensetype.delete"
-                                                                            value="expensetype.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="expensetype.delete"
-                                                                            >Expenses Type Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>                                                         <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expensetype.view"
-                                                                            value="expensetype.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="expensetype.view"
-                                                                            >Expenses Type View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="expensetype.print"
-                                                                            value="expensetype.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="expensetype.print"
-                                                                            >Expense Type Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Attendance</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="staffattendance.list"
-                                                                            value="staffattendance.list"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="staffattendance.list"
-                                                                            >Attendance List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="staffattendance.create"
-                                                                            value="staffattendance.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="staffattendance.create"
-                                                                            >Attendance Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="staffattendance.view"
-                                                                            value="staffattendance.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="staffattendance.view"
-                                                                            >Attendance View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="staffattendance.print"
-                                                                            value="staffattendance.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="staffattendance.print"
-                                                                            >Attendance Print</label
-                                                                        >
-                                                                    </div></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Salarytemplate</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="salarytemplate.list"
-                                                                            value="salarytemplate.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="salarytemplate.list"
-                                                                            >Salary Template List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="salarytemplate.create"
-                                                                            value="salarytemplate.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="salarytemplate.create"
-                                                                            >Salary Template Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="salarytemplate.edit"
-                                                                            value="salarytemplate.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="salarytemplate.edit"
-                                                                            >Salary Template Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="salarytemplate.delete"
-                                                                            value="salarytemplate.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="salarytemplate.delete"
-                                                                            >Salary Template Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="salarytemplate.print"
-                                                                            value="salarytemplate.print"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="salarytemplate.print"
-                                                                            >Salary Template Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Manage Salary</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.list"
-                                                                            value="managesalary.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="managesalary.list"
-                                                                            >Manage Salary List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.create"
-                                                                            value="managesalary.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.create"
-                                                                            >Manage Salary Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.edit"
-                                                                            value="managesalary.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.edit"
-                                                                            >Manage Salary Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.view"
-                                                                            value="managesalary.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.view"
-                                                                            >Manage Salary View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.print"
-                                                                            value="managesalary.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="managesalary.print"
-                                                                            >Manage Salary Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Payment history</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.history.list"
-                                                                            value="managesalary.history.list"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.history.list"
-                                                                            >Payment history List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.history.view"
-                                                                            value="managesalary.history.view"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.history.view"
-                                                                            >Payment View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.history.delete"
-                                                                            value="managesalary.history.delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.history.delete"
-                                                                            >Payment Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="managesalary.history.print"
-                                                                            value="managesalary.history.print"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="managesalary.history.print"
-                                                                            >Payment Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Make Payment</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="makepayment.list"
-                                                                            value="makepayment.list"
-                                                                        />
-                                                                        <label class="custom-control-label" for="makepayment.list"
-                                                                            >Make payment List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="makepayment.create"
-                                                                            value="makepayment.create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="makepayment.create"
-                                                                            >Make Payment Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Birthrecords</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="birthrecord.list"
-                                                                            value="birthrecord.list"
-                                                                        />
-                                                                        <label class="custom-control-label" for="birthrecord.list"
-                                                                            >Birthrecords List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="birthrecord.create"
-                                                                            value="birthrecord.create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="birthrecord.create"
-                                                                            >Birthrecord Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="birthrecord.edit"
-                                                                            value="birthrecord.edit"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="birthrecord.edit"
-                                                                            >Birthrecord Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="birthrecord.delete"
-                                                                            value="birthrecord.delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="birthrecord.delete"
-                                                                            >Birthrecord Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="birthrecord.view"
-                                                                            value="birthrecord.view"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="birthrecord.view"
-                                                                            >Birthrecord View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Birthrecords Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="birthrecord.print"
-                                                                            value="birthrecord.print"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="birthrecord.print"
-                                                                            >Birthrecord PDF/Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Deathrecords</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="deathrecord.list"
-                                                                            value="deathrecord.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="deathrecord.list"
-                                                                            >Deathrecords List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="deathrecord.create"
-                                                                            value="deathrecord.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="deathrecord.create"
-                                                                            >Deathrecord Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="deathrecord.edit"
-                                                                            value="deathrecord.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="deathrecord.edit"
-                                                                            >Deathrecord Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="deathrecord.delete"
-                                                                            value="deathrecord.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="deathrecord.delete"
-                                                                            >Deathrecord Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="deathrecord.view"
-                                                                            value="deathrecord.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="deathrecord.view"
-                                                                            >Deathrecord View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Deathrecords Other</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="deathrecord.print"
-                                                                            value="deathrecord.print"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="deathrecord.print"
-                                                                            >Deathrecords PDF/Print</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Noticeboard</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="noticeboard.list"
-                                                                            value="noticeboard.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="noticeboard.list"
-                                                                            >Noticeboard List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="noticeboard.create"
-                                                                            value="noticeboard.create"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="noticeboard.create"
-                                                                            >Noticeboard Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="noticeboard.edit"
-                                                                            value="noticeboard.edit"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="noticeboard.edit"
-                                                                            >Noticeboard Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="noticeboard.delete"
-                                                                            value="noticeboard.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="noticeboard.delete"
-                                                                            >Noticeboard Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="noticeboard.view"
-                                                                            value="noticeboard.view"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="noticeboard.view"
-                                                                            >Noticeboard View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="noticeboard.print"
-                                                                            value="noticeboard.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="noticeboard.print"
-                                                                            >Noticeboard Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>User</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="user.list"
-                                                                            value="user.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="user.list"
-                                                                            >User List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="user.create"
-                                                                            value="user.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="user.create"
-                                                                            >User Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="user.edit"
-                                                                            value="user.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="user.edit"
-                                                                            >User Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="user.delete"
-                                                                            value="user.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="user.delete"
-                                                                            >User Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="user.view"
-                                                                            value="user.view"
-                                                                        />
-                                                                        <label class="custom-control-label" for="user.view"
-                                                                            >User View</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="user.print"
-                                                                            value="user.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="user.print"
-                                                                            >User Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            
-                                                            <tr>
-                                                                <td>Facility</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="facility.list"
-                                                                            value="facility.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="facility.list"
-                                                                            >Facility List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="facility.create"
-                                                                            value="facility.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="facility.create"
-                                                                            >Facility Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="facility.edit"
-                                                                            value="facility.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="facility.edit"
-                                                                            >Facility Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="facility.delete"
-                                                                            value="facility.delete"
-                                                                            
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="facility.delete"
-                                                                            >Facility Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="facility.print"
-                                                                            value="facility.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="facility.print"
-                                                                            >Facility Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Service</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="service.list"
-                                                                            value="service.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="service.list"
-                                                                            >Service List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="service.create"
-                                                                            value="service.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="service.create"
-                                                                            >Service Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="service.edit"
-                                                                            value="service.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="service.edit"
-                                                                            >Service Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="service.delete"
-                                                                            value="service.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="service.delete"
-                                                                            >Service Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="service.print"
-                                                                            value="service.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="service.print"
-                                                                            >Service Print</label
-                                                                        >
-                                                                    </div></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Review</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="review.list"
-                                                                            value="review.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="review.list"
-                                                                            >Review List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="review.edit"
-                                                                            value="review.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="review.edit"
-                                                                            >Review Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="review.delete"
-                                                                            value="review.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="review.delete"
-                                                                            >Review Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="review.print"
-                                                                            value="review.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="review.print"
-                                                                            >Review Print</label
-                                                                        >
-                                                                    </div></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            
-                                                            <tr>
-                                                                <td>Blog</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="blog.list"
-                                                                            value="blog.list"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="blog.list"
-                                                                            >Blog List</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="blog.create"
-                                                                            value="blog.create"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="blog.create"
-                                                                            >Blog Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="blog.edit"
-                                                                            value="blog.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="blog.edit"
-                                                                            >Blog Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="blog.delete"
-                                                                            value="blog.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="blog.delete"
-                                                                            >Blog Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="blog.print"
-                                                                            value="blog.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="blog.print"
-                                                                            >Blog Print</label
-                                                                        >
-                                                                    </div></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Category</td>
@@ -2783,11 +200,11 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="categor.list"
-                                                                            value="categor.list"
+                                                                            id="category.index"
+                                                                            value="category.index"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="categor.list"
+                                                                        <label class="custom-control-label" for="category.index"
                                                                             >Category List</label
                                                                         >
                                                                     </div>
@@ -2832,41 +249,155 @@
                                                                             value="category.delete"
                                                                             
                                                                         />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="category.delete"
+                                                                        <label class="custom-control-label" for="category.delete"
                                                                             >Category Delete</label
                                                                         >
                                                                     </div>
                                                                 </td>
-                                                                <td><div class="custom-control custom-checkbox">
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Catalogue</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
                                                                         <input
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="category.print"
-                                                                            value="category.print"
+                                                                            id="catalogue.index"
+                                                                            value="catalogue.index"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="category.print"
-                                                                            >Category Print</label
+                                                                        <label class="custom-control-label" for="catalogue.index"
+                                                                            >Catalogue List</label
                                                                         >
-                                                                    </div></td>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="catalogue.create"
+                                                                            value="catalogue.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="catalogue.create"
+                                                                            >Catalogue Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="catalogue.edit"
+                                                                            value="catalogue.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="catalogue.edit"
+                                                                            >Catalogue Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="catalogue.delete"
+                                                                            value="catalogue.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="catalogue.delete"
+                                                                            >Catalogue Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Product</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product.index"
+                                                                            value="product.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product.index"
+                                                                            >Product List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product.create"
+                                                                            value="product.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product.create"
+                                                                            >Product Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product.edit"
+                                                                            value="product.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product.edit"
+                                                                            >Product Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product.delete"
+                                                                            value="product.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product.delete"
+                                                                            >Product Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
                                                             </tr>
                                                             
                                                             <tr>
-                                                                <td>Taxes</td>
+                                                                <td>Supplier</td>
                                                                 <td>
                                                                     <div class="custom-control custom-checkbox">
                                                                         <input
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="tax.list"
-                                                                            value="tax.list"
+                                                                            id="supplier.index"
+                                                                            value="supplier.index"
                                                                         />
-                                                                        <label class="custom-control-label" for="tax.list"
-                                                                            >Taxes List</label
+                                                                        <label class="custom-control-label" for="supplier.index"
+                                                                            >Supplier List</label
                                                                         >
                                                                     </div>
                                                                 </td>
@@ -2876,55 +407,1696 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="tax.create"
-                                                                            value="tax.create"
-                                                                        />
-                                                                        <label class="custom-control-label" for="tax.create"
-                                                                            >Taxes Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="tax.edit"
-                                                                            value="tax.edit"
-                                                                        />
-                                                                        <label class="custom-control-label" for="tax.edit"
-                                                                            >Taxes Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="tax.delete"
-                                                                            value="tax.delete"
-                                                                        />
-                                                                        <label class="custom-control-label" for="tax.delete"
-                                                                            >Taxes Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="tax.print"
-                                                                            value="tax.print"
+                                                                            id="supplier.create"
+                                                                            value="supplier.create"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="tax.print"
-                                                                            >Taxes Print</label
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="supplier.create"
+                                                                            >Supplier Create</label
                                                                         >
-                                                                    </div></td>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="supplier.edit"
+                                                                            value="supplier.edit"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="supplier.edit"
+                                                                            >Supplier Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="supplier.delete"
+                                                                            value="supplier.delete"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="supplier.delete"
+                                                                            >Supplier Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="supplier.show"
+                                                                            value="supplier.show"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="supplier.show"
+                                                                            >Supplier View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Supplier Other</td>
+                                                                
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="advance_supplier.index"
+                                                                            value="advance_supplier.index"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="advance_supplier.index"
+                                                                            >Advance Supplier</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payable_supplier.index"
+                                                                            value="payable_supplier.index"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="payable_supplier.index"
+                                                                            >Payable Supplier</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                               
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>client</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="client.index"
+                                                                            value="client.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="client.index"
+                                                                            >Client List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="client.create"
+                                                                            value="client.create"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="client.create"
+                                                                            >Client Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="client.edit"
+                                                                            value="client.edit"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="client.edit"
+                                                                            >Client Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="client.delete"
+                                                                            value="client.delete"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="client.delete"
+                                                                            >Client Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="client.show"
+                                                                            value="client.show"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="client.show"
+                                                                            >Client View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Client Other</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="advance_client.index"
+                                                                            value="advance_client.index"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="advance_client.index"
+                                                                            >Advance Client</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payable_client.index"
+                                                                            value="payable_client.index"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="payable_client.index"
+                                                                            >Payable Client</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Stock</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="stock.index"
+                                                                            value="stock.index"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="stock.index"
+                                                                            >Stock List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="stock.edit"
+                                                                            value="stock.edit"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="stock.edit"
+                                                                            >Stock Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="stock.show"
+                                                                            value="stock.show"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="stock.show"
+                                                                            >Stock View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>All Invoice</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="all_invoice.index"
+                                                                            value="all_invoice.index"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="all_invoice.index"
+                                                                            >All Invoice List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="all_invoice.show"
+                                                                            value="all_invoice.show"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="all_invoice.show"
+                                                                            >All Invoice View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                              
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Purchase Invoice</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="purchase_invoice.index"
+                                                                            value="purchase_invoice.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="purchase_invoice.index"
+                                                                            >Purchase List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="purchase_invoice.create"
+                                                                            value="purchase_invoice.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="purchase_invoice.create"
+                                                                            >Purchase Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="purchase_invoice.edit"
+                                                                            value="purchase_invoice.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="purchase_invoice.edit"
+                                                                            >Purchase Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="purchase_invoice.payment_history"
+                                                                            value="purchase_invoice.payment_history"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="purchase_invoice.payment_history"
+                                                                            >Purchase Payment History</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="purchase_invoice.show"
+                                                                            value="purchase_invoice.show"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="purchase_invoice.show"
+                                                                            >Purchase View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Sale Invoice</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="sale_invoice.index"
+                                                                            value="sale_invoice.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="sale_invoice.index"
+                                                                            >Sale List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="sale_invoice.create"
+                                                                            value="sale_invoice.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="sale_invoice.create"
+                                                                            >Sale Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="sale_invoice.edit"
+                                                                            value="sale_invoice.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="sale_invoice.edit"
+                                                                            >Sale Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="sale_invoice.payment_history"
+                                                                            value="sale_invoice.payment_history"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="sale_invoice.payment_history"
+                                                                            >Sale Payment History</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="sale_invoice.show"
+                                                                            value="sale_invoice.show"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="sale_invoice.show"
+                                                                            >Sale View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Project Invoice</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project_invoice.index"
+                                                                            value="project_invoice.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project_invoice.index"
+                                                                            >Project List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project_invoice.create"
+                                                                            value="project_invoice.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project_invoice.create"
+                                                                            >Project Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project_invoice.edit"
+                                                                            value="project_invoice.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project_invoice.edit"
+                                                                            >Project Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project_invoice.show"
+                                                                            value="project_invoice.show"
+                                                                        />
+                                                                        <label class="custom-control-label" for="project_invoice.show"
+                                                                            >Project View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Product Return From Client</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product_return_client.index"
+                                                                            value="product_return_client.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product_return_client.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product_return_client.create"
+                                                                            value="product_return_client.create"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="product_return_client.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product_return_client.show"
+                                                                            value="product_return_client.show"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product_return_client.show"
+                                                                            >View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Product Return To Supplier</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product_return_supplier.index"
+                                                                            value="product_return_supplier.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product_return_supplier.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product_return_supplier.create"
+                                                                            value="product_return_supplier.create"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="product_return_supplier.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="product_return_supplier.show"
+                                                                            value="product_return_supplier.show"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="product_return_supplier.show"
+                                                                            >View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Team</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team.index"
+                                                                            value="team.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team.create"
+                                                                            value="team.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team.edit"
+                                                                            value="team.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team.delete"
+                                                                            value="team.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Team Member</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team_member.index"
+                                                                            value="team_member.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team_member.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team_member.create"
+                                                                            value="team_member.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team_member.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team_member.edit"
+                                                                            value="team_member.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team_member.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="team_member.delete"
+                                                                            value="team_member.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="team_member.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Project</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project.index"
+                                                                            value="project.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project.create"
+                                                                            value="project.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project.edit"
+                                                                            value="project.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="project.show"
+                                                                            value="project.show"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="project.show"
+                                                                            >View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Estimate Project</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="estimate_project.index"
+                                                                            value="estimate_project.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="estimate_project.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="estimate_project.create"
+                                                                            value="estimate_project.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="estimate_project.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="estimate_project.delete"
+                                                                            value="estimate_project.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="estimate_project.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="estimate_project.show"
+                                                                            value="estimate_project.show"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="estimate_project.show"
+                                                                            >View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Start Project</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="start_project.create"
+                                                                            value="start_project.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="start_project.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Machine Setup Project</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="machine_project.index"
+                                                                            value="machine_project.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="machine_project.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="machine_project.create"
+                                                                            value="machine_project.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="machine_project.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="machine_project.edit"
+                                                                            value="machine_project.edit"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="machine_project.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Expense for Project</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="expense_project.index"
+                                                                            value="expense_project.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="expense_project.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="expense_project.create"
+                                                                            value="expense_project.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="expense_project.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="expense_project.edit"
+                                                                            value="expense_project.edit"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="expense_project.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Project Payment</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payment_project.index"
+                                                                            value="payment_project.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="payment_project.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payment_project.create"
+                                                                            value="payment_project.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="payment_project.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Accounts Group</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="accounts_group.index"
+                                                                            value="accounts_group.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="accounts_group.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="accounts_group.create"
+                                                                            value="accounts_group.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="accounts_group.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="accounts_group.edit"
+                                                                            value="accounts_group.edit"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="accounts_group.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="accounts_group.delete"
+                                                                            value="accounts_group.delete"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="accounts_group.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Chart of Account</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="chart_of_account.index"
+                                                                            value="chart_of_account.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="chart_of_account.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="chart_of_account.create"
+                                                                            value="chart_of_account.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="chart_of_account.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="chart_of_account.edit"
+                                                                            value="chart_of_account.edit"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="chart_of_account.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="chart_of_account.delete"
+                                                                            value="chart_of_account.delete"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="chart_of_account.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>General Ledger</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="general_ledger.index"
+                                                                            value="general_ledger.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="general_ledger.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="general_ledger.create"
+                                                                            value="general_ledger.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="general_ledger.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Cash Flow</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="cash_flow.index"
+                                                                            value="cash_flow.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="cash_flow.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Salary Sheet</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="salary_sheet.index"
+                                                                            value="salary_sheet.index"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="salary_sheet.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="salary_sheet.create"
+                                                                            value="salary_sheet.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="salary_sheet.create"
+                                                                            >Generate</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Designation</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="designation.index"
+                                                                            value="designation.index"
+                                                                        />
+                                                                        <label class="custom-control-label" for="designation.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="designation.create"
+                                                                            value="designation.create"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="designation.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="designation.edit"
+                                                                            value="designation.edit"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="designation.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="designation.delete"
+                                                                            value="designation.delete"
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="designation.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Benefit</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="benefit.index"
+                                                                            value="benefit.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="benefit.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="benefit.create"
+                                                                            value="benefit.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="benefit.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="benefit.edit"
+                                                                            value="benefit.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="benefit.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="benefit.delete"
+                                                                            value="benefit.delete"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="benefit.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Employee</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user.index"
+                                                                            value="user.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="user.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user.create"
+                                                                            value="user.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="user.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user.edit"
+                                                                            value="user.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="user.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user.delete"
+                                                                            value="user.delete"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="user.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user.show"
+                                                                            value="user.show"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="user.show"
+                                                                            >View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Role</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user_role.index"
+                                                                            value="user_role.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="user_role.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user_role.create"
+                                                                            value="user_role.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="user_role.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user_role.edit"
+                                                                            value="user_role.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="user_role.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user_role.delete"
+                                                                            value="user_role.delete"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="user_role.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="user_role.show"
+                                                                            value="user_role.show"
+                                                                            
+                                                                        />
+                                                                        <label
+                                                                            class="custom-control-label"
+                                                                            for="user_role.show"
+                                                                            >View</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td>Unit</td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="unit.index"
+                                                                            value="unit.index"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="unit.index"
+                                                                            >List</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="unit.create"
+                                                                            value="unit.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="unit.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="unit.edit"
+                                                                            value="unit.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="unit.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="unit.delete"
+                                                                            value="unit.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="unit.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Payment Method</td>
@@ -2934,111 +2106,77 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="paymentmethod.list"
-                                                                            value="paymentmethod.list"
-                                                                        />
-                                                                        <label class="custom-control-label" for="paymentmethod.list"
-                                                                            >Payment Methods</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="paymentmethod.create"
-                                                                            value="paymentmethod.create"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="paymentmethod.create"
-                                                                            >Payment Method Create</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="paymentmethod.edit"
-                                                                            value="paymentmethod.edit"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="paymentmethod.edit"
-                                                                            >Payment Method Edit</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="paymentmethod.delete"
-                                                                            value="paymentmethod.delete"
-                                                                        />
-                                                                        <label
-                                                                            class="custom-control-label"
-                                                                            for="paymentmethod.delete"
-                                                                            >Payment Method Delete</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="paymentmethod.print"
-                                                                            value="paymentmethod.print"
+                                                                            id="payment_method.index"
+                                                                            value="payment_method.index"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="paymentmethod.print"
-                                                                            >Payment Method Print</label
+                                                                        <label class="custom-control-label" for="payment_method.index"
+                                                                            >List</label
                                                                         >
-                                                                    </div></td>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payment_method.create"
+                                                                            value="payment_method.create"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="payment_method.create"
+                                                                            >Create</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payment_method.edit"
+                                                                            value="payment_method.edit"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="payment_method.edit"
+                                                                            >Edit</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            name="role[]"
+                                                                            id="payment_method.delete"
+                                                                            value="payment_method.delete"
+                                                                            
+                                                                        />
+                                                                        <label class="custom-control-label" for="payment_method.delete"
+                                                                            >Delete</label
+                                                                        >
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Payment Gateway</td>
+                                                                <td>Transfer Balance</td>
                                                                 <td>
                                                                     <div class="custom-control custom-checkbox">
                                                                         <input
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="paymentgateway"
-                                                                            value="paymentgateway"
-                                                                        />
-                                                                        <label class="custom-control-label" for="paymentgateway"
-                                                                            >Payment Gateway</label
-                                                                        >
-                                                                    </div>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Clinical Notes</td>
-                                                                <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="clinical_note.list"
-                                                                            value="clinical_note.list"
+                                                                            id="transfer_balance.index"
+                                                                            value="transfer_balance.index"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="clinical_note.list"
-                                                                            >Clinical Notes List</label
+                                                                        <label class="custom-control-label" for="transfer_balance.index"
+                                                                            >List</label
                                                                         >
                                                                     </div>
                                                                 </td>
@@ -3048,65 +2186,30 @@
                                                                             type="checkbox"
                                                                             class="custom-control-input"
                                                                             name="role[]"
-                                                                            id="clinical_note.create"
-                                                                            value="clinical_note.create"
+                                                                            id="transfer_balance.create"
+                                                                            value="transfer_balance.create"
                                                                             
                                                                         />
-                                                                        <label class="custom-control-label" for="clinical_note.create"
-                                                                            >Clinical Note Create</label
+                                                                        <label class="custom-control-label" for="transfer_balance.create"
+                                                                            >Create</label
                                                                         >
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="clinical_note.edit"
-                                                                            value="clinical_note.edit"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="clinical_note.edit"
-                                                                            >Clinical Note Edit</label
-                                                                        >
-                                                                    </div>
+                                                                    
                                                                 </td>
                                                                 <td>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="clinical_note.delete"
-                                                                            value="clinical_note.delete"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="clinical_note.delete"
-                                                                            >Clinical Note Delete</label
-                                                                        >
-                                                                    </div>
+                                                                    
                                                                 </td>
-                                                                <td><div class="custom-control custom-checkbox">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            class="custom-control-input"
-                                                                            name="role[]"
-                                                                            id="clinical_note.print"
-                                                                            value="clinical_note.print"
-                                                                            
-                                                                        />
-                                                                        <label class="custom-control-label" for="clinical_note.print"
-                                                                            >Clinical Note Print</label
-                                                                        >
-                                                                    </div></td>
+                                                                <td>
+                                                                </td>
                                                             </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <button type="submit" class="btn btn-primary mt-2 btn-lg mx-1">Create</button>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary mt-2 mx-1">Create</button>
                                         </div>
                                     </div>
                                 </form>

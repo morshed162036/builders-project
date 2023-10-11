@@ -10,6 +10,11 @@ use App\Models\Accounts\Cashflow;
 use App\Models\settings\Payment_method;
 class AccountsLedgerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:general_ledger.index'])->only(['index']);
+        $this->middleware(['permission:general_ledger.create'])->only(['create']);
+    }
     /**
      * Display a listing of the resource.
      */

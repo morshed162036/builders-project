@@ -7,6 +7,13 @@ use App\Models\Catalogue;
 
 class CatalogueController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:catalogue.index'])->only(['index']);
+        $this->middleware(['permission:catalogue.create'])->only(['create']);
+        $this->middleware(['permission:catalogue.edit'])->only(['edit']);
+        $this->middleware(['permission:catalogue.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

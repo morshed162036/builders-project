@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Image;
 use Hash;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\File;
 use App\Models\Designation;
 use App\Models\Payroll\Benefit;
@@ -18,16 +19,24 @@ use App\Models\Project\Client;
 use App\Models\Invoice\Invoice;
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:user.index'])->only(['index']);
+        $this->middleware(['permission:user.create'])->only(['create']);
+        $this->middleware(['permission:user.edit'])->only(['edit']);
+        $this->middleware(['permission:user.delete'])->only(['destroy']);
+        $this->middleware(['permission:user.show'])->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         if(Auth::user()->id == 1){
-            $users = User::with('designation')->get();
+            $users = User::with('designation','roles')->get();
         }
         else{
-            $users = User::with('designation')->where('id','!=','1')->get();
+            $users = User::with('designation','roles')->where('id','!=','1')->get();
         }
         //dd($users);
         return view('payroll.user.index')->with(compact('users'));
@@ -38,9 +47,10 @@ class AdminController extends Controller
      */
     public function create()
     {
+        $roles = Role::where('id','!=','1')->get()->all();
         $designations = Designation::where('status','Active')->Where('type','Employee')->get();
         $benefits = Benefit::get();
-        return view('payroll.user.create')->with(compact('designations','benefits'));
+        return view('payroll.user.create')->with(compact('designations','benefits','roles'));
     }
 
     /**
@@ -71,6 +81,7 @@ class AdminController extends Controller
         }
 
         $user->save();
+        $user->syncRoles($request->roles);
         $user_id = $user->id;
 
         $info = new Info_user();
@@ -100,7 +111,7 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::with('designation','info','benefits')->where('id',$id)->get()->first();
+        $user = User::with('designation','info','benefits','roles')->where('id',$id)->get()->first();
         //dd($user);
         return view('payroll.user.show')->with(compact('user'));
     }
@@ -111,12 +122,13 @@ class AdminController extends Controller
     public function edit(string $id)
     {
     
-        $user = User::with('designation','info','benefits')->where('id',$id)->get()->first();
-        
+        $roles = Role::where('id','!=','1')->get()->all();
+        $user = User::with('designation','info','benefits','roles')->where('id',$id)->get()->first();
+        $data = $user->roles()->pluck('name')->toArray();
         $designations = Designation::where('status','Active')->Where('type','!=','Laborer')->get()->all();
-        //dd($designations);
+        //dd($data);
         $benefits = Benefit::get();
-        return view('payroll.user.edit')->with(compact('user','designations','benefits'));
+        return view('payroll.user.edit')->with(compact('user','designations','benefits','data','roles'));
     }
 
     /**
@@ -152,7 +164,7 @@ class AdminController extends Controller
             }
         }
         $user->update();
-
+        $user->syncRoles($request->roles);
         $info = Info_user::where('user_id',$id)->get()->first();
         //dd($info);
         $info->joining_date = $request->joining_date;

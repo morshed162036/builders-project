@@ -9,6 +9,12 @@ use App\Models\settings\Payment_method;
 
 class TransferController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:transfer_balance.index'])->only(['index']);
+        $this->middleware(['permission:transfer_balance.create'])->only(['create']);
+    }
     /**
      * Display a listing of the resource.
      */

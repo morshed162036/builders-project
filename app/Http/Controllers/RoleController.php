@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:user_role.index'])->only(['index']);
+        $this->middleware(['permission:user_role.create'])->only(['create']);
+        $this->middleware(['permission:user_role.edit'])->only(['edit']);
+        $this->middleware(['permission:user_role.delete'])->only(['destroy']);
+        $this->middleware(['permission:user_role.show'])->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-         $roles = Role::all();
+        $roles = Role::all();
         return view('role.index')->with(compact('roles'));
     }
 
@@ -36,8 +43,8 @@ class RoleController extends Controller
         else{
             //dd($request);
             $role = Role::create(['description'=>$request->role_description,'name'=> $request->role_name]);
-            // $permissions = $request->role;
-            // $role->syncPermissions($permissions);
+            $permissions = $request->role;
+            $role->syncPermissions($permissions);
             return redirect(route('role.index'))->with('success','Role Create Successfully done..');
         }
     }
@@ -45,7 +52,7 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Role $role)
     {
         $permission = [];
         $permissions = $role->getAllPermissions();
@@ -65,24 +72,40 @@ class RoleController extends Controller
             $role->syncPermissions($permissions);
     }
 
-    public function edit(string $id)
+    public function edit(Role $role)
     {
-        //
+        $permission = [];
+        $permissions = $role->getAllPermissions();
+        for ($i=0; $i < count($permissions); $i++) { 
+            array_push($permission,$permissions[$i]['name']);
+        }
+        return view('role.edit',compact('role','permission'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Role $role)
     {
-        //
+        $permission = $role->getAllPermissions();
+        $role->revokePermissionTo($permission);
+        if($request->description)
+        {
+            $role->description = $request->description;
+            $role->save();
+        }
+        
+        $permissions = $request->role;
+        $role->syncPermissions($permissions);
+        return redirect(route('role.index'))->with('success','Role Update Successfully done..');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return redirect(route('role.index'))->with('success','Role Delete Successfully done..');
     }
 }

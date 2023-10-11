@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Accounts\Cashflow;
 class CashflowController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:cash_flow.index'])->only(['index']);
+    }
     /**
      * Display a listing of the resource.
      */

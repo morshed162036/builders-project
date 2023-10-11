@@ -9,6 +9,16 @@ use App\Models\Supplier_company_detail;
 use App\Models\Invoice\Invoice;
 class SupplierController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:supplier.index'])->only(['index']);
+        $this->middleware(['permission:supplier.create'])->only(['create']);
+        $this->middleware(['permission:supplier.edit'])->only(['edit']);
+        $this->middleware(['permission:supplier.delete'])->only(['destroy']);
+        $this->middleware(['permission:supplier.show'])->only(['show']);
+        $this->middleware(['permission:advance_supplier.index'])->only(['advanceSupplier']);
+        $this->middleware(['permission:payable_supplier.index'])->only(['payableSupplier']);
+    }
     /**
      * Display a listing of the resource.
      */

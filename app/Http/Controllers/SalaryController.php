@@ -7,6 +7,11 @@ use App\Models\Salary;
 use App\Models\User;
 class SalaryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:salary_sheet.index'])->only(['index']);
+        $this->middleware(['permission:salary_sheet.create'])->only(['create']);
+    }
     /**
      * Display a listing of the resource.
      */

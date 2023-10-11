@@ -11,6 +11,12 @@ use DateTime;
 use Carbon\Carbon;
 class ProjectMachineController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:machine_project.index'])->only(['index']);
+        $this->middleware(['permission:machine_project.create'])->only(['create']);
+        $this->middleware(['permission:machine_project.edit'])->only(['edit']);
+    }
     /**
      * Display a listing of the resource.
      */

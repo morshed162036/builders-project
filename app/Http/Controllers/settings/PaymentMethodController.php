@@ -8,6 +8,13 @@ use App\Models\settings\Payment_method;
 
 class PaymentMethodController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:payment_method.index'])->only(['index']);
+        $this->middleware(['permission:payment_method.create'])->only(['create']);
+        $this->middleware(['permission:payment_method.edit'])->only(['edit']);
+        $this->middleware(['permission:payment_method.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

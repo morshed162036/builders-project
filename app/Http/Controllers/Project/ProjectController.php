@@ -14,6 +14,15 @@ use App\Models\Project\Team_member;
 use App\Models\Invoice\Invoice;
 class ProjectController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:start_project.create'])->only(['projectSetup']);
+        $this->middleware(['permission:project.index'])->only(['index']);
+        $this->middleware(['permission:project.create'])->only(['create']);
+        $this->middleware(['permission:project.edit'])->only(['edit']);
+        $this->middleware(['permission:project.show'])->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      */

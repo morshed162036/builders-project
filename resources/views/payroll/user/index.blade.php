@@ -63,11 +63,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Employee List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('user.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+                            @can('user.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('user.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -80,6 +83,7 @@
                                                 <th>Designation</th>
                                                 <th>Contact</th>
                                                 <th>Address</th>
+                                                <th>Roles</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -98,6 +102,14 @@
                                                         @endif</td>
                                                         <td>{{ $user->email }} <br> {{ $user->phone }}</td>
                                                         <td>{{ $user->address }}</td>
+                                                        <td>@if($user->roles)
+                                                                @foreach($user->roles as $role)
+                                                                    {{ $role->name }}
+                                                                @endforeach
+                                                            @else
+                                                                {{ "Roles Not Defined" }}
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             @if($user->status == 'Active')
                                                                 <a class="updateuserStatus" id="user-{{ $user->id }}"
@@ -117,12 +129,17 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('user.show',$user->id) }}"><i class="bx bx-spreadsheet mr-1"></i> details</a>
-                                                                    <a class="dropdown-item" href="{{ route('user.edit',$user->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                    <form action="{{ route('user.destroy',$user->id) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
-                                                                    </form>
-                                                                    
+                                                                    @can('user.show')
+                                                                        <a class="dropdown-item" href="{{ route('user.show',$user->id) }}"><i class="bx bx-spreadsheet mr-1"></i> details</a>
+                                                                    @endcan
+                                                                    @can('user.edit')
+                                                                        <a class="dropdown-item" href="{{ route('user.edit',$user->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    @can('user.delete')
+                                                                        <form action="{{ route('user.destroy',$user->id) }}" method="post"> @csrf @method('Delete')
+                                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                        </form>
+                                                                    @endcan
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -139,6 +156,7 @@
                                                 <th>Designation</th>
                                                 <th>Contact</th>
                                                 <th>Address</th>
+                                                <th>Roles</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

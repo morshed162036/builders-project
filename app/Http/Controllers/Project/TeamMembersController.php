@@ -11,6 +11,13 @@ use App\Models\Project\Team;
 use App\Models\Project\Team_member;
 class TeamMembersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:team_member.index'])->only(['index']);
+        $this->middleware(['permission:team_member.create'])->only(['create']);
+        $this->middleware(['permission:team_member.edit'])->only(['edit']);
+        $this->middleware(['permission:team_member.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

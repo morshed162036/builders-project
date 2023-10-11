@@ -6,6 +6,13 @@ use App\Models\Payroll\Benefit;
 use Illuminate\Http\Request;
 class BenefitController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:benefit.index'])->only(['index']);
+        $this->middleware(['permission:benefit.create'])->only(['create']);
+        $this->middleware(['permission:benefit.edit'])->only(['edit']);
+        $this->middleware(['permission:benefit.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

@@ -73,13 +73,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Payment History List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2">
-                                        <a href="{{ route('project-payment.create') }}" class="btn btn-primary">+Create</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @can('payment_project.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2">
+                                            <a href="{{ route('project-payment.create') }}" class="btn btn-primary">+Create</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endcan
+                           
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">

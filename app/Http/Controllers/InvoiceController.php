@@ -20,6 +20,25 @@ use App\Models\settings\Unit;
 
 class InvoiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:all_invoice.index'])->only(['index']);
+        $this->middleware(['permission:all_invoice.show'])->only(['show']);
+        $this->middleware(['permission:purchase_invoice.index'])->only(['purchaseIndex']);
+        $this->middleware(['permission:purchase_invoice.create'])->only(['purchaseCreate']);
+        $this->middleware(['permission:purchase_invoice.edit'])->only(['edit']);
+        $this->middleware(['permission:purchase_invoice.show'])->only(['show']);
+        $this->middleware(['permission:purchase_invoice.payment_history'])->only(['paymentDetails']);
+        $this->middleware(['permission:sale_invoice.index'])->only(['sellIndex']);
+        $this->middleware(['permission:sale_invoice.create'])->only(['sellCreate']);
+        $this->middleware(['permission:sale_invoice.edit'])->only(['edit']);
+        $this->middleware(['permission:sale_invoice.show'])->only(['show']);
+        $this->middleware(['permission:sale_invoice.payment_history'])->only(['paymentDetails']);
+        $this->middleware(['permission:project_invoice.index'])->only(['projectIndex']);
+        $this->middleware(['permission:project_invoice.create'])->only(['projectCreate']);
+        $this->middleware(['permission:project_invoice.show'])->only(['show']);
+
+    }
     /**
      * Display a listing of the resource.
      */
@@ -313,7 +332,7 @@ class InvoiceController extends Controller
             return redirect(route('sell_index'))->with('success','Sale Invoice Create Successfully');
         }
         elseif ($request->invoice_type == 'Project') {
-            dd($request->all());
+            //dd($request->all());
             $total_item = 0;
             $total_amount = 0;
             $invoice = new Invoice();

@@ -92,7 +92,10 @@
                                         <h4 class="card-title">
                                             
                                         </h4>
-                                        <a href="{{ route('role.create') }}" class="btn btn-primary">+ Add Role</a>
+                                        @can('user_role.create')
+                                            <a href="{{ route('role.create') }}" class="btn btn-primary">+ Add Role</a>
+                                        @endcan
+                                        
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body card-dashboard">
@@ -109,27 +112,36 @@
                                                     <tbody>
                                                         @if ($roles != null)
                                                             @foreach ($roles as $role)
-                                                            <tr class="border">
-                                                                <td class="text-primary">{{ $role->name }}</td>
-                                                                <td>{{ $role->description }}</td>
-                                                                <td>{{ $role->created_at }}</td>
-                                                                <td>
-                                                                    <div class="dropdown">
-                                                                        <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
-                                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                                            <a class="dropdown-item" href="{{ route('role.show',$role->id) }}"><i class="bx bx-spreadsheet mr-1"></i>Details</a>
-                                                                            <a class="dropdown-item" href="{{ route('role.edit',$role->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
-                                                                            
-                                                                            <form action="{{ route('role.destroy',$role->id) }}" method="post">
-                                                                                @csrf
-                                                                                @method('Delete')
-                                                                                <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                @if($role->id != 1)
+                                                                    <tr class="border">
+                                                                        <td class="text-primary">{{ $role->name }}</td>
+                                                                        <td>{{ $role->description }}</td>
+                                                                        <td>{{ $role->created_at }}</td>
+                                                                        <td>
+                                                                            <div class="dropdown">
+                                                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
+                                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                                    @can('user_role.show')
+                                                                                        <a class="dropdown-item" href="{{ route('role.show',$role->id) }}"><i class="bx bx-spreadsheet mr-1"></i>Details</a>
+                                                                                    @endcan
+                                                                                    @can('user_role.edit')
+                                                                                        <a class="dropdown-item" href="{{ route('role.edit',$role->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                                    @endcan
+                                                                                    @can('user_role.edit')
+                                                                                        <form action="{{ route('role.destroy',$role->id) }}" method="post">
+                                                                                        @csrf
+                                                                                        @method('Delete')
+                                                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
 
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>  
+                                                                                        </form>
+                                                                                    @endcan
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>  
+                                                                @endif
+                                                            
                                                             @endforeach
                                                         @endif
                                                     </tbody>

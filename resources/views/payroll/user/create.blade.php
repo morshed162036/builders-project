@@ -171,6 +171,22 @@
                                                 </select>
                                             </div>
                                         </fieldset>
+                                        <fieldset class="mt-2">
+                                            <h5>User Role</h5>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-Createon1"><i class="bx bxs-message"></i></span>
+                                                </div>
+                                                <select name="roles" id="" class="form-control" required>
+                                                    <option value="">Select Role</option>
+                                                    @foreach ($roles as $role)
+                                                    {
+                                                        <option value="{{$role->name}}">{{$role->name}}</option>
+                                                    }
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </fieldset>
                                         
                                         <div class="row mt-2">
                                             <h3 class="text-primary">Benefits:</h3>

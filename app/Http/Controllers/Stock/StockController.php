@@ -9,6 +9,12 @@ use App\Models\Stock\Machine_stock;
 use App\Models\settings\Unit;
 class StockController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:stock.index'])->only(['index']);
+        $this->middleware(['permission:stock.show'])->only(['show']);
+        $this->middleware(['permission:stock.edit'])->only(['edit']);
+    }
     /**
      * Display a listing of the resource.
      */

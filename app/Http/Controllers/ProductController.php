@@ -16,6 +16,13 @@ use App\Models\Stock\Machine_stock;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:product.index'])->only(['index']);
+        $this->middleware(['permission:product.create'])->only(['create']);
+        $this->middleware(['permission:product.edit'])->only(['edit']);
+        $this->middleware(['permission:product.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

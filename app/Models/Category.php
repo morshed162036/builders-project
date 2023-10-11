@@ -18,6 +18,6 @@ class Category extends Model
         return $this->belongsTo(Category::class,'parent_id')->select('id','name');
     }
     public function subcategories(){
-        return $this->hasmany(Category::class,'parent_id')->where('status','Active');
+        return $this->hasmany(Category::class,'parent_id')->where('status','Active')->with('subcategories');
     }
 }

@@ -16,7 +16,7 @@ class SuperAdminSeeder extends Seeder
     public function run(): void
     {
         $superAdmin = [
-            ['id'=>'1','name'=>'Morshed Ahmed','email'=>'superadmin@gmail.com','phone'=>'017','type'=>'Admin','status'=>'Active','designation_id'=>'0','address'=>'abc','password'=>'$2a$12$2Cja7jRni1k.fQ7cc8Duv.7zOGzgZv4NGGkKY1S4xo7Zsy4b4aUGm'],
+            ['id'=>'1','name'=>'Morshed Ahmed','email'=>'superadmin@gmail.com','phone'=>'017','type'=>'Admin','status'=>'Active','designation_id'=>'0','address'=>'abc','password'=>'$2a$12$4I5Huyj6a3wkWeSomGZRkeB61NXYR0av88KZO.xaejUiPMqya6flS'],
             ['id'=>'2','name'=>'IEET','email'=>'admin@gmail.com','phone'=>'018','type'=>'Admin','status'=>'Active','designation_id'=>'1','address'=>'abc','password'=>'$2a$12$HsPxTs/PqLDLPrUwTSNbHOILDt33hMtawItoe2i/7hVeRVeNNDfqu']
         ];
         $info = [['id'=>'1','user_id'=>'1','joining_date'=>'2023-07-23','salary'=>'100000','food_bill'=>'1000','total_salary'=>'101000','available_status'=>'Available'],

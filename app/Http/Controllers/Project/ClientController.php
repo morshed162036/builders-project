@@ -9,6 +9,16 @@ use App\Models\Invoice\Invoice;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:client.index'])->only(['index']);
+        $this->middleware(['permission:client.create'])->only(['create']);
+        $this->middleware(['permission:client.edit'])->only(['edit']);
+        $this->middleware(['permission:client.delete'])->only(['destroy']);
+        $this->middleware(['permission:client.show'])->only(['show']);
+        $this->middleware(['advance_client.index'])->only(['advanceClient']);
+        $this->middleware(['payable_client.index'])->only(['payableClient']);
+    }
     /**
      * Display a listing of the resource.
      */

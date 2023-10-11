@@ -9,6 +9,13 @@ use App\Models\Project\Team;
 
 class TeamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:team.index'])->only(['index']);
+        $this->middleware(['permission:team.create'])->only(['create']);
+        $this->middleware(['permission:team.edit'])->only(['edit']);
+        $this->middleware(['permission:team.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

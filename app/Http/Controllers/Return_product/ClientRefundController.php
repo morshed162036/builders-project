@@ -13,6 +13,12 @@ use App\Models\Project\Client;
 use App\Models\settings\Payment_method;
 class ClientRefundController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:product_return_client.index'])->only(['index']);
+        $this->middleware(['permission:product_return_client.create'])->only(['create']);
+        $this->middleware(['permission:product_return_client.show'])->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      */

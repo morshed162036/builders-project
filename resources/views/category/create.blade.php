@@ -101,21 +101,11 @@
                                                     </select>
                                                 </div>
                                             </fieldset>
-                                            <div id="appendCategoriesLevel">
+
+                                            <fieldset class="mt-2" id="appendCatagories">
                                                 @include('category.append_categories_level')
-                                            </div>
-                                            {{-- <fieldset class="mt-2">
-                                                <h5>Category Discount</h5>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-Createon1"><i
-                                                                class="bx bxs-message"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control"
-                                                        aria-describedby="basic-Createon1" name="category_discount"
-                                                        id="category_discount" placeholder="Discount Value">
-                                                </div>
-                                            </fieldset> --}}
+                                            </fieldset>
+
                                             <fieldset class="mt-2">
                                                 <h5>Category Description</h5>
                                                 <div class="input-group">
@@ -186,7 +176,7 @@
                     success: function(resp) {
                         //alert("done");
                         //console.log(resp);
-                        $("#appendCatagoriesLevel").html(resp);
+                        $("#appendCatagories").html(resp);
                     },
                     error: function() {
                         alert("error");

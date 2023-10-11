@@ -73,11 +73,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Use Machine List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('project-machine.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+                            @can('machine_project.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('project-machine.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -112,7 +115,10 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="{{ route('project-machine.edit',$project_machine->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @can('machine_project.edit')
+                                                                        <a class="dropdown-item" href="{{ route('project-machine.edit',$project_machine->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    
                                                                     {{-- <form action="{{ route('project-machine.destroy',$project_machine->id) }}" method="post"> @csrf @method('Delete')
                                                                         <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form> --}}

@@ -13,6 +13,12 @@ use App\Models\Return_product\Client_refund;
 use App\Models\Return_product\Client_refund_detail;
 class SupplierRefundController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:product_return_supplier.index'])->only(['index']);
+        $this->middleware(['permission:product_return_supplier.create'])->only(['create']);
+        $this->middleware(['permission:product_return_supplier.show'])->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      */

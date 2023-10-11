@@ -230,74 +230,120 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation"
                 data-icon-style="">
 
-                <li class=" navigation-header"><span>Product Section</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bxl-slack"></i><span
-                            class="menu-title">Brand</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-building"></i><span
-                            class="menu-title">Catalogue</span></a>
-                <li class=" nav-item"><a href="{{ route('category.index') }}"><i class="bx bxs-categories"></i><span
-                            class="menu-title">Categories</span></a>
-                <li class=" nav-item"><a href="{{ route('product.index') }}"><i class="bx bx-package"></i><span
-                            class="menu-title">Product</span></a>
-                </li>
+                {{-- @if (Auth::guard('web')->user()->can(''))
+                    
+                @endif --}}
+                @canany(['brand.index', 'catalogue.index', 'category.index', 'product.index'])
+                    <li class=" navigation-header"><span>Product Section</span>
+                    </li>
+                @endcanany
+               
+                @can('brand.index')
+                    <li class=" nav-item"><a href="{{ route('brand.index') }}"><i class="bx bxl-slack"></i><span class="menu-title">Brand</span></a>
+                    </li>
+                @endcan
+                @can('catalogue.index')
+                    <li class=" nav-item"><a href="{{ route('catalogue.index') }}"><i class="bx bx-building"></i><span class="menu-title">Catalogue</span></a>
+                    </li>
+                @endcan
+                @can('category.index')
+                    <li class=" nav-item"><a href="{{ route('category.index') }}"><i class="bx bxs-categories"></i><span class="menu-title">Categories</span></a>
+                    </li>
+                @endcan
+                @can('product.index')
+                    <li class=" nav-item"><a href="{{ route('product.index') }}"><i class="bx bx-package"></i><span class="menu-title">Product</span></a>
+                    </li>
+                @endcan
+                @canany(['supplier.index', 'advance_supplier.index', 'payable_supplier.index'])
+                    <li class=" navigation-header"><span>Supplier Management</span>
+                    </li>
+                @endcanany
+                
+                @can('supplier.index')
+                    <li class=" nav-item"><a href="{{ route('supplier.index') }}"><i class="bx bx-user"></i><span class="menu-title">Supplier</span></a>
+                    </li>
+                @endcan
+                @can('advance_supplier.index')
+                    <li class=" nav-item"><a href="{{ route('supplier.advance') }}"><i class="bx bx-archive-out"></i><span class="menu-title">Advance Supplier</span></a>
+                    </li>
+                @endcan
+                @can('payable_supplier.index')
+                    <li class=" nav-item"><a href="{{ route('supplier.payable') }}"><i class="bx bx-archive-out"></i><span class="menu-title">Payable Supplier</span></a>
+                    </li>
+                @endcan
+                
+                
+                @canany(['client.index', 'advance_client.index', 'payable_client.index'])
+                    <li class=" navigation-header"><span>Client Management</span>
+                    </li>
+                @endcanany
+                
+                @can('client.index')
+                    <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-user"></i><span
+                        class="menu-title">Client</span></a>
+                    </li>
+                @endcan
+                @can('advance_client.index')
+                    <li class=" nav-item"><a href="{{ route('client.advance') }}"><i class="bx bx-archive-in"></i><span class="menu-title">Advance Client</span></a>
+                    </li>
+                @endcan
+                @can('payable_client.index')
+                    <li class=" nav-item"><a href="{{ route('client.payable') }}"><i class="bx bx-archive-in"></i><span class="menu-title">Payable Client</span></a>
+                    </li>
+                @endcan
 
-                <li class=" navigation-header"><span>Supplier Management</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('supplier.index') }}"><i class="bx bx-user"></i><span
-                            class="menu-title">Supplier</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('supplier.advance') }}"><i class="bx bx-archive-out"></i><span
-                            class="menu-title">Advance Supplier</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('supplier.payable') }}"><i class="bx bx-archive-out"></i><span
-                            class="menu-title">Payable Supplier</span></a>
-                </li>
+                
+               
 
-                <li class=" navigation-header"><span>Client Management</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-user"></i><span
-                            class="menu-title">Client</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('client.advance') }}"><i class="bx bx-archive-in"></i><span
-                            class="menu-title">Advance Client</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('client.payable') }}"><i class="bx bx-archive-in"></i><span
-                            class="menu-title">Payable Client</span></a>
-                </li>
-
-
-                <li class=" navigation-header"><span>Inventory Management</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('stock.index') }}"><i class="bx bx-store-alt">
-                    </i><span class="menu-title">Stock</span></a>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="bx bxs-barcode"></i><span
-                            class="menu-title">Invoice</span></a>
-                            <ul class='menu-content'>
-                                <li><a href="{{ route('invoice.index') }}"><i class="bx bx-receipt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">All Invoice</span></a>
+                @canany(['stock.index', 'all_invoice.index', 'purchase_invoice.index', 'sale_invoice.index', 'project_invoice.index'])
+                    <li class=" navigation-header"><span>Inventory Management</span>
+                    </li>
+                @endcanany
+                
+                @can('stock.index')
+                    <li class=" nav-item"><a href="{{ route('stock.index') }}"><i class="bx bx-store-alt">
+                        </i><span class="menu-title">Stock</span></a>
+                    </li>
+                @endcan
+                @canany(['all_invoice.index', 'product_return_supplier.index'])
+                    <li class=" nav-item"><a href="#"><i class="bx bxs-barcode"></i><span class="menu-title">Invoice</span></a>
+                        <ul class='menu-content'>
+                            @can('all_invoice.index')
+                                <li><a href="{{ route('invoice.index') }}"><i class="bx bx-receipt"></i><span class="menu-item" data-i18n="LivIcons">All Invoice</span></a>
                                 </li>
-                                <li><a href="{{ route('purchase_index') }}"><i class="bx bx-receipt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">Purchase Invoice</span></a>
+                            @endcan
+                            @can('purchase_invoice.index')
+                                <li><a href="{{ route('purchase_index') }}"><i class="bx bx-receipt"></i><span class="menu-item" data-i18n="LivIcons">Purchase Invoice</span></a>
                                 </li>
-                                <li><a href="{{ route('sell_index') }}"><i class="bx bx-receipt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">Sale Invoice</span></a>
+                            @endcan
+                            @can('sale_invoice.index')
+                                <li><a href="{{ route('sell_index') }}"><i class="bx bx-receipt"></i><span class="menu-item" data-i18n="LivIcons">Sale Invoice</span></a>
                                 </li>
-                                <li><a href="{{ route('project_index') }}"><i class="bx bx-receipt"></i><span
-                                            class="menu-item" data-i18n="LivIcons">Project Invoice</span></a>
+                            @endcan
+                            @can('project_invoice.index')
+                                <li><a href="{{ route('project_index') }}"><i class="bx bx-receipt"></i><span class="menu-item" data-i18n="LivIcons">Project Invoice</span></a>
                                 </li>
-                            </ul>
-                </li>
-                <li class=" navigation-header"><span>Damage and Return Product</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('client-return-product.index') }}"><i class="bx bx-user">
-                    </i><span class="menu-title">Client</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('supplier-return-product.index') }}"><i class="bx bx-user">
-                    </i><span class="menu-title">Supplier</span></a>
-                </li>
+                            @endcan  
+                        </ul>
+                    </li>
+                @endcanany
+                @canany(['product_return_client.index', 'all_invoice.index', 'purchase_invoice.index', 'sale_invoice.index', 'project_invoice.index'])
+                    <li class=" navigation-header"><span>Damage and Return Product</span>
+                    </li>
+                @endcanany
+                
+                @can('product_return_client.index')
+                    <li class=" nav-item"><a href="{{ route('client-return-product.index') }}"><i class="bx bx-user">
+                        </i><span class="menu-title">Client</span></a>
+                    </li>
+                @endcan
+                @can('product_return_supplier.index')
+                    <li class=" nav-item"><a href="{{ route('supplier-return-product.index') }}"><i class="bx bx-user">
+                        </i><span class="menu-title">Supplier</span></a>
+                    </li>
+                @endcan
+                
+               
                 {{-- <li class=" nav-item"><a href="#"><i class="bx bx-envelope"></i><span
                             class="menu-title">Invoice</span></a>
                             <ul class='menu-content'>
@@ -316,128 +362,145 @@
                             </ul>
                 </li> --}}
 
-                <li class=" navigation-header"><span>Project Management</span>
-                </li>
-                {{-- <li class=" nav-item"><a href="{{ route('client.index') }}"><i class="bx bx-envelope"></i><span
-                            class="menu-title">Client</span></a>
-                </li> --}}
-                <li class=" nav-item"><a href="#"><i class="bx bx-group"></i><span class="menu-title">Team
-                            Setup</span></a>
-                    <ul class='menu-content'>
-                        <li><a href="{{ route('team.index') }}"><i class="bx bx-right-arrow-alt"></i><span
-                                    class="menu-item" data-i18n="LivIcons">Team</span></a>
+                @canany(['team.index', 'team_member.index', 'project.index', 'estimate_project.index', 'start_project.create', 'machine_project.index', 'expense_project.index', 'payment_project.index'])
+                    <li class=" navigation-header"><span>Project Management</span>
+                    </li>
+                    @canany(['team.index', 'team_member.index'])
+                        <li class=" nav-item"><a href="#"><i class="bx bx-group"></i><span class="menu-title">Team Setup</span></a>
+                            <ul class='menu-content'>
+                                @can('team.index')
+                                    <li><a href="{{ route('team.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team</span></a>
+                                    </li>
+                                @endcan
+                                @can('team_member.index')
+                                    <li><a href="{{ route('team-members.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Team Members</span></a>
+                                    </li>
+                                @endcan
+                            
+                            
+                            </ul>
                         </li>
-                        <li><a href="{{ route('team-members.index') }}"><i class="bx bx-right-arrow-alt"></i><span
-                                    class="menu-item" data-i18n="LivIcons">Team Members</span></a>
+                    @endcanany
+                    @canany(['project.index', 'estimate_project.index', 'start_project.create', 'machine_project.index', 'expense_project.index', 'payment_project.index'])
+                        <li class=" nav-item"><a href="#"><i class="bx bxs-buoy"></i><span class="menu-title">Project Management</span></a>
+                            <ul class='menu-content'>
+                                @can('project.index')
+                                    <li><a href="{{ route('project.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project</span></a>
+                                </li>
+                                @endcan
+                                @can('estimate_project.index')
+                                    <li><a href="{{ route('project-estimation.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Estimate Project Cost</span></a>
+                                </li>
+                                @endcan
+                                @can('start_project.create')
+                                    <li><a href="{{ route('project.start') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project Setup</span></a>
+                                </li>
+                                @endcan
+                                @can('machine_project.index')
+                                    <li><a href="{{ route('project-machine.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Machine Setup</span></a>
+                                </li>
+                                @endcan
+                                @can('expense_project.index')
+                                    <li><a href="{{ route('project-otherexpense.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project Other Expense</span></a>
+                                </li>
+                                @endcan
+                                @can('payment_project.index')
+                                    <li><a href="{{ route('project-payment.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="LivIcons">Project Payment</span></a>
+                                </li>
+                                @endcan
+                            </ul>
                         </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="bx bxs-buoy"></i><span
-                            class="menu-title">Project Management</span></a>
-                    <ul class='menu-content'>
-                        <li><a href="{{ route('project.index') }}"><i class="bx bx-right-arrow-alt"></i><span
-                                    class="menu-item" data-i18n="LivIcons">Project</span></a>
+                    @endcanany
+                @endcanany
+               
+                @canany(['accounts_group.index', 'chart_of_account.index', 'general_ledger.index'])
+        
+                    <li class=" navigation-header"><span>Accounts</span></li>
+                    
+                    @can('accounts_group.index')
+                        <li class=" nav-item"><a href="{{ route('accounts.index') }}"><i class="bx bx-list-ul"></i><span class="menu-title">Accounts Groups</span></a>
                         </li>
-                        <li><a href="{{ route('project-estimation.index') }}"><i
-                                    class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Estimate Project Cost</span></a>
+                    @endcan
+                    @can('chart_of_account.index')
+                        <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i class="bx bx-book-content"></i><span class="menu-title">Chart of Accounts</span></a>
                         </li>
-                        <li><a href="{{ route('project.start') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Project Setup</span></a>
+                    @endcan
+                    @can('general_ledger.index')
+                        <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-book-bookmark"></i><span class="menu-title">Accounts Ledgers</span></a>
                         </li>
-                        <li><a href="{{ route('project-machine.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Machine Setup</span></a>
+                    @endcan
+                @endcanany
+                
+                
+                @canany(['salary_sheet.create', 'salary_sheet.index'])
+                    <li class=" navigation-header"><span>Payroll</span>
+                    </li>
+                    @can('salary_sheet.create')
+                        <li class=" nav-item"><a href="{{ route('salary.create') }}"><i class="bx bx-list-ul"></i><span class="menu-title">Generate Salary Sheet</span></a>
                         </li>
-                        <li><a href="{{ route('project-otherexpense.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Project Other Expense</span></a>
+                    @endcan
+                    @can('salary_sheet.index')
+                        <li class=" nav-item"><a href="{{ route('salary.index') }}"><i class="bx bx-book-content"></i><span class="menu-title">Salary Sheet</span></a>
                         </li>
-                        <li><a href="{{ route('project-payment.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="LivIcons">Project Payment</span></a>
-                        </li>
-                    </ul>
-                </li>
+                    @endcan
+                @endcanany
 
-
-                <li class=" navigation-header"><span>Accounts</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('accounts.index') }}"><i class="bx bx-list-ul"></i><span
-                            class="menu-title">Accounts Groups</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i
-                            class="bx bx-book-content"></i><span class="menu-title">Chart of Accounts</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-book-bookmark"></i><span
-                            class="menu-title">Accounts Ledgers</span></a>
-                </li>
-
-                <li class=" navigation-header"><span>Payroll</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('salary.create') }}"><i class="bx bx-list-ul"></i><span
-                            class="menu-title">Generate Salary Sheet</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('salary.index') }}"><i
-                            class="bx bx-book-content"></i><span class="menu-title">Salary Sheet</span></a>
-                </li>
-                {{-- <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-book-bookmark"></i><span
-                            class="menu-title">Accounts Ledgers</span></a>
-                </li> --}}
-
+                @can('cash_flow.index')
                 <li class=" navigation-header"><span>Reports</span>
                 </li>
-                <li class=" nav-item"><a href="{{ route('cash-flow.index') }}"><i class="bx bx-repost"></i><span
-                            class="menu-title">Cash-In/Out Statement</span></a>
+                <li class=" nav-item"><a href="{{ route('cash-flow.index') }}"><i class="bx bx-repost"></i><span class="menu-title">Cash-In/Out Statement</span></a>
                 </li>
-                {{-- <li class=" nav-item"><a href="{{ route('chart-of-account.index') }}"><i
-                            class="bx bx-envelope"></i><span class="menu-title">Chart of Accounts</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('accounts-ledger.index') }}"><i class="bx bx-envelope"></i><span
-                            class="menu-title">Accounts Ledgers</span></a>
-                </li> --}}
+                @endcan
 
-                <li class=" navigation-header"><span>Role Management</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-id-card"></i><span class="menu-title"
-                            data-i18n="Colors">Designation</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('benefits.index') }}"><i class="bx bx-user-plus"></i><span class="menu-title"
-                            data-i18n="Colors">Benefits</span></a>
-                </li>
-                <li class=" nav-item"><a href="{{ route('user.index') }}"><i class="bx bx-user-circle"></i><span class="menu-title"
-                            data-i18n="Colors">Employee</span></a>
-                </li>
-                {{-- <li class=" nav-item"><a href="#"><i class="bx bx-bulb"></i><span class="menu-title"
-                            data-i18n="Icons">Role & Permission</span></a>
-                    <ul class="menu-content">
-                        <li><a href="{{ route('role.index') }}"><i class="bx bx-right-arrow-alt"></i><span
-                                    class="menu-item" data-i18n="LivIcons">User Role</span></a>
+                @canany(['designation.index', 'benefit.index', 'user.index', 'user_role.index'])
+                    <li class=" navigation-header"><span>Role Management</span>
+                    </li>
+                    @can('designation.index')    
+                        <li class=" nav-item"><a href="{{ route('designation.index') }}"><i class="bx bx-id-card"></i><span class="menu-title" data-i18n="Colors">Designation</span></a>
                         </li>
-                        <li><a href=""><i class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="boxicons">Permission</span></a>
+                    @endcan
+                    @can('benefit.index')
+                        <li class=" nav-item"><a href="{{ route('benefits.index') }}"><i class="bx bx-user-plus"></i><span class="menu-title" data-i18n="Colors">Benefits</span></a>
                         </li>
-                    </ul>
-                </li> --}}
-                <li class=" navigation-header"><span>Basic Settings</span>
-                </li>
-                <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-grid-alt"></i><span
-                            class="menu-title" data-i18n="Colors">Unit Management</span></a>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-wallet"></i><span class="menu-title"
-                            data-i18n="Icons">Payment Management</span></a>
-                    <ul class="menu-content">
-                        <li><a href="{{ route('payment-method.index') }}"><i class="bx bx-right-arrow-alt"></i><span
-                                    class="menu-item">Payment Method</span></a>
+                    @endcan
+                    
+                    @can('user.index')
+                        <li class=" nav-item"><a href="{{ route('user.index') }}"><i class="bx bx-user-circle"></i><span class="menu-title" data-i18n="Colors">Employee</span></a>
                         </li>
-                        <li><a href="{{ route('payment-transfer.index') }}"><i
-                                    class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="boxicons">Transfer Balance</span></a>
+                    @endcan
+                    @can('user_role.index')
+                        <li class=" nav-item"><a href="{{ route('role.index') }}"><i class="bx bx-user-circle"></i><span class="menu-title" data-i18n="Colors">User Role</span></a>
                         </li>
-                        {{-- <li><a href="{{ route('transection-history.index') }}"><i
-                                    class="bx bx-right-arrow-alt"></i><span class="menu-item"
-                                    data-i18n="boxicons">Balance Transaction History</span></a>
-                        </li> --}}
-                    </ul>
-                </li>
+                    @endcan
+                @endcanany
+                @canany(['unit.index', 'payment_method.index', 'transfer_balance.index'])
+                    <li class=" navigation-header"><span>Basic Settings</span>
+                    </li>
+                    @can('unit.index')
+                        <li class=" nav-item"><a href="{{ route('unit.index') }}"><i class="bx bx-grid-alt"></i><span class="menu-title" data-i18n="Colors">Unit Management</span></a>
+                        </li>
+                    @endcan
+                    @canany(['payment_method.index', 'transfer_balance.index'])
+                        <li class=" nav-item"><a href="#"><i class="bx bx-wallet"></i><span class="menu-title" data-i18n="Icons">Payment Management</span></a>
+                            <ul class="menu-content">
+                                @can('payment_method.index')
+                                    <li><a href="{{ route('payment-method.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item">Payment Method</span></a>
+                                    </li>
+                                @endcan
+                                @can('transfer_balance.index')
+                                    <li><a href="{{ route('payment-transfer.index') }}"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="boxicons">Transfer Balance</span></a>
+                                    </li>
+                                @endcan
+                                
 
+                                {{-- <li><a href="{{ route('transection-history.index') }}"><i
+                                            class="bx bx-right-arrow-alt"></i><span class="menu-item"
+                                            data-i18n="boxicons">Balance Transaction History</span></a>
+                                </li> --}}
+                            </ul>
+                        </li>
+                    @endcanany
+                @endcanany
             </ul>
         </div>
     </div>

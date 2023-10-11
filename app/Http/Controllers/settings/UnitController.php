@@ -9,6 +9,13 @@ use App\Models\settings\Unit;
 
 class UnitController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:unit.index'])->only(['index']);
+        $this->middleware(['permission:unit.create'])->only(['create']);
+        $this->middleware(['permission:unit.edit'])->only(['edit']);
+        $this->middleware(['permission:unit.delete'])->only(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      */

@@ -55,8 +55,7 @@
                     <h5 class="content-header-title float-left pr-1 mb-0">Project Estimation Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
-                                        class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active">Estimations
                             </li>
@@ -73,11 +72,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Estimation List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2"><a href="{{ route('project-estimation.create') }}" class="btn btn-primary">+ Create</a></li>
-                                </ul>
-                            </div>
+                            @can('estimate_project.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2"><a href="{{ route('project-estimation.create') }}" class="btn btn-primary">+ Create</a></li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -105,13 +107,17 @@
                                                             <div class="dropdown">
                                                                 <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    
-                                                                    <a class="dropdown-item" href="{{ route('project-estimation.show',$estimation->id) }}"><i class="bx 
-                                                                        bxs-spreadsheet mr-1"></i> Details</a>
-                                                                    {{-- <a class="dropdown-item" href="{{ route('project-estimation.edit',$estimation->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a> --}}
-                                                                    <form action="{{ route('project-estimation.destroy',$estimation->id) }}" method="post"> @csrf @method('Delete')
-                                                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
+                                                                    @can('estimate_project.show')
+                                                                        <a class="dropdown-item" href="{{ route('project-estimation.show',$estimation->id) }}"><i class="bx bxs-spreadsheet mr-1"></i> Details</a>
+                                                                    @endcan
+                                                                    @can('estimate_project.delete')
+                                                                        <form action="{{ route('project-estimation.destroy',$estimation->id) }}" method="post"> @csrf @method('Delete')
+                                                                            <button type="submit" class="dropdown-item"><i class="bx bx-trash mr-1"></i> delete</button>
                                                                     </form>
+                                                                    @endcan
+                                                                    
+                                                                   
+                                                                    
                                                                     
                                                                 </div>
                                                             </div>

@@ -55,8 +55,7 @@
                     <h5 class="content-header-title float-left pr-1 mb-0">Project Table</h5>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb p-0 mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
-                                        class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active">Projects
                             </li>
@@ -73,13 +72,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Project List</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li class="ml-2">
-                                        <a href="{{ route('project.create') }}" class="btn btn-primary">+Create</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @can('project.create')
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li class="ml-2">
+                                            <a href="{{ route('project.create') }}" class="btn btn-primary">+Create</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endcan
+                            
                         </div>
                         <div class="card-content">
                             <div class="card-body card-dashboard">
@@ -123,12 +125,14 @@
                                                                     data-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false" role="menu"></span>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item"
-                                                                        href="{{ route('project.show', $project->id) }}"><i
-                                                                            class="bx bx-spreadsheet mr-1"></i> Details</a>
-                                                                    <a class="dropdown-item"
-                                                                        href="{{ route('project.edit', $project->id) }}"><i
-                                                                            class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @can('project.show')
+                                                                        <a class="dropdown-item" href="{{ route('project.show', $project->id) }}"><i class="bx bx-spreadsheet mr-1"></i> Details</a>
+                                                                    @endcan
+                                                                    @can('project.edit')
+                                                                        <a class="dropdown-item" href="{{ route('project.edit', $project->id) }}"><i class="bx bx-edit-alt mr-1"></i> edit</a>
+                                                                    @endcan
+                                                                    
+                                                                    
                                                                     {{-- <form
                                                                         action="{{ route('project.destroy', $project->id) }}"
                                                                         method="post"> @csrf @method('Delete')
